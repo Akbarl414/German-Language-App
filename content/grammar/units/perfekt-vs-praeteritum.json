@@ -1,0 +1,247 @@
+{
+  "id": "perfekt-vs-praeteritum",
+  "title": "Perfekt vs. Präteritum",
+  "level": "A2-B1",
+  "summary": "Germany's two main past tenses: when to use each, how to build them, and how to choose haben or sein.",
+  "explanation": {
+    "sections": [
+      {
+        "heading": "Two past tenses, one meaning",
+        "body": "German has two tenses for talking about the past: the Perfekt (present perfect) and the Präteritum (simple past). Unlike English, they usually don't mark a difference in meaning — the choice is mostly about register.\nPerfekt is the tense of spoken German and informal writing (conversations, texts, emails, diary entries). It's built with a helping verb (haben or sein) + Partizip II, placed at the end of the sentence.\nPräteritum is the tense of written narration (novels, newspaper articles, formal reports) and of a handful of very common verbs that Germans use in the simple past even when speaking: sein → war, haben → hatte, the modal verbs (können → konnte, müssen → musste, etc.), and werden → wurde."
+      },
+      {
+        "heading": "Building the Perfekt",
+        "body": "Perfekt = haben/sein (conjugated, position 2) + Partizip II (sent to the end of the clause).\nWeak (regular) verbs: ge- + stem + -t. machen → gemacht, kaufen → gekauft, spielen → gespielt.\nStrong (irregular) verbs: ge- + stem (often with a vowel change) + -en. sehen → gesehen, nehmen → genommen, schreiben → geschrieben.\nNo ge- prefix for: verbs ending in -ieren (studieren → studiert, telefonieren → telefoniert) and verbs with an inseparable prefix be-, ge-, ver-, er-, ent-, emp-, zer-, miss- (verstehen → verstanden, bezahlen → bezahlt, verkaufen → verkauft).\nSeparable-prefix verbs put ge- between the prefix and the stem: aufstehen → aufgestanden, einkaufen → eingekauft."
+      },
+      {
+        "heading": "haben or sein?",
+        "body": "Most verbs use haben. A verb uses sein instead only if BOTH of these are true: it has no accusative object, AND it describes either a change of location (gehen, fahren, kommen, fliegen) or a change of state (aufwachen, einschlafen, sterben, wachsen). A short list of exceptions always takes sein regardless: sein → ist gewesen, bleiben → ist geblieben, werden → ist geworden.",
+        "table": {
+          "headers": ["Takes sein", "Takes haben"],
+          "rows": [
+            ["gehen → ist gegangen", "machen → hat gemacht"],
+            ["fahren → ist gefahren", "sehen → hat gesehen"],
+            ["kommen → ist gekommen", "essen → hat gegessen"],
+            ["aufwachen → ist aufgewacht", "arbeiten → hat gearbeitet"],
+            ["sterben → ist gestorben", "warten → hat gewartet"],
+            ["bleiben → ist geblieben", "verstehen → hat verstanden"]
+          ]
+        }
+      },
+      {
+        "heading": "Building the Präteritum",
+        "body": "Weak verbs: stem + -te (+ personal ending). er machte, sie kaufte, wir spielten.\nStrong verbs: the stem vowel changes (ablaut), with a different set of endings and no -te. er sah, sie nahm, wir schrieben.\nMixed verbs combine both: a vowel change plus a -te ending. denken → dachte, bringen → brachte, wissen → wusste, kennen → kannte.",
+        "table": {
+          "headers": ["Infinitive", "Präteritum (er/sie/es)", "Perfekt"],
+          "rows": [
+            ["sein", "war", "ist gewesen"],
+            ["haben", "hatte", "hat gehabt"],
+            ["gehen", "ging", "ist gegangen"],
+            ["fahren", "fuhr", "ist gefahren"],
+            ["sehen", "sah", "hat gesehen"],
+            ["nehmen", "nahm", "hat genommen"],
+            ["kommen", "kam", "ist gekommen"],
+            ["wissen", "wusste", "hat gewusst"]
+          ]
+        }
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "id": "fb-1",
+      "type": "fill-blank",
+      "prompt": "Gestern ___ ich meine Hausaufgaben gemacht. (Perfekt of haben)",
+      "answer": "habe",
+      "explanation": "\"machen\" takes haben, 1st person singular present of haben is \"habe\"."
+    },
+    {
+      "id": "fb-2",
+      "type": "fill-blank",
+      "prompt": "Wir ___ letztes Jahr nach Italien gefahren. (Perfekt of sein)",
+      "answer": "sind",
+      "explanation": "\"fahren\" is a motion verb, so it takes sein; 1st person plural is \"sind\"."
+    },
+    {
+      "id": "fb-3",
+      "type": "fill-blank",
+      "prompt": "Sie hat den ganzen Tag ___ . (Partizip II of arbeiten)",
+      "answer": "gearbeitet",
+      "explanation": "Weak verb: ge- + stem (arbeit) + -et (extra -e- because the stem ends in -t)."
+    },
+    {
+      "id": "fb-4",
+      "type": "fill-blank",
+      "prompt": "Er hat das Buch schon ___ . (Partizip II of lesen)",
+      "answer": "gelesen",
+      "explanation": "Strong verb: ge- + stem with vowel change (les→lesen) + -en."
+    },
+    {
+      "id": "fb-5",
+      "type": "fill-blank",
+      "prompt": "Ich habe gestern mit meiner Mutter ___ . (Partizip II of telefonieren)",
+      "answer": "telefoniert",
+      "explanation": "Verbs ending in -ieren never take ge- in the Partizip II: telefonieren → telefoniert."
+    },
+    {
+      "id": "fb-6",
+      "type": "fill-blank",
+      "prompt": "Als Kind ___ ich jeden Sommer ans Meer. (Präteritum of fahren)",
+      "answer": "fuhr",
+      "explanation": "Strong verb Präteritum with vowel change: fahren → fuhr (1st person singular has no extra ending)."
+    },
+    {
+      "id": "fb-7",
+      "type": "fill-blank",
+      "prompt": "Es ___ sehr kalt letzten Winter. (Präteritum of sein)",
+      "answer": "war",
+      "explanation": "\"sein\" is almost always used in the Präteritum, even in speech: sein → war."
+    },
+    {
+      "id": "fb-8",
+      "type": "fill-blank",
+      "prompt": "Er ___ nicht, wo seine Schlüssel waren. (Präteritum of wissen)",
+      "answer": "wusste",
+      "explanation": "Mixed verb: vowel change (wiss→wuss) plus -te ending: wissen → wusste."
+    },
+    {
+      "id": "fb-9",
+      "type": "fill-blank",
+      "prompt": "Wir haben das Auto vor dem Haus ___ . (Partizip II of parken)",
+      "answer": "geparkt",
+      "explanation": "Weak verb: ge- + stem (park) + -t."
+    },
+    {
+      "id": "mc-1",
+      "type": "multiple-choice",
+      "prompt": "Which sentence uses the correct auxiliary?",
+      "options": ["Ich habe um 7 Uhr aufgestanden.", "Ich bin um 7 Uhr aufgestanden."],
+      "answerIndex": 1,
+      "explanation": "\"aufstehen\" is a change-of-state/motion verb, so it takes sein."
+    },
+    {
+      "id": "mc-2",
+      "type": "multiple-choice",
+      "prompt": "Which sentence uses the correct auxiliary?",
+      "options": ["Sie hat drei Jahre in Berlin gewohnt.", "Sie ist drei Jahre in Berlin gewohnt."],
+      "answerIndex": 0,
+      "explanation": "\"wohnen\" describes a state without change of location, so it takes haben (unlike gehen/fahren/kommen)."
+    },
+    {
+      "id": "mc-3",
+      "type": "multiple-choice",
+      "prompt": "Which register would most naturally use \"Ich ging ins Kino\" instead of \"Ich bin ins Kino gegangen\"?",
+      "options": ["A casual text message to a friend", "A short story or newspaper article"],
+      "answerIndex": 1,
+      "explanation": "Präteritum is the tense of written narration; Perfekt is far more natural in everyday spoken/written conversation."
+    },
+    {
+      "id": "mc-4",
+      "type": "multiple-choice",
+      "prompt": "Choose the correct Partizip II of \"verstehen\":",
+      "options": ["geverstanden", "verstanden", "verstehet"],
+      "answerIndex": 1,
+      "explanation": "Verbs with the inseparable prefix ver- never take an extra ge-: verstehen → verstanden."
+    },
+    {
+      "id": "mc-5",
+      "type": "multiple-choice",
+      "prompt": "Choose the correct Partizip II of \"einkaufen\":",
+      "options": ["eingekauft", "gekauftein", "eingekaufen"],
+      "answerIndex": 0,
+      "explanation": "Separable-prefix verbs insert ge- between the prefix and stem: einkaufen → eingekauft."
+    },
+    {
+      "id": "mc-6",
+      "type": "multiple-choice",
+      "prompt": "Which verb almost always appears in the Präteritum, even in casual conversation?",
+      "options": ["kaufen", "können (modal verb)", "arbeiten"],
+      "answerIndex": 1,
+      "explanation": "Modal verbs (können, müssen, wollen, sollen, dürfen, mögen), along with sein/haben/werden, are commonly used in the Präteritum even in speech."
+    },
+    {
+      "id": "cf-1",
+      "type": "choose-form",
+      "prompt": "Letztes Wochenende ___ wir ins Museum gegangen.",
+      "options": ["haben", "sind", "hatten", "waren"],
+      "answerIndex": 1,
+      "explanation": "\"gehen\" takes sein; 1st person plural present of sein is \"sind\"."
+    },
+    {
+      "id": "cf-2",
+      "type": "choose-form",
+      "prompt": "Meine Schwester ___ mir gestern ein Geschenk gekauft.",
+      "options": ["ist", "hat", "war", "sein"],
+      "answerIndex": 1,
+      "explanation": "\"kaufen\" takes haben; 3rd person singular present of haben is \"hat\"."
+    },
+    {
+      "id": "cf-3",
+      "type": "choose-form",
+      "prompt": "Der Präteritumstamm von \"bringen\" ist:",
+      "options": ["brang", "brachte", "bringte", "brünge"],
+      "answerIndex": 1,
+      "explanation": "\"bringen\" is a mixed verb: bringen → brachte (vowel change + -te ending)."
+    },
+    {
+      "id": "cf-4",
+      "type": "choose-form",
+      "prompt": "Der Präteritumstamm von \"nehmen\" (er/sie/es) ist:",
+      "options": ["nahm", "nehmte", "genommen", "nimmte"],
+      "answerIndex": 0,
+      "explanation": "Strong verb: nehmen → nahm (vowel change, no -te ending)."
+    },
+    {
+      "id": "es-1",
+      "type": "error-spot",
+      "prompt": "Ich habe gestern nach München gefahren.",
+      "answer": "Ich bin gestern nach München gefahren.",
+      "explanation": "\"fahren\" is a motion verb and takes sein, not haben."
+    },
+    {
+      "id": "es-2",
+      "type": "error-spot",
+      "prompt": "Wir sind das Auto gewaschen.",
+      "answer": "Wir haben das Auto gewaschen.",
+      "explanation": "\"waschen\" (etwas waschen) has a direct object and no change of location, so it takes haben."
+    },
+    {
+      "id": "es-3",
+      "type": "error-spot",
+      "prompt": "Sie hat gegangt, ohne sich zu verabschieden.",
+      "answer": "Sie ist gegangen, ohne sich zu verabschieden.",
+      "explanation": "\"gehen\" is a strong verb (Partizip II: gegangen, not \"gegangt\") and takes sein."
+    },
+    {
+      "id": "es-4",
+      "type": "error-spot",
+      "prompt": "Er hat schon studiert gehabt in Hamburg studiert.",
+      "answer": "Er hat schon in Hamburg studiert.",
+      "explanation": "\"studieren\" ends in -ieren, so its Partizip II is simply \"studiert\" (no ge-, and no duplicated participle)."
+    },
+    {
+      "id": "ro-1",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order (Perfekt).",
+      "tokens": ["gestern", "einen", "Film", "wir", "haben", "gesehen"],
+      "answerOrder": ["Wir", "haben", "gestern", "einen", "Film", "gesehen"],
+      "explanation": "Perfekt word order: subject + conjugated haben/sein (position 2) + ... + Partizip II at the very end."
+    },
+    {
+      "id": "ro-2",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order (Perfekt).",
+      "tokens": ["um", "sieben", "Uhr", "ist", "aufgestanden", "sie"],
+      "answerOrder": ["Sie", "ist", "um", "sieben", "Uhr", "aufgestanden"],
+      "explanation": "Perfekt with sein: subject + ist (position 2) + time expression + Partizip II at the end."
+    },
+    {
+      "id": "ro-3",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order (Präteritum).",
+      "tokens": ["die", "Sonne", "schien", "hell"],
+      "answerOrder": ["Die", "Sonne", "schien", "hell"],
+      "explanation": "Simple Präteritum sentence: subject + conjugated verb + rest, no separate participle needed."
+    }
+  ]
+}

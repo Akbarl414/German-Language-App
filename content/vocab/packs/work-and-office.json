@@ -1,0 +1,632 @@
+{
+  "id": "work-and-office",
+  "title": "Work & Office",
+  "level": "A2-B1",
+  "topic": "Careers, workplace, and office vocabulary",
+  "words": [
+    {
+      "id": "beruf",
+      "pos": "noun",
+      "lemma": "Beruf",
+      "gender": "der",
+      "plural": "Berufe",
+      "meaning_en": "profession, occupation",
+      "example_de": "Was bist du von Beruf?",
+      "example_en": "What's your profession?"
+    },
+    {
+      "id": "arbeit",
+      "pos": "noun",
+      "lemma": "Arbeit",
+      "gender": "die",
+      "plural": "Arbeiten",
+      "meaning_en": "work, job",
+      "example_de": "Ich gehe jeden Morgen um acht Uhr zur Arbeit.",
+      "example_en": "I go to work every morning at eight o'clock."
+    },
+    {
+      "id": "firma",
+      "pos": "noun",
+      "lemma": "Firma",
+      "gender": "die",
+      "plural": "Firmen",
+      "meaning_en": "company, firm",
+      "example_de": "Meine Firma hat über hundert Mitarbeiter.",
+      "example_en": "My company has more than a hundred employees."
+    },
+    {
+      "id": "unternehmen",
+      "pos": "noun",
+      "lemma": "Unternehmen",
+      "gender": "das",
+      "plural": "Unternehmen",
+      "meaning_en": "company, enterprise",
+      "example_de": "Das Unternehmen wächst schnell.",
+      "example_en": "The company is growing quickly."
+    },
+    {
+      "id": "buero",
+      "pos": "noun",
+      "lemma": "Büro",
+      "gender": "das",
+      "plural": "Büros",
+      "meaning_en": "office",
+      "example_de": "Ich arbeite jeden Tag im Büro.",
+      "example_en": "I work in the office every day."
+    },
+    {
+      "id": "chef",
+      "pos": "noun",
+      "lemma": "Chef",
+      "gender": "der",
+      "plural": "Chefs",
+      "meaning_en": "boss (male)",
+      "example_de": "Mein Chef ist heute nicht im Büro.",
+      "example_en": "My boss isn't in the office today."
+    },
+    {
+      "id": "chefin",
+      "pos": "noun",
+      "lemma": "Chefin",
+      "gender": "die",
+      "plural": "Chefinnen",
+      "meaning_en": "boss (female)",
+      "example_de": "Die Chefin hat die Besprechung geleitet.",
+      "example_en": "The boss led the meeting."
+    },
+    {
+      "id": "kollege",
+      "pos": "noun",
+      "lemma": "Kollege",
+      "gender": "der",
+      "plural": "Kollegen",
+      "meaning_en": "colleague (male)",
+      "example_de": "Mein Kollege hilft mir oft bei der Arbeit.",
+      "example_en": "My colleague often helps me with work."
+    },
+    {
+      "id": "kollegin",
+      "pos": "noun",
+      "lemma": "Kollegin",
+      "gender": "die",
+      "plural": "Kolleginnen",
+      "meaning_en": "colleague (female)",
+      "example_de": "Meine Kollegin ist sehr freundlich.",
+      "example_en": "My colleague is very friendly."
+    },
+    {
+      "id": "mitarbeiter",
+      "pos": "noun",
+      "lemma": "Mitarbeiter",
+      "gender": "der",
+      "plural": "Mitarbeiter",
+      "meaning_en": "employee, staff member (male)",
+      "example_de": "Das Unternehmen sucht neue Mitarbeiter.",
+      "example_en": "The company is looking for new employees."
+    },
+    {
+      "id": "mitarbeiterin",
+      "pos": "noun",
+      "lemma": "Mitarbeiterin",
+      "gender": "die",
+      "plural": "Mitarbeiterinnen",
+      "meaning_en": "employee, staff member (female)",
+      "example_de": "Sie ist eine erfahrene Mitarbeiterin.",
+      "example_en": "She is an experienced employee."
+    },
+    {
+      "id": "kunde",
+      "pos": "noun",
+      "lemma": "Kunde",
+      "gender": "der",
+      "plural": "Kunden",
+      "meaning_en": "customer, client (male)",
+      "example_de": "Der Kunde hat eine Frage zur Rechnung.",
+      "example_en": "The customer has a question about the invoice."
+    },
+    {
+      "id": "kundin",
+      "pos": "noun",
+      "lemma": "Kundin",
+      "gender": "die",
+      "plural": "Kundinnen",
+      "meaning_en": "customer, client (female)",
+      "example_de": "Die Kundin wartet schon zehn Minuten.",
+      "example_en": "The customer has already been waiting for ten minutes."
+    },
+    {
+      "id": "gehalt",
+      "pos": "noun",
+      "lemma": "Gehalt",
+      "gender": "das",
+      "plural": "Gehälter",
+      "meaning_en": "salary",
+      "example_de": "Sie verhandelt gerade über ihr Gehalt.",
+      "example_en": "She's currently negotiating her salary."
+    },
+    {
+      "id": "bewerbung",
+      "pos": "noun",
+      "lemma": "Bewerbung",
+      "gender": "die",
+      "plural": "Bewerbungen",
+      "meaning_en": "application (for a job)",
+      "example_de": "Ich habe meine Bewerbung schon abgeschickt.",
+      "example_en": "I've already sent my application."
+    },
+    {
+      "id": "lebenslauf",
+      "pos": "noun",
+      "lemma": "Lebenslauf",
+      "gender": "der",
+      "plural": "Lebensläufe",
+      "meaning_en": "CV, resume",
+      "example_de": "Kannst du mir bei meinem Lebenslauf helfen?",
+      "example_en": "Can you help me with my CV?"
+    },
+    {
+      "id": "vorstellungsgespraech",
+      "pos": "noun",
+      "lemma": "Vorstellungsgespräch",
+      "gender": "das",
+      "plural": "Vorstellungsgespräche",
+      "meaning_en": "job interview",
+      "example_de": "Das Vorstellungsgespräch ist morgen um zehn Uhr.",
+      "example_en": "The job interview is tomorrow at ten o'clock."
+    },
+    {
+      "id": "vertrag",
+      "pos": "noun",
+      "lemma": "Vertrag",
+      "gender": "der",
+      "plural": "Verträge",
+      "meaning_en": "contract",
+      "example_de": "Ich habe den Vertrag noch nicht unterschrieben.",
+      "example_en": "I haven't signed the contract yet."
+    },
+    {
+      "id": "kuendigung",
+      "pos": "noun",
+      "lemma": "Kündigung",
+      "gender": "die",
+      "plural": "Kündigungen",
+      "meaning_en": "termination, notice (of a job or contract)",
+      "example_de": "Sie hat die Kündigung völlig unerwartet bekommen.",
+      "example_en": "She received the notice of termination completely unexpectedly."
+    },
+    {
+      "id": "besprechung",
+      "pos": "noun",
+      "lemma": "Besprechung",
+      "gender": "die",
+      "plural": "Besprechungen",
+      "meaning_en": "meeting",
+      "example_de": "Die Besprechung dauert ungefähr eine Stunde.",
+      "example_en": "The meeting lasts about an hour."
+    },
+    {
+      "id": "konferenz",
+      "pos": "noun",
+      "lemma": "Konferenz",
+      "gender": "die",
+      "plural": "Konferenzen",
+      "meaning_en": "conference",
+      "example_de": "Nächste Woche findet eine wichtige Konferenz statt.",
+      "example_en": "An important conference is taking place next week."
+    },
+    {
+      "id": "termin",
+      "pos": "noun",
+      "lemma": "Termin",
+      "gender": "der",
+      "plural": "Termine",
+      "meaning_en": "appointment",
+      "example_de": "Ich habe morgen einen Termin mit einem Kunden.",
+      "example_en": "I have an appointment with a client tomorrow."
+    },
+    {
+      "id": "aufgabe",
+      "pos": "noun",
+      "lemma": "Aufgabe",
+      "gender": "die",
+      "plural": "Aufgaben",
+      "meaning_en": "task",
+      "example_de": "Diese Aufgabe muss bis Freitag fertig sein.",
+      "example_en": "This task has to be finished by Friday."
+    },
+    {
+      "id": "projekt",
+      "pos": "noun",
+      "lemma": "Projekt",
+      "gender": "das",
+      "plural": "Projekte",
+      "meaning_en": "project",
+      "example_de": "Wir arbeiten seit drei Monaten an diesem Projekt.",
+      "example_en": "We've been working on this project for three months."
+    },
+    {
+      "id": "bericht",
+      "pos": "noun",
+      "lemma": "Bericht",
+      "gender": "der",
+      "plural": "Berichte",
+      "meaning_en": "report",
+      "example_de": "Ich muss noch einen Bericht schreiben.",
+      "example_en": "I still have to write a report."
+    },
+    {
+      "id": "e-mail",
+      "pos": "noun",
+      "lemma": "E-Mail",
+      "gender": "die",
+      "plural": "E-Mails",
+      "meaning_en": "email",
+      "example_de": "Hast du meine E-Mail schon gelesen?",
+      "example_en": "Have you already read my email?"
+    },
+    {
+      "id": "computer",
+      "pos": "noun",
+      "lemma": "Computer",
+      "gender": "der",
+      "plural": "Computer",
+      "meaning_en": "computer",
+      "example_de": "Mein Computer ist heute sehr langsam.",
+      "example_en": "My computer is very slow today."
+    },
+    {
+      "id": "drucker",
+      "pos": "noun",
+      "lemma": "Drucker",
+      "gender": "der",
+      "plural": "Drucker",
+      "meaning_en": "printer",
+      "example_de": "Der Drucker funktioniert leider nicht.",
+      "example_en": "Unfortunately, the printer isn't working."
+    },
+    {
+      "id": "dokument",
+      "pos": "noun",
+      "lemma": "Dokument",
+      "gender": "das",
+      "plural": "Dokumente",
+      "meaning_en": "document",
+      "example_de": "Bitte unterschreiben Sie dieses Dokument.",
+      "example_en": "Please sign this document."
+    },
+    {
+      "id": "akte",
+      "pos": "noun",
+      "lemma": "Akte",
+      "gender": "die",
+      "plural": "Akten",
+      "meaning_en": "file, dossier, record",
+      "example_de": "Die Akte liegt auf meinem Schreibtisch.",
+      "example_en": "The file is lying on my desk."
+    },
+    {
+      "id": "ordner",
+      "pos": "noun",
+      "lemma": "Ordner",
+      "gender": "der",
+      "plural": "Ordner",
+      "meaning_en": "folder, binder",
+      "example_de": "Alle Rechnungen sind in diesem Ordner.",
+      "example_en": "All the invoices are in this folder."
+    },
+    {
+      "id": "rechnung",
+      "pos": "noun",
+      "lemma": "Rechnung",
+      "gender": "die",
+      "plural": "Rechnungen",
+      "meaning_en": "invoice, bill",
+      "example_de": "Wir haben die Rechnung noch nicht bezahlt.",
+      "example_en": "We haven't paid the invoice yet."
+    },
+    {
+      "id": "pause",
+      "pos": "noun",
+      "lemma": "Pause",
+      "gender": "die",
+      "plural": "Pausen",
+      "meaning_en": "break",
+      "example_de": "Wir machen um zwölf Uhr Pause.",
+      "example_en": "We take a break at twelve o'clock."
+    },
+    {
+      "id": "urlaub",
+      "pos": "noun",
+      "lemma": "Urlaub",
+      "gender": "der",
+      "plural": "Urlaube",
+      "meaning_en": "vacation, leave",
+      "example_de": "Ich nehme im August drei Wochen Urlaub.",
+      "example_en": "I'm taking three weeks of vacation in August."
+    },
+    {
+      "id": "ueberstunde",
+      "pos": "noun",
+      "lemma": "Überstunde",
+      "gender": "die",
+      "plural": "Überstunden",
+      "meaning_en": "overtime hour",
+      "example_de": "Er macht diese Woche viele Überstunden.",
+      "example_en": "He's working a lot of overtime this week."
+    },
+    {
+      "id": "feierabend",
+      "pos": "noun",
+      "lemma": "Feierabend",
+      "gender": "der",
+      "plural": "Feierabende",
+      "meaning_en": "end of the workday, quitting time",
+      "example_de": "Endlich Feierabend! Ich gehe jetzt nach Hause.",
+      "example_en": "Finally, the workday is over! I'm going home now."
+    },
+    {
+      "id": "karriere",
+      "pos": "noun",
+      "lemma": "Karriere",
+      "gender": "die",
+      "plural": "Karrieren",
+      "meaning_en": "career",
+      "example_de": "Sie hat eine beeindruckende Karriere gemacht.",
+      "example_en": "She has had an impressive career."
+    },
+    {
+      "id": "ausbildung",
+      "pos": "noun",
+      "lemma": "Ausbildung",
+      "gender": "die",
+      "plural": "Ausbildungen",
+      "meaning_en": "vocational training, apprenticeship",
+      "example_de": "Er macht eine Ausbildung zum Elektriker.",
+      "example_en": "He's doing an apprenticeship as an electrician."
+    },
+    {
+      "id": "praktikum",
+      "pos": "noun",
+      "lemma": "Praktikum",
+      "gender": "das",
+      "plural": "Praktika",
+      "meaning_en": "internship",
+      "example_de": "Ich mache im Sommer ein Praktikum bei einer Bank.",
+      "example_en": "I'm doing an internship at a bank this summer."
+    },
+    {
+      "id": "praktikant",
+      "pos": "noun",
+      "lemma": "Praktikant",
+      "gender": "der",
+      "plural": "Praktikanten",
+      "meaning_en": "intern (male)",
+      "example_de": "Der neue Praktikant lernt sehr schnell.",
+      "example_en": "The new intern learns very quickly."
+    },
+    {
+      "id": "team",
+      "pos": "noun",
+      "lemma": "Team",
+      "gender": "das",
+      "plural": "Teams",
+      "meaning_en": "team",
+      "example_de": "Unser Team arbeitet gut zusammen.",
+      "example_en": "Our team works well together."
+    },
+    {
+      "id": "abteilung",
+      "pos": "noun",
+      "lemma": "Abteilung",
+      "gender": "die",
+      "plural": "Abteilungen",
+      "meaning_en": "department",
+      "example_de": "Sie arbeitet in der Abteilung für Marketing.",
+      "example_en": "She works in the marketing department."
+    },
+    {
+      "id": "arbeitsplatz",
+      "pos": "noun",
+      "lemma": "Arbeitsplatz",
+      "gender": "der",
+      "plural": "Arbeitsplätze",
+      "meaning_en": "workplace, job",
+      "example_de": "Ich fühle mich an meinem Arbeitsplatz sehr wohl.",
+      "example_en": "I feel very comfortable at my workplace."
+    },
+    {
+      "id": "ziel",
+      "pos": "noun",
+      "lemma": "Ziel",
+      "gender": "das",
+      "plural": "Ziele",
+      "meaning_en": "goal",
+      "example_de": "Unser Ziel ist es, den Umsatz zu steigern.",
+      "example_en": "Our goal is to increase revenue."
+    },
+    {
+      "id": "verantwortung",
+      "pos": "noun",
+      "lemma": "Verantwortung",
+      "gender": "die",
+      "plural": "-",
+      "meaning_en": "responsibility",
+      "example_de": "Als Chefin trägt sie viel Verantwortung.",
+      "example_en": "As the boss, she carries a lot of responsibility."
+    },
+    {
+      "id": "erfahrung",
+      "pos": "noun",
+      "lemma": "Erfahrung",
+      "gender": "die",
+      "plural": "Erfahrungen",
+      "meaning_en": "experience",
+      "example_de": "Er hat viel Erfahrung in diesem Bereich.",
+      "example_en": "He has a lot of experience in this field."
+    },
+    {
+      "id": "faehigkeit",
+      "pos": "noun",
+      "lemma": "Fähigkeit",
+      "gender": "die",
+      "plural": "Fähigkeiten",
+      "meaning_en": "skill, ability",
+      "example_de": "Teamarbeit ist eine wichtige Fähigkeit.",
+      "example_en": "Teamwork is an important skill."
+    },
+    {
+      "id": "qualifikation",
+      "pos": "noun",
+      "lemma": "Qualifikation",
+      "gender": "die",
+      "plural": "Qualifikationen",
+      "meaning_en": "qualification",
+      "example_de": "Für diese Stelle braucht man besondere Qualifikationen.",
+      "example_en": "This position requires special qualifications."
+    },
+    {
+      "id": "sich-bewerben",
+      "pos": "verb",
+      "lemma": "bewerben (sich)",
+      "meaning_en": "to apply (for a job)",
+      "example_de": "Ich möchte mich bei dieser Firma bewerben.",
+      "example_en": "I would like to apply at this company.",
+      "present_3sg": "bewirbt sich",
+      "praeteritum": "bewarb sich",
+      "perfekt": "hat sich beworben",
+      "auxiliary": "haben",
+      "separable": false,
+      "government": "sich bewerben um + Akk / bei + Dat"
+    },
+    {
+      "id": "kuendigen",
+      "pos": "verb",
+      "lemma": "kündigen",
+      "meaning_en": "to quit, to give notice, to terminate (a contract)",
+      "example_de": "Er hat seinen Job gekündigt.",
+      "example_en": "He quit his job.",
+      "present_3sg": "kündigt",
+      "praeteritum": "kündigte",
+      "perfekt": "hat gekündigt",
+      "auxiliary": "haben",
+      "separable": false,
+      "government": "kündigen + Dat (jemandem kündigen) / Akk (etwas kündigen)"
+    },
+    {
+      "id": "einstellen",
+      "pos": "verb",
+      "lemma": "einstellen",
+      "meaning_en": "to hire, to employ",
+      "example_de": "Die Firma will zehn neue Mitarbeiter einstellen.",
+      "example_en": "The company wants to hire ten new employees.",
+      "present_3sg": "stellt ein",
+      "praeteritum": "stellte ein",
+      "perfekt": "hat eingestellt",
+      "auxiliary": "haben",
+      "separable": true
+    },
+    {
+      "id": "verdienen",
+      "pos": "verb",
+      "lemma": "verdienen",
+      "meaning_en": "to earn",
+      "example_de": "Sie verdient gut in ihrem neuen Job.",
+      "example_en": "She earns good money in her new job.",
+      "present_3sg": "verdient",
+      "praeteritum": "verdiente",
+      "perfekt": "hat verdient",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "arbeiten",
+      "pos": "verb",
+      "lemma": "arbeiten",
+      "meaning_en": "to work",
+      "example_de": "Ich arbeite von Montag bis Freitag.",
+      "example_en": "I work from Monday to Friday.",
+      "present_3sg": "arbeitet",
+      "praeteritum": "arbeitete",
+      "perfekt": "hat gearbeitet",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "leiten",
+      "pos": "verb",
+      "lemma": "leiten",
+      "meaning_en": "to lead, to manage, to run (a department, project)",
+      "example_de": "Frau Schmidt leitet die Abteilung seit zwei Jahren.",
+      "example_en": "Ms. Schmidt has been running the department for two years.",
+      "present_3sg": "leitet",
+      "praeteritum": "leitete",
+      "perfekt": "hat geleitet",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "verhandeln",
+      "pos": "verb",
+      "lemma": "verhandeln",
+      "meaning_en": "to negotiate",
+      "example_de": "Wir verhandeln morgen über den neuen Vertrag.",
+      "example_en": "We're negotiating the new contract tomorrow.",
+      "present_3sg": "verhandelt",
+      "praeteritum": "verhandelte",
+      "perfekt": "hat verhandelt",
+      "auxiliary": "haben",
+      "separable": false,
+      "government": "verhandeln über + Akk"
+    },
+    {
+      "id": "praesentieren",
+      "pos": "verb",
+      "lemma": "präsentieren",
+      "meaning_en": "to present",
+      "example_de": "Er präsentiert das Projekt vor dem ganzen Team.",
+      "example_en": "He is presenting the project to the whole team.",
+      "present_3sg": "präsentiert",
+      "praeteritum": "präsentierte",
+      "perfekt": "hat präsentiert",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "organisieren",
+      "pos": "verb",
+      "lemma": "organisieren",
+      "meaning_en": "to organize",
+      "example_de": "Wer organisiert die Konferenz dieses Jahr?",
+      "example_en": "Who is organizing the conference this year?",
+      "present_3sg": "organisiert",
+      "praeteritum": "organisierte",
+      "perfekt": "hat organisiert",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "beschaeftigt",
+      "pos": "adjective",
+      "lemma": "beschäftigt",
+      "meaning_en": "busy, occupied",
+      "example_de": "Der Chef ist heute sehr beschäftigt.",
+      "example_en": "The boss is very busy today."
+    },
+    {
+      "id": "arbeitslos",
+      "pos": "adjective",
+      "lemma": "arbeitslos",
+      "meaning_en": "unemployed",
+      "example_de": "Er ist seit drei Monaten arbeitslos.",
+      "example_en": "He has been unemployed for three months."
+    },
+    {
+      "id": "erfolgreich",
+      "pos": "adjective",
+      "lemma": "erfolgreich",
+      "meaning_en": "successful",
+      "example_de": "Das Unternehmen war in diesem Jahr sehr erfolgreich.",
+      "example_en": "The company was very successful this year."
+    }
+  ]
+}

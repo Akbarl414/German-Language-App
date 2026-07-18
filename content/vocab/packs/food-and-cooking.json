@@ -1,0 +1,633 @@
+{
+  "id": "food-and-cooking",
+  "title": "Food & Cooking",
+  "level": "A2",
+  "topic": "Food, drink, and kitchen vocabulary",
+  "words": [
+    {
+      "id": "brot",
+      "pos": "noun",
+      "lemma": "Brot",
+      "gender": "das",
+      "plural": "Brote",
+      "meaning_en": "bread",
+      "example_de": "Ich kaufe frisches Brot beim Bäcker.",
+      "example_en": "I buy fresh bread at the bakery."
+    },
+    {
+      "id": "butter",
+      "pos": "noun",
+      "lemma": "Butter",
+      "gender": "die",
+      "plural": "-",
+      "meaning_en": "butter",
+      "example_de": "Sie streicht Butter auf das Brot.",
+      "example_en": "She spreads butter on the bread."
+    },
+    {
+      "id": "kaese",
+      "pos": "noun",
+      "lemma": "Käse",
+      "gender": "der",
+      "plural": "Käse",
+      "meaning_en": "cheese",
+      "example_de": "Der Käse aus Frankreich schmeckt sehr gut.",
+      "example_en": "The cheese from France tastes very good."
+    },
+    {
+      "id": "milch",
+      "pos": "noun",
+      "lemma": "Milch",
+      "gender": "die",
+      "plural": "-",
+      "meaning_en": "milk",
+      "example_de": "Ich trinke jeden Morgen ein Glas Milch.",
+      "example_en": "I drink a glass of milk every morning."
+    },
+    {
+      "id": "ei",
+      "pos": "noun",
+      "lemma": "Ei",
+      "gender": "das",
+      "plural": "Eier",
+      "meaning_en": "egg",
+      "example_de": "Zum Frühstück isst er zwei Eier.",
+      "example_en": "For breakfast he eats two eggs."
+    },
+    {
+      "id": "fleisch",
+      "pos": "noun",
+      "lemma": "Fleisch",
+      "gender": "das",
+      "plural": "-",
+      "meaning_en": "meat",
+      "example_de": "Wir essen am Sonntag oft Fleisch mit Kartoffeln.",
+      "example_en": "On Sundays we often eat meat with potatoes."
+    },
+    {
+      "id": "fisch",
+      "pos": "noun",
+      "lemma": "Fisch",
+      "gender": "der",
+      "plural": "Fische",
+      "meaning_en": "fish",
+      "example_de": "Der Fisch war frisch und lecker.",
+      "example_en": "The fish was fresh and delicious."
+    },
+    {
+      "id": "gemuese",
+      "pos": "noun",
+      "lemma": "Gemüse",
+      "gender": "das",
+      "plural": "-",
+      "meaning_en": "vegetables",
+      "example_de": "Iss mehr Gemüse, das ist gesund!",
+      "example_en": "Eat more vegetables, it's healthy!"
+    },
+    {
+      "id": "obst",
+      "pos": "noun",
+      "lemma": "Obst",
+      "gender": "das",
+      "plural": "-",
+      "meaning_en": "fruit",
+      "example_de": "Zum Nachtisch gibt es frisches Obst.",
+      "example_en": "For dessert there is fresh fruit."
+    },
+    {
+      "id": "apfel",
+      "pos": "noun",
+      "lemma": "Apfel",
+      "gender": "der",
+      "plural": "Äpfel",
+      "meaning_en": "apple",
+      "example_de": "Ein Apfel am Tag hält den Arzt fern.",
+      "example_en": "An apple a day keeps the doctor away."
+    },
+    {
+      "id": "banane",
+      "pos": "noun",
+      "lemma": "Banane",
+      "gender": "die",
+      "plural": "Bananen",
+      "meaning_en": "banana",
+      "example_de": "Die Bananen sind noch nicht reif.",
+      "example_en": "The bananas are not ripe yet."
+    },
+    {
+      "id": "kartoffel",
+      "pos": "noun",
+      "lemma": "Kartoffel",
+      "gender": "die",
+      "plural": "Kartoffeln",
+      "meaning_en": "potato",
+      "example_de": "Ich koche heute Kartoffeln mit Butter.",
+      "example_en": "I'm cooking potatoes with butter today."
+    },
+    {
+      "id": "tomate",
+      "pos": "noun",
+      "lemma": "Tomate",
+      "gender": "die",
+      "plural": "Tomaten",
+      "meaning_en": "tomato",
+      "example_de": "Für den Salat brauche ich zwei Tomaten.",
+      "example_en": "For the salad I need two tomatoes."
+    },
+    {
+      "id": "zwiebel",
+      "pos": "noun",
+      "lemma": "Zwiebel",
+      "gender": "die",
+      "plural": "Zwiebeln",
+      "meaning_en": "onion",
+      "example_de": "Er schneidet die Zwiebel in kleine Stücke.",
+      "example_en": "He cuts the onion into small pieces."
+    },
+    {
+      "id": "knoblauch",
+      "pos": "noun",
+      "lemma": "Knoblauch",
+      "gender": "der",
+      "plural": "-",
+      "meaning_en": "garlic",
+      "example_de": "Das Rezept braucht viel Knoblauch.",
+      "example_en": "The recipe needs a lot of garlic."
+    },
+    {
+      "id": "reis",
+      "pos": "noun",
+      "lemma": "Reis",
+      "gender": "der",
+      "plural": "-",
+      "meaning_en": "rice",
+      "example_de": "In Asien isst man oft Reis zum Mittagessen.",
+      "example_en": "In Asia people often eat rice for lunch."
+    },
+    {
+      "id": "nudel",
+      "pos": "noun",
+      "lemma": "Nudel",
+      "gender": "die",
+      "plural": "Nudeln",
+      "meaning_en": "noodle, pasta",
+      "example_de": "Die Kinder lieben Nudeln mit Tomatensauce.",
+      "example_en": "The children love pasta with tomato sauce."
+    },
+    {
+      "id": "suppe",
+      "pos": "noun",
+      "lemma": "Suppe",
+      "gender": "die",
+      "plural": "Suppen",
+      "meaning_en": "soup",
+      "example_de": "Im Winter koche ich gern warme Suppe.",
+      "example_en": "In winter I like to cook warm soup."
+    },
+    {
+      "id": "salat",
+      "pos": "noun",
+      "lemma": "Salat",
+      "gender": "der",
+      "plural": "Salate",
+      "meaning_en": "salad",
+      "example_de": "Als Vorspeise bestellen wir einen Salat.",
+      "example_en": "As a starter we order a salad."
+    },
+    {
+      "id": "kuchen",
+      "pos": "noun",
+      "lemma": "Kuchen",
+      "gender": "der",
+      "plural": "Kuchen",
+      "meaning_en": "cake",
+      "example_de": "Meine Oma backt jeden Sonntag einen Kuchen.",
+      "example_en": "My grandma bakes a cake every Sunday."
+    },
+    {
+      "id": "torte",
+      "pos": "noun",
+      "lemma": "Torte",
+      "gender": "die",
+      "plural": "Torten",
+      "meaning_en": "layered cake, gateau",
+      "example_de": "Zum Geburtstag gibt es eine Schokoladentorte.",
+      "example_en": "For the birthday there is a chocolate cake."
+    },
+    {
+      "id": "dessert",
+      "pos": "noun",
+      "lemma": "Dessert",
+      "gender": "das",
+      "plural": "Desserts",
+      "meaning_en": "dessert",
+      "example_de": "Als Dessert nehme ich das Eis.",
+      "example_en": "For dessert I'll have the ice cream."
+    },
+    {
+      "id": "zucker",
+      "pos": "noun",
+      "lemma": "Zucker",
+      "gender": "der",
+      "plural": "-",
+      "meaning_en": "sugar",
+      "example_de": "Er nimmt keinen Zucker in seinen Kaffee.",
+      "example_en": "He doesn't take sugar in his coffee."
+    },
+    {
+      "id": "salz",
+      "pos": "noun",
+      "lemma": "Salz",
+      "gender": "das",
+      "plural": "-",
+      "meaning_en": "salt",
+      "example_de": "Die Suppe braucht noch etwas Salz.",
+      "example_en": "The soup needs a bit more salt."
+    },
+    {
+      "id": "pfeffer",
+      "pos": "noun",
+      "lemma": "Pfeffer",
+      "gender": "der",
+      "plural": "-",
+      "meaning_en": "pepper",
+      "example_de": "Bitte gib mir den Pfeffer.",
+      "example_en": "Please pass me the pepper."
+    },
+    {
+      "id": "oel",
+      "pos": "noun",
+      "lemma": "Öl",
+      "gender": "das",
+      "plural": "Öle",
+      "meaning_en": "oil",
+      "example_de": "Zum Braten benutze ich Öl.",
+      "example_en": "I use oil for frying."
+    },
+    {
+      "id": "essig",
+      "pos": "noun",
+      "lemma": "Essig",
+      "gender": "der",
+      "plural": "-",
+      "meaning_en": "vinegar",
+      "example_de": "Für den Salat mische ich Öl und Essig.",
+      "example_en": "For the salad I mix oil and vinegar."
+    },
+    {
+      "id": "sauce",
+      "pos": "noun",
+      "lemma": "Sauce",
+      "gender": "die",
+      "plural": "Saucen",
+      "meaning_en": "sauce",
+      "example_de": "Die Sauce zur Pasta ist selbst gemacht.",
+      "example_en": "The sauce for the pasta is homemade."
+    },
+    {
+      "id": "fruehstueck",
+      "pos": "noun",
+      "lemma": "Frühstück",
+      "gender": "das",
+      "plural": "Frühstücke",
+      "meaning_en": "breakfast",
+      "example_de": "Das Frühstück im Hotel war sehr gut.",
+      "example_en": "The breakfast at the hotel was very good."
+    },
+    {
+      "id": "mittagessen",
+      "pos": "noun",
+      "lemma": "Mittagessen",
+      "gender": "das",
+      "plural": "Mittagessen",
+      "meaning_en": "lunch",
+      "example_de": "Was gibt es heute zum Mittagessen?",
+      "example_en": "What's for lunch today?"
+    },
+    {
+      "id": "abendessen",
+      "pos": "noun",
+      "lemma": "Abendessen",
+      "gender": "das",
+      "plural": "Abendessen",
+      "meaning_en": "dinner, supper",
+      "example_de": "Wir essen um sieben Uhr Abendessen.",
+      "example_en": "We have dinner at seven o'clock."
+    },
+    {
+      "id": "mahlzeit",
+      "pos": "noun",
+      "lemma": "Mahlzeit",
+      "gender": "die",
+      "plural": "Mahlzeiten",
+      "meaning_en": "meal",
+      "example_de": "Drei Mahlzeiten am Tag sind genug.",
+      "example_en": "Three meals a day are enough."
+    },
+    {
+      "id": "restaurant",
+      "pos": "noun",
+      "lemma": "Restaurant",
+      "gender": "das",
+      "plural": "Restaurants",
+      "meaning_en": "restaurant",
+      "example_de": "Am Freitag gehen wir in ein Restaurant.",
+      "example_en": "On Friday we're going to a restaurant."
+    },
+    {
+      "id": "speisekarte",
+      "pos": "noun",
+      "lemma": "Speisekarte",
+      "gender": "die",
+      "plural": "Speisekarten",
+      "meaning_en": "menu",
+      "example_de": "Können wir bitte die Speisekarte haben?",
+      "example_en": "Could we have the menu, please?"
+    },
+    {
+      "id": "rechnung",
+      "pos": "noun",
+      "lemma": "Rechnung",
+      "gender": "die",
+      "plural": "Rechnungen",
+      "meaning_en": "bill, check",
+      "example_de": "Können wir bitte die Rechnung bekommen?",
+      "example_en": "Could we get the bill, please?"
+    },
+    {
+      "id": "trinkgeld",
+      "pos": "noun",
+      "lemma": "Trinkgeld",
+      "gender": "das",
+      "plural": "Trinkgelder",
+      "meaning_en": "tip (gratuity)",
+      "example_de": "Wir geben dem Kellner ein Trinkgeld.",
+      "example_en": "We give the waiter a tip."
+    },
+    {
+      "id": "kellner",
+      "pos": "noun",
+      "lemma": "Kellner",
+      "gender": "der",
+      "plural": "Kellner",
+      "meaning_en": "waiter",
+      "example_de": "Der Kellner bringt uns die Getränke.",
+      "example_en": "The waiter brings us the drinks."
+    },
+    {
+      "id": "kellnerin",
+      "pos": "noun",
+      "lemma": "Kellnerin",
+      "gender": "die",
+      "plural": "Kellnerinnen",
+      "meaning_en": "waitress",
+      "example_de": "Die Kellnerin empfiehlt uns den Fisch.",
+      "example_en": "The waitress recommends the fish to us."
+    },
+    {
+      "id": "flasche",
+      "pos": "noun",
+      "lemma": "Flasche",
+      "gender": "die",
+      "plural": "Flaschen",
+      "meaning_en": "bottle",
+      "example_de": "Wir bestellen eine Flasche Wasser.",
+      "example_en": "We order a bottle of water."
+    },
+    {
+      "id": "glas",
+      "pos": "noun",
+      "lemma": "Glas",
+      "gender": "das",
+      "plural": "Gläser",
+      "meaning_en": "glass",
+      "example_de": "Er trinkt ein Glas Orangensaft.",
+      "example_en": "He drinks a glass of orange juice."
+    },
+    {
+      "id": "tasse",
+      "pos": "noun",
+      "lemma": "Tasse",
+      "gender": "die",
+      "plural": "Tassen",
+      "meaning_en": "cup",
+      "example_de": "Sie trinkt eine Tasse Kaffee zum Frühstück.",
+      "example_en": "She drinks a cup of coffee for breakfast."
+    },
+    {
+      "id": "teller",
+      "pos": "noun",
+      "lemma": "Teller",
+      "gender": "der",
+      "plural": "Teller",
+      "meaning_en": "plate",
+      "example_de": "Der Teller ist noch heiß.",
+      "example_en": "The plate is still hot."
+    },
+    {
+      "id": "gabel",
+      "pos": "noun",
+      "lemma": "Gabel",
+      "gender": "die",
+      "plural": "Gabeln",
+      "meaning_en": "fork",
+      "example_de": "Ich brauche noch eine Gabel.",
+      "example_en": "I still need a fork."
+    },
+    {
+      "id": "messer",
+      "pos": "noun",
+      "lemma": "Messer",
+      "gender": "das",
+      "plural": "Messer",
+      "meaning_en": "knife",
+      "example_de": "Das Messer ist sehr scharf.",
+      "example_en": "The knife is very sharp."
+    },
+    {
+      "id": "schuessel",
+      "pos": "noun",
+      "lemma": "Schüssel",
+      "gender": "die",
+      "plural": "Schüsseln",
+      "meaning_en": "bowl",
+      "example_de": "Sie mischt den Salat in einer großen Schüssel.",
+      "example_en": "She mixes the salad in a large bowl."
+    },
+    {
+      "id": "pfanne",
+      "pos": "noun",
+      "lemma": "Pfanne",
+      "gender": "die",
+      "plural": "Pfannen",
+      "meaning_en": "frying pan",
+      "example_de": "Er brät das Ei in der Pfanne.",
+      "example_en": "He fries the egg in the pan."
+    },
+    {
+      "id": "topf",
+      "pos": "noun",
+      "lemma": "Topf",
+      "gender": "der",
+      "plural": "Töpfe",
+      "meaning_en": "pot, saucepan",
+      "example_de": "Die Suppe kocht im Topf.",
+      "example_en": "The soup is cooking in the pot."
+    },
+    {
+      "id": "herd",
+      "pos": "noun",
+      "lemma": "Herd",
+      "gender": "der",
+      "plural": "Herde",
+      "meaning_en": "stove, cooker",
+      "example_de": "Der Topf steht auf dem Herd.",
+      "example_en": "The pot is on the stove."
+    },
+    {
+      "id": "backofen",
+      "pos": "noun",
+      "lemma": "Backofen",
+      "gender": "der",
+      "plural": "Backöfen",
+      "meaning_en": "oven",
+      "example_de": "Der Kuchen ist im Backofen.",
+      "example_en": "The cake is in the oven."
+    },
+    {
+      "id": "kuehlschrank",
+      "pos": "noun",
+      "lemma": "Kühlschrank",
+      "gender": "der",
+      "plural": "Kühlschränke",
+      "meaning_en": "refrigerator, fridge",
+      "example_de": "Die Milch ist im Kühlschrank.",
+      "example_en": "The milk is in the fridge."
+    },
+    {
+      "id": "kochen",
+      "pos": "verb",
+      "lemma": "kochen",
+      "meaning_en": "to cook, to boil",
+      "example_de": "Ich koche heute Abend Nudeln.",
+      "example_en": "I'm cooking pasta tonight.",
+      "present_3sg": "kocht",
+      "praeteritum": "kochte",
+      "perfekt": "hat gekocht",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "braten",
+      "pos": "verb",
+      "lemma": "braten",
+      "meaning_en": "to fry, to roast",
+      "example_de": "Sie brät den Fisch in der Pfanne.",
+      "example_en": "She fries the fish in the pan.",
+      "present_3sg": "brät",
+      "praeteritum": "briet",
+      "perfekt": "hat gebraten",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "backen",
+      "pos": "verb",
+      "lemma": "backen",
+      "meaning_en": "to bake",
+      "example_de": "Wir backen am Wochenende einen Kuchen.",
+      "example_en": "We bake a cake on the weekend.",
+      "present_3sg": "bäckt",
+      "praeteritum": "backte",
+      "perfekt": "hat gebacken",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "schneiden",
+      "pos": "verb",
+      "lemma": "schneiden",
+      "meaning_en": "to cut",
+      "example_de": "Er schneidet das Gemüse klein.",
+      "example_en": "He cuts the vegetables into small pieces.",
+      "present_3sg": "schneidet",
+      "praeteritum": "schnitt",
+      "perfekt": "hat geschnitten",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "ruehren",
+      "pos": "verb",
+      "lemma": "rühren",
+      "meaning_en": "to stir",
+      "example_de": "Sie rührt die Sauce langsam um.",
+      "example_en": "She stirs the sauce slowly.",
+      "present_3sg": "rührt",
+      "praeteritum": "rührte",
+      "perfekt": "hat gerührt",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "wuerzen",
+      "pos": "verb",
+      "lemma": "würzen",
+      "meaning_en": "to season, to spice",
+      "example_de": "Er würzt das Fleisch mit Pfeffer.",
+      "example_en": "He seasons the meat with pepper.",
+      "present_3sg": "würzt",
+      "praeteritum": "würzte",
+      "perfekt": "hat gewürzt",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "servieren",
+      "pos": "verb",
+      "lemma": "servieren",
+      "meaning_en": "to serve (food)",
+      "example_de": "Der Kellner serviert das Essen.",
+      "example_en": "The waiter serves the food.",
+      "present_3sg": "serviert",
+      "praeteritum": "servierte",
+      "perfekt": "hat serviert",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "bestellen",
+      "pos": "verb",
+      "lemma": "bestellen",
+      "meaning_en": "to order",
+      "example_de": "Wir bestellen eine Pizza.",
+      "example_en": "We order a pizza.",
+      "present_3sg": "bestellt",
+      "praeteritum": "bestellte",
+      "perfekt": "hat bestellt",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "schmecken",
+      "pos": "verb",
+      "lemma": "schmecken",
+      "meaning_en": "to taste",
+      "example_de": "Die Suppe schmeckt sehr gut.",
+      "example_en": "The soup tastes very good.",
+      "present_3sg": "schmeckt",
+      "praeteritum": "schmeckte",
+      "perfekt": "hat geschmeckt",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "lecker",
+      "pos": "adjective",
+      "lemma": "lecker",
+      "meaning_en": "tasty, delicious",
+      "example_de": "Das Essen ist wirklich lecker.",
+      "example_en": "The food is really tasty."
+    }
+  ]
+}

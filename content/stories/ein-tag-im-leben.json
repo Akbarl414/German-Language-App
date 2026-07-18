@@ -1,0 +1,20 @@
+{
+  "id": "ein-tag-im-leben",
+  "title": "Ein Tag im Leben von Lisa",
+  "level": "A2",
+  "segments": [
+    { "type": "text", "value": "Lisa steht jeden Morgen um sieben Uhr " },
+    { "type": "blank", "answer": "auf", "options": ["auf", "an", "aus"] },
+    { "type": "text", "value": ". Sie trinkt eine Tasse Kaffee und isst ein Brötchen mit Marmelade. Um acht Uhr fährt sie mit dem Bus " },
+    { "type": "blank", "answer": "zur", "options": ["zur", "zum", "in die"] },
+    { "type": "text", "value": " Arbeit. Sie arbeitet " },
+    { "type": "blank", "answer": "in", "options": ["in", "an", "bei"] },
+    { "type": "text", "value": " einem Büro in der Stadt. Am Mittag isst sie " },
+    { "type": "blank", "answer": "mit", "options": ["mit", "bei", "zu"] },
+    { "type": "text", "value": " ihren Kollegen in der Kantine. " },
+    { "type": "blank", "answer": "Nach", "options": ["Nach", "Nachdem", "Seit"] },
+    { "type": "text", "value": " der Arbeit geht sie oft ins Fitnessstudio oder trifft Freunde. Abends " },
+    { "type": "blank", "answer": "kocht", "options": ["kocht", "kochen", "gekocht"] },
+    { "type": "text", "value": " sie gern und schaut manchmal fern. Um elf Uhr geht sie ins Bett." }
+  ]
+}

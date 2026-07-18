@@ -1,0 +1,708 @@
+{
+  "id": "everyday-nouns",
+  "title": "Everyday Nouns",
+  "level": "A1",
+  "topic": "Common household, city, family, and body nouns",
+  "words": [
+    {
+      "id": "tisch",
+      "pos": "noun",
+      "lemma": "Tisch",
+      "gender": "der",
+      "plural": "Tische",
+      "meaning_en": "table",
+      "example_de": "Das Buch liegt auf dem Tisch.",
+      "example_en": "The book is lying on the table."
+    },
+    {
+      "id": "stuhl",
+      "pos": "noun",
+      "lemma": "Stuhl",
+      "gender": "der",
+      "plural": "Stühle",
+      "meaning_en": "chair",
+      "example_de": "Der Stuhl steht neben dem Fenster.",
+      "example_en": "The chair is standing next to the window."
+    },
+    {
+      "id": "fenster",
+      "pos": "noun",
+      "lemma": "Fenster",
+      "gender": "das",
+      "plural": "Fenster",
+      "meaning_en": "window",
+      "example_de": "Bitte mach das Fenster zu.",
+      "example_en": "Please close the window."
+    },
+    {
+      "id": "tuer",
+      "pos": "noun",
+      "lemma": "Tür",
+      "gender": "die",
+      "plural": "Türen",
+      "meaning_en": "door",
+      "example_de": "Die Tür ist offen.",
+      "example_en": "The door is open."
+    },
+    {
+      "id": "haus",
+      "pos": "noun",
+      "lemma": "Haus",
+      "gender": "das",
+      "plural": "Häuser",
+      "meaning_en": "house",
+      "example_de": "Wir wohnen in einem kleinen Haus.",
+      "example_en": "We live in a small house."
+    },
+    {
+      "id": "wohnung",
+      "pos": "noun",
+      "lemma": "Wohnung",
+      "gender": "die",
+      "plural": "Wohnungen",
+      "meaning_en": "apartment",
+      "example_de": "Meine Wohnung hat drei Zimmer.",
+      "example_en": "My apartment has three rooms."
+    },
+    {
+      "id": "zimmer",
+      "pos": "noun",
+      "lemma": "Zimmer",
+      "gender": "das",
+      "plural": "Zimmer",
+      "meaning_en": "room",
+      "example_de": "Ihr Zimmer ist sehr hell.",
+      "example_en": "Her room is very bright."
+    },
+    {
+      "id": "bett",
+      "pos": "noun",
+      "lemma": "Bett",
+      "gender": "das",
+      "plural": "Betten",
+      "meaning_en": "bed",
+      "example_de": "Das Kind schläft im Bett.",
+      "example_en": "The child is sleeping in the bed."
+    },
+    {
+      "id": "schrank",
+      "pos": "noun",
+      "lemma": "Schrank",
+      "gender": "der",
+      "plural": "Schränke",
+      "meaning_en": "closet, cabinet",
+      "example_de": "Die Kleider hängen im Schrank.",
+      "example_en": "The clothes are hanging in the closet."
+    },
+    {
+      "id": "lampe",
+      "pos": "noun",
+      "lemma": "Lampe",
+      "gender": "die",
+      "plural": "Lampen",
+      "meaning_en": "lamp",
+      "example_de": "Kannst du bitte die Lampe anmachen?",
+      "example_en": "Can you please turn on the lamp?"
+    },
+    {
+      "id": "spiegel",
+      "pos": "noun",
+      "lemma": "Spiegel",
+      "gender": "der",
+      "plural": "Spiegel",
+      "meaning_en": "mirror",
+      "example_de": "Sie schaut in den Spiegel.",
+      "example_en": "She is looking in the mirror."
+    },
+    {
+      "id": "uhr",
+      "pos": "noun",
+      "lemma": "Uhr",
+      "gender": "die",
+      "plural": "Uhren",
+      "meaning_en": "clock, watch",
+      "example_de": "Die Uhr hängt an der Wand.",
+      "example_en": "The clock is hanging on the wall."
+    },
+    {
+      "id": "handy",
+      "pos": "noun",
+      "lemma": "Handy",
+      "gender": "das",
+      "plural": "Handys",
+      "meaning_en": "cell phone",
+      "example_de": "Ich habe mein Handy vergessen.",
+      "example_en": "I forgot my cell phone."
+    },
+    {
+      "id": "computer",
+      "pos": "noun",
+      "lemma": "Computer",
+      "gender": "der",
+      "plural": "Computer",
+      "meaning_en": "computer",
+      "example_de": "Der Computer ist kaputt.",
+      "example_en": "The computer is broken."
+    },
+    {
+      "id": "buch",
+      "pos": "noun",
+      "lemma": "Buch",
+      "gender": "das",
+      "plural": "Bücher",
+      "meaning_en": "book",
+      "example_de": "Ich lese jeden Abend ein Buch.",
+      "example_en": "I read a book every evening."
+    },
+    {
+      "id": "zeitung",
+      "pos": "noun",
+      "lemma": "Zeitung",
+      "gender": "die",
+      "plural": "Zeitungen",
+      "meaning_en": "newspaper",
+      "example_de": "Mein Vater liest jeden Morgen die Zeitung.",
+      "example_en": "My father reads the newspaper every morning."
+    },
+    {
+      "id": "schluessel",
+      "pos": "noun",
+      "lemma": "Schlüssel",
+      "gender": "der",
+      "plural": "Schlüssel",
+      "meaning_en": "key",
+      "example_de": "Wo ist mein Schlüssel?",
+      "example_en": "Where is my key?"
+    },
+    {
+      "id": "tasche",
+      "pos": "noun",
+      "lemma": "Tasche",
+      "gender": "die",
+      "plural": "Taschen",
+      "meaning_en": "bag",
+      "example_de": "Sie trägt eine schwere Tasche.",
+      "example_en": "She is carrying a heavy bag."
+    },
+    {
+      "id": "regenschirm",
+      "pos": "noun",
+      "lemma": "Regenschirm",
+      "gender": "der",
+      "plural": "Regenschirme",
+      "meaning_en": "umbrella",
+      "example_de": "Nimm einen Regenschirm mit, es regnet.",
+      "example_en": "Take an umbrella with you, it's raining."
+    },
+    {
+      "id": "sofa",
+      "pos": "noun",
+      "lemma": "Sofa",
+      "gender": "das",
+      "plural": "Sofas",
+      "meaning_en": "sofa",
+      "example_de": "Wir sitzen abends gern auf dem Sofa.",
+      "example_en": "We like sitting on the sofa in the evening."
+    },
+    {
+      "id": "teppich",
+      "pos": "noun",
+      "lemma": "Teppich",
+      "gender": "der",
+      "plural": "Teppiche",
+      "meaning_en": "carpet, rug",
+      "example_de": "Der Teppich liegt im Wohnzimmer.",
+      "example_en": "The rug is in the living room."
+    },
+    {
+      "id": "wand",
+      "pos": "noun",
+      "lemma": "Wand",
+      "gender": "die",
+      "plural": "Wände",
+      "meaning_en": "wall",
+      "example_de": "An der Wand hängt ein Bild.",
+      "example_en": "A picture is hanging on the wall."
+    },
+    {
+      "id": "boden",
+      "pos": "noun",
+      "lemma": "Boden",
+      "gender": "der",
+      "plural": "Böden",
+      "meaning_en": "floor",
+      "example_de": "Die Katze schläft auf dem Boden.",
+      "example_en": "The cat is sleeping on the floor."
+    },
+    {
+      "id": "decke",
+      "pos": "noun",
+      "lemma": "Decke",
+      "gender": "die",
+      "plural": "Decken",
+      "meaning_en": "ceiling, blanket",
+      "example_de": "Die Lampe hängt an der Decke.",
+      "example_en": "The lamp hangs from the ceiling."
+    },
+    {
+      "id": "treppe",
+      "pos": "noun",
+      "lemma": "Treppe",
+      "gender": "die",
+      "plural": "Treppen",
+      "meaning_en": "stairs",
+      "example_de": "Er geht langsam die Treppe hoch.",
+      "example_en": "He is slowly going up the stairs."
+    },
+    {
+      "id": "garten",
+      "pos": "noun",
+      "lemma": "Garten",
+      "gender": "der",
+      "plural": "Gärten",
+      "meaning_en": "garden",
+      "example_de": "Im Sommer sitzen wir im Garten.",
+      "example_en": "In summer we sit in the garden."
+    },
+    {
+      "id": "badezimmer",
+      "pos": "noun",
+      "lemma": "Badezimmer",
+      "gender": "das",
+      "plural": "Badezimmer",
+      "meaning_en": "bathroom",
+      "example_de": "Das Badezimmer ist neben der Küche.",
+      "example_en": "The bathroom is next to the kitchen."
+    },
+    {
+      "id": "kueche",
+      "pos": "noun",
+      "lemma": "Küche",
+      "gender": "die",
+      "plural": "Küchen",
+      "meaning_en": "kitchen",
+      "example_de": "Die Küche ist klein, aber praktisch.",
+      "example_en": "The kitchen is small but practical."
+    },
+    {
+      "id": "dusche",
+      "pos": "noun",
+      "lemma": "Dusche",
+      "gender": "die",
+      "plural": "Duschen",
+      "meaning_en": "shower",
+      "example_de": "Die Dusche ist im Badezimmer.",
+      "example_en": "The shower is in the bathroom."
+    },
+    {
+      "id": "fernseher",
+      "pos": "noun",
+      "lemma": "Fernseher",
+      "gender": "der",
+      "plural": "Fernseher",
+      "meaning_en": "television",
+      "example_de": "Der Fernseher steht im Wohnzimmer.",
+      "example_en": "The television is in the living room."
+    },
+    {
+      "id": "strasse",
+      "pos": "noun",
+      "lemma": "Straße",
+      "gender": "die",
+      "plural": "Straßen",
+      "meaning_en": "street",
+      "example_de": "Die Straße ist heute sehr voll.",
+      "example_en": "The street is very busy today."
+    },
+    {
+      "id": "stadt",
+      "pos": "noun",
+      "lemma": "Stadt",
+      "gender": "die",
+      "plural": "Städte",
+      "meaning_en": "city",
+      "example_de": "Berlin ist eine große Stadt.",
+      "example_en": "Berlin is a big city."
+    },
+    {
+      "id": "dorf",
+      "pos": "noun",
+      "lemma": "Dorf",
+      "gender": "das",
+      "plural": "Dörfer",
+      "meaning_en": "village",
+      "example_de": "Meine Großeltern leben in einem kleinen Dorf.",
+      "example_en": "My grandparents live in a small village."
+    },
+    {
+      "id": "park",
+      "pos": "noun",
+      "lemma": "Park",
+      "gender": "der",
+      "plural": "Parks",
+      "meaning_en": "park",
+      "example_de": "Wir gehen sonntags oft in den Park.",
+      "example_en": "We often go to the park on Sundays."
+    },
+    {
+      "id": "schule",
+      "pos": "noun",
+      "lemma": "Schule",
+      "gender": "die",
+      "plural": "Schulen",
+      "meaning_en": "school",
+      "example_de": "Die Kinder gehen zu Fuß zur Schule.",
+      "example_en": "The children walk to school."
+    },
+    {
+      "id": "kirche",
+      "pos": "noun",
+      "lemma": "Kirche",
+      "gender": "die",
+      "plural": "Kirchen",
+      "meaning_en": "church",
+      "example_de": "Die alte Kirche steht mitten in der Stadt.",
+      "example_en": "The old church stands in the middle of the city."
+    },
+    {
+      "id": "krankenhaus",
+      "pos": "noun",
+      "lemma": "Krankenhaus",
+      "gender": "das",
+      "plural": "Krankenhäuser",
+      "meaning_en": "hospital",
+      "example_de": "Er arbeitet in einem Krankenhaus.",
+      "example_en": "He works in a hospital."
+    },
+    {
+      "id": "bank",
+      "pos": "noun",
+      "lemma": "Bank",
+      "gender": "die",
+      "plural": "Banken",
+      "meaning_en": "bank",
+      "example_de": "Ich muss noch zur Bank gehen.",
+      "example_en": "I still need to go to the bank."
+    },
+    {
+      "id": "supermarkt",
+      "pos": "noun",
+      "lemma": "Supermarkt",
+      "gender": "der",
+      "plural": "Supermärkte",
+      "meaning_en": "supermarket",
+      "example_de": "Der Supermarkt ist gleich um die Ecke.",
+      "example_en": "The supermarket is right around the corner."
+    },
+    {
+      "id": "apotheke",
+      "pos": "noun",
+      "lemma": "Apotheke",
+      "gender": "die",
+      "plural": "Apotheken",
+      "meaning_en": "pharmacy",
+      "example_de": "Die Apotheke hat bis achtzehn Uhr geöffnet.",
+      "example_en": "The pharmacy is open until six p.m."
+    },
+    {
+      "id": "bahnhof",
+      "pos": "noun",
+      "lemma": "Bahnhof",
+      "gender": "der",
+      "plural": "Bahnhöfe",
+      "meaning_en": "train station",
+      "example_de": "Der Bahnhof ist nicht weit von hier.",
+      "example_en": "The train station is not far from here."
+    },
+    {
+      "id": "platz",
+      "pos": "noun",
+      "lemma": "Platz",
+      "gender": "der",
+      "plural": "Plätze",
+      "meaning_en": "square, place",
+      "example_de": "Auf dem Platz steht ein großer Baum.",
+      "example_en": "There is a big tree on the square."
+    },
+    {
+      "id": "bruecke",
+      "pos": "noun",
+      "lemma": "Brücke",
+      "gender": "die",
+      "plural": "Brücken",
+      "meaning_en": "bridge",
+      "example_de": "Die Brücke führt über den Fluss.",
+      "example_en": "The bridge leads over the river."
+    },
+    {
+      "id": "geschaeft",
+      "pos": "noun",
+      "lemma": "Geschäft",
+      "gender": "das",
+      "plural": "Geschäfte",
+      "meaning_en": "shop, store",
+      "example_de": "Das Geschäft schließt um zwanzig Uhr.",
+      "example_en": "The shop closes at eight p.m."
+    },
+    {
+      "id": "familie",
+      "pos": "noun",
+      "lemma": "Familie",
+      "gender": "die",
+      "plural": "Familien",
+      "meaning_en": "family",
+      "example_de": "Meine Familie ist sehr wichtig für mich.",
+      "example_en": "My family is very important to me."
+    },
+    {
+      "id": "mutter",
+      "pos": "noun",
+      "lemma": "Mutter",
+      "gender": "die",
+      "plural": "Mütter",
+      "meaning_en": "mother",
+      "example_de": "Meine Mutter kocht sehr gern.",
+      "example_en": "My mother likes to cook."
+    },
+    {
+      "id": "vater",
+      "pos": "noun",
+      "lemma": "Vater",
+      "gender": "der",
+      "plural": "Väter",
+      "meaning_en": "father",
+      "example_de": "Mein Vater arbeitet in einer Bank.",
+      "example_en": "My father works at a bank."
+    },
+    {
+      "id": "schwester",
+      "pos": "noun",
+      "lemma": "Schwester",
+      "gender": "die",
+      "plural": "Schwestern",
+      "meaning_en": "sister",
+      "example_de": "Ich habe zwei Schwestern.",
+      "example_en": "I have two sisters."
+    },
+    {
+      "id": "bruder",
+      "pos": "noun",
+      "lemma": "Bruder",
+      "gender": "der",
+      "plural": "Brüder",
+      "meaning_en": "brother",
+      "example_de": "Mein Bruder wohnt in Hamburg.",
+      "example_en": "My brother lives in Hamburg."
+    },
+    {
+      "id": "tochter",
+      "pos": "noun",
+      "lemma": "Tochter",
+      "gender": "die",
+      "plural": "Töchter",
+      "meaning_en": "daughter",
+      "example_de": "Ihre Tochter geht schon zur Schule.",
+      "example_en": "Her daughter already goes to school."
+    },
+    {
+      "id": "sohn",
+      "pos": "noun",
+      "lemma": "Sohn",
+      "gender": "der",
+      "plural": "Söhne",
+      "meaning_en": "son",
+      "example_de": "Unser Sohn ist erst drei Jahre alt.",
+      "example_en": "Our son is only three years old."
+    },
+    {
+      "id": "frau",
+      "pos": "noun",
+      "lemma": "Frau",
+      "gender": "die",
+      "plural": "Frauen",
+      "meaning_en": "woman, wife",
+      "example_de": "Die Frau steht an der Bushaltestelle.",
+      "example_en": "The woman is standing at the bus stop."
+    },
+    {
+      "id": "mann",
+      "pos": "noun",
+      "lemma": "Mann",
+      "gender": "der",
+      "plural": "Männer",
+      "meaning_en": "man, husband",
+      "example_de": "Der Mann trägt einen schwarzen Mantel.",
+      "example_en": "The man is wearing a black coat."
+    },
+    {
+      "id": "kind",
+      "pos": "noun",
+      "lemma": "Kind",
+      "gender": "das",
+      "plural": "Kinder",
+      "meaning_en": "child",
+      "example_de": "Das Kind spielt im Garten.",
+      "example_en": "The child is playing in the garden."
+    },
+    {
+      "id": "freund",
+      "pos": "noun",
+      "lemma": "Freund",
+      "gender": "der",
+      "plural": "Freunde",
+      "meaning_en": "friend, boyfriend",
+      "example_de": "Er ist mein bester Freund.",
+      "example_en": "He is my best friend."
+    },
+    {
+      "id": "freundin",
+      "pos": "noun",
+      "lemma": "Freundin",
+      "gender": "die",
+      "plural": "Freundinnen",
+      "meaning_en": "friend, girlfriend",
+      "example_de": "Meine Freundin ruft mich jeden Tag an.",
+      "example_en": "My friend calls me every day."
+    },
+    {
+      "id": "kopf",
+      "pos": "noun",
+      "lemma": "Kopf",
+      "gender": "der",
+      "plural": "Köpfe",
+      "meaning_en": "head",
+      "example_de": "Mir tut der Kopf weh.",
+      "example_en": "My head hurts."
+    },
+    {
+      "id": "hand",
+      "pos": "noun",
+      "lemma": "Hand",
+      "gender": "die",
+      "plural": "Hände",
+      "meaning_en": "hand",
+      "example_de": "Gib mir bitte deine Hand.",
+      "example_en": "Please give me your hand."
+    },
+    {
+      "id": "fuss",
+      "pos": "noun",
+      "lemma": "Fuß",
+      "gender": "der",
+      "plural": "Füße",
+      "meaning_en": "foot",
+      "example_de": "Mein Fuß tut weh.",
+      "example_en": "My foot hurts."
+    },
+    {
+      "id": "auge",
+      "pos": "noun",
+      "lemma": "Auge",
+      "gender": "das",
+      "plural": "Augen",
+      "meaning_en": "eye",
+      "example_de": "Sie hat blaue Augen.",
+      "example_en": "She has blue eyes."
+    },
+    {
+      "id": "ohr",
+      "pos": "noun",
+      "lemma": "Ohr",
+      "gender": "das",
+      "plural": "Ohren",
+      "meaning_en": "ear",
+      "example_de": "Er hört schlecht auf einem Ohr.",
+      "example_en": "He hears poorly in one ear."
+    },
+    {
+      "id": "mund",
+      "pos": "noun",
+      "lemma": "Mund",
+      "gender": "der",
+      "plural": "Münder",
+      "meaning_en": "mouth",
+      "example_de": "Mach bitte den Mund auf.",
+      "example_en": "Please open your mouth."
+    },
+    {
+      "id": "nase",
+      "pos": "noun",
+      "lemma": "Nase",
+      "gender": "die",
+      "plural": "Nasen",
+      "meaning_en": "nose",
+      "example_de": "Meine Nase ist kalt.",
+      "example_en": "My nose is cold."
+    },
+    {
+      "id": "haar",
+      "pos": "noun",
+      "lemma": "Haar",
+      "gender": "das",
+      "plural": "Haare",
+      "meaning_en": "hair",
+      "example_de": "Sie hat lange, dunkle Haare.",
+      "example_en": "She has long, dark hair."
+    },
+    {
+      "id": "arm",
+      "pos": "noun",
+      "lemma": "Arm",
+      "gender": "der",
+      "plural": "Arme",
+      "meaning_en": "arm",
+      "example_de": "Er hat sich den Arm gebrochen.",
+      "example_en": "He broke his arm."
+    },
+    {
+      "id": "bein",
+      "pos": "noun",
+      "lemma": "Bein",
+      "gender": "das",
+      "plural": "Beine",
+      "meaning_en": "leg",
+      "example_de": "Ihr Bein tut nach dem Sport weh.",
+      "example_en": "Her leg hurts after the sport."
+    },
+    {
+      "id": "hemd",
+      "pos": "noun",
+      "lemma": "Hemd",
+      "gender": "das",
+      "plural": "Hemden",
+      "meaning_en": "shirt",
+      "example_de": "Er trägt ein weißes Hemd.",
+      "example_en": "He is wearing a white shirt."
+    },
+    {
+      "id": "hose",
+      "pos": "noun",
+      "lemma": "Hose",
+      "gender": "die",
+      "plural": "Hosen",
+      "meaning_en": "pants, trousers",
+      "example_de": "Die Hose ist mir zu groß.",
+      "example_en": "The pants are too big for me."
+    },
+    {
+      "id": "kleid",
+      "pos": "noun",
+      "lemma": "Kleid",
+      "gender": "das",
+      "plural": "Kleider",
+      "meaning_en": "dress",
+      "example_de": "Sie trägt ein rotes Kleid.",
+      "example_en": "She is wearing a red dress."
+    },
+    {
+      "id": "jacke",
+      "pos": "noun",
+      "lemma": "Jacke",
+      "gender": "die",
+      "plural": "Jacken",
+      "meaning_en": "jacket",
+      "example_de": "Zieh deine Jacke an, es ist kalt.",
+      "example_en": "Put on your jacket, it's cold."
+    }
+  ]
+}

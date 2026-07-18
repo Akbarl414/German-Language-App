@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "phrase-set.schema.json",
+  "title": "Phrase / Idiom Set",
+  "type": "object",
+  "required": ["id", "title", "phrases"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "phrases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/phrase" }
+    }
+  },
+  "definitions": {
+    "phrase": {
+      "type": "object",
+      "required": ["id", "phrase", "literal", "meaning", "register", "situation"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "phrase": { "type": "string", "minLength": 1, "description": "The idiom/phrase itself, e.g. 'Das ist mir Wurst.'" },
+        "literal": { "type": "string", "minLength": 1, "description": "Word-for-word literal translation." },
+        "meaning": { "type": "string", "minLength": 1, "description": "Actual meaning in English." },
+        "register": { "type": "string", "enum": ["colloquial", "neutral", "formal"] },
+        "situation": { "type": "string", "minLength": 1, "description": "A short example dialogue or situation showing natural use, in German with English gloss if helpful." },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

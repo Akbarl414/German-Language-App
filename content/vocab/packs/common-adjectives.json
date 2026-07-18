@@ -1,0 +1,414 @@
+{
+  "id": "common-adjectives",
+  "title": "Common Adjectives",
+  "level": "A2",
+  "topic": "Everyday descriptive adjectives",
+  "words": [
+    {
+      "id": "gross",
+      "pos": "adjective",
+      "lemma": "groß",
+      "meaning_en": "big, tall, large",
+      "example_de": "Mein Bruder ist sehr groß.",
+      "example_en": "My brother is very tall.",
+      "comparative": "größer",
+      "superlative": "am größten"
+    },
+    {
+      "id": "klein",
+      "pos": "adjective",
+      "lemma": "klein",
+      "meaning_en": "small, little",
+      "example_de": "Die Wohnung ist klein, aber gemütlich.",
+      "example_en": "The apartment is small but cozy."
+    },
+    {
+      "id": "lang",
+      "pos": "adjective",
+      "lemma": "lang",
+      "meaning_en": "long",
+      "example_de": "Der Weg zur Arbeit ist sehr lang.",
+      "example_en": "The way to work is very long."
+    },
+    {
+      "id": "kurz",
+      "pos": "adjective",
+      "lemma": "kurz",
+      "meaning_en": "short",
+      "example_de": "Ich habe nur kurze Zeit.",
+      "example_en": "I only have a short time."
+    },
+    {
+      "id": "breit",
+      "pos": "adjective",
+      "lemma": "breit",
+      "meaning_en": "wide, broad",
+      "example_de": "Die Straße ist sehr breit.",
+      "example_en": "The street is very wide."
+    },
+    {
+      "id": "schmal",
+      "pos": "adjective",
+      "lemma": "schmal",
+      "meaning_en": "narrow",
+      "example_de": "Der Gang zwischen den Regalen ist schmal.",
+      "example_en": "The aisle between the shelves is narrow."
+    },
+    {
+      "id": "hoch",
+      "pos": "adjective",
+      "lemma": "hoch",
+      "meaning_en": "high, tall",
+      "example_de": "Der Berg ist sehr hoch.",
+      "example_en": "The mountain is very high.",
+      "comparative": "höher",
+      "superlative": "am höchsten"
+    },
+    {
+      "id": "niedrig",
+      "pos": "adjective",
+      "lemma": "niedrig",
+      "meaning_en": "low",
+      "example_de": "Die Decke in diesem Zimmer ist niedrig.",
+      "example_en": "The ceiling in this room is low."
+    },
+    {
+      "id": "schwer",
+      "pos": "adjective",
+      "lemma": "schwer",
+      "meaning_en": "heavy; difficult",
+      "example_de": "Der Koffer ist zu schwer.",
+      "example_en": "The suitcase is too heavy."
+    },
+    {
+      "id": "leicht",
+      "pos": "adjective",
+      "lemma": "leicht",
+      "meaning_en": "light; easy",
+      "example_de": "Der Rucksack ist ziemlich leicht.",
+      "example_en": "The backpack is quite light."
+    },
+    {
+      "id": "schnell",
+      "pos": "adjective",
+      "lemma": "schnell",
+      "meaning_en": "fast, quick",
+      "example_de": "Das Auto fährt sehr schnell.",
+      "example_en": "The car drives very fast."
+    },
+    {
+      "id": "langsam",
+      "pos": "adjective",
+      "lemma": "langsam",
+      "meaning_en": "slow",
+      "example_de": "Der Zug fährt heute langsam.",
+      "example_en": "The train is going slowly today."
+    },
+    {
+      "id": "alt",
+      "pos": "adjective",
+      "lemma": "alt",
+      "meaning_en": "old",
+      "example_de": "Das Haus ist sehr alt.",
+      "example_en": "The house is very old."
+    },
+    {
+      "id": "jung",
+      "pos": "adjective",
+      "lemma": "jung",
+      "meaning_en": "young",
+      "example_de": "Die Lehrerin ist noch jung.",
+      "example_en": "The teacher is still young."
+    },
+    {
+      "id": "neu",
+      "pos": "adjective",
+      "lemma": "neu",
+      "meaning_en": "new",
+      "example_de": "Ich brauche ein neues Handy.",
+      "example_en": "I need a new phone."
+    },
+    {
+      "id": "teuer",
+      "pos": "adjective",
+      "lemma": "teuer",
+      "meaning_en": "expensive",
+      "example_de": "Das Restaurant ist mir zu teuer.",
+      "example_en": "The restaurant is too expensive for me."
+    },
+    {
+      "id": "billig",
+      "pos": "adjective",
+      "lemma": "billig",
+      "meaning_en": "cheap",
+      "example_de": "Der Markt hat billiges Gemüse.",
+      "example_en": "The market has cheap vegetables."
+    },
+    {
+      "id": "gut",
+      "pos": "adjective",
+      "lemma": "gut",
+      "meaning_en": "good",
+      "example_de": "Das Essen schmeckt sehr gut.",
+      "example_en": "The food tastes very good.",
+      "comparative": "besser",
+      "superlative": "am besten"
+    },
+    {
+      "id": "schlecht",
+      "pos": "adjective",
+      "lemma": "schlecht",
+      "meaning_en": "bad",
+      "example_de": "Das Wetter ist heute schlecht.",
+      "example_en": "The weather is bad today."
+    },
+    {
+      "id": "schoen",
+      "pos": "adjective",
+      "lemma": "schön",
+      "meaning_en": "beautiful, nice",
+      "example_de": "Die Stadt ist wirklich schön.",
+      "example_en": "The city is really beautiful."
+    },
+    {
+      "id": "haesslich",
+      "pos": "adjective",
+      "lemma": "hässlich",
+      "meaning_en": "ugly",
+      "example_de": "Ich finde diese Farbe hässlich.",
+      "example_en": "I find this color ugly."
+    },
+    {
+      "id": "sauber",
+      "pos": "adjective",
+      "lemma": "sauber",
+      "meaning_en": "clean",
+      "example_de": "Die Küche ist sehr sauber.",
+      "example_en": "The kitchen is very clean."
+    },
+    {
+      "id": "schmutzig",
+      "pos": "adjective",
+      "lemma": "schmutzig",
+      "meaning_en": "dirty",
+      "example_de": "Meine Schuhe sind ganz schmutzig.",
+      "example_en": "My shoes are completely dirty."
+    },
+    {
+      "id": "voll",
+      "pos": "adjective",
+      "lemma": "voll",
+      "meaning_en": "full",
+      "example_de": "Der Bus ist heute total voll.",
+      "example_en": "The bus is totally full today."
+    },
+    {
+      "id": "leer",
+      "pos": "adjective",
+      "lemma": "leer",
+      "meaning_en": "empty",
+      "example_de": "Die Flasche ist schon leer.",
+      "example_en": "The bottle is already empty."
+    },
+    {
+      "id": "hart",
+      "pos": "adjective",
+      "lemma": "hart",
+      "meaning_en": "hard",
+      "example_de": "Das Brot ist heute sehr hart.",
+      "example_en": "The bread is very hard today."
+    },
+    {
+      "id": "weich",
+      "pos": "adjective",
+      "lemma": "weich",
+      "meaning_en": "soft",
+      "example_de": "Das Kissen ist schön weich.",
+      "example_en": "The pillow is nice and soft."
+    },
+    {
+      "id": "warm",
+      "pos": "adjective",
+      "lemma": "warm",
+      "meaning_en": "warm",
+      "example_de": "Im Sommer ist es hier warm.",
+      "example_en": "It is warm here in summer."
+    },
+    {
+      "id": "kalt",
+      "pos": "adjective",
+      "lemma": "kalt",
+      "meaning_en": "cold",
+      "example_de": "Der Kaffee ist schon kalt.",
+      "example_en": "The coffee is already cold."
+    },
+    {
+      "id": "heiss",
+      "pos": "adjective",
+      "lemma": "heiß",
+      "meaning_en": "hot",
+      "example_de": "Die Suppe ist noch sehr heiß.",
+      "example_en": "The soup is still very hot."
+    },
+    {
+      "id": "kuehl",
+      "pos": "adjective",
+      "lemma": "kühl",
+      "meaning_en": "cool",
+      "example_de": "Abends wird es hier kühl.",
+      "example_en": "It gets cool here in the evenings."
+    },
+    {
+      "id": "trocken",
+      "pos": "adjective",
+      "lemma": "trocken",
+      "meaning_en": "dry",
+      "example_de": "Die Luft in der Wüste ist trocken.",
+      "example_en": "The air in the desert is dry."
+    },
+    {
+      "id": "nass",
+      "pos": "adjective",
+      "lemma": "nass",
+      "meaning_en": "wet",
+      "example_de": "Meine Kleidung ist vom Regen nass.",
+      "example_en": "My clothes are wet from the rain."
+    },
+    {
+      "id": "hell",
+      "pos": "adjective",
+      "lemma": "hell",
+      "meaning_en": "bright, light",
+      "example_de": "Das Zimmer ist sehr hell.",
+      "example_en": "The room is very bright."
+    },
+    {
+      "id": "dunkel",
+      "pos": "adjective",
+      "lemma": "dunkel",
+      "meaning_en": "dark",
+      "example_de": "Im Keller ist es sehr dunkel.",
+      "example_en": "It is very dark in the basement."
+    },
+    {
+      "id": "laut",
+      "pos": "adjective",
+      "lemma": "laut",
+      "meaning_en": "loud",
+      "example_de": "Die Musik ist mir zu laut.",
+      "example_en": "The music is too loud for me."
+    },
+    {
+      "id": "leise",
+      "pos": "adjective",
+      "lemma": "leise",
+      "meaning_en": "quiet, soft (sound)",
+      "example_de": "Bitte sprich leise, das Baby schläft.",
+      "example_en": "Please speak quietly, the baby is sleeping."
+    },
+    {
+      "id": "stark",
+      "pos": "adjective",
+      "lemma": "stark",
+      "meaning_en": "strong",
+      "example_de": "Er ist sehr stark und trägt die Kisten allein.",
+      "example_en": "He is very strong and carries the boxes alone."
+    },
+    {
+      "id": "schwach",
+      "pos": "adjective",
+      "lemma": "schwach",
+      "meaning_en": "weak",
+      "example_de": "Nach der Krankheit fühlt sie sich schwach.",
+      "example_en": "After the illness she feels weak."
+    },
+    {
+      "id": "einfach",
+      "pos": "adjective",
+      "lemma": "einfach",
+      "meaning_en": "simple, easy",
+      "example_de": "Die Übung ist wirklich einfach.",
+      "example_en": "The exercise is really simple."
+    },
+    {
+      "id": "schwierig",
+      "pos": "adjective",
+      "lemma": "schwierig",
+      "meaning_en": "difficult",
+      "example_de": "Die Prüfung war sehr schwierig.",
+      "example_en": "The exam was very difficult."
+    },
+    {
+      "id": "richtig",
+      "pos": "adjective",
+      "lemma": "richtig",
+      "meaning_en": "correct, right",
+      "example_de": "Deine Antwort ist richtig.",
+      "example_en": "Your answer is correct."
+    },
+    {
+      "id": "falsch",
+      "pos": "adjective",
+      "lemma": "falsch",
+      "meaning_en": "wrong, false",
+      "example_de": "Diese Nummer ist falsch.",
+      "example_en": "This number is wrong."
+    },
+    {
+      "id": "offen",
+      "pos": "adjective",
+      "lemma": "offen",
+      "meaning_en": "open",
+      "example_de": "Das Fenster ist die ganze Nacht offen.",
+      "example_en": "The window is open all night."
+    },
+    {
+      "id": "geschlossen",
+      "pos": "adjective",
+      "lemma": "geschlossen",
+      "meaning_en": "closed",
+      "example_de": "Der Laden ist sonntags geschlossen.",
+      "example_en": "The shop is closed on Sundays."
+    },
+    {
+      "id": "frei",
+      "pos": "adjective",
+      "lemma": "frei",
+      "meaning_en": "free, available",
+      "example_de": "Ist dieser Platz noch frei?",
+      "example_en": "Is this seat still free?"
+    },
+    {
+      "id": "besetzt",
+      "pos": "adjective",
+      "lemma": "besetzt",
+      "meaning_en": "occupied, taken",
+      "example_de": "Die Toilette ist gerade besetzt.",
+      "example_en": "The toilet is occupied right now."
+    },
+    {
+      "id": "gesund",
+      "pos": "adjective",
+      "lemma": "gesund",
+      "meaning_en": "healthy",
+      "example_de": "Obst und Gemüse sind gesund.",
+      "example_en": "Fruit and vegetables are healthy."
+    },
+    {
+      "id": "krank",
+      "pos": "adjective",
+      "lemma": "krank",
+      "meaning_en": "sick, ill",
+      "example_de": "Mein Kollege ist heute krank.",
+      "example_en": "My colleague is sick today."
+    },
+    {
+      "id": "muede",
+      "pos": "adjective",
+      "lemma": "müde",
+      "meaning_en": "tired",
+      "example_de": "Nach der Arbeit bin ich immer müde.",
+      "example_en": "After work I am always tired."
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "id": "adjective-endings",
+  "title": "Adjective Endings (Nominativ & Akkusativ)",
+  "level": "A2-B1",
+  "summary": "How adjective endings change depending on case, gender, and what kind of article (if any) comes before them.",
+  "explanation": {
+    "sections": [
+      {
+        "heading": "Three patterns, one goal",
+        "body": "When an adjective comes directly before a noun (die gute Idee), it needs an ending. Which ending depends on three things: the case (here: Nominativ or Akkusativ), the gender/number of the noun, and what precedes the adjective:\n1. A der-word (der, die, das, dieser, jeder, welcher...) → weak declension.\n2. An ein-word (ein, kein, mein, dein...) → mixed declension.\n3. No article at all → strong declension.\nThe underlying logic: German only needs ONE strong signal of case+gender per noun phrase. If the article already gives that signal clearly, the adjective ending can be weak (-e or -en). If there's no article, or the article is ambiguous, the adjective ending has to carry that signal itself."
+      },
+      {
+        "heading": "Weak declension — after der/die/das",
+        "body": "After a definite article (or dieser/jeder/welcher), adjectives end in -e or -en almost everywhere, because the article already shows case and gender.",
+        "table": {
+          "headers": ["Case", "Maskulin", "Feminin", "Neutrum", "Plural"],
+          "rows": [
+            ["Nominativ", "der gute Mann", "die gute Frau", "das gute Kind", "die guten Kinder"],
+            ["Akkusativ", "den guten Mann", "die gute Frau", "das gute Kind", "die guten Kinder"]
+          ]
+        }
+      },
+      {
+        "heading": "Mixed declension — after ein/kein/mein...",
+        "body": "Ein-words don't mark gender clearly in the masculine nominative or the neuter nominative/accusative (ein could be any of those) — so there the adjective ending has to step in and show it (-er, -es). Everywhere else, the ending is weak (-e or -en), just like after der-words.",
+        "table": {
+          "headers": ["Case", "Maskulin", "Feminin", "Neutrum", "Plural (kein/meine)"],
+          "rows": [
+            ["Nominativ", "ein guter Mann", "eine gute Frau", "ein gutes Kind", "keine guten Kinder"],
+            ["Akkusativ", "einen guten Mann", "eine gute Frau", "ein gutes Kind", "keine guten Kinder"]
+          ]
+        }
+      },
+      {
+        "heading": "Strong declension — no article",
+        "body": "With no article at all (often with uncountable nouns, plurals, or in headlines), the adjective ending itself has to carry the full case/gender signal — it mirrors the endings that der/die/das/die would have.",
+        "table": {
+          "headers": ["Case", "Maskulin", "Feminin", "Neutrum", "Plural"],
+          "rows": [
+            ["Nominativ", "guter Wein", "gute Milch", "gutes Brot", "gute Kinder"],
+            ["Akkusativ", "guten Wein", "gute Milch", "gutes Brot", "gute Kinder"]
+          ]
+        }
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "id": "fb-1",
+      "type": "fill-blank",
+      "prompt": "Der klein___ Hund schläft. (Nominativ, Maskulin, nach \"der\")",
+      "answer": "e",
+      "explanation": "Weak declension after \"der\": masculine nominative ending is -e."
+    },
+    {
+      "id": "fb-2",
+      "type": "fill-blank",
+      "prompt": "Ich sehe den klein___ Hund. (Akkusativ, Maskulin, nach \"den\")",
+      "answer": "en",
+      "explanation": "Weak declension: masculine accusative ending after \"den\" is -en."
+    },
+    {
+      "id": "fb-3",
+      "type": "fill-blank",
+      "prompt": "Ein klein___ Hund schläft. (Nominativ, Maskulin, nach \"ein\")",
+      "answer": "er",
+      "explanation": "Mixed declension: \"ein\" doesn't show gender in the masculine nominative, so the adjective takes -er to signal it."
+    },
+    {
+      "id": "fb-4",
+      "type": "fill-blank",
+      "prompt": "Ich habe einen klein___ Hund. (Akkusativ, Maskulin, nach \"einen\")",
+      "answer": "en",
+      "explanation": "\"einen\" already clearly marks masculine accusative, so the adjective is weak: -en."
+    },
+    {
+      "id": "fb-5",
+      "type": "fill-blank",
+      "prompt": "Das ist ein neu___ Auto. (Nominativ, Neutrum, nach \"ein\")",
+      "answer": "es",
+      "explanation": "Mixed declension: \"ein\" doesn't show gender for neuter either, so the adjective takes -es."
+    },
+    {
+      "id": "fb-6",
+      "type": "fill-blank",
+      "prompt": "Wir kaufen frisch___ Brot. (Akkusativ, Neutrum, kein Artikel)",
+      "answer": "es",
+      "explanation": "Strong declension (no article): the adjective must carry the neuter signal itself, -es, matching what \"das\" would show."
+    },
+    {
+      "id": "fb-7",
+      "type": "fill-blank",
+      "prompt": "Meine gut___ Freundin kommt heute. (Nominativ, Feminin, nach \"meine\")",
+      "answer": "e",
+      "explanation": "Feminine nominative/accusative after an ein-word is always weak: -e."
+    },
+    {
+      "id": "fb-8",
+      "type": "fill-blank",
+      "prompt": "Kalt___ Wasser schmeckt im Sommer gut. (Nominativ, Neutrum, kein Artikel)",
+      "answer": "es",
+      "explanation": "Strong declension: no article, so the adjective takes -es to show neuter nominative."
+    },
+    {
+      "id": "fb-9",
+      "type": "fill-blank",
+      "prompt": "Sie hat keine neu___ Ideen. (Akkusativ, Plural, nach \"keine\")",
+      "answer": "en",
+      "explanation": "Plural after an ein-word (keine) is weak: -en, just like after \"die\"."
+    },
+    {
+      "id": "mc-1",
+      "type": "multiple-choice",
+      "prompt": "Die klein___ Katze schläft. Which ending?",
+      "options": ["-e", "-er", "-es", "-en"],
+      "answerIndex": 0,
+      "explanation": "Weak declension after \"die\": feminine nominative ending is -e."
+    },
+    {
+      "id": "mc-2",
+      "type": "multiple-choice",
+      "prompt": "Er trinkt schwarz___ Kaffee. (kein Artikel, Akkusativ, Maskulin)",
+      "options": ["-e", "-er", "-en", "-es"],
+      "answerIndex": 2,
+      "explanation": "Strong declension, masculine accusative: the ending must show it, -en (matching \"den\")."
+    },
+    {
+      "id": "mc-3",
+      "type": "multiple-choice",
+      "prompt": "Ich lese ein spannend___ Buch. Which ending?",
+      "options": ["-es", "-e", "-en", "-er"],
+      "answerIndex": 0,
+      "explanation": "Mixed declension, neuter accusative after \"ein\": -es (ein doesn't mark neuter, so the adjective does)."
+    },
+    {
+      "id": "mc-4",
+      "type": "multiple-choice",
+      "prompt": "Which article type requires the STRONGEST adjective endings overall?",
+      "options": ["der-words (definite article)", "ein-words (indefinite article)", "no article at all"],
+      "answerIndex": 2,
+      "explanation": "With no article, the adjective alone must signal case and gender, so it uses the strongest set of endings."
+    },
+    {
+      "id": "mc-5",
+      "type": "multiple-choice",
+      "prompt": "Warum braucht \"ein\" im Maskulinum Nominativ ein -er am Adjektiv?",
+      "options": ["Weil \"ein\" Maskulinum, Neutrum und teils andere Formen nicht eindeutig markiert", "Weil alle Adjektive nach \"ein\" immer -er bekommen", "Weil \"ein\" ein der-Wort ist"],
+      "answerIndex": 0,
+      "explanation": "\"ein\" looks the same for masculine and neuter, so it can't show gender on its own — the adjective ending has to."
+    },
+    {
+      "id": "cf-1",
+      "type": "choose-form",
+      "prompt": "Der neu___ Kollege heißt Tom. (Nominativ, Maskulin, nach \"der\")",
+      "options": ["-e", "-er", "-en", "-es"],
+      "answerIndex": 0,
+      "explanation": "Weak declension after \"der\": masculine nominative is always -e."
+    },
+    {
+      "id": "cf-2",
+      "type": "choose-form",
+      "prompt": "Ich mag den neu___ Kollegen. (Akkusativ, Maskulin, nach \"den\")",
+      "options": ["-e", "-er", "-en", "-es"],
+      "answerIndex": 2,
+      "explanation": "Weak declension: masculine accusative after \"den\" is -en."
+    },
+    {
+      "id": "cf-3",
+      "type": "choose-form",
+      "prompt": "Guter Kaffee macht wach. (Nominativ, Maskulin, kein Artikel) — which article-less pattern is this?",
+      "options": ["weak", "mixed", "strong"],
+      "answerIndex": 2,
+      "explanation": "No article at all → strong declension, where the adjective mirrors the definite article's ending (-er, like \"der\")."
+    },
+    {
+      "id": "cf-4",
+      "type": "choose-form",
+      "prompt": "Wir haben ein klein___ Problem. (Nominativ, Neutrum, nach \"ein\")",
+      "options": ["-es", "-e", "-en", "-er"],
+      "answerIndex": 0,
+      "explanation": "Mixed declension, neuter nominative after \"ein\": -es."
+    },
+    {
+      "id": "es-1",
+      "type": "error-spot",
+      "prompt": "Der neue Kollege sieht den neue Chef.",
+      "answer": "Der neue Kollege sieht den neuen Chef.",
+      "explanation": "\"den Chef\" is masculine accusative, so the adjective needs the weak accusative ending -en, not -e."
+    },
+    {
+      "id": "es-2",
+      "type": "error-spot",
+      "prompt": "Ich trinke gerne kalte Wasser.",
+      "answer": "Ich trinke gerne kaltes Wasser.",
+      "explanation": "\"Wasser\" is neuter with no article (strong declension), so the adjective needs -es, not -e."
+    },
+    {
+      "id": "es-3",
+      "type": "error-spot",
+      "prompt": "Ein guter Freundin hat mir geholfen.",
+      "answer": "Eine gute Freundin hat mir geholfen.",
+      "explanation": "\"Freundin\" is feminine, so it needs \"eine\" (not \"ein\") and the weak feminine ending -e (not -er)."
+    },
+    {
+      "id": "es-4",
+      "type": "error-spot",
+      "prompt": "Wir besuchen unseren alte Großvater.",
+      "answer": "Wir besuchen unseren alten Großvater.",
+      "explanation": "\"unseren Großvater\" is masculine accusative after an ein-word, which needs the weak ending -en, not -e."
+    },
+    {
+      "id": "ro-1",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["kleine", "die", "eine", "Wohnung", "hat", "Familie"],
+      "answerOrder": ["Die", "Familie", "hat", "eine", "kleine", "Wohnung"],
+      "explanation": "Subject (Die Familie) + verb (hat) + accusative object with mixed-declension adjective (eine kleine Wohnung, feminine accusative = -e)."
+    },
+    {
+      "id": "ro-2",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["Mann", "der", "gute", "hilft", "uns"],
+      "answerOrder": ["Der", "gute", "Mann", "hilft", "uns"],
+      "explanation": "Subject with weak-declension adjective (Der gute Mann, masculine nominative = -e) + verb + object."
+    },
+    {
+      "id": "ro-3",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["frisches", "Brot", "kaufen", "wir", "jeden", "Tag"],
+      "answerOrder": ["Wir", "kaufen", "jeden", "Tag", "frisches", "Brot"],
+      "explanation": "Strong declension (no article): \"frisches Brot\" — neuter accusative ending -es, since there's no article to carry the signal."
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "id": "wechselpraepositionen",
+  "title": "Wechselpräpositionen",
+  "level": "A2-B1",
+  "summary": "Two-way prepositions that take Akkusativ (motion) or Dativ (location) depending on the question wo? vs wohin?",
+  "explanation": {
+    "sections": [
+      {
+        "heading": "The nine two-way prepositions",
+        "body": "German has nine prepositions that can take either the accusative or the dative case, depending on meaning. They describe position or movement relative to something.\nThe same preposition can mean two different things: a fixed location (dative) or a movement toward a new location (accusative).",
+        "table": {
+          "headers": ["an", "auf", "hinter", "in", "neben", "über", "unter", "vor", "zwischen"],
+          "rows": [["at/on (vertical surfaces)", "on (horizontal surfaces)", "behind", "in/into", "next to", "over/above", "under", "in front of", "between"]]
+        }
+      },
+      {
+        "heading": "wo? (Dativ) vs. wohin? (Akkusativ)",
+        "body": "Ask yourself: is this describing WHERE something already is (no change of location), or WHERE something is going (a change of location)?\nwo? → location, no motion across a boundary → Dativ. Example: Das Buch liegt auf dem Tisch. (The book is lying on the table.)\nwohin? → motion toward a new place → Akkusativ. Example: Ich lege das Buch auf den Tisch. (I put the book onto the table.)\nThe preposition itself doesn't change — only the case of the article/noun that follows it changes.",
+        "table": {
+          "headers": ["Case", "Question", "Masculine (der)", "Feminine (die)", "Neuter (das)", "Plural (die)"],
+          "rows": [
+            ["Dativ (wo?)", "location", "dem", "der", "dem", "den"],
+            ["Akkusativ (wohin?)", "direction", "den", "die", "das", "die"]
+          ]
+        }
+      },
+      {
+        "heading": "Contracted forms",
+        "body": "Some preposition + article combinations are almost always contracted in everyday German:\nan + dem = am · an + das = ans · in + dem = im · in + das = ins\nExample: Ich bin im Büro. (location, dative) / Ich gehe ins Büro. (direction, accusative)"
+      },
+      {
+        "heading": "The classic verb pairs",
+        "body": "German distinguishes between an action that causes a change of position (accusative) and the resulting state (dative), using different verb pairs:",
+        "table": {
+          "headers": ["Action → Akkusativ", "State → Dativ"],
+          "rows": [
+            ["stellen (to put/stand something up)", "stehen (to stand/be positioned)"],
+            ["legen (to lay something down)", "liegen (to lie/be lying)"],
+            ["setzen (to set/sit something down)", "sitzen (to sit/be sitting)"],
+            ["hängen (to hang something, weak verb)", "hängen (to be hanging, strong verb)"],
+            ["stecken (to put/insert something)", "stecken (to be stuck/inserted)"]
+          ]
+        }
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "id": "fb-1",
+      "type": "fill-blank",
+      "prompt": "Das Buch liegt auf ___ Tisch. (wo?)",
+      "answer": "dem",
+      "explanation": "\"liegen\" describes a fixed location (wo?), so \"auf\" takes the dative: der Tisch → dem Tisch."
+    },
+    {
+      "id": "fb-2",
+      "type": "fill-blank",
+      "prompt": "Ich lege das Buch auf ___ Tisch. (wohin?)",
+      "answer": "den",
+      "explanation": "\"legen\" describes a movement onto a surface (wohin?), so \"auf\" takes the accusative: der Tisch → den Tisch."
+    },
+    {
+      "id": "fb-3",
+      "type": "fill-blank",
+      "prompt": "Die Katze sitzt unter ___ Stuhl.",
+      "answer": "dem",
+      "explanation": "\"sitzen\" is a state (wo?), so dative: der Stuhl → dem Stuhl."
+    },
+    {
+      "id": "fb-4",
+      "type": "fill-blank",
+      "prompt": "Er hängt das Bild an ___ Wand.",
+      "answer": "die",
+      "explanation": "\"hängen\" (weak, transitive) here means the action of hanging something up (wohin?), so accusative: die Wand stays \"die\" in feminine accusative."
+    },
+    {
+      "id": "fb-5",
+      "type": "fill-blank",
+      "prompt": "Wir gehen heute Abend ___ Kino.",
+      "answer": "ins",
+      "explanation": "Motion into a place (wohin?): in + das Kino → ins Kino (contracted)."
+    },
+    {
+      "id": "fb-6",
+      "type": "fill-blank",
+      "prompt": "Am Wochenende bin ich ___ Kino gewesen.",
+      "answer": "im",
+      "explanation": "\"sein\" here describes being located somewhere (wo?): in + dem Kino → im Kino (contracted)."
+    },
+    {
+      "id": "fb-7",
+      "type": "fill-blank",
+      "prompt": "Der Ball rollt unter ___ Auto.",
+      "answer": "das",
+      "explanation": "Motion of the ball to a new position under the car (wohin?): das Auto stays \"das\" in neuter accusative."
+    },
+    {
+      "id": "fb-8",
+      "type": "fill-blank",
+      "prompt": "Zwischen ___ beiden Häusern steht ein Baum.",
+      "answer": "den",
+      "explanation": "Plural + dative (wo? — the tree's fixed location): die Häuser → den Häusern."
+    },
+    {
+      "id": "mc-1",
+      "type": "multiple-choice",
+      "prompt": "Ich stelle die Vase ___ das Fenster. Which case does the noun take?",
+      "options": ["Akkusativ, because it's a movement (wohin?)", "Dativ, because it's a location (wo?)"],
+      "answerIndex": 0,
+      "explanation": "\"stellen\" describes placing something (a movement resulting in a new position), so it takes the accusative — wohin?"
+    },
+    {
+      "id": "mc-2",
+      "type": "multiple-choice",
+      "prompt": "Die Vase steht ___ dem Fenster. Which case?",
+      "options": ["Akkusativ", "Dativ, because it's a fixed state (wo?)"],
+      "answerIndex": 1,
+      "explanation": "\"stehen\" describes the resulting state of standing somewhere, so it takes the dative — wo?"
+    },
+    {
+      "id": "mc-3",
+      "type": "multiple-choice",
+      "prompt": "Complete: Die Kinder spielen ___ Garten.",
+      "options": ["im", "ins", "in dem", "in den"],
+      "answerIndex": 0,
+      "explanation": "Location (wo? — playing somewhere, not moving into it): in + dem Garten = im Garten."
+    },
+    {
+      "id": "mc-4",
+      "type": "multiple-choice",
+      "prompt": "Complete: Die Kinder laufen ___ Garten.",
+      "options": ["im Garten", "in den Garten", "in dem Garten", "in der Garten"],
+      "answerIndex": 1,
+      "explanation": "\"laufen\" here implies running INTO the garden (direction, wohin?), so accusative: in + den Garten."
+    },
+    {
+      "id": "mc-5",
+      "type": "multiple-choice",
+      "prompt": "Welche Präposition passt? Das Poster hängt ___ der Wand.",
+      "options": ["an", "auf", "in", "vor"],
+      "answerIndex": 0,
+      "explanation": "\"an\" is used for things attached to a vertical surface like a wall."
+    },
+    {
+      "id": "mc-6",
+      "type": "multiple-choice",
+      "prompt": "Welche Präposition passt? Das Buch liegt ___ dem Tisch.",
+      "options": ["an", "auf", "unter", "hinter"],
+      "answerIndex": 1,
+      "explanation": "\"auf\" is used for things resting on a horizontal surface like a table."
+    },
+    {
+      "id": "cf-1",
+      "type": "choose-form",
+      "prompt": "Er setzt sich ___ Stuhl. (wohin?)",
+      "options": ["auf den", "auf dem", "auf die", "auf das"],
+      "answerIndex": 0,
+      "explanation": "\"sich setzen\" is a movement (sitting down onto something), so accusative: der Stuhl → auf den Stuhl."
+    },
+    {
+      "id": "cf-2",
+      "type": "choose-form",
+      "prompt": "Er sitzt ___ Stuhl. (wo?)",
+      "options": ["auf den", "auf dem", "auf die", "auf das"],
+      "answerIndex": 1,
+      "explanation": "\"sitzen\" is a state, so dative: der Stuhl → auf dem Stuhl."
+    },
+    {
+      "id": "cf-3",
+      "type": "choose-form",
+      "prompt": "Die Maus läuft ___ Bett. (wohin? — under the bed)",
+      "options": ["unter das", "unter dem", "unter den", "unter die"],
+      "answerIndex": 0,
+      "explanation": "Motion toward a new position under the bed (wohin?): das Bett stays \"das\" in neuter accusative."
+    },
+    {
+      "id": "cf-4",
+      "type": "choose-form",
+      "prompt": "Die Maus sitzt ___ Bett. (wo?)",
+      "options": ["unter das", "unter dem", "unter den", "unter die"],
+      "answerIndex": 1,
+      "explanation": "Fixed location under the bed (wo?): das Bett → unter dem Bett (dative)."
+    },
+    {
+      "id": "cf-5",
+      "type": "choose-form",
+      "prompt": "Wir stellen den Schrank ___ die Wand und das Fenster.",
+      "options": ["zwischen", "zwischen den", "zwischen der"],
+      "answerIndex": 0,
+      "explanation": "\"zwischen\" itself doesn't change; only the article after it does — here the full phrase needs \"zwischen die Wand und das Fenster\" (accusative, since it's a movement)."
+    },
+    {
+      "id": "es-1",
+      "type": "error-spot",
+      "prompt": "Ich stelle den Stuhl an das Tisch.",
+      "answer": "Ich stelle den Stuhl an den Tisch.",
+      "explanation": "\"der Tisch\" in the accusative is \"den Tisch\", not \"das Tisch\" — der Tisch is masculine, not neuter."
+    },
+    {
+      "id": "es-2",
+      "type": "error-spot",
+      "prompt": "Das Auto steht vor dem Haus. Wir fahren jetzt vor dem Haus.",
+      "answer": "Das Auto steht vor dem Haus. Wir fahren jetzt vor das Haus.",
+      "explanation": "The second sentence describes driving TO a spot in front of the house (motion, wohin?), so it needs the accusative \"vor das Haus\", not the dative."
+    },
+    {
+      "id": "es-3",
+      "type": "error-spot",
+      "prompt": "Die Bücher liegen auf den Tisch.",
+      "answer": "Die Bücher liegen auf dem Tisch.",
+      "explanation": "\"liegen\" describes a fixed location (wo?), so it needs the dative \"auf dem Tisch\", not the accusative."
+    },
+    {
+      "id": "ro-1",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["Tisch", "auf", "Buch", "das", "liegt", "dem"],
+      "answerOrder": ["Das", "Buch", "liegt", "auf", "dem", "Tisch"],
+      "explanation": "Standard word order: subject (Das Buch) + verb (liegt) + prepositional phrase (auf dem Tisch)."
+    },
+    {
+      "id": "ro-2",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["den", "Kühlschrank", "die", "stellt", "Milch", "in", "sie"],
+      "answerOrder": ["Sie", "stellt", "die", "Milch", "in", "den", "Kühlschrank"],
+      "explanation": "Subject (Sie) + verb (stellt) + direct object (die Milch) + prepositional phrase of direction (in den Kühlschrank, accusative)."
+    },
+    {
+      "id": "ro-3",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["dem", "dem", "Bett", "und", "Schrank", "zwischen", "steht", "eine", "Lampe"],
+      "answerOrder": ["Zwischen", "dem", "Bett", "und", "dem", "Schrank", "steht", "eine", "Lampe"],
+      "explanation": "Prepositional phrase of location (Zwischen dem Bett und dem Schrank, dative) can start the sentence, followed by verb-subject inversion (steht eine Lampe)."
+    },
+    {
+      "id": "ro-4",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["das", "hängt", "an", "er", "Bild", "die", "Wand"],
+      "answerOrder": ["Er", "hängt", "das", "Bild", "an", "die", "Wand"],
+      "explanation": "Subject (Er) + verb (hängt) + direct object (das Bild) + prepositional phrase of direction (an die Wand, accusative)."
+    },
+    {
+      "id": "fb-9",
+      "type": "fill-blank",
+      "prompt": "Steig bitte ___ Auto ein! (into the car)",
+      "answer": "ins",
+      "explanation": "Motion into the car (wohin?): in + das Auto → ins Auto (contracted)."
+    },
+    {
+      "id": "mc-7",
+      "type": "multiple-choice",
+      "prompt": "Welches Verbpaar beschreibt Zustand (state) statt Handlung (action)?",
+      "options": ["stellen / legen", "stehen / liegen", "setzen / stellen"],
+      "answerIndex": 1,
+      "explanation": "\"stehen\" and \"liegen\" describe the resulting state (dative, wo?), while \"stellen\" and \"legen\" describe the action of placing something (accusative, wohin?)."
+    }
+  ]
+}

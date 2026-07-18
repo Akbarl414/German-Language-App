@@ -1,0 +1,206 @@
+{
+  "id": "classic-idioms",
+  "title": "Classic German Idioms & Set Phrases",
+  "phrases": [
+    {
+      "id": "das-ist-mir-wurst",
+      "phrase": "Das ist mir Wurst.",
+      "literal": "That is sausage to me.",
+      "meaning": "I don't care. / It's all the same to me.",
+      "register": "colloquial",
+      "situation": "A: Sollen wir ins Kino oder ins Restaurant gehen? B: Das ist mir Wurst, ich bin mit beidem zufrieden. (A: Should we go to the movies or a restaurant? B: I don't care, I'm happy with either.)"
+    },
+    {
+      "id": "es-geht-um-die-wurst",
+      "phrase": "Es geht um die Wurst.",
+      "literal": "It's about the sausage.",
+      "meaning": "This is the decisive moment; everything is at stake.",
+      "register": "colloquial",
+      "situation": "Said before the final match of a tournament: Jetzt geht es um die Wurst — wer heute gewinnt, kommt ins Finale. (Now it's crunch time — whoever wins today goes to the final.)"
+    },
+    {
+      "id": "seinen-senf-dazugeben",
+      "phrase": "Seinen Senf dazugeben",
+      "literal": "To add one's mustard",
+      "meaning": "To give one's (often unwanted) opinion.",
+      "register": "colloquial",
+      "situation": "In a meeting where someone keeps interrupting: Er muss immer seinen Senf dazugeben, auch wenn ihn niemand gefragt hat. (He always has to put his two cents in, even when nobody asked.)"
+    },
+    {
+      "id": "jetzt-haben-wir-den-salat",
+      "phrase": "Jetzt haben wir den Salat!",
+      "literal": "Now we have the salad!",
+      "meaning": "Now we're in a mess; now look what's happened.",
+      "register": "colloquial",
+      "situation": "After forgetting the tickets at home: Jetzt haben wir den Salat — ohne Tickets kommen wir nicht rein! (Now we're in trouble — without tickets we can't get in!)"
+    },
+    {
+      "id": "das-ist-nicht-mein-bier",
+      "phrase": "Das ist nicht mein Bier.",
+      "literal": "That's not my beer.",
+      "meaning": "That's not my problem / none of my business.",
+      "register": "colloquial",
+      "situation": "A: Die Nachbarn streiten schon wieder. B: Na ja, das ist nicht mein Bier. (A: The neighbors are arguing again. B: Well, that's not my business.)"
+    },
+    {
+      "id": "ich-verstehe-nur-bahnhof",
+      "phrase": "Ich verstehe nur Bahnhof.",
+      "literal": "I only understand train station.",
+      "meaning": "I don't understand a thing; it's all Greek to me.",
+      "register": "colloquial",
+      "situation": "Listening to a tax form explanation: Bei diesem Steuerformular verstehe ich nur Bahnhof. (With this tax form I don't understand a single thing.)"
+    },
+    {
+      "id": "da-liegt-der-hund-begraben",
+      "phrase": "Da liegt der Hund begraben.",
+      "literal": "That's where the dog is buried.",
+      "meaning": "That's the real problem / the crux of the matter.",
+      "register": "neutral",
+      "situation": "After finally finding the bug in the code: Ah, da liegt der Hund begraben — die Datei wurde nie gespeichert! (Ah, that's the real problem — the file was never saved!)"
+    },
+    {
+      "id": "tomaten-auf-den-augen-haben",
+      "phrase": "Tomaten auf den Augen haben",
+      "literal": "To have tomatoes on one's eyes",
+      "meaning": "To be oblivious to something obvious right in front of you.",
+      "register": "colloquial",
+      "situation": "A: Wo ist denn der Schlüssel? Er liegt doch direkt vor dir! B: Oh, ich hatte wohl Tomaten auf den Augen. (A: Where's the key? It's right in front of you! B: Oh, I must have been blind to it.)"
+    },
+    {
+      "id": "ins-fettnaepfchen-treten",
+      "phrase": "Ins Fettnäpfchen treten",
+      "literal": "To step into the little pot of fat",
+      "meaning": "To make an embarrassing social blunder.",
+      "register": "colloquial",
+      "situation": "After asking a colleague about her age at a party: Er ist mal wieder ins Fettnäpfchen getreten und hat sie nach ihrem Alter gefragt. (He put his foot in it again and asked her how old she was.)"
+    },
+    {
+      "id": "die-katze-im-sack-kaufen",
+      "phrase": "Die Katze im Sack kaufen",
+      "literal": "To buy the cat in the sack",
+      "meaning": "To buy something without inspecting it first; a pig in a poke.",
+      "register": "neutral",
+      "situation": "Buying a used car online without seeing it: Kauf das Auto nicht ungesehen — sonst kaufst du die Katze im Sack! (Don't buy the car sight unseen — otherwise you're buying a pig in a poke!)"
+    },
+    {
+      "id": "um-den-heissen-brei-herumreden",
+      "phrase": "Um den heißen Brei herumreden",
+      "literal": "To talk around the hot porridge",
+      "meaning": "To beat around the bush instead of getting to the point.",
+      "register": "neutral",
+      "situation": "A: Sag mir einfach, was los ist! Red nicht um den heißen Brei herum. (A: Just tell me what's going on! Stop beating around the bush.)"
+    },
+    {
+      "id": "da-steppt-der-baer",
+      "phrase": "Da steppt der Bär.",
+      "literal": "There the bear dances.",
+      "meaning": "That's where the party's really happening.",
+      "register": "colloquial",
+      "situation": "Talking about a friend's birthday party: Geh unbedingt zu Toms Party, da steppt der Bär! (You have to go to Tom's party, that's where it's really happening!)"
+    },
+    {
+      "id": "schwein-haben",
+      "phrase": "Schwein haben",
+      "literal": "To have pig",
+      "meaning": "To be lucky, to get away with something.",
+      "register": "colloquial",
+      "situation": "Just missing a fine: Der Kontrolleur kam eine Minute nach mir — da habe ich echt Schwein gehabt! (The inspector came a minute after me — I really got lucky there!)"
+    },
+    {
+      "id": "die-nase-voll-haben",
+      "phrase": "Die Nase voll haben",
+      "literal": "To have one's nose full",
+      "meaning": "To be fed up with something.",
+      "register": "colloquial",
+      "situation": "After a third meeting cancellation: Ich habe echt die Nase voll von diesen ständigen Terminänderungen! (I'm really fed up with these constant schedule changes!)"
+    },
+    {
+      "id": "jemandem-auf-den-keks-gehen",
+      "phrase": "Jemandem auf den Keks gehen",
+      "literal": "To go on someone's cookie",
+      "meaning": "To get on someone's nerves.",
+      "register": "colloquial",
+      "situation": "About a coworker who keeps interrupting: Ehrlich, seine ständigen Kommentare gehen mir echt auf den Keks. (Honestly, his constant comments really get on my nerves.)"
+    },
+    {
+      "id": "das-ist-ein-kinderspiel",
+      "phrase": "Das ist ein Kinderspiel.",
+      "literal": "That's a children's game.",
+      "meaning": "That's very easy, a piece of cake.",
+      "register": "neutral",
+      "situation": "A: Ist die neue Software schwer zu bedienen? B: Nein, das ist ein Kinderspiel. (A: Is the new software hard to use? B: No, it's a piece of cake.)"
+    },
+    {
+      "id": "hals-und-beinbruch",
+      "phrase": "Hals- und Beinbruch!",
+      "literal": "Neck and leg break!",
+      "meaning": "Good luck! / Break a leg!",
+      "register": "neutral",
+      "situation": "Before a friend's job interview: Viel Erfolg heute — Hals- und Beinbruch! (Good luck today — break a leg!)"
+    },
+    {
+      "id": "mit-jemandem-pferde-stehlen-koennen",
+      "phrase": "Mit jemandem Pferde stehlen können",
+      "literal": "To be able to steal horses with someone",
+      "meaning": "To trust someone completely; to be up for any adventure together.",
+      "register": "colloquial",
+      "situation": "Describing an old, reliable friendship: Mit ihr kann man Pferde stehlen — sie hilft immer, egal was passiert. (She's someone you can count on for anything — she always helps, no matter what.)"
+    },
+    {
+      "id": "alles-in-butter",
+      "phrase": "Alles in Butter.",
+      "literal": "Everything in butter.",
+      "meaning": "Everything's fine, all good.",
+      "register": "colloquial",
+      "situation": "A: Wie läuft's mit dem Umzug? B: Alles in Butter, wir sind schon fast fertig! (A: How's the move going? B: All good, we're almost done!)"
+    },
+    {
+      "id": "jemandem-einen-baeren-aufbinden",
+      "phrase": "Jemandem einen Bären aufbinden",
+      "literal": "To tie a bear onto someone",
+      "meaning": "To trick someone / tell them a tall tale.",
+      "register": "colloquial",
+      "situation": "A: Er hat erzählt, er sei mal Astronaut gewesen. B: Der hat dir einen Bären aufgebunden! (A: He said he used to be an astronaut. B: He was pulling your leg!)"
+    },
+    {
+      "id": "die-daumen-druecken",
+      "phrase": "Die Daumen drücken",
+      "literal": "To press one's thumbs",
+      "meaning": "To keep one's fingers crossed for someone.",
+      "register": "neutral",
+      "situation": "Before a friend's exam: Ich drücke dir die Daumen für die Prüfung morgen! (I'll keep my fingers crossed for your exam tomorrow!)"
+    },
+    {
+      "id": "nicht-das-gelbe-vom-ei",
+      "phrase": "Nicht das Gelbe vom Ei sein",
+      "literal": "To not be the yellow of the egg",
+      "meaning": "To not be the best, not ideal.",
+      "register": "colloquial",
+      "situation": "Reviewing a mediocre restaurant: Das Essen war okay, aber wirklich nicht das Gelbe vom Ei. (The food was okay, but really nothing special.)"
+    },
+    {
+      "id": "aus-einer-muecke-einen-elefanten-machen",
+      "phrase": "Aus einer Mücke einen Elefanten machen",
+      "literal": "To make an elephant out of a mosquito",
+      "meaning": "To make a mountain out of a molehill; to exaggerate a small problem.",
+      "register": "neutral",
+      "situation": "A: Er ist total wütend wegen der kleinen Verspätung. B: Der macht wieder aus einer Mücke einen Elefanten. (A: He's furious about the small delay. B: He's making a mountain out of a molehill again.)"
+    },
+    {
+      "id": "sich-etwas-hinter-die-ohren-schreiben",
+      "phrase": "Sich etwas hinter die Ohren schreiben",
+      "literal": "To write something behind one's ears",
+      "meaning": "To take good note of something and remember it well (often a warning).",
+      "register": "neutral",
+      "situation": "After being warned about a rule at work: Das solltest du dir wirklich hinter die Ohren schreiben, sonst passiert es dir nochmal. (You should really take note of that, or it'll happen to you again.)"
+    },
+    {
+      "id": "alles-hat-ein-ende-nur-die-wurst-hat-zwei",
+      "phrase": "Alles hat ein Ende, nur die Wurst hat zwei.",
+      "literal": "Everything has one end, only the sausage has two.",
+      "meaning": "A playful way of saying that everything eventually comes to an end.",
+      "register": "colloquial",
+      "situation": "Wrapping up a long project: Na, alles hat ein Ende, nur die Wurst hat zwei — morgen ist das Projekt endlich fertig! (Well, all good things come to an end — tomorrow the project is finally finished!)"
+    }
+  ]
+}

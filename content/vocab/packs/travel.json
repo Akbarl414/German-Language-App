@@ -1,0 +1,625 @@
+{
+  "id": "travel",
+  "title": "Travel",
+  "level": "A2-B1",
+  "topic": "Transportation, vacations, and travel logistics",
+  "words": [
+    {
+      "id": "flughafen",
+      "pos": "noun",
+      "lemma": "Flughafen",
+      "gender": "der",
+      "plural": "Flughäfen",
+      "meaning_en": "airport",
+      "example_de": "Der Flughafen ist sehr groß und modern.",
+      "example_en": "The airport is very large and modern."
+    },
+    {
+      "id": "flugzeug",
+      "pos": "noun",
+      "lemma": "Flugzeug",
+      "gender": "das",
+      "plural": "Flugzeuge",
+      "meaning_en": "airplane",
+      "example_de": "Das Flugzeug fliegt heute nach Berlin.",
+      "example_en": "The airplane is flying to Berlin today."
+    },
+    {
+      "id": "flug",
+      "pos": "noun",
+      "lemma": "Flug",
+      "gender": "der",
+      "plural": "Flüge",
+      "meaning_en": "flight",
+      "example_de": "Unser Flug hat zwei Stunden Verspätung.",
+      "example_en": "Our flight is two hours late."
+    },
+    {
+      "id": "zug",
+      "pos": "noun",
+      "lemma": "Zug",
+      "gender": "der",
+      "plural": "Züge",
+      "meaning_en": "train",
+      "example_de": "Der Zug fährt pünktlich um acht Uhr ab.",
+      "example_en": "The train departs punctually at eight o'clock."
+    },
+    {
+      "id": "bahnhof",
+      "pos": "noun",
+      "lemma": "Bahnhof",
+      "gender": "der",
+      "plural": "Bahnhöfe",
+      "meaning_en": "train station",
+      "example_de": "Wir treffen uns am Bahnhof.",
+      "example_en": "We're meeting at the train station."
+    },
+    {
+      "id": "gleis",
+      "pos": "noun",
+      "lemma": "Gleis",
+      "gender": "das",
+      "plural": "Gleise",
+      "meaning_en": "platform, track",
+      "example_de": "Der Zug nach München fährt von Gleis 5.",
+      "example_en": "The train to Munich departs from platform 5."
+    },
+    {
+      "id": "ticket",
+      "pos": "noun",
+      "lemma": "Ticket",
+      "gender": "das",
+      "plural": "Tickets",
+      "meaning_en": "ticket",
+      "example_de": "Ich habe mein Ticket online gekauft.",
+      "example_en": "I bought my ticket online."
+    },
+    {
+      "id": "fahrkarte",
+      "pos": "noun",
+      "lemma": "Fahrkarte",
+      "gender": "die",
+      "plural": "Fahrkarten",
+      "meaning_en": "ticket (for transport)",
+      "example_de": "Die Fahrkarte gilt auch im Bus.",
+      "example_en": "The ticket is also valid on the bus."
+    },
+    {
+      "id": "koffer",
+      "pos": "noun",
+      "lemma": "Koffer",
+      "gender": "der",
+      "plural": "Koffer",
+      "meaning_en": "suitcase",
+      "example_de": "Mein Koffer ist zu schwer.",
+      "example_en": "My suitcase is too heavy."
+    },
+    {
+      "id": "gepaeck",
+      "pos": "noun",
+      "lemma": "Gepäck",
+      "gender": "das",
+      "plural": "-",
+      "meaning_en": "luggage",
+      "example_de": "Wo kann ich mein Gepäck abholen?",
+      "example_en": "Where can I pick up my luggage?"
+    },
+    {
+      "id": "reisepass",
+      "pos": "noun",
+      "lemma": "Reisepass",
+      "gender": "der",
+      "plural": "Reisepässe",
+      "meaning_en": "passport",
+      "example_de": "Vergiss deinen Reisepass nicht!",
+      "example_en": "Don't forget your passport!"
+    },
+    {
+      "id": "visum",
+      "pos": "noun",
+      "lemma": "Visum",
+      "gender": "das",
+      "plural": "Visa",
+      "meaning_en": "visa",
+      "example_de": "Für diese Reise brauche ich ein Visum.",
+      "example_en": "I need a visa for this trip."
+    },
+    {
+      "id": "grenze",
+      "pos": "noun",
+      "lemma": "Grenze",
+      "gender": "die",
+      "plural": "Grenzen",
+      "meaning_en": "border",
+      "example_de": "An der Grenze mussten wir unsere Pässe zeigen.",
+      "example_en": "At the border, we had to show our passports."
+    },
+    {
+      "id": "hotel",
+      "pos": "noun",
+      "lemma": "Hotel",
+      "gender": "das",
+      "plural": "Hotels",
+      "meaning_en": "hotel",
+      "example_de": "Wir übernachten in einem Hotel am Strand.",
+      "example_en": "We're staying at a hotel on the beach."
+    },
+    {
+      "id": "jugendherberge",
+      "pos": "noun",
+      "lemma": "Jugendherberge",
+      "gender": "die",
+      "plural": "Jugendherbergen",
+      "meaning_en": "youth hostel",
+      "example_de": "Die Jugendherberge ist billiger als ein Hotel.",
+      "example_en": "The youth hostel is cheaper than a hotel."
+    },
+    {
+      "id": "zimmer",
+      "pos": "noun",
+      "lemma": "Zimmer",
+      "gender": "das",
+      "plural": "Zimmer",
+      "meaning_en": "room",
+      "example_de": "Das Zimmer hat einen schönen Blick auf das Meer.",
+      "example_en": "The room has a beautiful view of the sea."
+    },
+    {
+      "id": "reservierung",
+      "pos": "noun",
+      "lemma": "Reservierung",
+      "gender": "die",
+      "plural": "Reservierungen",
+      "meaning_en": "reservation",
+      "example_de": "Ich habe eine Reservierung für zwei Nächte.",
+      "example_en": "I have a reservation for two nights."
+    },
+    {
+      "id": "strand",
+      "pos": "noun",
+      "lemma": "Strand",
+      "gender": "der",
+      "plural": "Strände",
+      "meaning_en": "beach",
+      "example_de": "Am Strand kann man schwimmen und sonnenbaden.",
+      "example_en": "At the beach you can swim and sunbathe."
+    },
+    {
+      "id": "meer",
+      "pos": "noun",
+      "lemma": "Meer",
+      "gender": "das",
+      "plural": "Meere",
+      "meaning_en": "sea",
+      "example_de": "Das Meer ist heute sehr ruhig.",
+      "example_en": "The sea is very calm today."
+    },
+    {
+      "id": "berg",
+      "pos": "noun",
+      "lemma": "Berg",
+      "gender": "der",
+      "plural": "Berge",
+      "meaning_en": "mountain",
+      "example_de": "Wir wandern gern in den Bergen.",
+      "example_en": "We like hiking in the mountains."
+    },
+    {
+      "id": "see",
+      "pos": "noun",
+      "lemma": "See",
+      "gender": "der",
+      "plural": "Seen",
+      "meaning_en": "lake",
+      "example_de": "Der See ist im Sommer sehr beliebt.",
+      "example_en": "The lake is very popular in summer."
+    },
+    {
+      "id": "wald",
+      "pos": "noun",
+      "lemma": "Wald",
+      "gender": "der",
+      "plural": "Wälder",
+      "meaning_en": "forest",
+      "example_de": "Der Wald hinter dem Hotel ist wunderschön.",
+      "example_en": "The forest behind the hotel is beautiful."
+    },
+    {
+      "id": "insel",
+      "pos": "noun",
+      "lemma": "Insel",
+      "gender": "die",
+      "plural": "Inseln",
+      "meaning_en": "island",
+      "example_de": "Diese Insel hat weiße Strände.",
+      "example_en": "This island has white beaches."
+    },
+    {
+      "id": "sehenswuerdigkeit",
+      "pos": "noun",
+      "lemma": "Sehenswürdigkeit",
+      "gender": "die",
+      "plural": "Sehenswürdigkeiten",
+      "meaning_en": "sight, attraction",
+      "example_de": "Der Dom ist die wichtigste Sehenswürdigkeit der Stadt.",
+      "example_en": "The cathedral is the city's most important sight."
+    },
+    {
+      "id": "museum",
+      "pos": "noun",
+      "lemma": "Museum",
+      "gender": "das",
+      "plural": "Museen",
+      "meaning_en": "museum",
+      "example_de": "Am Regentag besuchen wir ein Museum.",
+      "example_en": "On a rainy day, we'll visit a museum."
+    },
+    {
+      "id": "reisefuehrer",
+      "pos": "noun",
+      "lemma": "Reiseführer",
+      "gender": "der",
+      "plural": "Reiseführer",
+      "meaning_en": "travel guidebook",
+      "example_de": "In meinem Reiseführer stehen viele Tipps.",
+      "example_en": "My guidebook has a lot of tips."
+    },
+    {
+      "id": "tourist",
+      "pos": "noun",
+      "lemma": "Tourist",
+      "gender": "der",
+      "plural": "Touristen",
+      "meaning_en": "tourist",
+      "example_de": "Im Sommer kommen viele Touristen in die Stadt.",
+      "example_en": "Many tourists come to the city in summer."
+    },
+    {
+      "id": "ankunft",
+      "pos": "noun",
+      "lemma": "Ankunft",
+      "gender": "die",
+      "plural": "Ankünfte",
+      "meaning_en": "arrival",
+      "example_de": "Die Ankunft des Zuges verzögert sich um zehn Minuten.",
+      "example_en": "The train's arrival is delayed by ten minutes."
+    },
+    {
+      "id": "abfahrt",
+      "pos": "noun",
+      "lemma": "Abfahrt",
+      "gender": "die",
+      "plural": "Abfahrten",
+      "meaning_en": "departure",
+      "example_de": "Die Abfahrt ist um sieben Uhr morgens.",
+      "example_en": "Departure is at seven in the morning."
+    },
+    {
+      "id": "verspaetung",
+      "pos": "noun",
+      "lemma": "Verspätung",
+      "gender": "die",
+      "plural": "Verspätungen",
+      "meaning_en": "delay",
+      "example_de": "Der Bus hat leider Verspätung.",
+      "example_en": "The bus is unfortunately delayed."
+    },
+    {
+      "id": "taxi",
+      "pos": "noun",
+      "lemma": "Taxi",
+      "gender": "das",
+      "plural": "Taxis",
+      "meaning_en": "taxi",
+      "example_de": "Wir nehmen ein Taxi zum Flughafen.",
+      "example_en": "We're taking a taxi to the airport."
+    },
+    {
+      "id": "bus",
+      "pos": "noun",
+      "lemma": "Bus",
+      "gender": "der",
+      "plural": "Busse",
+      "meaning_en": "bus",
+      "example_de": "Der Bus hält direkt vor dem Hotel.",
+      "example_en": "The bus stops right in front of the hotel."
+    },
+    {
+      "id": "u-bahn",
+      "pos": "noun",
+      "lemma": "U-Bahn",
+      "gender": "die",
+      "plural": "U-Bahnen",
+      "meaning_en": "subway, underground train",
+      "example_de": "In Berlin fahren wir meistens mit der U-Bahn.",
+      "example_en": "In Berlin, we mostly travel by subway."
+    },
+    {
+      "id": "strassenbahn",
+      "pos": "noun",
+      "lemma": "Straßenbahn",
+      "gender": "die",
+      "plural": "Straßenbahnen",
+      "meaning_en": "tram",
+      "example_de": "Die Straßenbahn fährt alle zehn Minuten.",
+      "example_en": "The tram runs every ten minutes."
+    },
+    {
+      "id": "autovermietung",
+      "pos": "noun",
+      "lemma": "Autovermietung",
+      "gender": "die",
+      "plural": "Autovermietungen",
+      "meaning_en": "car rental (company)",
+      "example_de": "Wir haben ein Auto bei einer Autovermietung gemietet.",
+      "example_en": "We rented a car from a car rental company."
+    },
+    {
+      "id": "fuehrerschein",
+      "pos": "noun",
+      "lemma": "Führerschein",
+      "gender": "der",
+      "plural": "Führerscheine",
+      "meaning_en": "driver's license",
+      "example_de": "Ohne Führerschein darf man kein Auto mieten.",
+      "example_en": "You can't rent a car without a driver's license."
+    },
+    {
+      "id": "tankstelle",
+      "pos": "noun",
+      "lemma": "Tankstelle",
+      "gender": "die",
+      "plural": "Tankstellen",
+      "meaning_en": "gas station",
+      "example_de": "An der nächsten Tankstelle müssen wir tanken.",
+      "example_en": "We need to fill up at the next gas station."
+    },
+    {
+      "id": "benzin",
+      "pos": "noun",
+      "lemma": "Benzin",
+      "gender": "das",
+      "plural": "-",
+      "meaning_en": "gasoline",
+      "example_de": "Das Benzin ist in diesem Land sehr teuer.",
+      "example_en": "Gasoline is very expensive in this country."
+    },
+    {
+      "id": "reise",
+      "pos": "noun",
+      "lemma": "Reise",
+      "gender": "die",
+      "plural": "Reisen",
+      "meaning_en": "trip, journey",
+      "example_de": "Die Reise nach Italien war unvergesslich.",
+      "example_en": "The trip to Italy was unforgettable."
+    },
+    {
+      "id": "ausflug",
+      "pos": "noun",
+      "lemma": "Ausflug",
+      "gender": "der",
+      "plural": "Ausflüge",
+      "meaning_en": "excursion, outing",
+      "example_de": "Wir machen morgen einen Ausflug in die Berge.",
+      "example_en": "Tomorrow we're going on an excursion to the mountains."
+    },
+    {
+      "id": "urlaub",
+      "pos": "noun",
+      "lemma": "Urlaub",
+      "gender": "der",
+      "plural": "Urlaube",
+      "meaning_en": "vacation",
+      "example_de": "Wir fahren im August in Urlaub.",
+      "example_en": "We're going on vacation in August."
+    },
+    {
+      "id": "ferien",
+      "pos": "noun",
+      "lemma": "Ferien",
+      "gender": "die",
+      "plural": "Ferien",
+      "meaning_en": "holidays, vacation (esp. school/university break)",
+      "example_de": "In den Ferien fliegen wir nach Spanien.",
+      "example_en": "During the holidays, we're flying to Spain."
+    },
+    {
+      "id": "kamera",
+      "pos": "noun",
+      "lemma": "Kamera",
+      "gender": "die",
+      "plural": "Kameras",
+      "meaning_en": "camera",
+      "example_de": "Ich habe meine Kamera vergessen.",
+      "example_en": "I forgot my camera."
+    },
+    {
+      "id": "foto",
+      "pos": "noun",
+      "lemma": "Foto",
+      "gender": "das",
+      "plural": "Fotos",
+      "meaning_en": "photo",
+      "example_de": "Kannst du ein Foto von uns machen?",
+      "example_en": "Can you take a photo of us?"
+    },
+    {
+      "id": "sonnenbrille",
+      "pos": "noun",
+      "lemma": "Sonnenbrille",
+      "gender": "die",
+      "plural": "Sonnenbrillen",
+      "meaning_en": "sunglasses",
+      "example_de": "Bei diesem Wetter brauche ich eine Sonnenbrille.",
+      "example_en": "I need sunglasses in this weather."
+    },
+    {
+      "id": "sonnencreme",
+      "pos": "noun",
+      "lemma": "Sonnencreme",
+      "gender": "die",
+      "plural": "Sonnencremes",
+      "meaning_en": "sunscreen",
+      "example_de": "Vergiss die Sonnencreme nicht, es ist sehr sonnig.",
+      "example_en": "Don't forget the sunscreen, it's very sunny."
+    },
+    {
+      "id": "kreditkarte",
+      "pos": "noun",
+      "lemma": "Kreditkarte",
+      "gender": "die",
+      "plural": "Kreditkarten",
+      "meaning_en": "credit card",
+      "example_de": "Ich bezahle das Hotel mit meiner Kreditkarte.",
+      "example_en": "I'm paying for the hotel with my credit card."
+    },
+    {
+      "id": "bargeld",
+      "pos": "noun",
+      "lemma": "Bargeld",
+      "gender": "das",
+      "plural": "-",
+      "meaning_en": "cash",
+      "example_de": "Hier akzeptieren sie nur Bargeld.",
+      "example_en": "Here they only accept cash."
+    },
+    {
+      "id": "botschaft",
+      "pos": "noun",
+      "lemma": "Botschaft",
+      "gender": "die",
+      "plural": "Botschaften",
+      "meaning_en": "embassy",
+      "example_de": "Bei einem Notfall können Sie die Botschaft anrufen.",
+      "example_en": "In an emergency, you can call the embassy."
+    },
+    {
+      "id": "notfall",
+      "pos": "noun",
+      "lemma": "Notfall",
+      "gender": "der",
+      "plural": "Notfälle",
+      "meaning_en": "emergency",
+      "example_de": "Im Notfall wählen Sie die Nummer 112.",
+      "example_en": "In an emergency, dial the number 112."
+    },
+    {
+      "id": "versicherung",
+      "pos": "noun",
+      "lemma": "Versicherung",
+      "gender": "die",
+      "plural": "Versicherungen",
+      "meaning_en": "insurance",
+      "example_de": "Für die Reise habe ich eine Versicherung abgeschlossen.",
+      "example_en": "I took out insurance for the trip."
+    },
+    {
+      "id": "buchen",
+      "pos": "verb",
+      "lemma": "buchen",
+      "meaning_en": "to book",
+      "example_de": "Wir haben das Hotel schon gebucht.",
+      "example_en": "We've already booked the hotel.",
+      "present_3sg": "bucht",
+      "praeteritum": "buchte",
+      "perfekt": "hat gebucht",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "packen",
+      "pos": "verb",
+      "lemma": "packen",
+      "meaning_en": "to pack",
+      "example_de": "Ich packe meinen Koffer für die Reise.",
+      "example_en": "I'm packing my suitcase for the trip.",
+      "present_3sg": "packt",
+      "praeteritum": "packte",
+      "perfekt": "hat gepackt",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "abfliegen",
+      "pos": "verb",
+      "lemma": "abfliegen",
+      "meaning_en": "to depart (by plane), take off",
+      "example_de": "Das Flugzeug fliegt um sechs Uhr ab.",
+      "example_en": "The plane departs at six o'clock.",
+      "present_3sg": "fliegt ab",
+      "praeteritum": "flog ab",
+      "perfekt": "ist abgeflogen",
+      "auxiliary": "sein",
+      "separable": true
+    },
+    {
+      "id": "landen",
+      "pos": "verb",
+      "lemma": "landen",
+      "meaning_en": "to land",
+      "example_de": "Das Flugzeug landet in zwanzig Minuten.",
+      "example_en": "The plane lands in twenty minutes.",
+      "present_3sg": "landet",
+      "praeteritum": "landete",
+      "perfekt": "ist gelandet",
+      "auxiliary": "sein",
+      "separable": false
+    },
+    {
+      "id": "uebernachten",
+      "pos": "verb",
+      "lemma": "übernachten",
+      "meaning_en": "to stay overnight",
+      "example_de": "Wir übernachten in einem kleinen Hotel.",
+      "example_en": "We're staying overnight in a small hotel.",
+      "present_3sg": "übernachtet",
+      "praeteritum": "übernachtete",
+      "perfekt": "hat übernachtet",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "reservieren",
+      "pos": "verb",
+      "lemma": "reservieren",
+      "meaning_en": "to reserve",
+      "example_de": "Ich möchte einen Tisch für zwei Personen reservieren.",
+      "example_en": "I would like to reserve a table for two people.",
+      "present_3sg": "reserviert",
+      "praeteritum": "reservierte",
+      "perfekt": "hat reserviert",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "einchecken",
+      "pos": "verb",
+      "lemma": "einchecken",
+      "meaning_en": "to check in",
+      "example_de": "Wir checken morgen früh am Flughafen ein.",
+      "example_en": "We're checking in at the airport tomorrow morning.",
+      "present_3sg": "checkt ein",
+      "praeteritum": "checkte ein",
+      "perfekt": "hat eingecheckt",
+      "auxiliary": "haben",
+      "separable": true
+    },
+    {
+      "id": "bequem",
+      "pos": "adjective",
+      "lemma": "bequem",
+      "meaning_en": "comfortable",
+      "example_de": "Der Zug ist sehr bequem.",
+      "example_en": "The train is very comfortable."
+    },
+    {
+      "id": "anstrengend",
+      "pos": "adjective",
+      "lemma": "anstrengend",
+      "meaning_en": "exhausting, strenuous",
+      "example_de": "Die lange Reise war sehr anstrengend.",
+      "example_en": "The long trip was very tiring."
+    }
+  ]
+}

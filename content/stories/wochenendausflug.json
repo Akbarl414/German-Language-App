@@ -1,0 +1,20 @@
+{
+  "id": "wochenendausflug",
+  "title": "Ein Wochenendausflug",
+  "level": "B1",
+  "segments": [
+    { "type": "text", "value": "Am Samstag " },
+    { "type": "blank", "answer": "sind", "options": ["sind", "haben", "waren"] },
+    { "type": "text", "value": " Anna und Paul früh aufgestanden. Sie " },
+    { "type": "blank", "answer": "haben", "options": ["haben", "sind", "hatten"] },
+    { "type": "text", "value": " ihre Taschen gepackt und sind mit dem Auto " },
+    { "type": "blank", "answer": "in die", "options": ["in die", "in den", "in der"] },
+    { "type": "text", "value": " Berge gefahren. Nach drei Stunden sind sie endlich angekommen und haben ihr Zelt " },
+    { "type": "blank", "answer": "neben", "options": ["neben", "über", "unter"] },
+    { "type": "text", "value": " einem See aufgestellt. Am Nachmittag sind sie " },
+    { "type": "blank", "answer": "auf einen", "options": ["auf einen", "auf einem", "an einem"] },
+    { "type": "text", "value": " Berg gestiegen und haben die Aussicht genossen. Abends haben sie ein Lagerfeuer gemacht und Würstchen gegrillt. Paul hat seine Gitarre mitgebracht und hat ein paar Lieder gespielt. Am nächsten Morgen sind sie " },
+    { "type": "blank", "answer": "im", "options": ["im", "in den", "auf den"] },
+    { "type": "text", "value": " See geschwommen, bevor sie zurück nach Hause gefahren sind. Es war ein wunderschönes Wochenende." }
+  ]
+}

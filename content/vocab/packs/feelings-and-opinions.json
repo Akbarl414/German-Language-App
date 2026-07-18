@@ -1,0 +1,451 @@
+{
+  "id": "feelings-and-opinions",
+  "title": "Feelings & Opinions",
+  "level": "A2-B1",
+  "topic": "Emotions, personality, and expressing opinions",
+  "words": [
+    {
+      "id": "gluecklich",
+      "pos": "adjective",
+      "lemma": "glücklich",
+      "meaning_en": "happy",
+      "example_de": "Ich bin heute sehr glücklich.",
+      "example_en": "I am very happy today."
+    },
+    {
+      "id": "traurig",
+      "pos": "adjective",
+      "lemma": "traurig",
+      "meaning_en": "sad",
+      "example_de": "Sie ist traurig, weil ihr Hund krank ist.",
+      "example_en": "She is sad because her dog is sick."
+    },
+    {
+      "id": "wuetend",
+      "pos": "adjective",
+      "lemma": "wütend",
+      "meaning_en": "angry, furious",
+      "example_de": "Er wird wütend, wenn man ihn anlügt.",
+      "example_en": "He gets angry when someone lies to him."
+    },
+    {
+      "id": "aengstlich",
+      "pos": "adjective",
+      "lemma": "ängstlich",
+      "meaning_en": "anxious, fearful",
+      "example_de": "Das Kind ist ängstlich im Dunkeln.",
+      "example_en": "The child is fearful in the dark."
+    },
+    {
+      "id": "nervoes",
+      "pos": "adjective",
+      "lemma": "nervös",
+      "meaning_en": "nervous",
+      "example_de": "Vor der Prüfung bin ich immer nervös.",
+      "example_en": "I'm always nervous before the exam."
+    },
+    {
+      "id": "aufgeregt",
+      "pos": "adjective",
+      "lemma": "aufgeregt",
+      "meaning_en": "excited",
+      "example_de": "Wir sind ganz aufgeregt vor der Reise.",
+      "example_en": "We are really excited before the trip."
+    },
+    {
+      "id": "gelangweilt",
+      "pos": "adjective",
+      "lemma": "gelangweilt",
+      "meaning_en": "bored",
+      "example_de": "Die Schüler sehen gelangweilt aus.",
+      "example_en": "The students look bored."
+    },
+    {
+      "id": "ueberrascht",
+      "pos": "adjective",
+      "lemma": "überrascht",
+      "meaning_en": "surprised",
+      "example_de": "Ich war überrascht von dem Geschenk.",
+      "example_en": "I was surprised by the gift."
+    },
+    {
+      "id": "enttaeuscht",
+      "pos": "adjective",
+      "lemma": "enttäuscht",
+      "meaning_en": "disappointed",
+      "example_de": "Er ist enttäuscht von seinem Ergebnis.",
+      "example_en": "He is disappointed with his result."
+    },
+    {
+      "id": "stolz",
+      "pos": "adjective",
+      "lemma": "stolz",
+      "meaning_en": "proud",
+      "example_de": "Meine Eltern sind stolz auf mich.",
+      "example_en": "My parents are proud of me."
+    },
+    {
+      "id": "eifersuechtig",
+      "pos": "adjective",
+      "lemma": "eifersüchtig",
+      "meaning_en": "jealous",
+      "example_de": "Er ist eifersüchtig auf seinen Bruder.",
+      "example_en": "He is jealous of his brother."
+    },
+    {
+      "id": "einsam",
+      "pos": "adjective",
+      "lemma": "einsam",
+      "meaning_en": "lonely",
+      "example_de": "Nach dem Umzug fühlte sie sich einsam.",
+      "example_en": "After the move, she felt lonely."
+    },
+    {
+      "id": "zufrieden",
+      "pos": "adjective",
+      "lemma": "zufrieden",
+      "meaning_en": "satisfied, content",
+      "example_de": "Ich bin zufrieden mit meiner Arbeit.",
+      "example_en": "I am satisfied with my job."
+    },
+    {
+      "id": "verwirrt",
+      "pos": "adjective",
+      "lemma": "verwirrt",
+      "meaning_en": "confused",
+      "example_de": "Ich bin von der Anleitung ganz verwirrt.",
+      "example_en": "I'm totally confused by the instructions."
+    },
+    {
+      "id": "gestresst",
+      "pos": "adjective",
+      "lemma": "gestresst",
+      "meaning_en": "stressed",
+      "example_de": "Vor den Prüfungen bin ich oft gestresst.",
+      "example_en": "I'm often stressed before exams."
+    },
+    {
+      "id": "entspannt",
+      "pos": "adjective",
+      "lemma": "entspannt",
+      "meaning_en": "relaxed",
+      "example_de": "Nach dem Urlaub fühle ich mich entspannt.",
+      "example_en": "After the vacation I feel relaxed."
+    },
+    {
+      "id": "neidisch",
+      "pos": "adjective",
+      "lemma": "neidisch",
+      "meaning_en": "envious",
+      "example_de": "Sie ist neidisch auf ihre Kollegin.",
+      "example_en": "She is envious of her colleague."
+    },
+    {
+      "id": "dankbar",
+      "pos": "adjective",
+      "lemma": "dankbar",
+      "meaning_en": "grateful, thankful",
+      "example_de": "Ich bin dir sehr dankbar für deine Hilfe.",
+      "example_en": "I am very grateful to you for your help."
+    },
+    {
+      "id": "verliebt",
+      "pos": "adjective",
+      "lemma": "verliebt",
+      "meaning_en": "in love",
+      "example_de": "Die beiden sind seit einem Monat verliebt.",
+      "example_en": "The two of them have been in love for a month."
+    },
+    {
+      "id": "schuechtern",
+      "pos": "adjective",
+      "lemma": "schüchtern",
+      "meaning_en": "shy",
+      "example_de": "Als Kind war ich sehr schüchtern.",
+      "example_en": "As a child I was very shy."
+    },
+    {
+      "id": "ehrlich",
+      "pos": "adjective",
+      "lemma": "ehrlich",
+      "meaning_en": "honest",
+      "example_de": "Ehrlich gesagt, gefällt mir der Plan nicht.",
+      "example_en": "Honestly, I don't like the plan."
+    },
+    {
+      "id": "freundlich",
+      "pos": "adjective",
+      "lemma": "freundlich",
+      "meaning_en": "friendly, kind",
+      "example_de": "Die neue Kollegin ist sehr freundlich.",
+      "example_en": "The new colleague is very friendly."
+    },
+    {
+      "id": "hoeflich",
+      "pos": "adjective",
+      "lemma": "höflich",
+      "meaning_en": "polite",
+      "example_de": "Es ist wichtig, höflich zu bleiben.",
+      "example_en": "It's important to stay polite."
+    },
+    {
+      "id": "geduldig",
+      "pos": "adjective",
+      "lemma": "geduldig",
+      "meaning_en": "patient",
+      "example_de": "Man muss mit Kindern geduldig sein.",
+      "example_en": "You have to be patient with children."
+    },
+    {
+      "id": "ungeduldig",
+      "pos": "adjective",
+      "lemma": "ungeduldig",
+      "meaning_en": "impatient",
+      "example_de": "Er wurde ungeduldig, weil der Bus nicht kam.",
+      "example_en": "He became impatient because the bus didn't come."
+    },
+    {
+      "id": "optimistisch",
+      "pos": "adjective",
+      "lemma": "optimistisch",
+      "meaning_en": "optimistic",
+      "example_de": "Ich bin optimistisch, dass alles gut wird.",
+      "example_en": "I am optimistic that everything will turn out fine."
+    },
+    {
+      "id": "pessimistisch",
+      "pos": "adjective",
+      "lemma": "pessimistisch",
+      "meaning_en": "pessimistic",
+      "example_de": "Sei nicht so pessimistisch!",
+      "example_en": "Don't be so pessimistic!"
+    },
+    {
+      "id": "sicher",
+      "pos": "adjective",
+      "lemma": "sicher",
+      "meaning_en": "sure, certain",
+      "example_de": "Ich bin sicher, dass er recht hat.",
+      "example_en": "I am sure that he is right."
+    },
+    {
+      "id": "unsicher",
+      "pos": "adjective",
+      "lemma": "unsicher",
+      "meaning_en": "unsure, insecure",
+      "example_de": "Sie ist sich unsicher, ob das richtig ist.",
+      "example_en": "She is unsure whether that's correct."
+    },
+    {
+      "id": "interessant",
+      "pos": "adjective",
+      "lemma": "interessant",
+      "meaning_en": "interesting",
+      "example_de": "Ich finde dieses Buch sehr interessant.",
+      "example_en": "I find this book very interesting."
+    },
+    {
+      "id": "langweilig",
+      "pos": "adjective",
+      "lemma": "langweilig",
+      "meaning_en": "boring",
+      "example_de": "Der Film war ziemlich langweilig.",
+      "example_en": "The movie was quite boring."
+    },
+    {
+      "id": "komisch",
+      "pos": "adjective",
+      "lemma": "komisch",
+      "meaning_en": "funny, strange",
+      "example_de": "Das war eine komische Situation.",
+      "example_en": "That was a strange situation."
+    },
+    {
+      "id": "peinlich",
+      "pos": "adjective",
+      "lemma": "peinlich",
+      "meaning_en": "embarrassing",
+      "example_de": "Es war mir peinlich, das zu sagen.",
+      "example_en": "It was embarrassing for me to say that."
+    },
+    {
+      "id": "wunderbar",
+      "pos": "adjective",
+      "lemma": "wunderbar",
+      "meaning_en": "wonderful",
+      "example_de": "Der Urlaub war wunderbar!",
+      "example_en": "The vacation was wonderful!"
+    },
+    {
+      "id": "schrecklich",
+      "pos": "adjective",
+      "lemma": "schrecklich",
+      "meaning_en": "terrible, awful",
+      "example_de": "Das Wetter heute ist schrecklich.",
+      "example_en": "The weather today is terrible."
+    },
+    {
+      "id": "gefuehl",
+      "pos": "noun",
+      "lemma": "Gefühl",
+      "gender": "das",
+      "plural": "Gefühle",
+      "meaning_en": "feeling",
+      "example_de": "Ich habe ein gutes Gefühl bei dieser Entscheidung.",
+      "example_en": "I have a good feeling about this decision."
+    },
+    {
+      "id": "freude",
+      "pos": "noun",
+      "lemma": "Freude",
+      "gender": "die",
+      "plural": "Freuden",
+      "meaning_en": "joy",
+      "example_de": "Die Kinder sprangen vor Freude.",
+      "example_en": "The children jumped for joy."
+    },
+    {
+      "id": "angst",
+      "pos": "noun",
+      "lemma": "Angst",
+      "gender": "die",
+      "plural": "Ängste",
+      "meaning_en": "fear, anxiety",
+      "example_de": "Sie hat Angst vor Spinnen.",
+      "example_en": "She's afraid of spiders."
+    },
+    {
+      "id": "wut",
+      "pos": "noun",
+      "lemma": "Wut",
+      "gender": "die",
+      "plural": "-",
+      "meaning_en": "anger, rage",
+      "example_de": "Vor Wut konnte er nicht sprechen.",
+      "example_en": "He couldn't speak because of his anger."
+    },
+    {
+      "id": "liebe",
+      "pos": "noun",
+      "lemma": "Liebe",
+      "gender": "die",
+      "plural": "-",
+      "meaning_en": "love",
+      "example_de": "Die Liebe zwischen den beiden ist stark.",
+      "example_en": "The love between the two of them is strong."
+    },
+    {
+      "id": "trauer",
+      "pos": "noun",
+      "lemma": "Trauer",
+      "gender": "die",
+      "plural": "-",
+      "meaning_en": "grief, sorrow",
+      "example_de": "Die Trauer über den Verlust war groß.",
+      "example_en": "The grief over the loss was great."
+    },
+    {
+      "id": "hoffnung",
+      "pos": "noun",
+      "lemma": "Hoffnung",
+      "gender": "die",
+      "plural": "Hoffnungen",
+      "meaning_en": "hope",
+      "example_de": "Sie gibt die Hoffnung nicht auf.",
+      "example_en": "She doesn't give up hope."
+    },
+    {
+      "id": "meinung",
+      "pos": "noun",
+      "lemma": "Meinung",
+      "gender": "die",
+      "plural": "Meinungen",
+      "meaning_en": "opinion",
+      "example_de": "Meiner Meinung nach ist das falsch.",
+      "example_en": "In my opinion, that's wrong."
+    },
+    {
+      "id": "eindruck",
+      "pos": "noun",
+      "lemma": "Eindruck",
+      "gender": "der",
+      "plural": "Eindrücke",
+      "meaning_en": "impression",
+      "example_de": "Er macht einen guten Eindruck.",
+      "example_en": "He makes a good impression."
+    },
+    {
+      "id": "ueberraschung",
+      "pos": "noun",
+      "lemma": "Überraschung",
+      "gender": "die",
+      "plural": "Überraschungen",
+      "meaning_en": "surprise",
+      "example_de": "Das war eine schöne Überraschung.",
+      "example_en": "That was a nice surprise."
+    },
+    {
+      "id": "meinen",
+      "pos": "verb",
+      "lemma": "meinen",
+      "meaning_en": "to think, to mean (an opinion)",
+      "example_de": "Was meinst du dazu?",
+      "example_en": "What do you think about that?",
+      "present_3sg": "meint",
+      "praeteritum": "meinte",
+      "perfekt": "hat gemeint",
+      "auxiliary": "haben"
+    },
+    {
+      "id": "finden",
+      "pos": "verb",
+      "lemma": "finden",
+      "meaning_en": "to find, to think (an opinion)",
+      "example_de": "Ich finde den Film langweilig.",
+      "example_en": "I think the movie is boring.",
+      "present_3sg": "findet",
+      "praeteritum": "fand",
+      "perfekt": "hat gefunden",
+      "auxiliary": "haben"
+    },
+    {
+      "id": "zustimmen",
+      "pos": "verb",
+      "lemma": "zustimmen",
+      "meaning_en": "to agree (with)",
+      "example_de": "Ich stimme dir voll und ganz zu.",
+      "example_en": "I agree with you completely.",
+      "present_3sg": "stimmt zu",
+      "praeteritum": "stimmte zu",
+      "perfekt": "hat zugestimmt",
+      "auxiliary": "haben",
+      "separable": true,
+      "government": "zustimmen + Dat"
+    },
+    {
+      "id": "widersprechen",
+      "pos": "verb",
+      "lemma": "widersprechen",
+      "meaning_en": "to contradict",
+      "example_de": "Ich möchte dir nicht widersprechen, aber das stimmt nicht.",
+      "example_en": "I don't want to contradict you, but that's not right.",
+      "present_3sg": "widerspricht",
+      "praeteritum": "widersprach",
+      "perfekt": "hat widersprochen",
+      "auxiliary": "haben",
+      "government": "widersprechen + Dat"
+    },
+    {
+      "id": "bezweifeln",
+      "pos": "verb",
+      "lemma": "bezweifeln",
+      "meaning_en": "to doubt",
+      "example_de": "Ich bezweifle, dass das stimmt.",
+      "example_en": "I doubt that that's true.",
+      "present_3sg": "bezweifelt",
+      "praeteritum": "bezweifelte",
+      "perfekt": "hat bezweifelt",
+      "auxiliary": "haben"
+    }
+  ]
+}
