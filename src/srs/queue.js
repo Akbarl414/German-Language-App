@@ -121,7 +121,8 @@ function allCardRefs() {
   const cards = store.allCards();
   const refs = [];
   for (const cardId of Object.keys(cards)) {
-    const [type, rest] = cardId.split(':');
+    const type = cardId.slice(0, cardId.indexOf(':'));
+    const rest = cardId.slice(type.length + 1); // "sourceId::itemId:facet"
     const [sourceId, itemAndFacet] = rest.split('::');
     const lastColon = itemAndFacet.lastIndexOf(':');
     const itemId = itemAndFacet.slice(0, lastColon);

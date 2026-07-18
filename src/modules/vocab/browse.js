@@ -34,13 +34,18 @@ export async function render(container) {
 function packRow(pack) {
   const state = store.getPackState(`vocab:${pack.id}`);
   const pending = state.active ? getPendingTriageWords(pack.id).length : 0;
+  // Note: intentionally no <a> wrapping the whole row — the "continue triage"
+  // link inside would nest an <a> inside an <a>, which is invalid HTML and
+  // gets silently mangled by the parser (browsers close the outer anchor early).
   return `
-    <a class="card card-row" href="#/vocab/pack/${pack.id}" style="text-decoration:none; color:inherit;">
-      <div>
-        <div style="font-weight:700;">${pack.title}</div>
-        <div class="page-subtitle" style="margin:2px 0 0;">${pack.topic} · ${pack.level} · ${pack.words.length} words</div>
-        ${pending > 0 ? `<a href="#/vocab/pack/${pack.id}/triage" class="tag" style="margin-top:6px; display:inline-block; color:var(--warn); border-color:var(--warn);">Continue triage (${pending} left)</a>` : ''}
+    <div class="card">
+      <div class="card-row">
+        <a href="#/vocab/pack/${pack.id}" style="text-decoration:none; color:inherit; flex:1;">
+          <div style="font-weight:700;">${pack.title}</div>
+          <div class="page-subtitle" style="margin:2px 0 0;">${pack.topic} · ${pack.level} · ${pack.words.length} words</div>
+        </a>
+        <button class="btn btn-sm ${state.active ? 'btn-good' : ''}" data-toggle="${pack.id}">${state.active ? 'Active' : 'Off'}</button>
       </div>
-      <button class="btn btn-sm ${state.active ? 'btn-good' : ''}" data-toggle="${pack.id}">${state.active ? 'Active' : 'Off'}</button>
-    </a>`;
+      ${pending > 0 ? `<a href="#/vocab/pack/${pack.id}/triage" class="tag" style="margin-top:10px; display:inline-block; color:var(--warn); border-color:var(--warn);">Continue triage (${pending} left)</a>` : ''}
+    </div>`;
 }

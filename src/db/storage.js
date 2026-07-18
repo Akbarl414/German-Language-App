@@ -101,8 +101,12 @@ export const store = {
   },
 
   // --- Pack activation ---
+  // `active: undefined` (not `false`) for never-touched packs, so callers can
+  // tell "never touched" apart from "explicitly turned off" — grammar units
+  // and phrase sets default to active, vocab packs default to inactive, and
+  // both rely on being able to distinguish these two states.
   getPackState(key) {
-    return load().packs[key] || { active: false, triaged: false };
+    return load().packs[key] || { active: undefined, triaged: false };
   },
   setPackState(key, state) {
     const data = load();
