@@ -2,7 +2,9 @@ import { getAllVocabWords } from '../../db/contentLoader.js';
 import { vocabCardId, submitGradeForCardId } from '../../srs/queue.js';
 import { gradeFromCorrectness } from '../../srs/engine.js';
 import { store } from '../../db/storage.js';
-import { escapeHtml } from '../../components/gender.js';
+import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
+import { resultsListHTML } from '../shared/resultsSummary.js';
+import { renderMissesReview } from '../shared/missesReview.js';
 
 const ROUND_SECONDS = 45;
 
@@ -39,6 +41,8 @@ export async function render(container) {
     let streak = 0;
     let bestStreak = 0;
     let timeLeft = ROUND_SECONDS;
+    const rounds = []; // { word, chosenGender, correct }
+    let hintUsed = false;
 
     function currentWord() {
       return nouns[idx % nouns.length];
@@ -46,27 +50,42 @@ export async function render(container) {
 
     function paint() {
       const w = currentWord();
+      hintUsed = false;
       container.innerHTML = `
         <div class="view">
           <div class="card-row">
-            <span class="page-subtitle" style="margin:0;">⏱️ ${timeLeft}s</span>
+            <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
             <span class="page-subtitle" style="margin:0;">Score ${score} · Streak ${streak}</span>
           </div>
           <div class="drill-card">
             <div class="drill-prompt">${escapeHtml(w.lemma)}</div>
+            <div id="hint-panel" class="drill-sub" style="display:none; margin-top:8px;"></div>
           </div>
           <div class="btn-row" style="margin-top:16px;">
             <button class="btn btn-block" style="background:var(--der-bg); border-color:var(--der); color:var(--der);" data-g="der">der</button>
             <button class="btn btn-block" style="background:var(--die-bg); border-color:var(--die); color:var(--die);" data-g="die">die</button>
             <button class="btn btn-block" style="background:var(--das-bg); border-color:var(--das); color:var(--das);" data-g="das">das</button>
           </div>
+          <button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Hint (shows meaning, not gender)</button>
         </div>`;
       container.querySelectorAll('[data-g]').forEach((btn) => btn.addEventListener('click', () => onAnswer(btn.dataset.g, w), { once: true }));
+      container.querySelector('#hint-btn').addEventListener(
+        'click',
+        (e) => {
+          hintUsed = true;
+          const panel = container.querySelector('#hint-panel');
+          panel.textContent = w.meaning_en;
+          panel.style.display = 'block';
+          e.target.disabled = true;
+        },
+        { once: true }
+      );
     }
 
     function onAnswer(pick, word) {
       const correct = pick === word.gender;
-      submitGradeForCardId(vocabCardId(word.packId, word.id, 'gender'), gradeFromCorrectness(correct));
+      submitGradeForCardId(vocabCardId(word.packId, word.id, 'gender'), gradeFromCorrectness(correct, hintUsed));
+      rounds.push({ word, chosenGender: pick, correct });
       if (correct) {
         score++;
         streak++;
@@ -83,21 +102,36 @@ export async function render(container) {
       if (timeLeft <= 0) {
         clearInterval(timerId);
         timerId = null;
-        finish(score, bestStreak);
+        finish(score, bestStreak, rounds);
       } else {
-        const timeEl = container.querySelector('.page-subtitle');
+        const timeEl = container.querySelector('.time');
         if (timeEl) timeEl.textContent = `⏱️ ${timeLeft}s`;
       }
     }, 1000);
 
     paint();
 
-    function finish(finalScore, finalBestStreak) {
+    function finish(finalScore, finalBestStreak, finalRounds) {
       const stats = store.getStats();
       const best = stats.gameBests.sorting;
       const isNewBest = !best || finalScore > best.score;
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, sorting: { score: finalScore, streak: finalBestStreak } } });
       store.recordDailyActivity('gamesPlayed');
+
+      const seenMissIds = new Set();
+      const misses = finalRounds.filter((r) => {
+        if (r.correct) return false;
+        const key = `${r.word.packId}::${r.word.id}`;
+        if (seenMissIds.has(key)) return false;
+        seenMissIds.add(key);
+        return true;
+      });
+      const rows = finalRounds.map((r) => ({
+        label: escapeHtml(r.word.lemma),
+        ok: r.correct,
+        correctLabel: r.correct ? '' : `${genderBadgeHTML(r.word.gender)} ${escapeHtml(r.word.lemma)}`,
+      }));
+
       container.innerHTML = `
         <div class="view">
           <h1 class="page-title">Time's up! ⏱️</h1>
@@ -106,12 +140,28 @@ export async function render(container) {
             <div class="stat-tile"><div class="value">${finalBestStreak}</div><div class="label">Best streak</div></div>
           </div>
           ${isNewBest ? `<p style="color:var(--good); text-align:center;">New best score!</p>` : ''}
-          <div class="btn-row">
+          ${resultsListHTML(rows)}
+          <div class="btn-row" style="margin-top:16px;">
             <a href="#/games" class="btn">Back to games</a>
-            <button class="btn btn-primary" id="again">Play again</button>
+            <button class="btn" id="again">Play again</button>
+            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Practice my misses (${misses.length})</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', startGame);
+      const missBtn = container.querySelector('#practice-misses');
+      if (missBtn) {
+        missBtn.addEventListener('click', () => {
+          const items = misses.map((r) => ({
+            type: 'vocab',
+            facet: 'gender',
+            sourceId: r.word.packId,
+            itemId: r.word.id,
+            cardId: vocabCardId(r.word.packId, r.word.id, 'gender'),
+            content: r.word,
+          }));
+          renderMissesReview({ container, items, onDone: renderIntro });
+        });
+      }
     }
   }
 

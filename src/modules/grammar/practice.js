@@ -39,9 +39,9 @@ export async function render(container, { unitId }) {
     renderExercise({
       exercise,
       container: container.querySelector('#slot'),
-      onResult: (isCorrect) => {
+      onResult: (isCorrect, hintUsed) => {
         if (isCorrect) correct++;
-        submitGradeForCardId(grammarCardId(unit.id, exercise.id), gradeFromCorrectness(isCorrect));
+        submitGradeForCardId(grammarCardId(unit.id, exercise.id), gradeFromCorrectness(isCorrect, hintUsed));
         i++;
         paint();
       },

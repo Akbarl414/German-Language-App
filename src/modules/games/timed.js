@@ -2,7 +2,9 @@ import { getAllVocabWords } from '../../db/contentLoader.js';
 import { vocabCardId, submitGradeForCardId } from '../../srs/queue.js';
 import { gradeFromCorrectness } from '../../srs/engine.js';
 import { store } from '../../db/storage.js';
-import { nounHTML, escapeHtml } from '../../components/gender.js';
+import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
+import { resultsListHTML } from '../shared/resultsSummary.js';
+import { renderMissesReview } from '../shared/missesReview.js';
 
 const ROUND_SECONDS = 60;
 
@@ -38,6 +40,8 @@ export async function render(container) {
     let streak = 0;
     let bestStreak = 0;
     let timeLeft = ROUND_SECONDS;
+    const rounds = []; // { word, correct }
+    let hintUsed = false;
 
     function nextQuestion() {
       const [target, ...rest] = shuffle(words);
@@ -48,6 +52,7 @@ export async function render(container) {
 
     function paint() {
       const { target, options } = nextQuestion();
+      hintUsed = false;
       container.innerHTML = `
         <div class="view">
           <div class="card-row">
@@ -55,11 +60,13 @@ export async function render(container) {
             <span class="page-subtitle" style="margin:0;">Score ${score} · Streak ${streak}</span>
           </div>
           <div class="drill-card">
-            <div class="drill-prompt">${target.pos === 'noun' ? nounHTML(target) : escapeHtml(target.lemma)}</div>
+            <div class="drill-prompt">${escapeHtml(target.lemma)}</div>
+            <div id="hint-panel" class="drill-sub" style="display:none; margin-top:8px;"></div>
           </div>
           <div class="option-list">
             ${options.map((o, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(o.meaning_en)}</button>`).join('')}
           </div>
+          ${target.pos === 'noun' || target.pos === 'verb' ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Hint</button>` : ''}
         </div>`;
       container.querySelectorAll('[data-i]').forEach((btn) =>
         btn.addEventListener(
@@ -67,7 +74,8 @@ export async function render(container) {
           () => {
             const opt = options[Number(btn.dataset.i)];
             const correct = opt.id === target.id && opt.packId === target.packId;
-            submitGradeForCardId(vocabCardId(target.packId, target.id, 'meaning_de_en'), gradeFromCorrectness(correct));
+            submitGradeForCardId(vocabCardId(target.packId, target.id, 'meaning_de_en'), gradeFromCorrectness(correct, hintUsed));
+            rounds.push({ word: target, correct });
             if (correct) {
               score++;
               streak++;
@@ -80,6 +88,20 @@ export async function render(container) {
           { once: true }
         )
       );
+      const hintBtn = container.querySelector('#hint-btn');
+      if (hintBtn) {
+        hintBtn.addEventListener(
+          'click',
+          (e) => {
+            hintUsed = true;
+            const panel = container.querySelector('#hint-panel');
+            panel.innerHTML = target.pos === 'noun' ? `${genderBadgeHTML(target.gender)} plural: ${escapeHtml(target.plural)}` : escapeHtml(target.present_3sg);
+            panel.style.display = 'block';
+            e.target.disabled = true;
+          },
+          { once: true }
+        );
+      }
     }
 
     timerId = setInterval(() => {
@@ -87,7 +109,7 @@ export async function render(container) {
       if (timeLeft <= 0) {
         clearInterval(timerId);
         timerId = null;
-        finish(score, bestStreak);
+        finish(score, bestStreak, rounds);
       } else {
         const timeEl = container.querySelector('.time');
         if (timeEl) timeEl.textContent = `⏱️ ${timeLeft}s`;
@@ -96,12 +118,27 @@ export async function render(container) {
 
     paint();
 
-    function finish(finalScore, finalBestStreak) {
+    function finish(finalScore, finalBestStreak, finalRounds) {
       const stats = store.getStats();
       const best = stats.gameBests.timed;
       const isNewBest = !best || finalScore > best.score;
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, timed: { score: finalScore, streak: finalBestStreak } } });
       store.recordDailyActivity('gamesPlayed');
+
+      const seenMissIds = new Set();
+      const misses = finalRounds.filter((r) => {
+        if (r.correct) return false;
+        const key = `${r.word.packId}::${r.word.id}`;
+        if (seenMissIds.has(key)) return false;
+        seenMissIds.add(key);
+        return true;
+      });
+      const rows = finalRounds.map((r) => ({
+        label: r.word.pos === 'noun' ? `${genderBadgeHTML(r.word.gender)} ${escapeHtml(r.word.lemma)}` : escapeHtml(r.word.lemma),
+        ok: r.correct,
+        correctLabel: r.correct ? '' : escapeHtml(r.word.meaning_en),
+      }));
+
       container.innerHTML = `
         <div class="view">
           <h1 class="page-title">Time's up! ⏱️</h1>
@@ -110,12 +147,28 @@ export async function render(container) {
             <div class="stat-tile"><div class="value">${finalBestStreak}</div><div class="label">Best streak</div></div>
           </div>
           ${isNewBest ? `<p style="color:var(--good); text-align:center;">New best score!</p>` : ''}
-          <div class="btn-row">
+          ${resultsListHTML(rows)}
+          <div class="btn-row" style="margin-top:16px;">
             <a href="#/games" class="btn">Back to games</a>
-            <button class="btn btn-primary" id="again">Play again</button>
+            <button class="btn" id="again">Play again</button>
+            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Practice my misses (${misses.length})</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', startGame);
+      const missBtn = container.querySelector('#practice-misses');
+      if (missBtn) {
+        missBtn.addEventListener('click', () => {
+          const items = misses.map((r) => ({
+            type: 'vocab',
+            facet: 'meaning_de_en',
+            sourceId: r.word.packId,
+            itemId: r.word.id,
+            cardId: vocabCardId(r.word.packId, r.word.id, 'meaning_de_en'),
+            content: r.word,
+          }));
+          renderMissesReview({ container, items, onDone: renderIntro });
+        });
+      }
     }
   }
 

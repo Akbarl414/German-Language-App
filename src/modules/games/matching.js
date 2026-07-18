@@ -3,6 +3,7 @@ import { vocabCardId, phraseCardId, submitGradeForCardId } from '../../srs/queue
 import { Grade } from '../../srs/engine.js';
 import { nounHTML, escapeHtml } from '../../components/gender.js';
 import { store } from '../../db/storage.js';
+import { resultsListHTML } from '../shared/resultsSummary.js';
 
 const PAIR_COUNT = 6;
 
@@ -63,8 +64,8 @@ export async function render(container) {
     );
   }
 
-  function startGame(mode) {
-    const pairs = buildPairs(mode);
+  function startGame(mode, customPairs) {
+    const pairs = customPairs || buildPairs(mode);
     if (pairs.length < 3) {
       container.innerHTML = `<div class="view empty-state">Not enough content for this mode yet.</div>`;
       setTimeout(renderModeSelect, 1500);
@@ -142,12 +143,24 @@ export async function render(container) {
     function finish(moveCount, ms) {
       pendingTimeout = null;
       const seconds = Math.round(ms / 1000);
-      const stats = store.getStats();
-      const bestKey = `matching-${mode}`;
-      const best = stats.gameBests[bestKey];
-      const isNewBest = !best || moveCount < best.moves;
-      if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, [bestKey]: { moves: moveCount, seconds } } });
+      const isPracticeRound = !!customPairs;
+      let isNewBest = false;
+      if (!isPracticeRound) {
+        const stats = store.getStats();
+        const bestKey = `matching-${mode}`;
+        const best = stats.gameBests[bestKey];
+        isNewBest = !best || moveCount < best.moves;
+        if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, [bestKey]: { moves: moveCount, seconds } } });
+      }
       store.recordDailyActivity('gamesPlayed');
+
+      const missedPairs = pairs.filter((p) => struggled.has(p.id));
+      const rows = pairs.map((p) => ({
+        label: `${p.left} ↔ ${p.right}`,
+        ok: !struggled.has(p.id),
+        correctLabel: '',
+      }));
+
       container.innerHTML = `
         <div class="view">
           <h1 class="page-title">Matched! 🎉</h1>
@@ -156,12 +169,16 @@ export async function render(container) {
             <div class="stat-tile"><div class="value">${seconds}s</div><div class="label">Time</div></div>
           </div>
           ${isNewBest ? `<p style="color:var(--good); text-align:center;">New best!</p>` : ''}
-          <div class="btn-row">
+          ${resultsListHTML(rows)}
+          <div class="btn-row" style="margin-top:16px;">
             <a href="#/games" class="btn">Back to games</a>
-            <button class="btn btn-primary" id="again">Play again</button>
+            <button class="btn" id="again">Play again</button>
+            ${missedPairs.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Practice my misses (${missedPairs.length})</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', renderModeSelect);
+      const missBtn = container.querySelector('#practice-misses');
+      if (missBtn) missBtn.addEventListener('click', () => startGame(mode, missedPairs));
     }
   }
 

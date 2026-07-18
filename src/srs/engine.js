@@ -102,9 +102,14 @@ export function grade(card, gradeValue, now = Date.now()) {
   return next;
 }
 
-/** Convenience: map a plain correct/incorrect result (games, quizzes) onto a grade. */
-export function gradeFromCorrectness(correct) {
-  return correct ? Grade.GOOD : Grade.AGAIN;
+/**
+ * Convenience: map a plain correct/incorrect result (games, quizzes) onto a
+ * grade. `hintUsed` caps a correct answer at Hard — needing the hint means
+ * the item isn't fully known yet, so it should come back sooner.
+ */
+export function gradeFromCorrectness(correct, hintUsed = false) {
+  if (!correct) return Grade.AGAIN;
+  return hintUsed ? Grade.HARD : Grade.GOOD;
 }
 
 export function isDue(card, now = Date.now()) {
