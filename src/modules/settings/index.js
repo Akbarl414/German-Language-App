@@ -1,17 +1,39 @@
 import { store } from '../../db/storage.js';
 import { getVocabPacks, getPhraseSets, getGrammarUnits } from '../../db/contentLoader.js';
 import { activateVocabPack, deactivateVocabPack } from '../../srs/queue.js';
+import { applyTheme } from '../../theme.js';
+
+const THEME_OPTIONS = [
+  { value: 'light', label: 'Light' },
+  { value: 'dark', label: 'Dark' },
+  { value: 'system', label: 'Follow system' },
+];
 
 export async function render(container) {
+  let persisted = null; // null = unknown/unsupported, true/false once checked
+  if (navigator.storage?.persisted) {
+    persisted = await navigator.storage.persisted().catch(() => null);
+  }
+
   paint();
 
   function paint() {
     const settings = store.getSettings();
     const vocabPacks = getVocabPacks();
+    const snapshots = store.listSnapshots();
 
     container.innerHTML = `
       <div class="view">
         <h1 class="page-title">Settings</h1>
+
+        <div class="section-heading">Appearance</div>
+        <div class="card">
+          <div class="btn-row">
+            ${THEME_OPTIONS.map(
+              (o) => `<button class="btn ${settings.theme === o.value ? 'btn-primary' : ''}" data-theme-choice="${o.value}">${o.label}</button>`
+            ).join('')}
+          </div>
+        </div>
 
         <div class="section-heading">Daily new cards</div>
         <div class="card">
@@ -34,6 +56,21 @@ export async function render(container) {
         </div>
 
         <div class="section-heading">Backup</div>
+        ${
+          store.shouldPromptBackup()
+            ? `<div class="card" style="border-color:var(--warn);">
+                <p style="margin:0; color:var(--warn);">It's been a while since your last export — back up now so you don't risk losing progress.</p>
+              </div>`
+            : ''
+        }
+        ${
+          persisted === false
+            ? `<div class="card" style="border-color:var(--warn);">
+                <p style="margin:0 0 8px; color:var(--warn);">Persistent storage wasn't granted — the browser could clear your progress under storage pressure. Exporting backups regularly is the safest guard.</p>
+                <button class="btn btn-sm" id="request-persist">Try again</button>
+              </div>`
+            : ''
+        }
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 10px;">Your progress lives only on this device. Export regularly, especially before switching phone/computer.</p>
           <div class="btn-row">
@@ -42,6 +79,24 @@ export async function render(container) {
           </div>
           <input type="file" id="import-file" accept="application/json" style="display:none;" />
           <div id="backup-msg"></div>
+        </div>
+
+        <div class="section-heading">Automatic snapshots</div>
+        <div class="card">
+          <p class="page-subtitle" style="margin:0 0 10px;">A checkpoint of your progress is kept automatically for each of the last ${snapshots.length ? 'few' : '7'} days, in case something goes wrong between exports.</p>
+          ${
+            snapshots.length === 0
+              ? `<p class="page-subtitle" style="margin:0;">No snapshots yet — check back after a day of use.</p>`
+              : snapshots
+                  .map(
+                    (date) => `
+                <div class="switch-row">
+                  <span>${date}</span>
+                  <button class="btn btn-sm" data-restore-snapshot="${date}">Restore</button>
+                </div>`
+                  )
+                  .join('')
+          }
         </div>
 
         <div class="section-heading">Danger zone</div>
@@ -55,6 +110,14 @@ export async function render(container) {
           Grammar: ${getGrammarUnits().length} units
         </p>
       </div>`;
+
+    container.querySelectorAll('[data-theme-choice]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        store.updateSettings({ theme: btn.dataset.themeChoice });
+        applyTheme();
+        paint();
+      })
+    );
 
     container.querySelector('#daily-limit').addEventListener('change', (e) => {
       store.updateSettings({ dailyNewLimit: Math.max(0, Number(e.target.value) || 0) });
@@ -101,5 +164,23 @@ export async function render(container) {
         location.reload();
       }
     });
+
+    const requestPersistBtn = container.querySelector('#request-persist');
+    if (requestPersistBtn) {
+      requestPersistBtn.addEventListener('click', async () => {
+        persisted = await navigator.storage.persist().catch(() => false);
+        paint();
+      });
+    }
+
+    container.querySelectorAll('[data-restore-snapshot]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        const date = btn.dataset.restoreSnapshot;
+        if (confirm(`Restore your progress to how it was on ${date}? Anything changed since then will be lost.`)) {
+          store.restoreSnapshot(date);
+          location.reload();
+        }
+      })
+    );
   }
 }

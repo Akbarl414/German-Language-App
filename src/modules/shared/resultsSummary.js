@@ -1,5 +1,7 @@
 // Shared "round results" list used by every game's end screen: one row per
-// item attempted, right/wrong, and the correct answer for anything missed.
+// item attempted, a right/wrong marker, and — when the row provides one —
+// the correct answer, shown regardless of whether it was right or wrong
+// (some games only want it on misses; pass '' for correct rows to omit it).
 
 export function resultsListHTML(rows) {
   return `
@@ -10,7 +12,7 @@ export function resultsListHTML(rows) {
           (r) => `
         <div class="list-item" style="align-items:flex-start; gap:14px;">
           <span>${r.label}</span>
-          <span style="text-align:right; white-space:nowrap;">${r.ok ? '✅' : `❌${r.correctLabel ? ' ' + r.correctLabel : ''}`}</span>
+          <span style="text-align:right; white-space:nowrap;">${r.ok ? '✅' : '❌'}${r.correctLabel ? ' ' + r.correctLabel : ''}</span>
         </div>`
         )
         .join('')}

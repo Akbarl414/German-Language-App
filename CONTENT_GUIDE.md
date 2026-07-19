@@ -1,6 +1,10 @@
 # Content Guide
 
-How to add German-learning content to this app. Read this before generating any new content file. It's written for a future Claude Code session (or you) working in this repo with no other context.
+How to add German-learning content to this app. Read this before generating any new content file. It's written for a future Claude Code session (or you) working in this repo with no other context. See also [CLAUDE.md](./CLAUDE.md).
+
+## User progress data is sacred
+
+Content files here (vocab/grammar/phrases/stories) are separate from the user's on-device progress in `localStorage` (`src/db/storage.js`), but content changes can still affect it indirectly — e.g. renaming or removing a pack/word/exercise `id` orphans any SRS card already scheduled against it. Prefer adding new ids over renaming existing ones. See CLAUDE.md for the full rule: no change, anywhere in this repo, may reset, wipe, or break compatibility with existing user progress.
 
 ## The golden rule
 

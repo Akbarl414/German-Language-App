@@ -13,6 +13,15 @@ export async function render(container) {
       <h1 class="page-title">Los geht's!</h1>
       <p class="page-subtitle">Your German training dashboard.</p>
 
+      ${
+        store.shouldPromptBackup()
+          ? `<a href="#/settings" class="card" style="display:block; border-color:var(--warn); text-decoration:none; color:inherit;">
+              <strong style="color:var(--warn);">⚠️ Back up your progress</strong>
+              <p class="page-subtitle" style="margin:4px 0 0;">It's been over a week since your last export. Tap to back up now.</p>
+            </a>`
+          : ''
+      }
+
       <div class="stat-grid">
         <div class="stat-tile"><div class="value">${due}</div><div class="label">Due today</div></div>
         <div class="stat-tile"><div class="value">${stats.streak}🔥</div><div class="label">Streak</div></div>

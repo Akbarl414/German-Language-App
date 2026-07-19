@@ -1,18 +1,31 @@
 // Single localStorage-backed store for all on-device state: SRS card states,
 // pack activation, settings, stats, and user-added content. Everything lives
 // under one key so Export/Import backup is a single JSON blob.
+//
+// *** User progress data is sacred. ***
+// No change here may reset, wipe, or silently break compatibility with data
+// already on someone's device. If you change the shape of anything under
+// `defaultData()`, you MUST add a migration step to MIGRATIONS below (keyed
+// by the version it upgrades FROM) rather than relying on defaults to paper
+// over it — the additive merge in `migrate()` is a safety net for missing
+// fields, not a substitute for a real migration when values themselves need
+// to change shape or meaning.
 
 const STORAGE_KEY = 'german-app-data-v1';
-const SCHEMA_VERSION = 1;
+const SNAPSHOTS_KEY = 'german-app-snapshots-v1';
+const SNAPSHOT_RETENTION_DAYS = 7;
+const BACKUP_REMINDER_DAYS = 7;
+
+export const STORAGE_VERSION = 2;
 
 function defaultData() {
   return {
-    version: SCHEMA_VERSION,
+    version: STORAGE_VERSION,
     srsCards: {}, // cardId -> CardState (see src/srs/engine.js)
     packs: {}, // "vocab:core-verbs-1" -> { active: bool, triaged: bool }
     settings: {
       dailyNewLimit: 18,
-      theme: 'auto',
+      theme: 'system', // 'light' | 'dark' | 'system'
     },
     stats: {
       streak: 0,
@@ -32,9 +45,36 @@ function defaultData() {
   };
 }
 
-function migrate(data) {
+/**
+ * Version-gated migrations. Each key is the version a stored blob might be
+ * AT, and the function returns it transformed to key+1. Add a new entry
+ * every time STORAGE_VERSION is bumped — never remove or renumber an old
+ * one, since a device could still be sitting on any past version.
+ */
+const MIGRATIONS = {
+  1: (data) => {
+    // theme setting was renamed 'auto' -> 'system' to match the Settings copy.
+    if (data.settings?.theme === 'auto') data.settings.theme = 'system';
+    return data;
+  },
+};
+
+function runMigrations(data) {
+  let version = data.version || 1;
+  while (version < STORAGE_VERSION) {
+    const step = MIGRATIONS[version];
+    if (step) data = step(data);
+    version++;
+  }
+  data.version = STORAGE_VERSION;
+  return data;
+}
+
+/** Additive merge with defaults — a safety net for missing fields, applied AFTER migrations run. Never drops existing data. */
+function migrate(rawData) {
+  const data = runMigrations(rawData);
   const base = defaultData();
-  const merged = {
+  return {
     ...base,
     ...data,
     srsCards: { ...base.srsCards, ...(data.srsCards || {}) },
@@ -51,9 +91,8 @@ function migrate(data) {
       ...(data.userContent || {}),
     },
     meta: { ...base.meta, ...(data.meta || {}) },
-    version: SCHEMA_VERSION,
+    version: STORAGE_VERSION,
   };
-  return merged;
 }
 
 let cache = null;
@@ -67,11 +106,35 @@ function load() {
     console.error('Failed to load app data, starting fresh.', e);
     cache = defaultData();
   }
+  maybeSnapshot(cache);
   return cache;
 }
 
 function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(cache));
+}
+
+// --- Rolling daily snapshots (separate key, so a bad write to one can't take out the other) ---
+
+function loadSnapshots() {
+  try {
+    return JSON.parse(localStorage.getItem(SNAPSHOTS_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function maybeSnapshot(data) {
+  const today = new Date().toISOString().slice(0, 10);
+  const snapshots = loadSnapshots();
+  if (snapshots.some((s) => s.date === today)) return;
+  snapshots.push({ date: today, data: JSON.parse(JSON.stringify(data)) });
+  const trimmed = snapshots.slice(-SNAPSHOT_RETENTION_DAYS);
+  try {
+    localStorage.setItem(SNAPSHOTS_KEY, JSON.stringify(trimmed));
+  } catch (e) {
+    console.error('Failed to write daily snapshot (storage may be full).', e);
+  }
 }
 
 export const store = {
@@ -180,9 +243,32 @@ export const store = {
     persist();
     return cache;
   },
+  /** True once it's been 7+ days since the last export (or since first use, if never exported). */
+  shouldPromptBackup() {
+    const data = load();
+    const last = data.meta.lastExportAt || data.meta.createdAt;
+    if (!last) return false;
+    return Date.now() - new Date(last).getTime() > BACKUP_REMINDER_DAYS * 86400000;
+  },
   resetAll() {
     cache = defaultData();
     persist();
+  },
+
+  // --- Snapshots (automatic daily checkpoints, independent of Export/Import) ---
+  listSnapshots() {
+    return loadSnapshots()
+      .map((s) => s.date)
+      .sort()
+      .reverse();
+  },
+  restoreSnapshot(date) {
+    const snapshots = loadSnapshots();
+    const found = snapshots.find((s) => s.date === date);
+    if (!found) throw new Error(`No snapshot found for ${date}`);
+    cache = migrate(found.data);
+    persist();
+    return cache;
   },
 };
 

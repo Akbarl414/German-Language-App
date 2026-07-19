@@ -136,7 +136,7 @@ export async function render(container) {
       const rows = finalRounds.map((r) => ({
         label: r.word.pos === 'noun' ? `${genderBadgeHTML(r.word.gender)} ${escapeHtml(r.word.lemma)}` : escapeHtml(r.word.lemma),
         ok: r.correct,
-        correctLabel: r.correct ? '' : escapeHtml(r.word.meaning_en),
+        correctLabel: escapeHtml(r.word.meaning_en), // shown for every row, right or wrong
       }));
 
       container.innerHTML = `

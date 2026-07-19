@@ -1,6 +1,9 @@
 import './style.css';
 import { route, initRouter } from './router.js';
 import { renderNav } from './components/nav.js';
+import { initTheme } from './theme.js';
+
+initTheme();
 
 route('/', () => import('./modules/dashboard/index.js'));
 route('/review', () => import('./modules/dashboard/review.js'));
@@ -43,4 +46,10 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register(new URL('sw.js', document.baseURI)).catch((e) => console.error('SW registration failed', e));
   });
+}
+
+// Ask the browser not to evict this device's progress data under storage
+// pressure. Best-effort — Settings surfaces a warning if it's not granted.
+if (navigator.storage?.persist) {
+  navigator.storage.persist().catch(() => {});
 }
