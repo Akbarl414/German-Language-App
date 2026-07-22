@@ -42,16 +42,16 @@ export async function render(container) {
         return `<select data-blank="${myIndex}" style="display:inline-block; width:auto; margin:0 2px;">
           <option value="">___</option>
           ${seg.options.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join('')}
-        </select><button type="button" class="btn btn-sm" data-hint-for="${myIndex}" title="Hint" style="padding:4px 8px;">💡</button>`;
+        </select><button type="button" class="btn btn-sm" data-hint-for="${myIndex}" title="Tipp" style="padding:4px 8px;">💡</button>`;
       })
       .join('');
 
     container.innerHTML = `
       <div class="view">
-        <a href="#" id="back" class="page-subtitle">&larr; Stories</a>
+        <a href="#" id="back" class="page-subtitle">&larr; Geschichten</a>
         <h1 class="page-title">${escapeHtml(story.title)}</h1>
         <div class="card" style="line-height:2.2;">${segmentHTML}</div>
-        <button class="btn btn-primary btn-block" id="check">Check story</button>
+        <button class="btn btn-primary btn-block" id="check">Geschichte prüfen</button>
         <div id="result"></div>
       </div>`;
 
@@ -99,7 +99,7 @@ export async function render(container) {
           ${correctCount} / ${blanks.length} correct
         </p>
         ${resultsListHTML(rows)}
-        ${missedIndices.length > 0 ? `<button class="btn btn-primary btn-block" id="practice-misses" style="margin-top:16px;">Practice my misses (${missedIndices.length})</button>` : ''}
+        ${missedIndices.length > 0 ? `<button class="btn btn-primary btn-block" id="practice-misses" style="margin-top:16px;">Meine Fehler üben (${missedIndices.length})</button>` : ''}
       `;
 
       const missBtn = container.querySelector('#practice-misses');

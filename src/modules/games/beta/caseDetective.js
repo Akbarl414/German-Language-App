@@ -1,14 +1,22 @@
 // BETA — Real A2-B1 sentences with a blank article or adjective ending;
-// pick from the given options. After answering, a one-tap "Why?" reveals a
-// short explanation of the case rule (hidden by default, unlike the regular
-// grammar exercise flow, which always shows it). Pulls straight from the
-// grammar units so it reinforces what's already being studied there.
+// pick from the given options. Follows the app-wide German-first hint rule
+// strictly: no coaching is shown by default — no "(wohin?)" / "(wo?)" cues,
+// no case/gender labels — all of that is stripped from the prompt and only
+// available behind the Hint button (for adjective-ending questions, the
+// hint reveals the case/gender the authored parenthetical names; otherwise
+// it eliminates one wrong option, same as the regular grammar exercise
+// hint). Options themselves are bare forms only — exercises whose options
+// leak the answer (e.g. naming the case in the option text) are excluded
+// from the pool. The full explanation stays available after answering via
+// the "Why?" tap. Pulls straight from the grammar units so it reinforces
+// what's already being studied there.
 
 import { getGrammarUnits } from '../../../db/contentLoader.js';
 import { grammarCardId, submitGradeForCardId } from '../../../srs/queue.js';
 import { gradeFromCorrectness } from '../../../srs/engine.js';
 import { store } from '../../../db/storage.js';
 import { escapeHtml } from '../../../components/gender.js';
+import { resolveHint, wireHint, hintControlsHTML } from '../../grammar/exerciseRenderer.js';
 import { resultsListHTML } from '../../shared/resultsSummary.js';
 import { renderMissesReview } from '../../shared/missesReview.js';
 
@@ -24,12 +32,17 @@ function shuffle(arr) {
   return a;
 }
 
+/** Bare-form options only — excludes exercises whose options themselves give away the answer (e.g. naming the case/movement in the option text). */
+function hasBareOptions(exercise) {
+  return exercise.options.every((o) => !o.includes('('));
+}
+
 function buildPool() {
   const pool = [];
   for (const unit of getGrammarUnits()) {
     if (!CASE_UNIT_IDS.includes(unit.id)) continue;
     for (const ex of unit.exercises) {
-      if ((ex.type === 'multiple-choice' || ex.type === 'choose-form') && ex.prompt.includes('___')) {
+      if ((ex.type === 'multiple-choice' || ex.type === 'choose-form') && ex.prompt.includes('___') && hasBareOptions(ex)) {
         pool.push({ ...ex, unitId: unit.id });
       }
     }
@@ -45,7 +58,7 @@ export async function render(container) {
       <div class="view">
         <h1 class="page-title">Case detective <span class="tag">beta</span></h1>
         <p class="page-subtitle">Pick the article or ending that fits. Tap "Why?" any time you want the rule spelled out.</p>
-        ${best ? `<p class="page-subtitle" style="margin-top:-12px;">Best: ${best.score}/${best.total}</p>` : ''}
+        ${best ? `<p class="page-subtitle" style="margin-top:-12px;">Bestwert: ${best.score}/${best.total}</p>` : ''}
         ${
           pool.length < 3
             ? `<div class="empty-state">Not enough case exercises available yet.</div>`
@@ -65,34 +78,48 @@ export async function render(container) {
 
     function paint() {
       const ex = queue[index];
+      const { displayPrompt, hintText } = resolveHint(ex);
       container.innerHTML = `
         <div class="view">
           <div class="card-row">
-            <span class="page-subtitle" style="margin:0;">Score ${score} · Streak ${streak}</span>
+            <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
             <span class="page-subtitle" style="margin:0;">${index + 1} / ${queue.length}</span>
           </div>
           <div class="drill-card" style="text-align:left; align-items:stretch;">
-            <div class="drill-prompt" style="font-size:1.15rem;">${escapeHtml(ex.prompt)}</div>
+            <div class="drill-prompt" style="font-size:1.15rem;">${escapeHtml(displayPrompt)}</div>
             <div class="option-list">
               ${ex.options.map((o, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(o)}</button>`).join('')}
             </div>
+            ${hintControlsHTML()}
           </div>
           <div id="after"></div>
         </div>`;
 
+      const hint = wireHint(container, hintText, () => {
+        const buttons = [...container.querySelectorAll('.option-btn')];
+        const wrongIndices = buttons.map((_, i) => i).filter((i) => i !== ex.answerIndex && !buttons[i].disabled);
+        if (wrongIndices.length < 2) return 'No further hint available.';
+        const idx = wrongIndices[Math.floor(Math.random() * wrongIndices.length)];
+        buttons[idx].disabled = true;
+        buttons[idx].style.opacity = '0.4';
+        buttons[idx].style.textDecoration = 'line-through';
+        return 'Eliminated one incorrect option.';
+      });
+
       container.querySelectorAll('[data-i]').forEach((btn) =>
-        btn.addEventListener('click', () => onAnswer(Number(btn.dataset.i), ex), { once: true })
+        btn.addEventListener('click', () => onAnswer(Number(btn.dataset.i), ex, hint), { once: true })
       );
     }
 
-    function onAnswer(i, ex) {
+    function onAnswer(i, ex, hint) {
       const correct = i === ex.answerIndex;
       const buttons = [...container.querySelectorAll('.option-btn')];
       buttons.forEach((b) => (b.disabled = true));
       buttons[i].classList.add(correct ? 'correct' : 'incorrect');
       if (!correct) buttons[ex.answerIndex].classList.add('correct');
+      hint.disable();
 
-      submitGradeForCardId(grammarCardId(ex.unitId, ex.id), gradeFromCorrectness(correct, false));
+      submitGradeForCardId(grammarCardId(ex.unitId, ex.id), gradeFromCorrectness(correct, hint.isUsed()));
       rounds.push({ exercise: ex, correct });
       if (correct) {
         score++;
@@ -103,8 +130,8 @@ export async function render(container) {
 
       container.querySelector('#after').innerHTML = `
         <div class="btn-row" style="margin-top:14px;">
-          <button type="button" class="btn btn-sm" id="why-btn">🔍 Why?</button>
-          <button class="btn btn-primary" id="next-btn">${index + 1 >= queue.length ? 'See results' : 'Next'}</button>
+          <button type="button" class="btn btn-sm" id="why-btn">🔍 Warum?</button>
+          <button class="btn btn-primary" id="next-btn">${index + 1 >= queue.length ? 'Ergebnisse ansehen' : 'Weiter'}</button>
         </div>
         <p class="drill-sub" id="why-text" style="display:none; margin-top:10px;"></p>`;
 
@@ -156,14 +183,14 @@ export async function render(container) {
         <div class="view">
           <h1 class="page-title">Case closed 🕵️</h1>
           <div class="stat-grid">
-            <div class="stat-tile"><div class="value">${score}/${rounds.length}</div><div class="label">Correct</div></div>
+            <div class="stat-tile"><div class="value">${score}/${rounds.length}</div><div class="label">Richtig</div></div>
           </div>
-          ${isNewBest ? `<p style="color:var(--good); text-align:center;">New best!</p>` : ''}
+          ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
           ${resultsListHTML(rows)}
           <div class="btn-row" style="margin-top:16px;">
-            <a href="#/games" class="btn">Back to games</a>
-            <button class="btn" id="again">Play again</button>
-            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Practice my misses (${misses.length})</button>` : ''}
+            <a href="#/games" class="btn">Zurück zu den Spielen</a>
+            <button class="btn" id="again">Nochmal spielen</button>
+            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses.length})</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', renderIntro);

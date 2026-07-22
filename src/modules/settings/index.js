@@ -4,9 +4,9 @@ import { activateVocabPack, deactivateVocabPack } from '../../srs/queue.js';
 import { applyTheme } from '../../theme.js';
 
 const THEME_OPTIONS = [
-  { value: 'light', label: 'Light' },
-  { value: 'dark', label: 'Dark' },
-  { value: 'system', label: 'Follow system' },
+  { value: 'light', label: 'Hell' },
+  { value: 'dark', label: 'Dunkel' },
+  { value: 'system', label: 'System folgen' },
 ];
 
 export async function render(container) {
@@ -24,9 +24,9 @@ export async function render(container) {
 
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Settings</h1>
+        <h1 class="page-title">Einstellungen</h1>
 
-        <div class="section-heading">Appearance</div>
+        <div class="section-heading">Erscheinungsbild</div>
         <div class="card">
           <div class="btn-row">
             ${THEME_OPTIONS.map(
@@ -35,20 +35,20 @@ export async function render(container) {
           </div>
         </div>
 
-        <div class="section-heading">Daily new cards</div>
+        <div class="section-heading">Neue Karten pro Tag</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 8px;">How many brand-new items trickle into your review queue per day, across all modules.</p>
           <input type="number" id="daily-limit" min="0" max="200" value="${settings.dailyNewLimit}" />
         </div>
 
-        <div class="section-heading">Review sessions</div>
+        <div class="section-heading">Wiederholungsrunden</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 8px;">Reviews are served in chunks so a big backlog stays approachable, most overdue and weakest cards first.</p>
           <label for="session-size">Reviews per session</label>
           <input type="number" id="session-size" min="5" max="200" value="${settings.reviewSessionSize}" />
         </div>
 
-        <div class="section-heading">Auto-throttle new cards</div>
+        <div class="section-heading">Automatische Drosselung neuer Karten</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 8px;">When your due queue grows past these sizes, new-card intake automatically slows down (then pauses), so it can't snowball.</p>
           <label for="throttle-reduce">Slow down new cards when due queue exceeds</label>
@@ -57,7 +57,7 @@ export async function render(container) {
           <input type="number" id="throttle-pause" min="1" max="1000" value="${settings.throttlePauseThreshold}" />
         </div>
 
-        <div class="section-heading">Vocabulary packs</div>
+        <div class="section-heading">Vokabelpakete</div>
         <div class="card" style="padding:0;">
           ${vocabPacks
             .map((p) => {
@@ -83,21 +83,21 @@ export async function render(container) {
           persisted === false
             ? `<div class="card" style="border-color:var(--warn);">
                 <p style="margin:0 0 8px; color:var(--warn);">Persistent storage wasn't granted — the browser could clear your progress under storage pressure. Exporting backups regularly is the safest guard.</p>
-                <button class="btn btn-sm" id="request-persist">Try again</button>
+                <button class="btn btn-sm" id="request-persist">Erneut versuchen</button>
               </div>`
             : ''
         }
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 10px;">Your progress lives only on this device. Export regularly, especially before switching phone/computer.</p>
           <div class="btn-row">
-            <button class="btn btn-primary" id="export">Export backup</button>
-            <button class="btn" id="import-btn">Import backup</button>
+            <button class="btn btn-primary" id="export">Backup exportieren</button>
+            <button class="btn" id="import-btn">Backup importieren</button>
           </div>
           <input type="file" id="import-file" accept="application/json" style="display:none;" />
           <div id="backup-msg"></div>
         </div>
 
-        <div class="section-heading">Automatic snapshots</div>
+        <div class="section-heading">Automatische Schnappschüsse</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 10px;">A checkpoint of your progress is kept automatically for each of the last ${snapshots.length ? 'few' : '7'} days, in case something goes wrong between exports.</p>
           ${
@@ -108,16 +108,16 @@ export async function render(container) {
                     (date) => `
                 <div class="switch-row">
                   <span>${date}</span>
-                  <button class="btn btn-sm" data-restore-snapshot="${date}">Restore</button>
+                  <button class="btn btn-sm" data-restore-snapshot="${date}">Wiederherstellen</button>
                 </div>`
                   )
                   .join('')
           }
         </div>
 
-        <div class="section-heading">Danger zone</div>
+        <div class="section-heading">Gefahrenzone</div>
         <div class="card">
-          <button class="btn btn-bad btn-block" id="reset">Erase all progress on this device</button>
+          <button class="btn btn-bad btn-block" id="reset">Gesamten Fortschritt auf diesem Gerät löschen</button>
         </div>
 
         <p class="page-subtitle" style="text-align:center;">

@@ -43,12 +43,12 @@ export async function render(container) {
             return `
             <button class="list-item-btn" data-timed="${s}">
               <span>${s}s</span>
-              <span class="page-subtitle" style="margin:0;">${best ? `Best: ${best.score}` : 'No best yet'}</span>
+              <span class="page-subtitle" style="margin:0;">${best ? `Bestwert: ${best.score}` : 'Noch kein Bestwert'}</span>
             </button>`;
           }).join('')}
           <button class="list-item-btn" data-streak="1">
-            <span>Streak (no timer)</span>
-            <span class="page-subtitle" style="margin:0;">${streakBest ? `Best streak: ${streakBest.streak}` : 'No best yet'}</span>
+            <span>Serie (ohne Timer)</span>
+            <span class="page-subtitle" style="margin:0;">${streakBest ? `Beste Serie: ${streakBest.streak}` : 'Noch kein Bestwert'}</span>
           </button>
         </div>
       </div>`;
@@ -70,7 +70,7 @@ export async function render(container) {
           <button class="btn btn-block" style="background:var(--die-bg); border-color:var(--die); color:var(--die);" data-g="die">die</button>
           <button class="btn btn-block" style="background:var(--das-bg); border-color:var(--das); color:var(--das);" data-g="das">das</button>
         </div>
-        <button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Hint (shows meaning, not gender)</button>
+        <button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Tipp (zeigt Bedeutung, nicht Genus)</button>
       </div>`;
     let hintUsed = false;
     container.querySelectorAll('[data-g]').forEach((btn) => btn.addEventListener('click', () => onPick(btn.dataset.g, () => hintUsed), { once: true }));
@@ -112,7 +112,7 @@ export async function render(container) {
         w,
         `<div class="card-row">
           <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
-          <span class="page-subtitle" style="margin:0;">Score ${score} · Streak ${streak}</span>
+          <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
         </div>`,
         (pick, getHintUsed) => onAnswer(pick, w, getHintUsed())
       );
@@ -172,10 +172,10 @@ export async function render(container) {
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, [bestKey]: { score, streak: bestStreak } } });
       store.recordDailyActivity('gamesPlayed');
       renderRoundResults({
-        title: "Time's up! ⏱️",
+        title: 'Zeit abgelaufen! ⏱️',
         statTiles: [
-          { value: score, label: 'Correct' },
-          { value: bestStreak, label: 'Best streak' },
+          { value: score, label: 'Richtig' },
+          { value: bestStreak, label: 'Beste Serie' },
         ],
         isNewBest,
         rounds,
@@ -196,7 +196,7 @@ export async function render(container) {
 
     function paint() {
       const w = currentWord();
-      paintWordPrompt(w, `<p class="page-subtitle">Streak: ${streak}</p>`, (pick, getHintUsed) => onAnswer(pick, w, getHintUsed()));
+      paintWordPrompt(w, `<p class="page-subtitle">Serie: ${streak}</p>`, (pick, getHintUsed) => onAnswer(pick, w, getHintUsed()));
     }
 
     function onAnswer(pick, word, hintUsed) {
@@ -221,8 +221,8 @@ export async function render(container) {
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, 'sorting-streak': { streak } } });
       store.recordDailyActivity('gamesPlayed');
       renderRoundResults({
-        title: 'Streak ended',
-        statTiles: [{ value: streak, label: 'Streak' }],
+        title: 'Serie beendet',
+        statTiles: [{ value: streak, label: 'Serie' }],
         isNewBest,
         rounds,
         onPlayAgain: startStreakGame,
@@ -252,12 +252,12 @@ export async function render(container) {
         <div class="stat-grid">
           ${statTiles.map((t) => `<div class="stat-tile"><div class="value">${t.value}</div><div class="label">${t.label}</div></div>`).join('')}
         </div>
-        ${isNewBest ? `<p style="color:var(--good); text-align:center;">New best!</p>` : ''}
+        ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
         ${resultsListHTML(rows)}
         <div class="btn-row" style="margin-top:16px;">
-          <a href="#/games" class="btn">Back to games</a>
-          <button class="btn" id="again">Play again</button>
-          ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Practice my misses (${misses.length})</button>` : ''}
+          <a href="#/games" class="btn">Zurück zu den Spielen</a>
+          <button class="btn" id="again">Nochmal spielen</button>
+          ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses.length})</button>` : ''}
         </div>
       </div>`;
     container.querySelector('#again').addEventListener('click', onPlayAgain);

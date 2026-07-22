@@ -19,8 +19,8 @@ export function renderFlipCard({ container, frontHTML, backHTML, hintHTML, onGra
         <div id="hint-panel" class="drill-sub" style="display:none; margin-top:10px;"></div>
       </div>
       <div class="btn-row" style="margin-top:14px; justify-content:center;">
-        ${hintHTML ? `<button class="btn btn-sm" id="hint-btn">💡 Hint</button>` : ''}
-        <button class="btn btn-primary" id="reveal">Show answer</button>
+        ${hintHTML ? `<button class="btn btn-sm" id="hint-btn">💡 Tipp</button>` : ''}
+        <button class="btn btn-primary" id="reveal">Antwort zeigen</button>
       </div>`;
 
     const hintBtn = container.querySelector('#hint-btn');
@@ -48,10 +48,10 @@ export function renderFlipCard({ container, frontHTML, backHTML, hintHTML, onGra
         <div class="drill-answer">${backHTML}</div>
       </div>
       <div class="btn-row" style="margin-top:14px; justify-content:center;">
-        <button class="btn btn-bad" data-g="${Grade.AGAIN}">Again</button>
-        <button class="btn" data-g="${Grade.HARD}">Hard</button>
-        <button class="btn btn-good" data-g="${Grade.GOOD}">Good</button>
-        <button class="btn btn-primary" data-g="${Grade.EASY}">Easy</button>
+        <button class="btn btn-bad" data-g="${Grade.AGAIN}">Nochmal</button>
+        <button class="btn" data-g="${Grade.HARD}">Schwer</button>
+        <button class="btn btn-good" data-g="${Grade.GOOD}">Gut</button>
+        <button class="btn btn-primary" data-g="${Grade.EASY}">Leicht</button>
       </div>`;
     container.querySelectorAll('[data-g]').forEach((btn) =>
       btn.addEventListener(

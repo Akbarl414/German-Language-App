@@ -1,6 +1,8 @@
 // BETA — German words fall down the screen; tap the correct English meaning
 // from 3 choices before the word lands. Speed increases each correct answer;
-// 3 misses ends the run.
+// 3 misses ends the run. On a miss (wrong tap or the word landing), the
+// round pauses briefly to show the correct answer before the next word
+// falls, and remaining misses are shown as a prominent heart tracker.
 
 import { getAllVocabWords } from '../../../db/contentLoader.js';
 import { vocabCardId, submitGradeForCardId } from '../../../srs/queue.js';
@@ -15,6 +17,7 @@ const START_FALL_MS = 4200;
 const MIN_FALL_MS = 1500;
 const FALL_STEP_MS = 180;
 const MAX_MISSES = 3;
+const CORRECTION_PAUSE_MS = 1400;
 
 function shuffle(arr) {
   const a = [...arr];
@@ -25,12 +28,19 @@ function shuffle(arr) {
   return a;
 }
 
+function missTrackerHTML(misses) {
+  return `<div class="miss-tracker">${Array.from({ length: MAX_MISSES }, (_, i) => (i < misses ? '❌' : '❤️')).join('')}</div>`;
+}
+
 export async function render(container) {
   let landTimeoutId = null;
+  let pauseTimeoutId = null;
 
   function clearTimers() {
     if (landTimeoutId) clearTimeout(landTimeoutId);
+    if (pauseTimeoutId) clearTimeout(pauseTimeoutId);
     landTimeoutId = null;
+    pauseTimeoutId = null;
   }
 
   function renderIntro() {
@@ -40,7 +50,7 @@ export async function render(container) {
       <div class="view">
         <h1 class="page-title">Wordfall <span class="tag">beta</span></h1>
         <p class="page-subtitle">Tap the right meaning before the word lands. Speed ramps up. 3 misses ends the run.</p>
-        ${best ? `<p class="page-subtitle" style="margin-top:-12px;">Best score: ${best.score}</p>` : ''}
+        ${best ? `<p class="page-subtitle" style="margin-top:-12px;">Bestwert: ${best.score}</p>` : ''}
         <button class="btn btn-primary btn-block" id="start">Start</button>
       </div>`;
     container.querySelector('#start').addEventListener('click', startGame);
@@ -76,9 +86,9 @@ export async function render(container) {
       container.innerHTML = `
         <div class="view">
           <div class="card-row">
-            <span class="page-subtitle" style="margin:0;">Score ${score}</span>
-            <span class="page-subtitle" style="margin:0;">Misses ${misses}/${MAX_MISSES}</span>
+            <span class="page-subtitle" style="margin:0;">Punkte ${score}</span>
           </div>
+          ${missTrackerHTML(misses)}
           <div class="wordfall-track" id="track">
             <div class="wordfall-word" id="falling">${escapeHtml(target.lemma)}</div>
           </div>
@@ -86,7 +96,7 @@ export async function render(container) {
           <div class="option-list">
             ${options.map((o, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(o.meaning_en)}</button>`).join('')}
           </div>
-          ${hintText ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Hint</button>` : ''}
+          ${hintText ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Tipp</button>` : ''}
         </div>`;
 
       const falling = container.querySelector('#falling');
@@ -138,15 +148,33 @@ export async function render(container) {
       if (correct) {
         score++;
         fallMs = Math.max(MIN_FALL_MS, fallMs - FALL_STEP_MS);
-      } else {
-        misses++;
-      }
-      if (misses >= MAX_MISSES) {
-        finish();
-      } else {
         current = nextQuestion();
         paint();
+      } else {
+        misses++;
+        showCorrection(target);
       }
+    }
+
+    function showCorrection(target) {
+      const label = target.pos === 'noun' ? `${genderBadgeHTML(target.gender)} ${escapeHtml(target.lemma)}` : escapeHtml(target.lemma);
+      container.innerHTML = `
+        <div class="view">
+          ${missTrackerHTML(misses)}
+          <div class="flash-wrong">
+            <div class="flash-x">✗</div>
+            <div class="correction-banner">${label} = ${escapeHtml(target.meaning_en)}</div>
+          </div>
+        </div>`;
+      pauseTimeoutId = setTimeout(() => {
+        pauseTimeoutId = null;
+        if (misses >= MAX_MISSES) {
+          finish();
+        } else {
+          current = nextQuestion();
+          paint();
+        }
+      }, CORRECTION_PAUSE_MS);
     }
 
     paint();
@@ -177,15 +205,15 @@ export async function render(container) {
         <div class="view">
           <h1 class="page-title">Wordfall over 🌧️</h1>
           <div class="stat-grid">
-            <div class="stat-tile"><div class="value">${score}</div><div class="label">Score</div></div>
-            <div class="stat-tile"><div class="value">${rounds.length}</div><div class="label">Words seen</div></div>
+            <div class="stat-tile"><div class="value">${score}</div><div class="label">Punkte</div></div>
+            <div class="stat-tile"><div class="value">${rounds.length}</div><div class="label">Wörter gesehen</div></div>
           </div>
-          ${isNewBest ? `<p style="color:var(--good); text-align:center;">New best score!</p>` : ''}
+          ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
           ${resultsListHTML(rows)}
           <div class="btn-row" style="margin-top:16px;">
-            <a href="#/games" class="btn">Back to games</a>
-            <button class="btn" id="again">Play again</button>
-            ${misses_.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Practice my misses (${misses_.length})</button>` : ''}
+            <a href="#/games" class="btn">Zurück zu den Spielen</a>
+            <button class="btn" id="again">Nochmal spielen</button>
+            ${misses_.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses_.length})</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', startGame);

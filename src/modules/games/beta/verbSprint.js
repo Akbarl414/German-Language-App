@@ -15,6 +15,7 @@ import { renderMissesReview } from '../../shared/missesReview.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
 const WRONG_FLASH_MS = 1100;
+const CORRECT_FLASH_MS = 500;
 
 function shuffle(arr) {
   const a = [...arr];
@@ -55,7 +56,7 @@ export async function render(container) {
             return `
             <button class="list-item-btn" data-timed="${s}">
               <span>${s}s</span>
-              <span class="page-subtitle" style="margin:0;">${best ? `Best: ${best.score}` : 'No best yet'}</span>
+              <span class="page-subtitle" style="margin:0;">${best ? `Bestwert: ${best.score}` : 'Noch kein Bestwert'}</span>
             </button>`;
           }).join('')}
         </div>
@@ -101,18 +102,18 @@ export async function render(container) {
           <div class="view">
             <div class="card-row">
               <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
-              <span class="page-subtitle" style="margin:0;">Score ${score} · Streak ${streak}</span>
+              <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
             </div>
             <div class="drill-card" id="drill-area">
               <div class="drill-prompt">${escapeHtml(w.lemma)}</div>
-              <div class="drill-sub">Perfekt: auxiliary?</div>
+              <div class="drill-sub">Perfekt: Hilfsverb?</div>
               <div id="hint-panel" class="drill-sub" style="display:none; margin-top:8px;"></div>
             </div>
             <div class="btn-row" style="margin-top:16px;">
               <button class="btn btn-block" data-aux="hat">hat</button>
               <button class="btn btn-block" data-aux="ist">ist</button>
             </div>
-            ${hintText ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Hint</button>` : ''}
+            ${hintText ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Tipp</button>` : ''}
           </div>`;
         container.querySelectorAll('[data-aux]').forEach((btn) =>
           btn.addEventListener(
@@ -146,7 +147,7 @@ export async function render(container) {
           <div class="view">
             <div class="card-row">
               <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
-              <span class="page-subtitle" style="margin:0;">Score ${score} · Streak ${streak}</span>
+              <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
             </div>
             <div class="drill-card" id="drill-area">
               <div class="drill-prompt">${escapeHtml(w.lemma)}</div>
@@ -172,11 +173,24 @@ export async function render(container) {
           score++;
           streak++;
           bestStreak = Math.max(bestStreak, streak);
-          if (timeLeft > 0) paint();
+          flashCorrect();
         } else {
           streak = 0;
           flashWrong(w);
         }
+      }
+
+      function flashCorrect() {
+        container.innerHTML = `
+          <div class="view">
+            <div class="flash-wrong">
+              <div class="flash-check">✓</div>
+            </div>
+          </div>`;
+        flashTimeoutId = setTimeout(() => {
+          flashTimeoutId = null;
+          if (timeLeft > 0) paint();
+        }, CORRECT_FLASH_MS);
       }
 
       function flashWrong(word) {
@@ -235,17 +249,17 @@ export async function render(container) {
 
       container.innerHTML = `
         <div class="view">
-          <h1 class="page-title">Time's up! ⏱️</h1>
+          <h1 class="page-title">Zeit abgelaufen! ⏱️</h1>
           <div class="stat-grid">
-            <div class="stat-tile"><div class="value">${score}</div><div class="label">Correct</div></div>
-            <div class="stat-tile"><div class="value">${bestStreak}</div><div class="label">Best streak</div></div>
+            <div class="stat-tile"><div class="value">${score}</div><div class="label">Richtig</div></div>
+            <div class="stat-tile"><div class="value">${bestStreak}</div><div class="label">Beste Serie</div></div>
           </div>
-          ${isNewBest ? `<p style="color:var(--good); text-align:center;">New best!</p>` : ''}
+          ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
           ${resultsListHTML(rows)}
           <div class="btn-row" style="margin-top:16px;">
-            <a href="#/games" class="btn">Back to games</a>
-            <button class="btn" id="again">Play again</button>
-            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Practice my misses (${misses.length})</button>` : ''}
+            <a href="#/games" class="btn">Zurück zu den Spielen</a>
+            <button class="btn" id="again">Nochmal spielen</button>
+            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses.length})</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', () => startTimedGame(seconds));

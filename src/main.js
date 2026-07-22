@@ -8,6 +8,7 @@ initTheme();
 route('/', () => import('./modules/dashboard/index.js'));
 route('/review', () => import('./modules/dashboard/review.js'));
 route('/more', () => import('./modules/dashboard/more.js'));
+route('/active', () => import('./modules/active/index.js'));
 
 route('/vocab', () => import('./modules/vocab/browse.js'));
 route('/vocab/pack/:packId', () => import('./modules/vocab/pack.js'));

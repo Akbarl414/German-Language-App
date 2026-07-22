@@ -21,12 +21,12 @@ export async function render(container) {
   function paint() {
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Add content</h1>
+        <h1 class="page-title">Inhalt hinzufügen</h1>
         <p class="page-subtitle">Right after class: capture a word, phrase, or quick note. Saved on this device and included in your backup export.</p>
         <div class="btn-row" style="margin-bottom:16px;">
-          <button class="btn ${tab === 'vocab' ? 'btn-primary' : ''}" data-tab="vocab">Word</button>
+          <button class="btn ${tab === 'vocab' ? 'btn-primary' : ''}" data-tab="vocab">Wort</button>
           <button class="btn ${tab === 'phrase' ? 'btn-primary' : ''}" data-tab="phrase">Phrase</button>
-          <button class="btn ${tab === 'note' ? 'btn-primary' : ''}" data-tab="note">Note</button>
+          <button class="btn ${tab === 'note' ? 'btn-primary' : ''}" data-tab="note">Notiz</button>
         </div>
         <div id="form-slot"></div>
       </div>`;
@@ -84,7 +84,7 @@ function renderVocabForm(slot) {
       <label for="v-example-en">Example sentence (English)</label>
       <input type="text" id="v-example-en" />
 
-      <button class="btn btn-primary btn-block" id="v-save" style="margin-top:16px;">Save word</button>
+      <button class="btn btn-primary btn-block" id="v-save" style="margin-top:16px;">Wort speichern</button>
       <div id="v-msg"></div>
     </div>`;
 
@@ -141,7 +141,7 @@ function renderPhraseForm(slot) {
       <label for="p-register">Register</label>
       <select id="p-register"><option value="colloquial">colloquial</option><option value="neutral">neutral</option><option value="formal">formal</option></select>
       ${umlautFieldHTML('p-situation', { label: 'Example situation / dialogue', multiline: true })}
-      <button class="btn btn-primary btn-block" id="p-save" style="margin-top:16px;">Save phrase</button>
+      <button class="btn btn-primary btn-block" id="p-save" style="margin-top:16px;">Phrase speichern</button>
       <div id="p-msg"></div>
     </div>`;
 
@@ -172,7 +172,7 @@ function renderNoteForm(slot) {
   slot.innerHTML = `
     <div class="card">
       ${umlautFieldHTML('n-text', { label: 'Quick note', placeholder: 'Anything from class worth remembering...', multiline: true })}
-      <button class="btn btn-primary btn-block" id="n-save" style="margin-top:16px;">Save note</button>
+      <button class="btn btn-primary btn-block" id="n-save" style="margin-top:16px;">Notiz speichern</button>
     </div>
     ${
       notes.length

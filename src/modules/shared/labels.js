@@ -20,12 +20,12 @@ export function labelForItem(item) {
 }
 
 export function moduleLabel(type) {
-  return { vocab: 'Vocabulary', phrase: 'Phrases', grammar: 'Grammar' }[type] || type;
+  return { vocab: 'Vokabeln', phrase: 'Phrasen', grammar: 'Grammatik' }[type] || type;
 }
 
 /** Small note shown when the review queue's auto-throttle is reducing/pausing new cards. '' when inactive. */
 export function throttleNoteHTML(level) {
-  if (level === 'paused') return `<p class="page-subtitle" style="margin:0 0 16px;">⏸️ New words paused until your queue shrinks.</p>`;
-  if (level === 'reduced') return `<p class="page-subtitle" style="margin:0 0 16px;">🐢 New words slowed down until your queue shrinks.</p>`;
+  if (level === 'paused') return `<p class="page-subtitle" style="margin:0 0 16px;">⏸️ Neue Wörter pausiert, bis deine Warteschlange kleiner wird.</p>`;
+  if (level === 'reduced') return `<p class="page-subtitle" style="margin:0 0 16px;">🐢 Neue Wörter verlangsamt, bis deine Warteschlange kleiner wird.</p>`;
   return '';
 }

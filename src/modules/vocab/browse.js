@@ -9,10 +9,10 @@ export async function render(container) {
     const packs = getVocabPacks();
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Vocabulary</h1>
+        <h1 class="page-title">Vokabeln</h1>
         <p class="page-subtitle">${packs.reduce((n, p) => n + p.words.length, 0)} words across ${packs.length} packs.</p>
         <div class="btn-row" style="margin-bottom:16px;">
-          <a href="#/add" class="btn">➕ Add a word</a>
+          <a href="#/add" class="btn">➕ Wort hinzufügen</a>
         </div>
         ${packs.map((p) => packRow(p)).join('')}
       </div>`;
@@ -44,7 +44,7 @@ function packRow(pack) {
           <div style="font-weight:700;">${pack.title}</div>
           <div class="page-subtitle" style="margin:2px 0 0;">${pack.topic} · ${pack.level} · ${pack.words.length} words</div>
         </a>
-        <button class="btn btn-sm ${state.active ? 'btn-good' : ''}" data-toggle="${pack.id}">${state.active ? 'Active' : 'Off'}</button>
+        <button class="btn btn-sm ${state.active ? 'btn-good' : ''}" data-toggle="${pack.id}">${state.active ? 'Aktiv' : 'Aus'}</button>
       </div>
       ${pending > 0 ? `<a href="#/vocab/pack/${pack.id}/triage" class="tag" style="margin-top:10px; display:inline-block; color:var(--warn); border-color:var(--warn);">Continue triage (${pending} left)</a>` : ''}
     </div>`;

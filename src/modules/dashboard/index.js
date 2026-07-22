@@ -25,26 +25,26 @@ export async function render(container) {
       }
 
       <div class="stat-grid">
-        <div class="stat-tile"><div class="value">${due}</div><div class="label">Due today</div></div>
-        <div class="stat-tile"><div class="value">${stats.streak}🔥</div><div class="label">Streak</div></div>
-        <div class="stat-tile"><div class="value">${stats.bestStreak || 0}</div><div class="label">Best streak</div></div>
-        <div class="stat-tile"><div class="value">${Object.keys(store.allCards()).length}</div><div class="label">Cards tracked</div></div>
+        <div class="stat-tile"><div class="value">${due}</div><div class="label">Heute fällig</div></div>
+        <div class="stat-tile"><div class="value">${stats.streak}🔥</div><div class="label">Serie</div></div>
+        <div class="stat-tile"><div class="value">${stats.bestStreak || 0}</div><div class="label">Beste Serie</div></div>
+        <div class="stat-tile"><div class="value">${Object.keys(store.allCards()).length}</div><div class="label">Karten erfasst</div></div>
       </div>
 
       ${throttleNoteHTML(throttle.level)}
 
       <a href="#/review" class="btn btn-primary btn-block" style="margin-bottom:20px;">
-        ${due > 0 ? `Start review (${Math.min(due, sessionSize)}${sessionSize < due ? ` of ${due}` : ''})` : 'Nothing due — review anyway'}
+        ${due > 0 ? `Wiederholung starten (${Math.min(due, sessionSize)}${sessionSize < due ? ` von ${due}` : ''})` : 'Nichts fällig — trotzdem wiederholen'}
       </a>
 
-      <div class="section-heading">Strength by module</div>
+      <div class="section-heading">Stärke nach Bereich</div>
       <div class="card">
-        ${strengthRow('Vocabulary', strength.vocab)}
-        ${strengthRow('Phrases', strength.phrase)}
-        ${strengthRow('Grammar', strength.grammar)}
+        ${strengthRow('Vokabeln', strength.vocab)}
+        ${strengthRow('Phrasen', strength.phrase)}
+        ${strengthRow('Grammatik', strength.grammar)}
       </div>
 
-      <div class="section-heading">Weakest spots</div>
+      <div class="section-heading">Schwächste Bereiche</div>
       <div class="card">
         ${
           weak.length === 0
@@ -53,11 +53,7 @@ export async function render(container) {
         }
       </div>
 
-      <div class="btn-row">
-        <a href="#/testme" class="btn">🧪 Test me</a>
-        <a href="#/games" class="btn">🎮 Games</a>
-        <a href="#/add" class="btn">➕ Add content</a>
-      </div>
+      <a href="#/active" class="btn btn-block">🗂️ Aktive Inhalte</a>
     </div>
   `;
 }

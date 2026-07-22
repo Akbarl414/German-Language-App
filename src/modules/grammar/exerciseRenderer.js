@@ -32,7 +32,7 @@ function splitHint(prompt) {
 
 // An explicit `exercise.hint` (used for synthetically-built exercises, e.g.
 // the vocab gender drill) always wins over a parsed parenthetical.
-function resolveHint(exercise) {
+export function resolveHint(exercise) {
   if (exercise.hint) return { displayPrompt: exercise.prompt, hintText: exercise.hint };
   return splitHint(exercise.prompt);
 }
@@ -55,7 +55,7 @@ export function renderExercise({ exercise, container, onResult }) {
 function continueButton(container, correct, hintUsed, onResult) {
   const wrap = document.createElement('div');
   wrap.style.marginTop = '14px';
-  wrap.innerHTML = `<button class="btn btn-primary btn-block">Continue</button>`;
+  wrap.innerHTML = `<button class="btn btn-primary btn-block">Weiter</button>`;
   wrap.querySelector('button').addEventListener('click', () => onResult(correct, hintUsed), { once: true });
   container.appendChild(wrap);
 }
@@ -64,13 +64,13 @@ function explanationBlock(exercise) {
   return `<p class="drill-sub" style="margin-top:10px;">${escapeHtml(exercise.explanation)}</p>`;
 }
 
-function hintControlsHTML() {
-  return `<button type="button" class="btn btn-sm" id="hint-btn">💡 Hint</button>
+export function hintControlsHTML() {
+  return `<button type="button" class="btn btn-sm" id="hint-btn">💡 Tipp</button>
     <div id="hint-panel" class="drill-sub" style="display:none; margin-top:8px;"></div>`;
 }
 
 /** Wires a Hint button; `fallback()` supplies hint text/side-effects when no authored hint exists. Returns a getter for whether it was used. */
-function wireHint(container, hintText, fallback) {
+export function wireHint(container, hintText, fallback) {
   let used = false;
   const btn = container.querySelector('#hint-btn');
   const panel = container.querySelector('#hint-panel');
@@ -97,13 +97,13 @@ function renderFillBlank(exercise, container, onResult) {
   const parts = displayPrompt.split('___');
   container.innerHTML = `
     <div class="drill-card" style="text-align:left; align-items:stretch;">
-      <div class="drill-sub">Fill in the blank</div>
+      <div class="drill-sub">Lücke ausfüllen</div>
       <div style="font-size:1.15rem; margin:10px 0;">
         ${escapeHtml(parts[0] || '')}<input id="fb-input" type="text" style="width:140px; display:inline-block; margin:0 4px;" />${escapeHtml(parts[1] || '')}
       </div>
       <div class="btn-row">
         ${hintControlsHTML()}
-        <button class="btn btn-primary" id="fb-check">Check</button>
+        <button class="btn btn-primary" id="fb-check">Prüfen</button>
       </div>
       <div id="fb-result"></div>
     </div>`;
@@ -122,7 +122,7 @@ function renderFillBlank(exercise, container, onResult) {
     hint.disable();
     const resultEl = container.querySelector('#fb-result');
     resultEl.innerHTML = `<p style="color:${correct ? 'var(--good)' : 'var(--bad)'}; margin-top:8px;">${
-      correct ? 'Correct!' : `Correct answer: ${escapeHtml(exercise.answer)}`
+      correct ? 'Richtig!' : `Richtige Antwort: ${escapeHtml(exercise.answer)}`
     }</p>${explanationBlock(exercise)}`;
     continueButton(container, correct, hint.isUsed(), onResult);
   });
@@ -132,13 +132,13 @@ function renderErrorSpot(exercise, container, onResult) {
   const { displayPrompt, hintText } = resolveHint(exercise);
   container.innerHTML = `
     <div class="drill-card" style="text-align:left; align-items:stretch;">
-      <div class="drill-sub">Find and correct the error</div>
+      <div class="drill-sub">Fehler finden und korrigieren</div>
       <div class="drill-prompt" style="font-size:1.15rem;">${escapeHtml(displayPrompt)}</div>
       <label for="es-input">Corrected sentence</label>
       <input id="es-input" type="text" />
       <div class="btn-row" style="margin-top:10px;">
         ${hintControlsHTML()}
-        <button class="btn btn-primary" id="es-check">Check</button>
+        <button class="btn btn-primary" id="es-check">Prüfen</button>
       </div>
       <div id="es-result"></div>
     </div>`;
@@ -160,7 +160,7 @@ function renderErrorSpot(exercise, container, onResult) {
     container.querySelector('#es-check').disabled = true;
     hint.disable();
     container.querySelector('#es-result').innerHTML = `<p style="color:${correct ? 'var(--good)' : 'var(--bad)'}; margin-top:8px;">${
-      correct ? 'Correct!' : `Correct: ${escapeHtml(exercise.answer)}`
+      correct ? 'Richtig!' : `Richtig: ${escapeHtml(exercise.answer)}`
     }</p>${explanationBlock(exercise)}`;
     continueButton(container, correct, hint.isUsed(), onResult);
   });
@@ -218,7 +218,7 @@ function renderReorder(exercise, container, onResult) {
       <div class="token-pool" id="ro-pool"></div>
       <div class="btn-row">
         ${hintControlsHTML()}
-        <button class="btn btn-primary" id="ro-check">Check</button>
+        <button class="btn btn-primary" id="ro-check">Prüfen</button>
       </div>
       <div id="ro-result"></div>
     </div>`;
@@ -252,7 +252,7 @@ function renderReorder(exercise, container, onResult) {
     hint.disable();
     container.querySelectorAll('.token').forEach((t) => (t.style.pointerEvents = 'none'));
     container.querySelector('#ro-result').innerHTML = `<p style="color:${correct ? 'var(--good)' : 'var(--bad)'}; margin-top:8px;">${
-      correct ? 'Correct!' : `Correct order: ${escapeHtml(solutions[0].join(' '))}`
+      correct ? 'Richtig!' : `Richtige Reihenfolge: ${escapeHtml(solutions[0].join(' '))}`
     }</p>${explanationBlock(exercise)}`;
     continueButton(container, correct, hint.isUsed(), onResult);
   });

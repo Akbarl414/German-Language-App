@@ -21,7 +21,7 @@ export function renderMissesReview({ container, items, onDone }) {
     const item = { ...raw, card };
     container.innerHTML = `
       <div class="view">
-        <p class="page-subtitle">${i + 1} / ${items.length} · Practicing your misses</p>
+        <p class="page-subtitle">${i + 1} / ${items.length} · Du übst deine Fehler</p>
         <div id="miss-slot"></div>
       </div>`;
     renderQueueItem(item, container.querySelector('#miss-slot'), (gradeValue) => {

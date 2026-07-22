@@ -1,9 +1,8 @@
 const NAV_ITEMS = [
-  { path: '/', icon: '🏠', label: 'Home' },
-  { path: '/review', icon: '⏱️', label: 'Review' },
-  { path: '/vocab', icon: '📚', label: 'Vocab' },
-  { path: '/grammar', icon: '✏️', label: 'Grammar' },
-  { path: '/more', icon: '☰', label: 'More' },
+  { path: '/', icon: '🏠', label: 'Start' },
+  { path: '/games', icon: '🎮', label: 'Spiele' },
+  { path: '/testme', icon: '🧪', label: 'Teste mich' },
+  { path: '/more', icon: '☰', label: 'Mehr' },
 ];
 
 export function renderNav(activePath) {

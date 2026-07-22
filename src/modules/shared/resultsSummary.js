@@ -5,7 +5,7 @@
 
 export function resultsListHTML(rows) {
   return `
-    <div class="section-heading">Round results</div>
+    <div class="section-heading">Rundenergebnisse</div>
     <div class="card" style="padding:0;">
       ${rows
         .map(
