@@ -29,6 +29,8 @@ function defaultData() {
       reviewSessionSize: 30, // reviews are served in chunks of this size, most-urgent first
       throttleQueueThreshold: 60, // due queue size above which new-card intake is halved
       throttlePauseThreshold: 100, // due queue size above which new cards pause entirely
+      uiLanguage: 'de', // 'de' | 'en' — nav/button/tab chrome translated via src/i18n.js
+      typeItCheckGender: false, // Type it (beta game): require the article (e.g. "der Löffel") on noun answers
     },
     stats: {
       streak: 0,

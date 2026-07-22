@@ -1,6 +1,8 @@
 import { getRefsByType, weightedSample, submitReview } from '../../srs/queue.js';
 import { renderQueueItem } from '../shared/itemRenderer.js';
 import { labelForItem, moduleLabel } from '../shared/labels.js';
+// Aliased to avoid shadowing the local `t` (module type) variable used below.
+import { t as translate } from '../../i18n.js';
 
 export async function render(container, { modules = 'vocab,phrase,grammar', length = '20' }) {
   const types = modules.split(',');
@@ -18,12 +20,12 @@ export async function render(container, { modules = 'vocab,phrase,grammar', leng
     if (index >= picked.length) {
       container.innerHTML = `
         <div class="view">
-          <h1 class="page-title">Test abgeschlossen</h1>
+          <h1 class="page-title">${translate('testComplete')}</h1>
           <div class="stat-grid">
-            <div class="stat-tile"><div class="value">${picked.length}</div><div class="label">Fragen</div></div>
-            <div class="stat-tile"><div class="value">${Math.round((correctCount / picked.length) * 100)}%</div><div class="label">Richtig</div></div>
+            <div class="stat-tile"><div class="value">${picked.length}</div><div class="label">${translate('questions')}</div></div>
+            <div class="stat-tile"><div class="value">${Math.round((correctCount / picked.length) * 100)}%</div><div class="label">${translate('correct')}</div></div>
           </div>
-          <div class="section-heading">Was du wiederholen solltest</div>
+          <div class="section-heading">${translate('whatToReview')}</div>
           <div class="card" style="padding:0;">
             ${
               missed.length === 0
@@ -31,7 +33,7 @@ export async function render(container, { modules = 'vocab,phrase,grammar', leng
                 : missed.map((m) => `<div class="list-item"><span>${labelForItem(m)}</span><span class="tag">${moduleLabel(m.type)}</span></div>`).join('')
             }
           </div>
-          <a href="#/testme" class="btn btn-primary btn-block">Nochmal testen</a>
+          <a href="#/testme" class="btn btn-primary btn-block">${translate('testMeAgain')}</a>
         </div>`;
       return;
     }

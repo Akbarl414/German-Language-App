@@ -1,7 +1,8 @@
 import './style.css';
-import { route, initRouter } from './router.js';
+import { route, initRouter, rerenderCurrentRoute } from './router.js';
 import { renderNav } from './components/nav.js';
 import { initTheme } from './theme.js';
+import { onLanguageChange } from './i18n.js';
 
 initTheme();
 
@@ -45,6 +46,13 @@ window.addEventListener('hashchange', paintNav);
 paintNav();
 
 initRouter(document.getElementById('app'));
+
+// Flip nav chrome + the currently-displayed screen in place when the UI
+// language toggle in Settings changes.
+onLanguageChange(() => {
+  paintNav();
+  rerenderCurrentRoute();
+});
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

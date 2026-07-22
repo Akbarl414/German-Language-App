@@ -6,6 +6,7 @@ import { renderQueueItem } from './itemRenderer.js';
 import { submitReview } from '../../srs/queue.js';
 import { store } from '../../db/storage.js';
 import { newCard } from '../../srs/engine.js';
+import { t } from '../../i18n.js';
 
 /** items: [{ cardId, type: 'vocab', sourceId, itemId, facet, content }] */
 export function renderMissesReview({ container, items, onDone }) {
@@ -21,7 +22,7 @@ export function renderMissesReview({ container, items, onDone }) {
     const item = { ...raw, card };
     container.innerHTML = `
       <div class="view">
-        <p class="page-subtitle">${i + 1} / ${items.length} · Du übst deine Fehler</p>
+        <p class="page-subtitle">${t('practicingYourMisses', i + 1, items.length)}</p>
         <div id="miss-slot"></div>
       </div>`;
     renderQueueItem(item, container.querySelector('#miss-slot'), (gradeValue) => {

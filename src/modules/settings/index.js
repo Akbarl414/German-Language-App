@@ -2,11 +2,12 @@ import { store } from '../../db/storage.js';
 import { getVocabPacks, getPhraseSets, getGrammarUnits } from '../../db/contentLoader.js';
 import { activateVocabPack, deactivateVocabPack } from '../../srs/queue.js';
 import { applyTheme } from '../../theme.js';
+import { t, getUiLanguage, setUiLanguage } from '../../i18n.js';
 
 const THEME_OPTIONS = [
-  { value: 'light', label: 'Hell' },
-  { value: 'dark', label: 'Dunkel' },
-  { value: 'system', label: 'System folgen' },
+  { value: 'light', labelKey: 'themeLight' },
+  { value: 'dark', labelKey: 'themeDark' },
+  { value: 'system', labelKey: 'themeSystem' },
 ];
 
 export async function render(container) {
@@ -21,34 +22,43 @@ export async function render(container) {
     const settings = store.getSettings();
     const vocabPacks = getVocabPacks();
     const snapshots = store.listSnapshots();
+    const uiLang = getUiLanguage();
 
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Einstellungen</h1>
+        <h1 class="page-title">${t('settingsTitle')}</h1>
 
-        <div class="section-heading">Erscheinungsbild</div>
+        <div class="section-heading">${t('appearance')}</div>
         <div class="card">
           <div class="btn-row">
             ${THEME_OPTIONS.map(
-              (o) => `<button class="btn ${settings.theme === o.value ? 'btn-primary' : ''}" data-theme-choice="${o.value}">${o.label}</button>`
+              (o) => `<button class="btn ${settings.theme === o.value ? 'btn-primary' : ''}" data-theme-choice="${o.value}">${t(o.labelKey)}</button>`
             ).join('')}
           </div>
         </div>
 
-        <div class="section-heading">Neue Karten pro Tag</div>
+        <div class="section-heading">Sprache der Oberfläche / Interface language</div>
+        <div class="card">
+          <div class="btn-row">
+            <button class="btn ${uiLang === 'de' ? 'btn-primary' : ''}" data-lang-choice="de">Deutsch</button>
+            <button class="btn ${uiLang === 'en' ? 'btn-primary' : ''}" data-lang-choice="en">English</button>
+          </div>
+        </div>
+
+        <div class="section-heading">${t('dailyNewCards')}</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 8px;">How many brand-new items trickle into your review queue per day, across all modules.</p>
           <input type="number" id="daily-limit" min="0" max="200" value="${settings.dailyNewLimit}" />
         </div>
 
-        <div class="section-heading">Wiederholungsrunden</div>
+        <div class="section-heading">${t('reviewSessions')}</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 8px;">Reviews are served in chunks so a big backlog stays approachable, most overdue and weakest cards first.</p>
           <label for="session-size">Reviews per session</label>
           <input type="number" id="session-size" min="5" max="200" value="${settings.reviewSessionSize}" />
         </div>
 
-        <div class="section-heading">Automatische Drosselung neuer Karten</div>
+        <div class="section-heading">${t('autoThrottle')}</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 8px;">When your due queue grows past these sizes, new-card intake automatically slows down (then pauses), so it can't snowball.</p>
           <label for="throttle-reduce">Slow down new cards when due queue exceeds</label>
@@ -57,7 +67,7 @@ export async function render(container) {
           <input type="number" id="throttle-pause" min="1" max="1000" value="${settings.throttlePauseThreshold}" />
         </div>
 
-        <div class="section-heading">Vokabelpakete</div>
+        <div class="section-heading">${t('vocabPacksHeading')}</div>
         <div class="card" style="padding:0;">
           ${vocabPacks
             .map((p) => {
@@ -83,21 +93,21 @@ export async function render(container) {
           persisted === false
             ? `<div class="card" style="border-color:var(--warn);">
                 <p style="margin:0 0 8px; color:var(--warn);">Persistent storage wasn't granted — the browser could clear your progress under storage pressure. Exporting backups regularly is the safest guard.</p>
-                <button class="btn btn-sm" id="request-persist">Erneut versuchen</button>
+                <button class="btn btn-sm" id="request-persist">${t('tryAgain')}</button>
               </div>`
             : ''
         }
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 10px;">Your progress lives only on this device. Export regularly, especially before switching phone/computer.</p>
           <div class="btn-row">
-            <button class="btn btn-primary" id="export">Backup exportieren</button>
-            <button class="btn" id="import-btn">Backup importieren</button>
+            <button class="btn btn-primary" id="export">${t('exportBackup')}</button>
+            <button class="btn" id="import-btn">${t('importBackup')}</button>
           </div>
           <input type="file" id="import-file" accept="application/json" style="display:none;" />
           <div id="backup-msg"></div>
         </div>
 
-        <div class="section-heading">Automatische Schnappschüsse</div>
+        <div class="section-heading">${t('automaticSnapshots')}</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 10px;">A checkpoint of your progress is kept automatically for each of the last ${snapshots.length ? 'few' : '7'} days, in case something goes wrong between exports.</p>
           ${
@@ -108,16 +118,16 @@ export async function render(container) {
                     (date) => `
                 <div class="switch-row">
                   <span>${date}</span>
-                  <button class="btn btn-sm" data-restore-snapshot="${date}">Wiederherstellen</button>
+                  <button class="btn btn-sm" data-restore-snapshot="${date}">${t('restore')}</button>
                 </div>`
                   )
                   .join('')
           }
         </div>
 
-        <div class="section-heading">Gefahrenzone</div>
+        <div class="section-heading">${t('dangerZone')}</div>
         <div class="card">
-          <button class="btn btn-bad btn-block" id="reset">Gesamten Fortschritt auf diesem Gerät löschen</button>
+          <button class="btn btn-bad btn-block" id="reset">${t('eraseAllProgress')}</button>
         </div>
 
         <p class="page-subtitle" style="text-align:center;">
@@ -132,6 +142,13 @@ export async function render(container) {
         store.updateSettings({ theme: btn.dataset.themeChoice });
         applyTheme();
         paint();
+      })
+    );
+
+    container.querySelectorAll('[data-lang-choice]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        setUiLanguage(btn.dataset.langChoice);
+        // Global language-change listener (see main.js) repaints nav + this screen.
       })
     );
 

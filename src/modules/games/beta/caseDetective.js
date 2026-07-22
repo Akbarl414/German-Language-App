@@ -19,8 +19,12 @@ import { escapeHtml } from '../../../components/gender.js';
 import { resolveHint, wireHint, hintControlsHTML } from '../../grammar/exerciseRenderer.js';
 import { resultsListHTML } from '../../shared/resultsSummary.js';
 import { renderMissesReview } from '../../shared/missesReview.js';
+import { t } from '../../../i18n.js';
 
-const CASE_UNIT_IDS = ['adjective-endings', 'wechselpraepositionen'];
+// Any grammar unit here contributes its bare-option multiple-choice/choose-form
+// blanks to the pool — see CONTENT_GUIDE.md "Case detective sentence packs"
+// for how to add more.
+const CASE_UNIT_IDS = ['adjective-endings', 'wechselpraepositionen', 'dative-verbs', 'fixed-case-prepositions'];
 const ROUND_SIZE = 15;
 
 function shuffle(arr) {
@@ -37,6 +41,10 @@ function hasBareOptions(exercise) {
   return exercise.options.every((o) => !o.includes('('));
 }
 
+function exerciseKey(ex) {
+  return `${ex.unitId}::${ex.id}`;
+}
+
 function buildPool() {
   const pool = [];
   for (const unit of getGrammarUnits()) {
@@ -50,6 +58,29 @@ function buildPool() {
   return pool;
 }
 
+/**
+ * Picks the round's questions, preferring ones not recently served over
+ * ones that were — repeats only happen once every question in the pool
+ * has been shown at least once since the tracker was last reset (it's
+ * capped to the pool size, so it can't grow stale as the bank grows).
+ */
+function buildRoundQueue(pool) {
+  const stats = store.getStats();
+  const recent = stats.gameBests.caseDetective?.recentIds || [];
+  const recentSet = new Set(recent);
+
+  const unseen = shuffle(pool.filter((ex) => !recentSet.has(exerciseKey(ex))));
+  const seen = recent.map((key) => pool.find((ex) => exerciseKey(ex) === key)).filter(Boolean); // oldest-served first
+
+  const queue = [...unseen, ...seen].slice(0, ROUND_SIZE);
+
+  const servedKeys = queue.map(exerciseKey);
+  const updatedRecent = [...recent.filter((k) => !servedKeys.includes(k)), ...servedKeys].slice(-pool.length);
+  store.updateStats({ gameBests: { ...stats.gameBests, caseDetective: { ...stats.gameBests.caseDetective, recentIds: updatedRecent } } });
+
+  return queue;
+}
+
 export async function render(container) {
   function renderIntro() {
     const pool = buildPool();
@@ -58,7 +89,7 @@ export async function render(container) {
       <div class="view">
         <h1 class="page-title">Case detective <span class="tag">beta</span></h1>
         <p class="page-subtitle">Pick the article or ending that fits. Tap "Why?" any time you want the rule spelled out.</p>
-        ${best ? `<p class="page-subtitle" style="margin-top:-12px;">Bestwert: ${best.score}/${best.total}</p>` : ''}
+        ${best ? `<p class="page-subtitle" style="margin-top:-12px;">${t('bestScoreOutOf', best.score, best.total)}</p>` : ''}
         ${
           pool.length < 3
             ? `<div class="empty-state">Not enough case exercises available yet.</div>`
@@ -70,7 +101,7 @@ export async function render(container) {
   }
 
   function startGame(pool) {
-    const queue = shuffle(pool).slice(0, ROUND_SIZE);
+    const queue = buildRoundQueue(pool);
     let index = 0;
     let score = 0;
     let streak = 0;
@@ -82,7 +113,7 @@ export async function render(container) {
       container.innerHTML = `
         <div class="view">
           <div class="card-row">
-            <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
+            <span class="page-subtitle" style="margin:0;">${t('scoreStreakHeader', score, streak)}</span>
             <span class="page-subtitle" style="margin:0;">${index + 1} / ${queue.length}</span>
           </div>
           <div class="drill-card" style="text-align:left; align-items:stretch;">
@@ -130,8 +161,8 @@ export async function render(container) {
 
       container.querySelector('#after').innerHTML = `
         <div class="btn-row" style="margin-top:14px;">
-          <button type="button" class="btn btn-sm" id="why-btn">🔍 Warum?</button>
-          <button class="btn btn-primary" id="next-btn">${index + 1 >= queue.length ? 'Ergebnisse ansehen' : 'Weiter'}</button>
+          <button type="button" class="btn btn-sm" id="why-btn">${t('whyBtn')}</button>
+          <button class="btn btn-primary" id="next-btn">${index + 1 >= queue.length ? t('seeResultsBtn') : t('nextBtn')}</button>
         </div>
         <p class="drill-sub" id="why-text" style="display:none; margin-top:10px;"></p>`;
 
@@ -162,7 +193,9 @@ export async function render(container) {
       const stats = store.getStats();
       const best = stats.gameBests.caseDetective;
       const isNewBest = !best || score > best.score;
-      if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, caseDetective: { score, total: rounds.length } } });
+      if (isNewBest) {
+        store.updateStats({ gameBests: { ...stats.gameBests, caseDetective: { ...best, score, total: rounds.length } } });
+      }
       store.recordDailyActivity('gamesPlayed');
 
       const seenMissIds = new Set();
@@ -183,14 +216,14 @@ export async function render(container) {
         <div class="view">
           <h1 class="page-title">Case closed 🕵️</h1>
           <div class="stat-grid">
-            <div class="stat-tile"><div class="value">${score}/${rounds.length}</div><div class="label">Richtig</div></div>
+            <div class="stat-tile"><div class="value">${score}/${rounds.length}</div><div class="label">${t('correct')}</div></div>
           </div>
-          ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
+          ${isNewBest ? `<p style="color:var(--good); text-align:center;">${t('newBest')}</p>` : ''}
           ${resultsListHTML(rows)}
           <div class="btn-row" style="margin-top:16px;">
-            <a href="#/games" class="btn">Zurück zu den Spielen</a>
-            <button class="btn" id="again">Nochmal spielen</button>
-            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses.length})</button>` : ''}
+            <a href="#/games" class="btn">${t('backToGames')}</a>
+            <button class="btn" id="again">${t('playAgain')}</button>
+            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">${t('practiceMyMisses', misses.length)}</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', renderIntro);

@@ -132,6 +132,39 @@ Aim for a real mix — roughly a third fill-blank, a third multiple-choice/choos
 3. Write ≥25 exercises mixing all 5 types, grounded in realistic A2-B1 sentences.
 4. Run `npm run validate`.
 
+### Case detective sentence packs (Games > Beta > Case detective)
+
+The Case detective beta game (`src/modules/games/beta/caseDetective.js`) doesn't have its own content files — it draws its question pool directly from grammar units, by scanning every unit listed in that file's `CASE_UNIT_IDS` array for `multiple-choice`/`choose-form` exercises that have a `___` blank in the prompt. So the way to add more Case detective questions in a future session is to **add more qualifying exercises to a grammar unit** (new or existing) and add that unit's id to `CASE_UNIT_IDS`.
+
+Two hard requirements for an exercise to qualify (the game filters out anything that doesn't meet them, silently shrinking the pool rather than erroring):
+
+- **Options must be bare forms only** — `"den"`, `"wegen"`, `"ihm"` — never annotated with the reason, e.g. never `"den (Akkusativ)"` or `"dem (wrong — that's dative)"`. An annotated option gives the answer away before the learner picks, which defeats the whole game.
+- **Any grammar cue goes in a trailing `(...)` on the prompt, not in the options** — e.g. `"Ich helfe ___ Mutter. (wem?)"`. The app's German-first hint convention (`resolveHint` in `src/modules/grammar/exerciseRenderer.js`) strips a trailing parenthetical from the displayed prompt and only reveals it via the Hint button, so this is exactly how every other exercise type in the app already hides its cues — just keep using it.
+
+Good topics to cover next (each its own unit, following "Adding a new unit" above, but aim for at least 30-35 of the ≥25 exercises to be qualifying bare-option multiple-choice/choose-form, since that's what actually grows this game's pool — the existing `dative-verbs` and `fixed-case-prepositions` units are examples to copy the shape of):
+
+- Genitive prepositions and possessives (wegen, trotz, während, statt; genitive -s/-es endings).
+- Reflexive verbs with dative vs. accusative reflexive pronouns (sich (dat) etwas kaufen vs. sich (akk) waschen).
+- Relative pronouns across all four cases (der/die/das/den/dem/deren/dessen...).
+- Comparative/superlative adjective endings in context.
+- Passive voice subject case (werden + Partizip II, "von + Dat" agent phrase).
+
+After adding, sanity-check the new pool size from the repo root:
+
+```bash
+node -e "
+const fs = require('fs');
+const units = fs.readdirSync('content/grammar/units').map(f => JSON.parse(fs.readFileSync('content/grammar/units/'+f)));
+const caseUnitIds = ['adjective-endings','wechselpraepositionen','dative-verbs','fixed-case-prepositions']; // keep in sync with CASE_UNIT_IDS
+let n = 0;
+for (const u of units) if (caseUnitIds.includes(u.id)) for (const ex of u.exercises)
+  if ((ex.type==='multiple-choice'||ex.type==='choose-form') && ex.prompt.includes('___') && ex.options.every(o=>!o.includes('('))) n++;
+console.log('Case detective pool size:', n);
+"
+```
+
+Aim to keep this comfortably above 80 as the bank grows, so a player doing several rounds in a row keeps seeing fresh questions (the game itself tracks recently-served questions per device and prioritizes unseen ones, but that only helps if the pool is actually large).
+
 ## Phrase / idiom sets
 
 Schema: `content/schemas/phrase-set.schema.json`. Existing set: `classic-idioms` (25 phrases).

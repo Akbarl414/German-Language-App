@@ -1,13 +1,14 @@
 import { getGrammarUnits } from '../../db/contentLoader.js';
+import { t } from '../../i18n.js';
 
 export async function render(container) {
   const units = getGrammarUnits();
   container.innerHTML = `
     <div class="view">
-      <h1 class="page-title">Grammatik</h1>
+      <h1 class="page-title">${t('grammarTitle')}</h1>
       <p class="page-subtitle">${units.length} units from your lessons.</p>
       <div class="btn-row" style="margin-bottom:16px;">
-        <a href="#/grammar/quiz" class="btn btn-primary">Gemischtes Quiz (alle Einheiten)</a>
+        <a href="#/grammar/quiz" class="btn btn-primary">${t('mixedQuiz')}</a>
       </div>
       <div class="card" style="padding:0;">
         ${units

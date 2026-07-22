@@ -5,6 +5,8 @@ import { store } from '../../db/storage.js';
 import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
 import { resultsListHTML } from '../shared/resultsSummary.js';
 import { renderMissesReview } from '../shared/missesReview.js';
+// Aliased to avoid shadowing the local `t` (stat-tile) variable in renderRoundResults below.
+import { t as translate } from '../../i18n.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
 const WRONG_FLASH_MS = 950;
@@ -43,12 +45,12 @@ export async function render(container) {
             return `
             <button class="list-item-btn" data-timed="${s}">
               <span>${s}s</span>
-              <span class="page-subtitle" style="margin:0;">${best ? `Bestwert: ${best.score}` : 'Noch kein Bestwert'}</span>
+              <span class="page-subtitle" style="margin:0;">${best ? translate('bestValue', best.score) : translate('noBestYet')}</span>
             </button>`;
           }).join('')}
           <button class="list-item-btn" data-streak="1">
-            <span>Serie (ohne Timer)</span>
-            <span class="page-subtitle" style="margin:0;">${streakBest ? `Beste Serie: ${streakBest.streak}` : 'Noch kein Bestwert'}</span>
+            <span>${translate('streakNoTimer')}</span>
+            <span class="page-subtitle" style="margin:0;">${streakBest ? translate('bestStreakValue', streakBest.streak) : translate('noBestYet')}</span>
           </button>
         </div>
       </div>`;
@@ -70,7 +72,7 @@ export async function render(container) {
           <button class="btn btn-block" style="background:var(--die-bg); border-color:var(--die); color:var(--die);" data-g="die">die</button>
           <button class="btn btn-block" style="background:var(--das-bg); border-color:var(--das); color:var(--das);" data-g="das">das</button>
         </div>
-        <button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Tipp (zeigt Bedeutung, nicht Genus)</button>
+        <button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">${translate('hintGenderMeaning')}</button>
       </div>`;
     let hintUsed = false;
     container.querySelectorAll('[data-g]').forEach((btn) => btn.addEventListener('click', () => onPick(btn.dataset.g, () => hintUsed), { once: true }));
@@ -112,7 +114,7 @@ export async function render(container) {
         w,
         `<div class="card-row">
           <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
-          <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
+          <span class="page-subtitle" style="margin:0;">${translate('scoreStreakHeader', score, streak)}</span>
         </div>`,
         (pick, getHintUsed) => onAnswer(pick, w, getHintUsed())
       );
@@ -172,10 +174,10 @@ export async function render(container) {
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, [bestKey]: { score, streak: bestStreak } } });
       store.recordDailyActivity('gamesPlayed');
       renderRoundResults({
-        title: 'Zeit abgelaufen! ⏱️',
+        title: translate('timesUp'),
         statTiles: [
-          { value: score, label: 'Richtig' },
-          { value: bestStreak, label: 'Beste Serie' },
+          { value: score, label: translate('correct') },
+          { value: bestStreak, label: translate('bestStreak') },
         ],
         isNewBest,
         rounds,
@@ -196,7 +198,7 @@ export async function render(container) {
 
     function paint() {
       const w = currentWord();
-      paintWordPrompt(w, `<p class="page-subtitle">Serie: ${streak}</p>`, (pick, getHintUsed) => onAnswer(pick, w, getHintUsed()));
+      paintWordPrompt(w, `<p class="page-subtitle">${translate('streakColon', streak)}</p>`, (pick, getHintUsed) => onAnswer(pick, w, getHintUsed()));
     }
 
     function onAnswer(pick, word, hintUsed) {
@@ -221,8 +223,8 @@ export async function render(container) {
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, 'sorting-streak': { streak } } });
       store.recordDailyActivity('gamesPlayed');
       renderRoundResults({
-        title: 'Serie beendet',
-        statTiles: [{ value: streak, label: 'Serie' }],
+        title: translate('streakEnded'),
+        statTiles: [{ value: streak, label: translate('streak') }],
         isNewBest,
         rounds,
         onPlayAgain: startStreakGame,
@@ -252,12 +254,12 @@ export async function render(container) {
         <div class="stat-grid">
           ${statTiles.map((t) => `<div class="stat-tile"><div class="value">${t.value}</div><div class="label">${t.label}</div></div>`).join('')}
         </div>
-        ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
+        ${isNewBest ? `<p style="color:var(--good); text-align:center;">${translate('newBest')}</p>` : ''}
         ${resultsListHTML(rows)}
         <div class="btn-row" style="margin-top:16px;">
-          <a href="#/games" class="btn">Zurück zu den Spielen</a>
-          <button class="btn" id="again">Nochmal spielen</button>
-          ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses.length})</button>` : ''}
+          <a href="#/games" class="btn">${translate('backToGames')}</a>
+          <button class="btn" id="again">${translate('playAgain')}</button>
+          ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">${translate('practiceMyMisses', misses.length)}</button>` : ''}
         </div>
       </div>`;
     container.querySelector('#again').addEventListener('click', onPlayAgain);

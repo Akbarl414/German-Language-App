@@ -1,0 +1,409 @@
+{
+  "id": "dative-verbs",
+  "title": "Dativverben",
+  "level": "A2-B1",
+  "summary": "Verbs that always take a dative object — helfen, danken, gefallen, and more — a classic trap for English speakers who expect accusative.",
+  "explanation": {
+    "sections": [
+      {
+        "heading": "Verbs that take Dativ, not Akkusativ",
+        "body": "Most German verbs work like their English equivalents: the person or thing affected by the action is a direct object in the accusative case (Ich sehe den Mann. — I see the man). But a specific group of verbs always takes the dative case for that object instead — even though the English sentence looks exactly like a normal transitive verb with a direct object.\nThis is one of the most common traps for English speakers. \"I help him\" looks transitive, so learners default to the accusative \"ihn\" — but German requires the dative: Ich helfe ihm. These verbs aren't secretly two-object verbs like geben (to give someone something); they take only ONE object, and that object is dative, not accusative.\nThere's no single logical reason these particular verbs take dative instead of accusative — it has to be memorized per verb. One loose pattern that helps: many of them describe how someone relates or responds to another person (helping, thanking, trusting, answering, following) rather than an action performed directly on them.",
+        "table": {
+          "headers": ["Nominativ", "Akkusativ", "Dativ"],
+          "rows": [
+            ["ich", "mich", "mir"],
+            ["du", "dich", "dir"],
+            ["er", "ihn", "ihm"],
+            ["sie", "sie", "ihr"],
+            ["es", "es", "ihm"],
+            ["wir", "uns", "uns"],
+            ["ihr", "euch", "euch"],
+            ["sie / Sie", "sie / Sie", "ihnen / Ihnen"]
+          ]
+        }
+      },
+      {
+        "heading": "The most common dative verbs",
+        "body": "These verbs show up constantly in everyday German. Learn each one as a fixed pair — verb + Dativ — rather than translating word for word from English.",
+        "table": {
+          "headers": ["Verb", "Beispiel", "Warum Dativ?"],
+          "rows": [
+            ["helfen", "Ich helfe dir.", "\"Helfen\" affects the person only indirectly — you assist them, you don't act directly ON them."],
+            ["danken", "Ich danke dir.", "Thanking is a response directed at someone, not an action performed on them."],
+            ["gefallen", "Das gefällt mir.", "Literally \"it is pleasing TO me\" — the person is the receiver of the pleasing effect, not its target."],
+            ["schmecken", "Das schmeckt mir.", "Same pattern as gefallen: food \"tastes good TO someone\" — an effect experienced by the dative person."],
+            ["passen", "Die Schuhe passen mir.", "Clothing \"fits FOR someone\" — again an effect on the dative person, not a direct action."],
+            ["gehören", "Das Auto gehört mir.", "Belonging describes a relationship TO an owner, not an action done to them."],
+            ["folgen", "Ich folge dir.", "Following happens in relation to someone, not directly to them (and takes sein in the Perfekt: Ich bin dir gefolgt)."],
+            ["glauben", "Ich glaube dir.", "\"glauben + Dativ\" (person) means believing someone; \"glauben an + Akkusativ\" means believing IN something — a different construction."],
+            ["antworten", "Ich antworte dir.", "A response directed TO someone; contrast with \"antworten auf + Akk\" (to respond to something)."],
+            ["gratulieren", "Ich gratuliere dir.", "Congratulating is directed at someone, not performed on them."],
+            ["vertrauen", "Ich vertraue dir.", "Trust is placed IN someone (a relationship), not an action done to them."],
+            ["zuhören", "Ich höre dir zu.", "Listening is oriented TOWARD someone; the separable prefix zu- reinforces the direction."],
+            ["widersprechen", "Ich widerspreche dir.", "Contradicting responds TO what someone said, not acting directly on the person."]
+          ]
+        }
+      },
+      {
+        "heading": "Don't mix them up with accusative verbs",
+        "body": "Many everyday verbs that also describe interacting with a person DO take the accusative, which is exactly why dative verbs are such a trap: fragen (to ask), sehen (to see), kennen (to know), lieben (to love), besuchen (to visit), and treffen (to meet) all take a normal accusative object.\nCompare: Ich frage ihn. (accusative — I ask him) vs. Ich antworte ihm. (dative — I answer him). Two very similar-sounding actions, two different cases — there's no shortcut except learning each verb's case individually."
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "id": "dat-1",
+      "type": "fill-blank",
+      "prompt": "Der Kuchen schmeckt ___ Gästen ausgezeichnet.",
+      "answer": "den",
+      "explanation": "\"schmecken\" governs the dative. \"die Gäste\" (plural) → dative \"den Gästen\"."
+    },
+    {
+      "id": "dat-2",
+      "type": "fill-blank",
+      "prompt": "Ich glaube ___ einfach nicht mehr.",
+      "answer": "ihm",
+      "explanation": "\"glauben\" + Dativ (person) = to believe someone. \"ihm\" is the dative form of \"er\"."
+    },
+    {
+      "id": "dat-3",
+      "type": "fill-blank",
+      "prompt": "Das neue Auto gehört ___ Bruder.",
+      "answer": "meinem",
+      "explanation": "\"gehören\" governs the dative. \"mein Bruder\" (masculine) → dative \"meinem Bruder\"."
+    },
+    {
+      "id": "dat-4",
+      "type": "fill-blank",
+      "prompt": "Sie folgt ___ Anweisungen des Arztes genau.",
+      "answer": "den",
+      "explanation": "\"folgen\" governs the dative. \"die Anweisungen\" (plural) → dative \"den Anweisungen\"."
+    },
+    {
+      "id": "dat-5",
+      "type": "multiple-choice",
+      "prompt": "Ich helfe ___ Mann mit den Taschen.",
+      "options": ["dem", "den", "der", "das"],
+      "answerIndex": 0,
+      "explanation": "\"helfen\" governs the dative. \"der Mann\" is masculine, so its dative form is \"dem Mann\"."
+    },
+    {
+      "id": "dat-6",
+      "type": "multiple-choice",
+      "prompt": "Ich helfe ___ Mutter.",
+      "options": ["die", "der", "den", "das"],
+      "answerIndex": 1,
+      "explanation": "\"helfen\" governs the dative. \"die Mutter\" is feminine, so its dative form is \"der Mutter\"."
+    },
+    {
+      "id": "dat-7",
+      "type": "multiple-choice",
+      "prompt": "Ich helfe ___ Kind beim Anziehen.",
+      "options": ["den", "der", "dem", "das"],
+      "answerIndex": 2,
+      "explanation": "\"helfen\" governs the dative. \"das Kind\" is neuter, so its dative form is \"dem Kind\"."
+    },
+    {
+      "id": "dat-8",
+      "type": "multiple-choice",
+      "prompt": "Ich helfe ___ Eltern im Garten.",
+      "options": ["die", "dem", "der", "den"],
+      "answerIndex": 3,
+      "explanation": "\"helfen\" governs the dative. Plural nouns take \"den\" in the dative: \"den Eltern\"."
+    },
+    {
+      "id": "dat-9",
+      "type": "multiple-choice",
+      "prompt": "Wir danken ___ Lehrer für die Hilfe.",
+      "options": ["dem", "den", "der", "das"],
+      "answerIndex": 0,
+      "explanation": "\"danken\" governs the dative. \"der Lehrer\" is masculine, so its dative form is \"dem Lehrer\"."
+    },
+    {
+      "id": "dat-10",
+      "type": "multiple-choice",
+      "prompt": "Ich danke ___ Ärztin für den guten Rat.",
+      "options": ["die", "der", "den", "das"],
+      "answerIndex": 1,
+      "explanation": "\"danken\" governs the dative. \"die Ärztin\" is feminine, so its dative form is \"der Ärztin\"."
+    },
+    {
+      "id": "dat-11",
+      "type": "multiple-choice",
+      "prompt": "Wir danken ___ Team für die Unterstützung.",
+      "options": ["den", "der", "dem", "das"],
+      "answerIndex": 2,
+      "explanation": "\"danken\" governs the dative. \"das Team\" is neuter, so its dative form is \"dem Team\"."
+    },
+    {
+      "id": "dat-12",
+      "type": "multiple-choice",
+      "prompt": "Das Geschenk gefällt ___ Kindern sehr.",
+      "options": ["die", "dem", "der", "den"],
+      "answerIndex": 3,
+      "explanation": "\"gefallen\" governs the dative. Plural nouns take \"den\" in the dative: \"den Kindern\"."
+    },
+    {
+      "id": "dat-13",
+      "type": "multiple-choice",
+      "prompt": "Das Kleid gefällt ___ Frau gut.",
+      "options": ["der", "die", "den", "das"],
+      "answerIndex": 0,
+      "explanation": "\"gefallen\" governs the dative. \"die Frau\" is feminine, so its dative form is \"der Frau\"."
+    },
+    {
+      "id": "dat-14",
+      "type": "multiple-choice",
+      "prompt": "Die Musik gefällt ___ Mädchen.",
+      "options": ["das", "dem", "den", "der"],
+      "answerIndex": 1,
+      "explanation": "\"gefallen\" governs the dative. \"das Mädchen\" is neuter, so its dative form is \"dem Mädchen\"."
+    },
+    {
+      "id": "dat-15",
+      "type": "multiple-choice",
+      "prompt": "Die Suppe schmeckt ___ Gast sehr gut.",
+      "options": ["den", "der", "dem", "das"],
+      "answerIndex": 2,
+      "explanation": "\"schmecken\" governs the dative. \"der Gast\" is masculine, so its dative form is \"dem Gast\"."
+    },
+    {
+      "id": "dat-16",
+      "type": "multiple-choice",
+      "prompt": "Der Kuchen schmeckt ___ Kindern ausgezeichnet.",
+      "options": ["die", "dem", "der", "den"],
+      "answerIndex": 3,
+      "explanation": "\"schmecken\" governs the dative. Plural nouns take \"den\" in the dative: \"den Kindern\"."
+    },
+    {
+      "id": "dat-17",
+      "type": "multiple-choice",
+      "prompt": "Die Milch schmeckt ___ Baby nicht.",
+      "options": ["dem", "das", "den", "der"],
+      "answerIndex": 0,
+      "explanation": "\"schmecken\" governs the dative. \"das Baby\" is neuter, so its dative form is \"dem Baby\"."
+    },
+    {
+      "id": "dat-18",
+      "type": "choose-form",
+      "prompt": "Die Schuhe passen ___ Mann leider nicht.",
+      "options": ["das", "dem", "den", "der"],
+      "answerIndex": 1,
+      "explanation": "\"passen\" governs the dative. \"der Mann\" is masculine, so its dative form is \"dem Mann\"."
+    },
+    {
+      "id": "dat-19",
+      "type": "choose-form",
+      "prompt": "Die Farbe passt ___ Frau richtig gut.",
+      "options": ["die", "das", "der", "den"],
+      "answerIndex": 2,
+      "explanation": "\"passen\" governs the dative. \"die Frau\" is feminine, so its dative form is \"der Frau\"."
+    },
+    {
+      "id": "dat-20",
+      "type": "choose-form",
+      "prompt": "Das Kleid passt ___ Kind perfekt.",
+      "options": ["das", "den", "der", "dem"],
+      "answerIndex": 3,
+      "explanation": "\"passen\" governs the dative. \"das Kind\" is neuter, so its dative form is \"dem Kind\"."
+    },
+    {
+      "id": "dat-21",
+      "type": "choose-form",
+      "prompt": "Das Auto gehört ___ Chef.",
+      "options": ["dem", "den", "der", "das"],
+      "answerIndex": 0,
+      "explanation": "\"gehören\" governs the dative. \"der Chef\" is masculine, so its dative form is \"dem Chef\"."
+    },
+    {
+      "id": "dat-22",
+      "type": "choose-form",
+      "prompt": "Die Tasche gehört ___ Lehrerin.",
+      "options": ["die", "der", "den", "das"],
+      "answerIndex": 1,
+      "explanation": "\"gehören\" governs the dative. \"die Lehrerin\" is feminine, so its dative form is \"der Lehrerin\"."
+    },
+    {
+      "id": "dat-23",
+      "type": "choose-form",
+      "prompt": "Der Garten gehört ___ beiden Nachbarn.",
+      "options": ["den", "der", "dem", "die"],
+      "answerIndex": 0,
+      "explanation": "\"gehören\" governs the dative. \"die beiden Nachbarn\" (plural, \"both neighbors\") takes \"den\" in the dative: \"den beiden Nachbarn\"."
+    },
+    {
+      "id": "dat-24",
+      "type": "choose-form",
+      "prompt": "Der Hund folgt ___ Frau überallhin.",
+      "options": ["die", "das", "der", "den"],
+      "answerIndex": 2,
+      "explanation": "\"folgen\" governs the dative. \"die Frau\" is feminine, so its dative form is \"der Frau\"."
+    },
+    {
+      "id": "dat-25",
+      "type": "choose-form",
+      "prompt": "Die Schüler folgen ___ Lehrer aufmerksam.",
+      "options": ["die", "das", "den", "dem"],
+      "answerIndex": 3,
+      "explanation": "\"folgen\" governs the dative. \"der Lehrer\" is masculine, so its dative form is \"dem Lehrer\"."
+    },
+    {
+      "id": "dat-26",
+      "type": "choose-form",
+      "prompt": "Ich glaube ___ Kind nicht.",
+      "options": ["den", "das", "dem", "der"],
+      "answerIndex": 2,
+      "explanation": "\"glauben\" + Dativ (person) governs the dative. \"das Kind\" is neuter, so its dative form is \"dem Kind\"."
+    },
+    {
+      "id": "dat-27",
+      "type": "choose-form",
+      "prompt": "Er antwortet ___ Lehrerin höflich.",
+      "options": ["die", "das", "der", "den"],
+      "answerIndex": 2,
+      "explanation": "\"antworten\" governs the dative. \"die Lehrerin\" is feminine, so its dative form is \"der Lehrerin\"."
+    },
+    {
+      "id": "dat-28",
+      "type": "choose-form",
+      "prompt": "Wir gratulieren ___ Kolleginnen zum Erfolg.",
+      "options": ["die", "dem", "der", "den"],
+      "answerIndex": 3,
+      "explanation": "\"gratulieren\" governs the dative. \"die Kolleginnen\" (plural) takes \"den\" in the dative: \"den Kolleginnen\"."
+    },
+    {
+      "id": "dat-29",
+      "type": "multiple-choice",
+      "prompt": "Kannst du ___ bitte helfen? (wem?)",
+      "options": ["mir", "mich", "dir", "dich"],
+      "answerIndex": 0,
+      "explanation": "\"helfen\" governs the dative. The 1st-person dative pronoun is \"mir\", not the accusative \"mich\"."
+    },
+    {
+      "id": "dat-30",
+      "type": "multiple-choice",
+      "prompt": "Ich danke ___ für deine Hilfe. (wem?)",
+      "options": ["dich", "dir", "mir", "mich"],
+      "answerIndex": 1,
+      "explanation": "\"danken\" governs the dative. The 2nd-person singular dative pronoun is \"dir\", not the accusative \"dich\"."
+    },
+    {
+      "id": "dat-31",
+      "type": "multiple-choice",
+      "prompt": "Ich glaube ___ nicht, wenn sie das sagt. (wem?)",
+      "options": ["sie", "ihn", "ihr", "ihm"],
+      "answerIndex": 2,
+      "explanation": "\"glauben\" + Dativ (person). \"sie\" (she) becomes the dative pronoun \"ihr\", not the accusative \"sie\"."
+    },
+    {
+      "id": "dat-32",
+      "type": "multiple-choice",
+      "prompt": "Warum antwortet er ___ nicht? (wem?)",
+      "options": ["wir", "ihnen", "ihm", "uns"],
+      "answerIndex": 3,
+      "explanation": "\"antworten\" governs the dative. The 1st-person plural dative pronoun is \"uns\" (same form as accusative here)."
+    },
+    {
+      "id": "dat-33",
+      "type": "multiple-choice",
+      "prompt": "Ich gratuliere ___ zur bestandenen Prüfung. (wem?)",
+      "options": ["euch", "ihr", "uns", "wir"],
+      "answerIndex": 0,
+      "explanation": "\"gratulieren\" governs the dative. The 2nd-person plural dative pronoun is \"euch\" (same form as accusative here)."
+    },
+    {
+      "id": "dat-34",
+      "type": "multiple-choice",
+      "prompt": "Ich vertraue ___ nicht mehr. (wem?)",
+      "options": ["ihn", "ihm", "ihr", "sie"],
+      "answerIndex": 1,
+      "explanation": "\"vertrauen\" governs the dative. \"er\" (he) becomes the dative pronoun \"ihm\", not the accusative \"ihn\"."
+    },
+    {
+      "id": "dat-35",
+      "type": "multiple-choice",
+      "prompt": "Er widerspricht ___ ständig. (wem?)",
+      "options": ["sie", "ihm", "ihnen", "ihn"],
+      "answerIndex": 2,
+      "explanation": "\"widersprechen\" governs the dative. \"sie\" (they) becomes the dative pronoun \"ihnen\", not the accusative \"sie\"."
+    },
+    {
+      "id": "dat-36",
+      "type": "multiple-choice",
+      "prompt": "Hör ___ gut zu, wenn ich rede! (wem?)",
+      "options": ["mich", "dir", "dich", "mir"],
+      "answerIndex": 3,
+      "explanation": "\"zuhören\" governs the dative. The 1st-person dative pronoun is \"mir\", not the accusative \"mich\"."
+    },
+    {
+      "id": "dat-37",
+      "type": "multiple-choice",
+      "prompt": "Der Kellner folgt ___ zum Tisch. (wem? — den Gästen)",
+      "options": ["ihnen", "sie", "ihm", "ihn"],
+      "answerIndex": 0,
+      "explanation": "\"folgen\" governs the dative. \"sie\" (they, referring to \"die Gäste\") becomes the dative pronoun \"ihnen\"."
+    },
+    {
+      "id": "dat-38",
+      "type": "multiple-choice",
+      "prompt": "Das Geschenk gefällt ___ sehr. (wem? — dem Vater)",
+      "options": ["ihn", "ihm", "ihr", "sie"],
+      "answerIndex": 1,
+      "explanation": "\"gefallen\" governs the dative. \"er\" (he, referring to \"der Vater\") becomes the dative pronoun \"ihm\"."
+    },
+    {
+      "id": "dat-39",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["meiner", "helfe", "jeden", "ich", "Mutter", "Tag"],
+      "answerOrders": [
+        ["Ich", "helfe", "meiner", "Mutter", "jeden", "Tag"],
+        ["Jeden", "Tag", "helfe", "ich", "meiner", "Mutter"]
+      ],
+      "explanation": "Subject (Ich) + verb (helfe) + dative object (meiner Mutter, feminine dative after \"mein\" = \"meiner\") + time expression (jeden Tag). The time expression can also be fronted for emphasis, with subject-verb inversion."
+    },
+    {
+      "id": "dat-40",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["Schülern", "antwortet", "geduldig", "der", "den", "Lehrer"],
+      "answerOrders": [
+        ["Der", "Lehrer", "antwortet", "den", "Schülern", "geduldig"],
+        ["Den", "Schülern", "antwortet", "der", "Lehrer", "geduldig"]
+      ],
+      "explanation": "Subject (Der Lehrer) + verb (antwortet) + dative object (den Schülern, plural dative) + adverb (geduldig). The dative object can also be fronted for emphasis, with subject-verb inversion."
+    },
+    {
+      "id": "dat-41",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["gratulieren", "unserem", "zum", "wir", "Freund", "Geburtstag"],
+      "answerOrders": [
+        ["Wir", "gratulieren", "unserem", "Freund", "zum", "Geburtstag"],
+        ["Zum", "Geburtstag", "gratulieren", "wir", "unserem", "Freund"]
+      ],
+      "explanation": "Subject (Wir) + verb (gratulieren) + dative object (unserem Freund, masculine dative after \"unser\" = \"unserem\") + prepositional phrase (zum Geburtstag). The prepositional phrase can also be fronted for emphasis, with subject-verb inversion."
+    },
+    {
+      "id": "dat-42",
+      "type": "error-spot",
+      "prompt": "Ich helfe meine Schwester.",
+      "answer": "Ich helfe meiner Schwester.",
+      "explanation": "\"helfen\" governs the dative, not the accusative. \"meine Schwester\" (accusative/nominative) must become \"meiner Schwester\" (feminine dative)."
+    },
+    {
+      "id": "dat-43",
+      "type": "error-spot",
+      "prompt": "Der Film gefällt mich sehr.",
+      "answer": "Der Film gefällt mir sehr.",
+      "explanation": "\"gefallen\" governs the dative. The accusative pronoun \"mich\" must become the dative pronoun \"mir\"."
+    },
+    {
+      "id": "dat-44",
+      "type": "error-spot",
+      "prompt": "Wir danken den Lehrer für seine Geduld.",
+      "answer": "Wir danken dem Lehrer für seine Geduld.",
+      "explanation": "\"danken\" governs the dative. \"der Lehrer\" (masculine) takes the dative article \"dem\", not the accusative \"den\"."
+    }
+  ]
+}

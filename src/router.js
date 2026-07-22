@@ -37,7 +37,7 @@ function parseHash() {
   return { path: path.startsWith('/') ? path : '/' + path, params };
 }
 
-async function resolve() {
+async function resolve({ resetScroll = true } = {}) {
   const { path, params } = parseHash();
   for (const r of routes) {
     const match = path.match(r.regex);
@@ -53,7 +53,7 @@ async function resolve() {
       container.innerHTML = '';
       const mod = await r.loader();
       currentCleanup = await mod.render(container, params);
-      window.scrollTo(0, 0);
+      if (resetScroll) window.scrollTo(0, 0);
       return;
     }
   }
@@ -68,4 +68,9 @@ export function initRouter(el) {
 
 export function navigate(path) {
   location.hash = path;
+}
+
+/** Re-render the current route in place (e.g. after a UI-language change), without treating it as a navigation. */
+export function rerenderCurrentRoute() {
+  return resolve({ resetScroll: false });
 }

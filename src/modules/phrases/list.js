@@ -1,4 +1,5 @@
 import { getAllPhrases } from '../../db/contentLoader.js';
+import { t } from '../../i18n.js';
 
 const REGISTER_COLOR = { colloquial: 'var(--warn)', neutral: 'var(--text-dim)', formal: 'var(--accent)' };
 
@@ -6,7 +7,7 @@ export async function render(container) {
   const phrases = getAllPhrases();
   container.innerHTML = `
     <div class="view">
-      <h1 class="page-title">Phrasen &amp; Redewendungen</h1>
+      <h1 class="page-title">${t('phrasesTitle')}</h1>
       <p class="page-subtitle">${phrases.length} phrases.</p>
       <a href="#/phrases/quiz" class="btn btn-primary btn-block" style="margin-bottom:16px;">Context quiz</a>
       ${phrases.map((p, i) => phraseCard(p, i)).join('')}

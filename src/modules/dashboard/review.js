@@ -2,6 +2,7 @@ import { store } from '../../db/storage.js';
 import { buildReviewSession, submitReview, throttleStatus } from '../../srs/queue.js';
 import { renderQueueItem } from '../shared/itemRenderer.js';
 import { moduleLabel, throttleNoteHTML } from '../shared/labels.js';
+import { t } from '../../i18n.js';
 
 export async function render(container) {
   runRound();
@@ -19,7 +20,7 @@ export async function render(container) {
     if (full.length === 0) {
       container.innerHTML = `
         <div class="view">
-          <h1 class="page-title">Wiederholen</h1>
+          <h1 class="page-title">${t('reviewTitle')}</h1>
           ${throttleNoteHTML(throttle.level)}
           <div class="empty-state">
             Nothing due right now.<br>Activate a vocab pack or raise your daily new-card limit in Settings.
@@ -60,19 +61,19 @@ export async function render(container) {
     function showCompletion() {
       container.innerHTML = `
         <div class="view">
-          <h1 class="page-title">Runde geschafft! 🎉</h1>
+          <h1 class="page-title">${t('sessionDone')}</h1>
           <div class="stat-grid">
-            <div class="stat-tile"><div class="value">${chunk.length}</div><div class="label">Wiederholt</div></div>
-            <div class="stat-tile"><div class="value">${chunk.length ? Math.round((correctCount / chunk.length) * 100) : 0}%</div><div class="label">Gewusst</div></div>
+            <div class="stat-tile"><div class="value">${chunk.length}</div><div class="label">${t('reviewed')}</div></div>
+            <div class="stat-tile"><div class="value">${chunk.length ? Math.round((correctCount / chunk.length) * 100) : 0}%</div><div class="label">${t('remembered')}</div></div>
           </div>
           ${
             remaining > 0
               ? `<p class="page-subtitle" style="text-align:center;">${remaining} more still due — no rush, come back whenever.</p>
                  <div class="btn-row">
-                   <a href="#/" class="btn btn-block">Zurück zum Start</a>
-                   <button class="btn btn-primary btn-block" id="another-round">Weitere Runde (${Math.min(sessionSize, remaining)})</button>
+                   <a href="#/" class="btn btn-block">${t('backToDashboard')}</a>
+                   <button class="btn btn-primary btn-block" id="another-round">${t('anotherRound', Math.min(sessionSize, remaining))}</button>
                  </div>`
-              : `<a href="#/" class="btn btn-primary btn-block">Zurück zum Start</a>`
+              : `<a href="#/" class="btn btn-primary btn-block">${t('backToDashboard')}</a>`
           }
         </div>`;
       const again = container.querySelector('#another-round');

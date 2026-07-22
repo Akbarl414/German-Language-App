@@ -1,11 +1,15 @@
 // BETA — Shown the English meaning, type the German spelling using the
-// umlaut buttons. Structured like the sorting game: a Timed mode (30/45/60s)
-// and a Streak mode (ends on first mistake), each with its own best score.
-// Grading requires an exact match, including noun capitalization. Correct
-// answers get a quick green confirmation and move straight on; wrong
-// answers show the typed vs. correct German side by side before continuing
-// (a near-miss — only capitalization or a missing umlaut/ß — gets its own
-// "so close" message instead).
+// umlaut buttons (which also carry the iOS keyboard fixes — no
+// auto-capitalize/autocorrect, since answers often start lowercase).
+// Structured like the sorting game: a Timed mode (30/45/60s) and a Streak
+// mode (ends on first mistake), each with its own best score. Grading
+// requires an exact match, including noun capitalization. A "Genus prüfen"
+// (check gender) toggle in this screen controls whether noun answers must
+// include the article ("der Löffel") or just the bare noun. Correct answers
+// get a quick green confirmation and move straight on; wrong answers show
+// the typed vs. correct German side by side before continuing (a near-miss
+// — only capitalization, a missing umlaut/ß, or just the wrong article —
+// gets its own "so close" message instead).
 
 import { getAllVocabWords } from '../../../db/contentLoader.js';
 import { vocabCardId, submitGradeForCardId } from '../../../srs/queue.js';
@@ -15,9 +19,11 @@ import { escapeHtml, genderBadgeHTML } from '../../../components/gender.js';
 import { umlautFieldHTML, wireUmlautButtons } from '../../../components/umlaut.js';
 import { resultsListHTML } from '../../shared/resultsSummary.js';
 import { renderMissesReview } from '../../shared/missesReview.js';
+import { t } from '../../../i18n.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
 const CORRECT_FLASH_MS = 500;
+const ARTICLES = ['der', 'die', 'das'];
 
 function shuffle(arr) {
   const a = [...arr];
@@ -33,6 +39,11 @@ function facetFor(word) {
   return word.pos === 'noun' ? 'meaning_en_de' : 'meaning';
 }
 
+/** The exact string the player must type: article-prefixed for nouns when "Genus prüfen" is on, bare lemma otherwise. */
+function expectedAnswer(word, checkGender) {
+  return checkGender && word.pos === 'noun' ? `${word.gender} ${word.lemma}` : word.lemma;
+}
+
 function deumlaut(s) {
   return s
     .toLowerCase()
@@ -43,8 +54,19 @@ function deumlaut(s) {
 }
 
 /** null if not a near-miss; otherwise a message pinpointing what differed, without ever just showing "wrong". */
-function describeNearMiss(typed, answer) {
+function describeNearMiss(typed, answer, word, checkGender) {
   if (typed === answer) return null;
+
+  // Gender-check mode: right noun, wrong (but present) article.
+  if (checkGender && word.pos === 'noun') {
+    const parts = typed.trim().split(/\s+/);
+    const typedArticle = (parts[0] || '').toLowerCase();
+    const typedRest = parts.slice(1).join(' ');
+    if (ARTICLES.includes(typedArticle) && typedRest === word.lemma && typedArticle !== word.gender) {
+      return `Wrong article — it's “${word.gender} ${word.lemma}”, not “${typedArticle} ${word.lemma}”.`;
+    }
+  }
+
   if (deumlaut(typed) !== deumlaut(answer)) return null;
   if (typed.toLowerCase() === answer.toLowerCase()) {
     return `Just the capitalization — German nouns (and words at the start of a sentence) are always capitalized: “${escapeHtml(answer)}”.`;
@@ -64,25 +86,33 @@ export async function render(container) {
     clearTimers();
     const bests = store.getStats().gameBests;
     const streakBest = bests.typeit;
+    const checkGender = !!store.getSettings().typeItCheckGender;
     container.innerHTML = `
       <div class="view">
         <h1 class="page-title">Type it <span class="tag">beta</span></h1>
         <p class="page-subtitle">You see the English, type the German. Exact spelling counts — nouns need capital letters.</p>
+        <div class="card">
+          <label class="switch-row"><span>${t('checkGenderToggle')}</span><input type="checkbox" id="check-gender" ${checkGender ? 'checked' : ''} /></label>
+          <p class="page-subtitle" style="margin:8px 0 0;">When on, noun answers must include the article (e.g. "der Löffel"). When off, the bare noun is accepted.</p>
+        </div>
         <div class="card" style="padding:0;">
           ${TIMED_DURATIONS.map((s) => {
             const best = bests[`typeit-timed-${s}`];
             return `
             <button class="list-item-btn" data-timed="${s}">
               <span>${s}s</span>
-              <span class="page-subtitle" style="margin:0;">${best ? `Bestwert: ${best.score}` : 'Noch kein Bestwert'}</span>
+              <span class="page-subtitle" style="margin:0;">${best ? t('bestValue', best.score) : t('noBestYet')}</span>
             </button>`;
           }).join('')}
           <button class="list-item-btn" data-streak="1">
-            <span>Serie (ohne Timer)</span>
-            <span class="page-subtitle" style="margin:0;">${streakBest ? `Beste Serie: ${streakBest.streak}` : 'Noch kein Bestwert'}</span>
+            <span>${t('streakNoTimer')}</span>
+            <span class="page-subtitle" style="margin:0;">${streakBest ? t('bestStreakValue', streakBest.streak) : t('noBestYet')}</span>
           </button>
         </div>
       </div>`;
+    container.querySelector('#check-gender').addEventListener('change', (e) => {
+      store.updateSettings({ typeItCheckGender: e.target.checked });
+    });
     container.querySelectorAll('[data-timed]').forEach((btn) => btn.addEventListener('click', () => startTimedGame(Number(btn.dataset.timed))));
     container.querySelector('[data-streak]').addEventListener('click', startStreakGame);
   }
@@ -92,10 +122,11 @@ export async function render(container) {
   }
 
   /** Shared question UI for both modes — differs only in the header line and what happens after an answer. */
-  function paintPrompt(word, headerHTML, onSubmit) {
+  function paintPrompt(word, checkGender, headerHTML, onSubmit) {
     let hintUsed = false;
-    const first = word.lemma.trim()[0] || '?';
-    const hintText = `Starts with "${first}" · ${word.lemma.trim().length} letters${word.pos === 'noun' ? ' · nouns are always capitalized' : ''}`;
+    const answer = expectedAnswer(word, checkGender);
+    const first = answer.trim()[0] || '?';
+    const hintText = `Starts with "${first}" · ${answer.trim().length} letters${word.pos === 'noun' ? ' · nouns are always capitalized' : ''}`;
 
     container.innerHTML = `
       <div class="view">
@@ -106,8 +137,8 @@ export async function render(container) {
         </div>
         ${umlautFieldHTML('type-input', { label: 'Type the German word', placeholder: '…' })}
         <div class="btn-row" style="margin-top:12px;">
-          <button type="button" class="btn btn-sm" id="hint-btn">💡 Tipp</button>
-          <button class="btn btn-primary" id="check">Prüfen</button>
+          <button type="button" class="btn btn-sm" id="hint-btn">${t('hintBtn')}</button>
+          <button class="btn btn-primary" id="check">${t('checkBtn')}</button>
         </div>
       </div>`;
     wireUmlautButtons(container);
@@ -152,7 +183,7 @@ export async function render(container) {
     if (hintBtn) hintBtn.disabled = true;
     const panel = container.querySelector('#hint-panel');
     if (panel) {
-      panel.textContent = '✓ Richtig!';
+      panel.textContent = t('correctCheckFlash');
       panel.style.color = 'var(--good)';
       panel.style.fontWeight = '700';
       panel.style.display = 'block';
@@ -160,7 +191,7 @@ export async function render(container) {
     setTimeout(onContinue, CORRECT_FLASH_MS);
   }
 
-  function renderWrongFeedback(word, typed, nearMiss, onContinue) {
+  function renderWrongFeedback(answer, typed, nearMiss, onContinue) {
     container.innerHTML = `
       <div class="view">
         <div class="drill-card">
@@ -170,11 +201,11 @@ export async function render(container) {
               ? `<p class="drill-sub" style="margin-top:10px;">${nearMiss}</p>`
               : `<div style="display:flex; gap:24px; justify-content:center; margin-top:14px;">
                    <div><div class="drill-sub">You wrote</div><div style="font-size:1.2rem; font-weight:700; color:var(--bad);">${escapeHtml(typed) || '—'}</div></div>
-                   <div><div class="drill-sub">Correct</div><div style="font-size:1.2rem; font-weight:700; color:var(--good);">${escapeHtml(word.lemma)}</div></div>
+                   <div><div class="drill-sub">Correct</div><div style="font-size:1.2rem; font-weight:700; color:var(--good);">${escapeHtml(answer)}</div></div>
                  </div>`
           }
         </div>
-        <button class="btn btn-primary btn-block" id="continue" style="margin-top:16px;">Weiter</button>
+        <button class="btn btn-primary btn-block" id="continue" style="margin-top:16px;">${t('continueBtn')}</button>
       </div>`;
     container.querySelector('#continue').addEventListener('click', onContinue, { once: true });
   }
@@ -183,6 +214,7 @@ export async function render(container) {
   function startTimedGame(seconds) {
     const words = shuffle(getAllVocabWords());
     if (words.length < 5) return notEnoughContent();
+    const checkGender = !!store.getSettings().typeItCheckGender;
     let idx = 0;
     let score = 0;
     let timeLeft = seconds;
@@ -194,16 +226,18 @@ export async function render(container) {
       const w = currentWord();
       paintPrompt(
         w,
+        checkGender,
         `<div class="card-row">
           <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
-          <span class="page-subtitle" style="margin:0;">Punkte ${score}</span>
+          <span class="page-subtitle" style="margin:0;">${t('score')} ${score}</span>
         </div>`,
         (typed, hintUsed) => onAnswer(typed, w, hintUsed)
       );
     }
 
     function onAnswer(typed, word, hintUsed) {
-      const correct = typed === word.lemma;
+      const answer = expectedAnswer(word, checkGender);
+      const correct = typed === answer;
       submitGradeForCardId(vocabCardId(word.packId, word.id, facetFor(word)), gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word, correct });
       idx++;
@@ -213,7 +247,7 @@ export async function render(container) {
           if (timeLeft > 0) paint();
         });
       } else {
-        renderWrongFeedback(word, typed, describeNearMiss(typed, word.lemma), () => {
+        renderWrongFeedback(answer, typed, describeNearMiss(typed, answer, word, checkGender), () => {
           if (timeLeft > 0) paint();
         });
       }
@@ -238,7 +272,7 @@ export async function render(container) {
       const best = stats.gameBests[bestKey];
       const isNewBest = !best || score > best.score;
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, [bestKey]: { score } } });
-      finishRound({ title: 'Zeit abgelaufen! ⏱️', statValue: score, statLabel: 'Punkte', isNewBest, rounds, onPlayAgain: () => startTimedGame(seconds) });
+      finishRound({ title: t('timesUp'), statValue: score, statLabel: t('score'), isNewBest, rounds, checkGender, onPlayAgain: () => startTimedGame(seconds) });
     }
   }
 
@@ -246,6 +280,7 @@ export async function render(container) {
   function startStreakGame() {
     const words = shuffle(getAllVocabWords());
     if (words.length < 5) return notEnoughContent();
+    const checkGender = !!store.getSettings().typeItCheckGender;
     let idx = 0;
     let streak = 0;
     const rounds = []; // { word, correct }
@@ -254,11 +289,12 @@ export async function render(container) {
 
     function paint() {
       const w = currentWord();
-      paintPrompt(w, `<p class="page-subtitle">Serie: ${streak}</p>`, (typed, hintUsed) => onAnswer(typed, w, hintUsed));
+      paintPrompt(w, checkGender, `<p class="page-subtitle">${t('streakColon', streak)}</p>`, (typed, hintUsed) => onAnswer(typed, w, hintUsed));
     }
 
     function onAnswer(typed, word, hintUsed) {
-      const correct = typed === word.lemma;
+      const answer = expectedAnswer(word, checkGender);
+      const correct = typed === answer;
       submitGradeForCardId(vocabCardId(word.packId, word.id, facetFor(word)), gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word, correct });
       idx++;
@@ -266,7 +302,7 @@ export async function render(container) {
         streak++;
         renderCorrectFlash(() => paint());
       } else {
-        renderWrongFeedback(word, typed, describeNearMiss(typed, word.lemma), () => finish());
+        renderWrongFeedback(answer, typed, describeNearMiss(typed, answer, word, checkGender), () => finish());
       }
     }
 
@@ -277,12 +313,12 @@ export async function render(container) {
       const best = stats.gameBests.typeit;
       const isNewBest = !best || streak > best.streak;
       if (isNewBest) store.updateStats({ gameBests: { ...stats.gameBests, typeit: { streak } } });
-      finishRound({ title: 'Serie beendet', statValue: streak, statLabel: 'Serie', isNewBest, rounds, onPlayAgain: startStreakGame });
+      finishRound({ title: t('streakEnded'), statValue: streak, statLabel: t('streak'), isNewBest, rounds, checkGender, onPlayAgain: startStreakGame });
     }
   }
 
   // Shared end-of-round screen for both modes.
-  function finishRound({ title, statValue, statLabel, isNewBest, rounds, onPlayAgain }) {
+  function finishRound({ title, statValue, statLabel, isNewBest, rounds, checkGender, onPlayAgain }) {
     store.recordDailyActivity('gamesPlayed');
 
     const seenMissIds = new Set();
@@ -296,7 +332,8 @@ export async function render(container) {
     const rows = rounds.map((r) => ({
       label: escapeHtml(r.word.meaning_en),
       ok: r.correct,
-      correctLabel: r.word.pos === 'noun' ? `${genderBadgeHTML(r.word.gender)} ${escapeHtml(r.word.lemma)}` : escapeHtml(r.word.lemma),
+      correctLabel:
+        r.word.pos === 'noun' ? `${genderBadgeHTML(r.word.gender)} ${escapeHtml(r.word.lemma)}` : escapeHtml(expectedAnswer(r.word, checkGender)),
     }));
 
     container.innerHTML = `
@@ -305,12 +342,12 @@ export async function render(container) {
         <div class="stat-grid">
           <div class="stat-tile"><div class="value">${statValue}</div><div class="label">${statLabel}</div></div>
         </div>
-        ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
+        ${isNewBest ? `<p style="color:var(--good); text-align:center;">${t('newBest')}</p>` : ''}
         ${resultsListHTML(rows)}
         <div class="btn-row" style="margin-top:16px;">
-          <a href="#/games" class="btn">Zurück zu den Spielen</a>
-          <button class="btn" id="again">Nochmal spielen</button>
-          ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses.length})</button>` : ''}
+          <a href="#/games" class="btn">${t('backToGames')}</a>
+          <button class="btn" id="again">${t('playAgain')}</button>
+          ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">${t('practiceMyMisses', misses.length)}</button>` : ''}
         </div>
       </div>`;
     container.querySelector('#again').addEventListener('click', onPlayAgain);

@@ -1,6 +1,7 @@
 import { getStories } from '../../db/contentLoader.js';
 import { escapeHtml } from '../../components/gender.js';
 import { resultsListHTML } from '../shared/resultsSummary.js';
+import { t } from '../../i18n.js';
 
 /** Short context snippet around a blank, for the results list ("...steht ___ Uhr auf..."). */
 function blankContext(segments, segIndex) {
@@ -42,16 +43,16 @@ export async function render(container) {
         return `<select data-blank="${myIndex}" style="display:inline-block; width:auto; margin:0 2px;">
           <option value="">___</option>
           ${seg.options.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join('')}
-        </select><button type="button" class="btn btn-sm" data-hint-for="${myIndex}" title="Tipp" style="padding:4px 8px;">💡</button>`;
+        </select><button type="button" class="btn btn-sm" data-hint-for="${myIndex}" title="${t('hintWord')}" style="padding:4px 8px;">💡</button>`;
       })
       .join('');
 
     container.innerHTML = `
       <div class="view">
-        <a href="#" id="back" class="page-subtitle">&larr; Geschichten</a>
+        <a href="#" id="back" class="page-subtitle">${t('backToStories')}</a>
         <h1 class="page-title">${escapeHtml(story.title)}</h1>
         <div class="card" style="line-height:2.2;">${segmentHTML}</div>
-        <button class="btn btn-primary btn-block" id="check">Geschichte prüfen</button>
+        <button class="btn btn-primary btn-block" id="check">${t('checkStory')}</button>
         <div id="result"></div>
       </div>`;
 
@@ -99,7 +100,7 @@ export async function render(container) {
           ${correctCount} / ${blanks.length} correct
         </p>
         ${resultsListHTML(rows)}
-        ${missedIndices.length > 0 ? `<button class="btn btn-primary btn-block" id="practice-misses" style="margin-top:16px;">Meine Fehler üben (${missedIndices.length})</button>` : ''}
+        ${missedIndices.length > 0 ? `<button class="btn btn-primary btn-block" id="practice-misses" style="margin-top:16px;">${t('practiceMyMisses', missedIndices.length)}</button>` : ''}
       `;
 
       const missBtn = container.querySelector('#practice-misses');

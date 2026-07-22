@@ -1,14 +1,16 @@
+import { t } from '../../i18n.js';
+
 export async function render(container) {
   container.innerHTML = `
     <div class="view">
-      <h1 class="page-title">Teste mich</h1>
+      <h1 class="page-title">${t('testMeTitle')}</h1>
       <p class="page-subtitle">A mixed quiz biased toward your weak and recently-added material.</p>
       <div class="card">
-        <label class="switch-row"><span>Vokabeln</span><input type="checkbox" id="m-vocab" checked /></label>
-        <label class="switch-row"><span>Phrasen</span><input type="checkbox" id="m-phrase" checked /></label>
-        <label class="switch-row"><span>Grammatik</span><input type="checkbox" id="m-grammar" checked /></label>
+        <label class="switch-row"><span>${t('moduleVocab')}</span><input type="checkbox" id="m-vocab" checked /></label>
+        <label class="switch-row"><span>${t('modulePhrase')}</span><input type="checkbox" id="m-phrase" checked /></label>
+        <label class="switch-row"><span>${t('moduleGrammar')}</span><input type="checkbox" id="m-grammar" checked /></label>
 
-        <label for="length">Anzahl der Fragen</label>
+        <label for="length">${t('numberOfQuestions')}</label>
         <select id="length">
           <option value="10">10</option>
           <option value="20" selected>20</option>
@@ -16,7 +18,7 @@ export async function render(container) {
           <option value="50">50</option>
         </select>
 
-        <button class="btn btn-primary btn-block" id="start" style="margin-top:16px;">Test starten</button>
+        <button class="btn btn-primary btn-block" id="start" style="margin-top:16px;">${t('startTest')}</button>
       </div>
     </div>`;
 

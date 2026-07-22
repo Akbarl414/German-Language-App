@@ -11,7 +11,7 @@ export function umlautFieldHTML(inputId, { label, type = 'text', placeholder = '
   return `
     <div class="field-with-umlauts">
       <label for="${inputId}">${label}</label>
-      <${tag} id="${inputId}" ${typeAttr} ${valueAttr} placeholder="${escapeAttr(placeholder)}">${inner}</${tag}>
+      <${tag} id="${inputId}" ${typeAttr} ${valueAttr} placeholder="${escapeAttr(placeholder)}" autocapitalize="none" autocorrect="off" spellcheck="false" lang="de">${inner}</${tag}>
       <div class="umlaut-row" data-target="${inputId}">
         ${CHARS.map((c) => `<button type="button" class="umlaut-btn" data-char="${c}">${c}</button>`).join('')}
       </div>

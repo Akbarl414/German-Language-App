@@ -1,0 +1,489 @@
+{
+  "id": "fixed-case-prepositions",
+  "title": "Präpositionen mit festem Kasus",
+  "level": "A2-B1",
+  "summary": "Prepositions that always take the same case (Akkusativ, Dativ, or Genitiv) — unlike the two-way Wechselpräpositionen.",
+  "explanation": {
+    "sections": [
+      {
+        "heading": "Feste Kasus-Präpositionen",
+        "body": "Wechselpräpositionen (an, auf, in, unter ...) wechseln je nach wo?/wohin? zwischen Akkusativ und Dativ. Die Präpositionen in dieser Einheit sind anders: Sie verlangen IMMER denselben Kasus — egal ob es um Bewegung, Ruhe oder eine reine Meinung geht.\nEs gibt drei feste Gruppen: eine Handvoll Präpositionen mit festem Akkusativ, eine größere Gruppe mit festem Dativ, und eine formellere Gruppe mit festem Genitiv. Die Präposition selbst ändert sich nie — nur der Artikel (und beim Genitiv oft die Nomenendung) zeigt den Kasus.",
+        "table": {
+          "headers": ["Kasus", "Präpositionen"],
+          "rows": [
+            ["Akkusativ", "für, ohne, gegen, durch, um"],
+            ["Dativ", "mit, nach, bei, seit, von, aus, zu, außer"],
+            ["Genitiv", "wegen, trotz, während, statt"]
+          ]
+        }
+      },
+      {
+        "heading": "Akkusativ-Präpositionen",
+        "body": "Diese fünf Präpositionen verlangen immer den Akkusativ, egal ob es um Bewegung, einen Zustand oder eine Meinung geht.",
+        "table": {
+          "headers": ["Präposition", "Bedeutung", "Beispiel"],
+          "rows": [
+            ["für", "for", "Das Geschenk ist für meinen Vater."],
+            ["ohne", "without", "Ich trinke Kaffee ohne Zucker."],
+            ["gegen", "against", "Er hat nichts gegen den Plan."],
+            ["durch", "through", "Wir gehen durch den Park."],
+            ["um", "around / at (Uhrzeit)", "Der Bus fährt um 8 Uhr."]
+          ]
+        }
+      },
+      {
+        "heading": "Dativ-Präpositionen",
+        "body": "Diese acht Präpositionen verlangen immer den Dativ. Einige verschmelzen im Alltag oft mit dem Artikel: zu + dem = zum, zu + der = zur, von + dem = vom, bei + dem = beim.",
+        "table": {
+          "headers": ["Präposition", "Bedeutung", "Beispiel"],
+          "rows": [
+            ["mit", "with", "Sie fährt mit dem Bus."],
+            ["nach", "after / to (Städte, Länder)", "Nach dem Essen gehen wir spazieren."],
+            ["bei", "at / near (jemandes Zuhause)", "Er wohnt bei seinen Eltern."],
+            ["seit", "since / for (Zeit)", "Seit einem Jahr lernt sie Deutsch."],
+            ["von", "from / of", "Das Geschenk ist von meiner Schwester."],
+            ["aus", "from / out of", "Ich komme aus Deutschland."],
+            ["zu", "to", "Wir gehen zum Arzt."],
+            ["außer", "except / besides", "Alle kommen, außer Peter."]
+          ]
+        }
+      },
+      {
+        "heading": "Genitiv-Präpositionen",
+        "body": "Diese vier Präpositionen verlangen formell den Genitiv. Sie kommen häufig in geschriebener oder etwas formellerer Sprache vor. Im gesprochenen Deutsch hört man vor allem bei wegen und trotz manchmal auch den Dativ (\"wegen dem Wetter\"), aber der Genitiv gilt als die korrekte Standardform und wird in dieser Einheit verlangt.",
+        "table": {
+          "headers": ["Präposition", "Bedeutung", "Beispiel"],
+          "rows": [
+            ["wegen", "because of", "Wegen des Regens bleiben wir zu Hause."],
+            ["trotz", "despite", "Trotz des Wetters gehen wir spazieren."],
+            ["während", "during", "Während der Ferien reisen wir viel."],
+            ["statt", "instead of", "Statt Kaffee trinke ich Tee."]
+          ]
+        }
+      },
+      {
+        "heading": "Artikel im Überblick",
+        "body": "Die Präposition selbst ändert sich nie — nur der Artikel zeigt den Kasus (beim Genitiv bekommt das maskuline/neutrale Nomen zusätzlich meist ein -s: der Regen → des Regens). Diese Tabelle fasst zusammen, welchen Artikel jedes Genus in welchem Kasus bekommt.",
+        "table": {
+          "headers": ["Kasus", "Maskulin (der)", "Feminin (die)", "Neutrum (das)", "Plural (die)"],
+          "rows": [
+            ["Akkusativ", "den", "die", "das", "die"],
+            ["Dativ", "dem", "der", "dem", "den (+n)"],
+            ["Genitiv", "des (+s)", "der", "des (+s)", "der"]
+          ]
+        }
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "id": "prep-1",
+      "type": "choose-form",
+      "prompt": "Das Geschenk ist für ___ Bruder. (für + Akk)",
+      "options": ["dem", "den", "der", "des"],
+      "answerIndex": 1,
+      "explanation": "\"für\" verlangt immer den Akkusativ. \"der Bruder\" ist maskulin, im Akkusativ wird daraus \"den Bruder\"."
+    },
+    {
+      "id": "prep-2",
+      "type": "choose-form",
+      "prompt": "Wir kämpfen gegen ___ Vorurteil. (das Vorurteil, gegen + Akk)",
+      "options": ["dem", "das", "der", "des"],
+      "answerIndex": 1,
+      "explanation": "\"gegen\" verlangt immer den Akkusativ. Neutrum bleibt im Akkusativ unverändert: \"das Vorurteil\"."
+    },
+    {
+      "id": "prep-3",
+      "type": "choose-form",
+      "prompt": "Er geht durch ___ Park. (der Park, durch + Akk)",
+      "options": ["dem", "der", "den", "des"],
+      "answerIndex": 2,
+      "explanation": "\"durch\" verlangt immer den Akkusativ. \"der Park\" ist maskulin, im Akkusativ wird daraus \"den Park\"."
+    },
+    {
+      "id": "prep-4",
+      "type": "choose-form",
+      "prompt": "Ohne ___ Auto können wir nicht fahren. (das Auto, ohne + Akk)",
+      "options": ["dem", "der", "das", "des"],
+      "answerIndex": 2,
+      "explanation": "\"ohne\" verlangt immer den Akkusativ. Neutrum bleibt im Akkusativ unverändert: \"das Auto\"."
+    },
+    {
+      "id": "prep-5",
+      "type": "choose-form",
+      "prompt": "Um ___ Ecke ist ein Café. (die Ecke, um + Akk)",
+      "options": ["der", "die", "den", "des"],
+      "answerIndex": 1,
+      "explanation": "\"um\" verlangt immer den Akkusativ. Feminin bleibt im Akkusativ unverändert: \"die Ecke\"."
+    },
+    {
+      "id": "prep-6",
+      "type": "choose-form",
+      "prompt": "Er kämpft für ___ Rechte der Arbeiter. (die Rechte, Plural, für + Akk)",
+      "options": ["den", "der", "die", "des"],
+      "answerIndex": 2,
+      "explanation": "\"für\" verlangt immer den Akkusativ. Der Plural-Akkusativ-Artikel bleibt \"die\", wie im Nominativ."
+    },
+    {
+      "id": "prep-7",
+      "type": "choose-form",
+      "prompt": "Das Geschenk ist für ___. (mich, für + Akk)",
+      "options": ["mir", "mich", "ich", "meiner"],
+      "answerIndex": 1,
+      "explanation": "\"für\" verlangt den Akkusativ, also das Akkusativpronomen \"mich\", nicht das Dativpronomen \"mir\"."
+    },
+    {
+      "id": "prep-8",
+      "type": "choose-form",
+      "prompt": "Ich gehe ohne ___ ins Kino. (dich, ohne + Akk)",
+      "options": ["dir", "dich", "du", "deiner"],
+      "answerIndex": 1,
+      "explanation": "\"ohne\" verlangt den Akkusativ, also \"dich\", nicht das Dativpronomen \"dir\"."
+    },
+    {
+      "id": "prep-9",
+      "type": "multiple-choice",
+      "prompt": "Das Geschenk ist ___ meinen Vater. (Akk: for)",
+      "options": ["ohne", "für", "gegen", "um"],
+      "answerIndex": 1,
+      "explanation": "\"für\" bedeutet \"for\" und passt hier semantisch; alle vier Optionen verlangen Akkusativ, aber nur \"für\" ergibt den richtigen Sinn."
+    },
+    {
+      "id": "prep-10",
+      "type": "multiple-choice",
+      "prompt": "Der Zug fährt ___ die Stadt. (Akk: through)",
+      "options": ["für", "durch", "gegen", "um"],
+      "answerIndex": 1,
+      "explanation": "\"durch\" bedeutet \"through\" — der Zug fährt mitten durch die Stadt hindurch."
+    },
+    {
+      "id": "prep-11",
+      "type": "multiple-choice",
+      "prompt": "Ich habe nichts ___ dich. (Akk: against)",
+      "options": ["für", "durch", "gegen", "ohne"],
+      "answerIndex": 2,
+      "explanation": "\"gegen\" bedeutet \"against\" — \"Ich habe nichts gegen dich\" ist eine feste Redewendung."
+    },
+    {
+      "id": "prep-12",
+      "type": "multiple-choice",
+      "prompt": "Er kann nicht ___ seinen Bruder leben. (Akk: without)",
+      "options": ["gegen", "durch", "ohne", "um"],
+      "answerIndex": 2,
+      "explanation": "\"ohne\" bedeutet \"without\" — er kann nicht ohne (= without) seinen Bruder leben."
+    },
+    {
+      "id": "prep-13",
+      "type": "multiple-choice",
+      "prompt": "Die Party beginnt ___ 20 Uhr. (Akk: at, Uhrzeit)",
+      "options": ["für", "gegen", "um", "durch"],
+      "answerIndex": 2,
+      "explanation": "\"um\" wird für Uhrzeiten benutzt: \"um 20 Uhr\" = \"at 8 pm\"."
+    },
+    {
+      "id": "prep-14",
+      "type": "multiple-choice",
+      "prompt": "Wir laufen jeden Tag ___ den Wald. (Akk: through)",
+      "options": ["um", "für", "durch", "gegen"],
+      "answerIndex": 2,
+      "explanation": "\"durch\" bedeutet \"through\" — wir laufen mitten durch den Wald."
+    },
+    {
+      "id": "prep-15",
+      "type": "choose-form",
+      "prompt": "Ich fahre mit ___ Bus zur Arbeit. (der Bus, mit + Dat)",
+      "options": ["den", "dem", "der", "des"],
+      "answerIndex": 1,
+      "explanation": "\"mit\" verlangt immer den Dativ. \"der Bus\" ist maskulin, im Dativ wird daraus \"dem Bus\"."
+    },
+    {
+      "id": "prep-16",
+      "type": "choose-form",
+      "prompt": "Nach ___ Essen gehen wir spazieren. (das Essen, nach + Dat)",
+      "options": ["der", "dem", "den", "des"],
+      "answerIndex": 1,
+      "explanation": "\"nach\" verlangt immer den Dativ. Neutrum-Dativ ist \"dem\": \"das Essen\" → \"dem Essen\"."
+    },
+    {
+      "id": "prep-17",
+      "type": "choose-form",
+      "prompt": "Sie wohnt bei ___ Eltern. (die Eltern, Plural, bei + Dat)",
+      "options": ["dem", "den", "der", "des"],
+      "answerIndex": 1,
+      "explanation": "\"bei\" verlangt immer den Dativ. Der Plural-Dativ-Artikel ist \"den\": \"die Eltern\" → \"den Eltern\"."
+    },
+    {
+      "id": "prep-18",
+      "type": "choose-form",
+      "prompt": "Seit ___ Prüfung fühlt sie sich erleichtert. (die Prüfung, seit + Dat)",
+      "options": ["die", "der", "dem", "den"],
+      "answerIndex": 1,
+      "explanation": "\"seit\" verlangt immer den Dativ. Feminin-Dativ ist \"der\": \"die Prüfung\" → \"der Prüfung\"."
+    },
+    {
+      "id": "prep-19",
+      "type": "choose-form",
+      "prompt": "Er kommt gerade von ___ Arbeit. (die Arbeit, von + Dat)",
+      "options": ["dem", "der", "die", "den"],
+      "answerIndex": 1,
+      "explanation": "\"von\" verlangt immer den Dativ. Feminin-Dativ ist \"der\": \"die Arbeit\" → \"der Arbeit\"."
+    },
+    {
+      "id": "prep-20",
+      "type": "choose-form",
+      "prompt": "Ich komme aus ___ Schweiz. (die Schweiz, aus + Dat)",
+      "options": ["den", "die", "der", "dem"],
+      "answerIndex": 2,
+      "explanation": "\"aus\" verlangt immer den Dativ. \"die Schweiz\" ist einer der wenigen Ländernamen mit Artikel; im Dativ heißt es \"der Schweiz\"."
+    },
+    {
+      "id": "prep-21",
+      "type": "choose-form",
+      "prompt": "Er geht ___ Arzt. (zu + dem = ?, der Arzt)",
+      "options": ["zur", "zum", "zu dem", "zu der"],
+      "answerIndex": 1,
+      "explanation": "\"zu\" + Dativ. \"zu\" + \"dem\" verschmilzt im Alltag fast immer zu \"zum\": \"zum Arzt\"."
+    },
+    {
+      "id": "prep-22",
+      "type": "choose-form",
+      "prompt": "Sie geht ___ Bäckerei. (zu + der = ?, die Bäckerei)",
+      "options": ["zum", "zur", "zu dem", "zu der"],
+      "answerIndex": 1,
+      "explanation": "\"zu\" + \"der\" verschmilzt im Alltag fast immer zu \"zur\": \"zur Bäckerei\"."
+    },
+    {
+      "id": "prep-23",
+      "type": "choose-form",
+      "prompt": "Er kommt gerade ___ Kino. (von + dem = ?, das Kino)",
+      "options": ["von dem", "vom", "von der", "zum"],
+      "answerIndex": 1,
+      "explanation": "\"von\" + \"dem\" verschmilzt im Alltag fast immer zu \"vom\": \"vom Kino\"."
+    },
+    {
+      "id": "prep-24",
+      "type": "choose-form",
+      "prompt": "Er ist ___ Arzt. (bei + dem = ?, der Arzt)",
+      "options": ["bei dem", "beim", "bei der", "zum"],
+      "answerIndex": 1,
+      "explanation": "\"bei\" + \"dem\" verschmilzt im Alltag fast immer zu \"beim\": \"beim Arzt\" (= at the doctor's)."
+    },
+    {
+      "id": "prep-25",
+      "type": "choose-form",
+      "prompt": "Sie kommt mit ___. (ihm, mit + Dat)",
+      "options": ["ihn", "ihm", "er", "seiner"],
+      "answerIndex": 1,
+      "explanation": "\"mit\" verlangt den Dativ, also das Dativpronomen \"ihm\", nicht das Akkusativpronomen \"ihn\"."
+    },
+    {
+      "id": "prep-26",
+      "type": "choose-form",
+      "prompt": "Er wohnt bei ___. (uns, bei + Dat)",
+      "options": ["wir", "uns", "unser", "unserer"],
+      "answerIndex": 1,
+      "explanation": "\"bei\" verlangt den Dativ, also \"uns\" (Dativ von \"wir\"), nicht das Nominativpronomen \"wir\"."
+    },
+    {
+      "id": "prep-27",
+      "type": "multiple-choice",
+      "prompt": "Ich komme ___ Deutschland. (Dat: from/origin)",
+      "options": ["von", "aus", "bei", "zu"],
+      "answerIndex": 1,
+      "explanation": "\"aus\" beschreibt die Herkunft (Land, Stadt): \"aus Deutschland\" = \"from Germany\"."
+    },
+    {
+      "id": "prep-28",
+      "type": "multiple-choice",
+      "prompt": "Er wohnt ___ seinen Eltern. (Dat: at someone's home)",
+      "options": ["mit", "bei", "aus", "zu"],
+      "answerIndex": 1,
+      "explanation": "\"bei\" beschreibt, dass jemand bei jemand anderem zu Hause wohnt: \"bei seinen Eltern wohnen\"."
+    },
+    {
+      "id": "prep-29",
+      "type": "multiple-choice",
+      "prompt": "Wir fahren ___ dem Zug. (Dat: with, Verkehrsmittel)",
+      "options": ["bei", "mit", "aus", "von"],
+      "answerIndex": 1,
+      "explanation": "\"mit\" wird für Verkehrsmittel benutzt: \"mit dem Zug fahren\" = \"to go by train\"."
+    },
+    {
+      "id": "prep-30",
+      "type": "multiple-choice",
+      "prompt": "Er sucht sich ___ dem Studium eine Stelle in Berlin. (Dat: after)",
+      "options": ["seit", "nach", "von", "zu"],
+      "answerIndex": 1,
+      "explanation": "\"nach\" bedeutet hier \"after\": \"nach dem Studium\" = \"after his studies\"."
+    },
+    {
+      "id": "prep-31",
+      "type": "multiple-choice",
+      "prompt": "Er wohnt ___ 2010 in München. (Dat: since)",
+      "options": ["nach", "seit", "von", "aus"],
+      "answerIndex": 1,
+      "explanation": "\"seit\" bedeutet \"since\": \"seit 2010\" = \"since 2010\", ein Zeitpunkt, der bis heute andauert."
+    },
+    {
+      "id": "prep-32",
+      "type": "multiple-choice",
+      "prompt": "Das Geschenk ist ___ mir. (Dat: from/by)",
+      "options": ["aus", "von", "mit", "bei"],
+      "answerIndex": 1,
+      "explanation": "\"von\" zeigt an, von wem etwas kommt: \"das Geschenk ist von mir\" = \"the gift is from me\"."
+    },
+    {
+      "id": "prep-33",
+      "type": "multiple-choice",
+      "prompt": "Alle kommen zur Party, ___ Peter. (Dat: except)",
+      "options": ["ohne", "außer", "gegen", "bei"],
+      "answerIndex": 1,
+      "explanation": "\"außer\" bedeutet \"except\": alle kommen, außer (= except) Peter."
+    },
+    {
+      "id": "prep-34",
+      "type": "multiple-choice",
+      "prompt": "Ich gehe jetzt ___ Schule. (Dat: to, hier: zur)",
+      "options": ["zum", "zur", "nach", "bei"],
+      "answerIndex": 1,
+      "explanation": "\"zu\" + \"der Schule\" verschmilzt zu \"zur Schule\" — \"nach\" wird bei Städten/Ländern benutzt, nicht bei Gebäuden mit Artikel."
+    },
+    {
+      "id": "prep-35",
+      "type": "choose-form",
+      "prompt": "Wegen ___ Wetters bleiben wir zu Hause. (das Wetter, wegen + Gen)",
+      "options": ["der", "des", "dem", "den"],
+      "answerIndex": 1,
+      "explanation": "\"wegen\" verlangt den Genitiv. Neutrum-Genitiv ist \"des\" plus -s am Nomen: \"das Wetter\" → \"des Wetters\"."
+    },
+    {
+      "id": "prep-36",
+      "type": "choose-form",
+      "prompt": "Trotz ___ Regens gehen wir spazieren. (der Regen, trotz + Gen)",
+      "options": ["dem", "des", "der", "den"],
+      "answerIndex": 1,
+      "explanation": "\"trotz\" verlangt den Genitiv. Maskulin-Genitiv ist \"des\" plus -s am Nomen: \"der Regen\" → \"des Regens\"."
+    },
+    {
+      "id": "prep-37",
+      "type": "choose-form",
+      "prompt": "Während ___ Ferien reisen wir viel. (die Ferien, Plural, während + Gen)",
+      "options": ["die", "der", "dem", "den"],
+      "answerIndex": 1,
+      "explanation": "\"während\" verlangt den Genitiv. Der Plural-Genitiv-Artikel ist \"der\": \"die Ferien\" → \"der Ferien\"."
+    },
+    {
+      "id": "prep-38",
+      "type": "choose-form",
+      "prompt": "Statt ___ Kaffees trinke ich Tee. (der Kaffee, statt + Gen)",
+      "options": ["dem", "der", "des", "den"],
+      "answerIndex": 2,
+      "explanation": "\"statt\" verlangt den Genitiv. Maskulin-Genitiv ist \"des\" plus -s am Nomen: \"der Kaffee\" → \"des Kaffees\"."
+    },
+    {
+      "id": "prep-39",
+      "type": "multiple-choice",
+      "prompt": "Wir bleiben ___ des schlechten Wetters zu Hause. (Gen: because of)",
+      "options": ["trotz", "wegen", "während", "statt"],
+      "answerIndex": 1,
+      "explanation": "\"wegen\" bedeutet \"because of\": wir bleiben wegen (= because of) des schlechten Wetters zu Hause."
+    },
+    {
+      "id": "prep-40",
+      "type": "multiple-choice",
+      "prompt": "Er geht ___ des Regens spazieren. (Gen: despite)",
+      "options": ["wegen", "trotz", "während", "statt"],
+      "answerIndex": 1,
+      "explanation": "\"trotz\" bedeutet \"despite\": er geht trotz (= despite) des Regens spazieren."
+    },
+    {
+      "id": "prep-41",
+      "type": "multiple-choice",
+      "prompt": "Sie arbeitet ___ der Ferien nicht. (Gen: during)",
+      "options": ["wegen", "während", "trotz", "statt"],
+      "answerIndex": 1,
+      "explanation": "\"während\" bedeutet \"during\": sie arbeitet während (= during) der Ferien nicht."
+    },
+    {
+      "id": "prep-42",
+      "type": "multiple-choice",
+      "prompt": "Er trinkt Tee ___ Kaffee. (Gen: instead of)",
+      "options": ["wegen", "trotz", "statt", "während"],
+      "answerIndex": 2,
+      "explanation": "\"statt\" bedeutet \"instead of\": er trinkt Tee statt (= instead of) Kaffee."
+    },
+    {
+      "id": "prep-43",
+      "type": "fill-blank",
+      "prompt": "Wir fahren mit ___ Fahrrad zur Schule. (das Fahrrad, mit + Dat)",
+      "answer": "dem",
+      "explanation": "\"mit\" verlangt immer den Dativ; \"das Fahrrad\" ist neutral, im Dativ \"dem Fahrrad\"."
+    },
+    {
+      "id": "prep-44",
+      "type": "fill-blank",
+      "prompt": "Er kommt aus ___ Türkei. (die Türkei, aus + Dat)",
+      "answer": "der",
+      "explanation": "\"aus\" verlangt immer den Dativ; \"die Türkei\" ist wie \"die Schweiz\" ein Ländername mit Artikel, im Dativ \"der Türkei\"."
+    },
+    {
+      "id": "prep-45",
+      "type": "fill-blank",
+      "prompt": "Wegen ___ Kosten sagen wir den Urlaub ab. (die Kosten, Plural, wegen + Gen)",
+      "answer": "der",
+      "explanation": "\"wegen\" verlangt den Genitiv; der Plural-Genitiv-Artikel ist immer \"der\": \"die Kosten\" → \"der Kosten\"."
+    },
+    {
+      "id": "prep-46",
+      "type": "fill-blank",
+      "prompt": "Ohne ___ Hilfe unserer Freunde hätten wir es nicht geschafft. (die Hilfe, ohne + Akk)",
+      "answer": "die",
+      "explanation": "\"ohne\" verlangt den Akkusativ; bei femininen Nomen ist der Akkusativ-Artikel wie im Nominativ \"die\"."
+    },
+    {
+      "id": "prep-47",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["des", "zu", "Wir", "Wetters", "bleiben", "Hause", "schlechten", "wegen"],
+      "answerOrder": ["Wir", "bleiben", "wegen", "des", "schlechten", "Wetters", "zu", "Hause"],
+      "explanation": "Subjekt (Wir) + Verb (bleiben) + Genitiv-Präpositionalphrase (wegen des schlechten Wetters) + Ortsangabe (zu Hause)."
+    },
+    {
+      "id": "prep-48",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["Bruder", "Sie", "ins", "ohne", "Kino", "geht", "ihren"],
+      "answerOrder": ["Sie", "geht", "ohne", "ihren", "Bruder", "ins", "Kino"],
+      "explanation": "Subjekt (Sie) + Verb (geht) + Akkusativ-Präpositionalphrase (ohne ihren Bruder) + Richtungsangabe (ins Kino)."
+    },
+    {
+      "id": "prep-49",
+      "type": "reorder",
+      "prompt": "Put the words in the correct order.",
+      "tokens": ["trinken", "dem", "Kaffee", "Nach", "wir", "Essen"],
+      "answerOrder": ["Nach", "dem", "Essen", "trinken", "wir", "Kaffee"],
+      "explanation": "Vorangestellte Dativ-Präpositionalphrase (Nach dem Essen) + Verb-Subjekt-Inversion (trinken wir) + Akkusativobjekt (Kaffee)."
+    },
+    {
+      "id": "prep-50",
+      "type": "error-spot",
+      "prompt": "Das Geschenk ist für mein Bruder.",
+      "answer": "Das Geschenk ist für meinen Bruder.",
+      "explanation": "\"für\" verlangt den Akkusativ; bei maskulinen Nomen braucht das Possessivpronomen im Akkusativ die Endung -en: \"meinen Bruder\", nicht \"mein Bruder\"."
+    },
+    {
+      "id": "prep-51",
+      "type": "error-spot",
+      "prompt": "Wir fahren mit der Bus zur Arbeit.",
+      "answer": "Wir fahren mit dem Bus zur Arbeit.",
+      "explanation": "\"mit\" verlangt immer den Dativ; \"der Bus\" ist maskulin, im Dativ wird daraus \"dem Bus\", nicht \"der Bus\"."
+    },
+    {
+      "id": "prep-52",
+      "type": "error-spot",
+      "prompt": "Wegen der Regen bleiben wir zu Hause.",
+      "answer": "Wegen des Regens bleiben wir zu Hause.",
+      "explanation": "\"wegen\" verlangt den Genitiv; \"der Regen\" wird im Genitiv zu \"des Regens\" (Artikel \"des\" + Nomen-Endung -s), nicht \"der Regen\" (das wäre Nominativ)."
+    }
+  ]
+}

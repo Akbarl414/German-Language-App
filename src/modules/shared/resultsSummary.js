@@ -3,9 +3,11 @@
 // the correct answer, shown regardless of whether it was right or wrong
 // (some games only want it on misses; pass '' for correct rows to omit it).
 
+import { t } from '../../i18n.js';
+
 export function resultsListHTML(rows) {
   return `
-    <div class="section-heading">Rundenergebnisse</div>
+    <div class="section-heading">${t('roundResults')}</div>
     <div class="card" style="padding:0;">
       ${rows
         .map(

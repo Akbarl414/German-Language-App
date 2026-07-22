@@ -2,6 +2,7 @@
 // used by the dashboard, review session, and Test-me results screen.
 
 import { nounHTML, escapeHtml } from '../../components/gender.js';
+import { t } from '../../i18n.js';
 
 export function labelForItem(item) {
   if (item.type === 'vocab') {
@@ -20,12 +21,12 @@ export function labelForItem(item) {
 }
 
 export function moduleLabel(type) {
-  return { vocab: 'Vokabeln', phrase: 'Phrasen', grammar: 'Grammatik' }[type] || type;
+  return { vocab: t('moduleVocab'), phrase: t('modulePhrase'), grammar: t('moduleGrammar') }[type] || type;
 }
 
 /** Small note shown when the review queue's auto-throttle is reducing/pausing new cards. '' when inactive. */
 export function throttleNoteHTML(level) {
-  if (level === 'paused') return `<p class="page-subtitle" style="margin:0 0 16px;">⏸️ Neue Wörter pausiert, bis deine Warteschlange kleiner wird.</p>`;
-  if (level === 'reduced') return `<p class="page-subtitle" style="margin:0 0 16px;">🐢 Neue Wörter verlangsamt, bis deine Warteschlange kleiner wird.</p>`;
+  if (level === 'paused') return `<p class="page-subtitle" style="margin:0 0 16px;">${t('throttlePaused')}</p>`;
+  if (level === 'reduced') return `<p class="page-subtitle" style="margin:0 0 16px;">${t('throttleReduced')}</p>`;
   return '';
 }

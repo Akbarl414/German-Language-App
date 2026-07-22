@@ -1,6 +1,7 @@
 import { store } from '../../db/storage.js';
 import { dueTodayCount, throttleStatus, moduleStrength, weakestItems } from '../../srs/queue.js';
 import { labelForItem, throttleNoteHTML } from '../shared/labels.js';
+import { t } from '../../i18n.js';
 
 export async function render(container) {
   const stats = store.getStats();
@@ -25,26 +26,26 @@ export async function render(container) {
       }
 
       <div class="stat-grid">
-        <div class="stat-tile"><div class="value">${due}</div><div class="label">Heute fällig</div></div>
-        <div class="stat-tile"><div class="value">${stats.streak}🔥</div><div class="label">Serie</div></div>
-        <div class="stat-tile"><div class="value">${stats.bestStreak || 0}</div><div class="label">Beste Serie</div></div>
-        <div class="stat-tile"><div class="value">${Object.keys(store.allCards()).length}</div><div class="label">Karten erfasst</div></div>
+        <div class="stat-tile"><div class="value">${due}</div><div class="label">${t('dueToday')}</div></div>
+        <div class="stat-tile"><div class="value">${stats.streak}🔥</div><div class="label">${t('streak')}</div></div>
+        <div class="stat-tile"><div class="value">${stats.bestStreak || 0}</div><div class="label">${t('bestStreak')}</div></div>
+        <div class="stat-tile"><div class="value">${Object.keys(store.allCards()).length}</div><div class="label">${t('cardsTracked')}</div></div>
       </div>
 
       ${throttleNoteHTML(throttle.level)}
 
       <a href="#/review" class="btn btn-primary btn-block" style="margin-bottom:20px;">
-        ${due > 0 ? `Wiederholung starten (${Math.min(due, sessionSize)}${sessionSize < due ? ` von ${due}` : ''})` : 'Nichts fällig — trotzdem wiederholen'}
+        ${due > 0 ? t('startReview', Math.min(due, sessionSize), due) : t('nothingDueReviewAnyway')}
       </a>
 
-      <div class="section-heading">Stärke nach Bereich</div>
+      <div class="section-heading">${t('strengthByModule')}</div>
       <div class="card">
-        ${strengthRow('Vokabeln', strength.vocab)}
-        ${strengthRow('Phrasen', strength.phrase)}
-        ${strengthRow('Grammatik', strength.grammar)}
+        ${strengthRow(t('moduleVocab'), strength.vocab)}
+        ${strengthRow(t('modulePhrase'), strength.phrase)}
+        ${strengthRow(t('moduleGrammar'), strength.grammar)}
       </div>
 
-      <div class="section-heading">Schwächste Bereiche</div>
+      <div class="section-heading">${t('weakestSpots')}</div>
       <div class="card">
         ${
           weak.length === 0
@@ -53,7 +54,7 @@ export async function render(container) {
         }
       </div>
 
-      <a href="#/active" class="btn btn-block">🗂️ Aktive Inhalte</a>
+      <a href="#/active" class="btn btn-block">${t('activeContentBtn')}</a>
     </div>
   `;
 }

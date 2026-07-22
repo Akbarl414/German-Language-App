@@ -12,6 +12,7 @@ import { escapeHtml } from '../../../components/gender.js';
 import { hintForFacet } from '../../shared/itemRenderer.js';
 import { resultsListHTML } from '../../shared/resultsSummary.js';
 import { renderMissesReview } from '../../shared/missesReview.js';
+import { t } from '../../../i18n.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
 const WRONG_FLASH_MS = 1100;
@@ -56,7 +57,7 @@ export async function render(container) {
             return `
             <button class="list-item-btn" data-timed="${s}">
               <span>${s}s</span>
-              <span class="page-subtitle" style="margin:0;">${best ? `Bestwert: ${best.score}` : 'Noch kein Bestwert'}</span>
+              <span class="page-subtitle" style="margin:0;">${best ? t('bestValue', best.score) : t('noBestYet')}</span>
             </button>`;
           }).join('')}
         </div>
@@ -102,18 +103,18 @@ export async function render(container) {
           <div class="view">
             <div class="card-row">
               <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
-              <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
+              <span class="page-subtitle" style="margin:0;">${t('scoreStreakHeader', score, streak)}</span>
             </div>
             <div class="drill-card" id="drill-area">
               <div class="drill-prompt">${escapeHtml(w.lemma)}</div>
-              <div class="drill-sub">Perfekt: Hilfsverb?</div>
+              <div class="drill-sub">${t('perfektAuxQuestion')}</div>
               <div id="hint-panel" class="drill-sub" style="display:none; margin-top:8px;"></div>
             </div>
             <div class="btn-row" style="margin-top:16px;">
               <button class="btn btn-block" data-aux="hat">hat</button>
               <button class="btn btn-block" data-aux="ist">ist</button>
             </div>
-            ${hintText ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">💡 Tipp</button>` : ''}
+            ${hintText ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">${t('hintBtn')}</button>` : ''}
           </div>`;
         container.querySelectorAll('[data-aux]').forEach((btn) =>
           btn.addEventListener(
@@ -147,7 +148,7 @@ export async function render(container) {
           <div class="view">
             <div class="card-row">
               <span class="page-subtitle time" style="margin:0;">⏱️ ${timeLeft}s</span>
-              <span class="page-subtitle" style="margin:0;">Punkte ${score} · Serie ${streak}</span>
+              <span class="page-subtitle" style="margin:0;">${t('scoreStreakHeader', score, streak)}</span>
             </div>
             <div class="drill-card" id="drill-area">
               <div class="drill-prompt">${escapeHtml(w.lemma)}</div>
@@ -200,7 +201,7 @@ export async function render(container) {
           <div class="view">
             <div class="flash-wrong">
               <div class="flash-x">✗</div>
-              <div class="correction-banner">${escapeHtml(word.perfekt)} ${escapeHtml(word.lemma)}</div>
+              <div class="correction-banner">${escapeHtml(word.lemma)}: ${escapeHtml(word.perfekt)}</div>
             </div>
           </div>`;
         flashTimeoutId = setTimeout(() => {
@@ -249,17 +250,17 @@ export async function render(container) {
 
       container.innerHTML = `
         <div class="view">
-          <h1 class="page-title">Zeit abgelaufen! ⏱️</h1>
+          <h1 class="page-title">${t('timesUp')}</h1>
           <div class="stat-grid">
-            <div class="stat-tile"><div class="value">${score}</div><div class="label">Richtig</div></div>
-            <div class="stat-tile"><div class="value">${bestStreak}</div><div class="label">Beste Serie</div></div>
+            <div class="stat-tile"><div class="value">${score}</div><div class="label">${t('correct')}</div></div>
+            <div class="stat-tile"><div class="value">${bestStreak}</div><div class="label">${t('bestStreak')}</div></div>
           </div>
-          ${isNewBest ? `<p style="color:var(--good); text-align:center;">Neuer Bestwert!</p>` : ''}
+          ${isNewBest ? `<p style="color:var(--good); text-align:center;">${t('newBest')}</p>` : ''}
           ${resultsListHTML(rows)}
           <div class="btn-row" style="margin-top:16px;">
-            <a href="#/games" class="btn">Zurück zu den Spielen</a>
-            <button class="btn" id="again">Nochmal spielen</button>
-            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">Meine Fehler üben (${misses.length})</button>` : ''}
+            <a href="#/games" class="btn">${t('backToGames')}</a>
+            <button class="btn" id="again">${t('playAgain')}</button>
+            ${misses.length > 0 ? `<button class="btn btn-primary" id="practice-misses">${t('practiceMyMisses', misses.length)}</button>` : ''}
           </div>
         </div>`;
       container.querySelector('#again').addEventListener('click', () => startTimedGame(seconds));

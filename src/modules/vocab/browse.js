@@ -1,6 +1,7 @@
 import { getVocabPacks } from '../../db/contentLoader.js';
 import { store } from '../../db/storage.js';
 import { activateVocabPack, deactivateVocabPack, getPendingTriageWords } from '../../srs/queue.js';
+import { t } from '../../i18n.js';
 
 export async function render(container) {
   paint();
@@ -9,10 +10,10 @@ export async function render(container) {
     const packs = getVocabPacks();
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Vokabeln</h1>
+        <h1 class="page-title">${t('vocabTitle')}</h1>
         <p class="page-subtitle">${packs.reduce((n, p) => n + p.words.length, 0)} words across ${packs.length} packs.</p>
         <div class="btn-row" style="margin-bottom:16px;">
-          <a href="#/add" class="btn">➕ Wort hinzufügen</a>
+          <a href="#/add" class="btn">${t('addAWord')}</a>
         </div>
         ${packs.map((p) => packRow(p)).join('')}
       </div>`;
@@ -44,7 +45,7 @@ function packRow(pack) {
           <div style="font-weight:700;">${pack.title}</div>
           <div class="page-subtitle" style="margin:2px 0 0;">${pack.topic} · ${pack.level} · ${pack.words.length} words</div>
         </a>
-        <button class="btn btn-sm ${state.active ? 'btn-good' : ''}" data-toggle="${pack.id}">${state.active ? 'Aktiv' : 'Aus'}</button>
+        <button class="btn btn-sm ${state.active ? 'btn-good' : ''}" data-toggle="${pack.id}">${state.active ? t('packActive') : t('packOff')}</button>
       </div>
       ${pending > 0 ? `<a href="#/vocab/pack/${pack.id}/triage" class="tag" style="margin-top:10px; display:inline-block; color:var(--warn); border-color:var(--warn);">Continue triage (${pending} left)</a>` : ''}
     </div>`;
