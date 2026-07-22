@@ -41,6 +41,22 @@ export async function render(container) {
           <input type="number" id="daily-limit" min="0" max="200" value="${settings.dailyNewLimit}" />
         </div>
 
+        <div class="section-heading">Review sessions</div>
+        <div class="card">
+          <p class="page-subtitle" style="margin:0 0 8px;">Reviews are served in chunks so a big backlog stays approachable, most overdue and weakest cards first.</p>
+          <label for="session-size">Reviews per session</label>
+          <input type="number" id="session-size" min="5" max="200" value="${settings.reviewSessionSize}" />
+        </div>
+
+        <div class="section-heading">Auto-throttle new cards</div>
+        <div class="card">
+          <p class="page-subtitle" style="margin:0 0 8px;">When your due queue grows past these sizes, new-card intake automatically slows down (then pauses), so it can't snowball.</p>
+          <label for="throttle-reduce">Slow down new cards when due queue exceeds</label>
+          <input type="number" id="throttle-reduce" min="1" max="1000" value="${settings.throttleQueueThreshold}" />
+          <label for="throttle-pause">Pause new cards entirely when due queue exceeds</label>
+          <input type="number" id="throttle-pause" min="1" max="1000" value="${settings.throttlePauseThreshold}" />
+        </div>
+
         <div class="section-heading">Vocabulary packs</div>
         <div class="card" style="padding:0;">
           ${vocabPacks
@@ -121,6 +137,18 @@ export async function render(container) {
 
     container.querySelector('#daily-limit').addEventListener('change', (e) => {
       store.updateSettings({ dailyNewLimit: Math.max(0, Number(e.target.value) || 0) });
+    });
+
+    container.querySelector('#session-size').addEventListener('change', (e) => {
+      store.updateSettings({ reviewSessionSize: Math.max(5, Number(e.target.value) || 30) });
+    });
+
+    container.querySelector('#throttle-reduce').addEventListener('change', (e) => {
+      store.updateSettings({ throttleQueueThreshold: Math.max(1, Number(e.target.value) || 60) });
+    });
+
+    container.querySelector('#throttle-pause').addEventListener('change', (e) => {
+      store.updateSettings({ throttlePauseThreshold: Math.max(1, Number(e.target.value) || 100) });
     });
 
     container.querySelectorAll('[data-pack]').forEach((el) =>

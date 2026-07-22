@@ -1,10 +1,12 @@
 import { store } from '../../db/storage.js';
-import { dueTodayCount, moduleStrength, weakestItems } from '../../srs/queue.js';
-import { labelForItem } from '../shared/labels.js';
+import { dueTodayCount, throttleStatus, moduleStrength, weakestItems } from '../../srs/queue.js';
+import { labelForItem, throttleNoteHTML } from '../shared/labels.js';
 
 export async function render(container) {
   const stats = store.getStats();
   const due = dueTodayCount();
+  const throttle = throttleStatus();
+  const sessionSize = Math.max(1, store.getSettings().reviewSessionSize || 30);
   const strength = moduleStrength();
   const weak = weakestItems(6);
 
@@ -29,8 +31,10 @@ export async function render(container) {
         <div class="stat-tile"><div class="value">${Object.keys(store.allCards()).length}</div><div class="label">Cards tracked</div></div>
       </div>
 
+      ${throttleNoteHTML(throttle.level)}
+
       <a href="#/review" class="btn btn-primary btn-block" style="margin-bottom:20px;">
-        ${due > 0 ? `Start review (${due})` : 'Nothing due — review anyway'}
+        ${due > 0 ? `Start review (${Math.min(due, sessionSize)}${sessionSize < due ? ` of ${due}` : ''})` : 'Nothing due — review anyway'}
       </a>
 
       <div class="section-heading">Strength by module</div>

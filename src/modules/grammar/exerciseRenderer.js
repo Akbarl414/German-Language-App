@@ -11,6 +11,8 @@
 // fallback hint that never reveals the answer outright. Using a hint caps
 // the eventual SRS grade at Hard (see gradeFromCorrectness).
 
+import { checkReorderAnswer, acceptedOrders } from './reorderChecker.js';
+
 function normalize(str) {
   return String(str).trim().toLowerCase().replace(/[.!?]+$/, '');
 }
@@ -221,7 +223,8 @@ function renderReorder(exercise, container, onResult) {
       <div id="ro-result"></div>
     </div>`;
 
-  const hint = wireHint(container, hintText, () => `Starts with: "${exercise.answerOrder[0]}"`);
+  const solutions = acceptedOrders(exercise);
+  const hint = wireHint(container, hintText, () => `Starts with: "${solutions[0][0]}"`);
 
   function paint() {
     container.querySelector('#ro-pool').innerHTML = pool.map((t, i) => `<span class="token" data-pool-i="${i}">${escapeHtml(t)}</span>`).join('');
@@ -244,12 +247,12 @@ function renderReorder(exercise, container, onResult) {
   paint();
 
   container.querySelector('#ro-check').addEventListener('click', () => {
-    const correct = answer.join(' | ') === exercise.answerOrder.join(' | ');
+    const correct = checkReorderAnswer(answer, exercise);
     container.querySelector('#ro-check').disabled = true;
     hint.disable();
     container.querySelectorAll('.token').forEach((t) => (t.style.pointerEvents = 'none'));
     container.querySelector('#ro-result').innerHTML = `<p style="color:${correct ? 'var(--good)' : 'var(--bad)'}; margin-top:8px;">${
-      correct ? 'Correct!' : `Correct order: ${escapeHtml(exercise.answerOrder.join(' '))}`
+      correct ? 'Correct!' : `Correct order: ${escapeHtml(solutions[0].join(' '))}`
     }</p>${explanationBlock(exercise)}`;
     continueButton(container, correct, hint.isUsed(), onResult);
   });

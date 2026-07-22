@@ -26,6 +26,9 @@ function defaultData() {
     settings: {
       dailyNewLimit: 18,
       theme: 'system', // 'light' | 'dark' | 'system'
+      reviewSessionSize: 30, // reviews are served in chunks of this size, most-urgent first
+      throttleQueueThreshold: 60, // due queue size above which new-card intake is halved
+      throttlePauseThreshold: 100, // due queue size above which new cards pause entirely
     },
     stats: {
       streak: 0,

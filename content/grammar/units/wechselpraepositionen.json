@@ -215,32 +215,44 @@
       "type": "reorder",
       "prompt": "Put the words in the correct order.",
       "tokens": ["Tisch", "auf", "Buch", "das", "liegt", "dem"],
-      "answerOrder": ["Das", "Buch", "liegt", "auf", "dem", "Tisch"],
-      "explanation": "Standard word order: subject (Das Buch) + verb (liegt) + prepositional phrase (auf dem Tisch)."
+      "answerOrders": [
+        ["Das", "Buch", "liegt", "auf", "dem", "Tisch"],
+        ["Auf", "dem", "Tisch", "liegt", "das", "Buch"]
+      ],
+      "explanation": "Standard word order: subject (Das Buch) + verb (liegt) + prepositional phrase (auf dem Tisch). The location can also be fronted for emphasis, with subject-verb inversion (Auf dem Tisch liegt das Buch)."
     },
     {
       "id": "ro-2",
       "type": "reorder",
       "prompt": "Put the words in the correct order.",
       "tokens": ["den", "Kühlschrank", "die", "stellt", "Milch", "in", "sie"],
-      "answerOrder": ["Sie", "stellt", "die", "Milch", "in", "den", "Kühlschrank"],
-      "explanation": "Subject (Sie) + verb (stellt) + direct object (die Milch) + prepositional phrase of direction (in den Kühlschrank, accusative)."
+      "answerOrders": [
+        ["Sie", "stellt", "die", "Milch", "in", "den", "Kühlschrank"],
+        ["In", "den", "Kühlschrank", "stellt", "sie", "die", "Milch"]
+      ],
+      "explanation": "Subject (Sie) + verb (stellt) + direct object (die Milch) + prepositional phrase of direction (in den Kühlschrank, accusative). The destination can also be fronted for emphasis, with subject-verb inversion."
     },
     {
       "id": "ro-3",
       "type": "reorder",
       "prompt": "Put the words in the correct order.",
       "tokens": ["dem", "dem", "Bett", "und", "Schrank", "zwischen", "steht", "eine", "Lampe"],
-      "answerOrder": ["Zwischen", "dem", "Bett", "und", "dem", "Schrank", "steht", "eine", "Lampe"],
-      "explanation": "Prepositional phrase of location (Zwischen dem Bett und dem Schrank, dative) can start the sentence, followed by verb-subject inversion (steht eine Lampe)."
+      "answerOrders": [
+        ["Zwischen", "dem", "Bett", "und", "dem", "Schrank", "steht", "eine", "Lampe"],
+        ["Eine", "Lampe", "steht", "zwischen", "dem", "Bett", "und", "dem", "Schrank"]
+      ],
+      "explanation": "Prepositional phrase of location (Zwischen dem Bett und dem Schrank, dative) can start the sentence, followed by verb-subject inversion (steht eine Lampe). The plain subject-first order (Eine Lampe steht ...) is equally correct."
     },
     {
       "id": "ro-4",
       "type": "reorder",
       "prompt": "Put the words in the correct order.",
       "tokens": ["das", "hängt", "an", "er", "Bild", "die", "Wand"],
-      "answerOrder": ["Er", "hängt", "das", "Bild", "an", "die", "Wand"],
-      "explanation": "Subject (Er) + verb (hängt) + direct object (das Bild) + prepositional phrase of direction (an die Wand, accusative)."
+      "answerOrders": [
+        ["Er", "hängt", "das", "Bild", "an", "die", "Wand"],
+        ["An", "die", "Wand", "hängt", "er", "das", "Bild"]
+      ],
+      "explanation": "Subject (Er) + verb (hängt) + direct object (das Bild) + prepositional phrase of direction (an die Wand, accusative). The destination can also be fronted for emphasis, with subject-verb inversion."
     },
     {
       "id": "fb-9",

@@ -10,6 +10,7 @@ See [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for how to add vocab packs, grammar u
 npm install
 npm run dev        # http://localhost:5173
 npm run validate   # check all content JSON against its schema
+npm run test       # run unit tests (node's built-in test runner, no extra deps)
 npm run build      # validate + production build to dist/
 npm run preview    # preview the production build locally
 ```

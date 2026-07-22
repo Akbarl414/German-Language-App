@@ -22,10 +22,13 @@ route('/phrases', () => import('./modules/phrases/list.js'));
 route('/phrases/quiz', () => import('./modules/phrases/quiz.js'));
 
 route('/games', () => import('./modules/games/hub.js'));
-route('/games/matching', () => import('./modules/games/matching.js'));
 route('/games/sorting', () => import('./modules/games/sorting.js'));
 route('/games/timed', () => import('./modules/games/timed.js'));
 route('/games/stories', () => import('./modules/games/stories.js'));
+route('/games/beta/wordfall', () => import('./modules/games/beta/wordfall.js'));
+route('/games/beta/typeit', () => import('./modules/games/beta/typeit.js'));
+route('/games/beta/case-detective', () => import('./modules/games/beta/caseDetective.js'));
+route('/games/beta/verb-sprint', () => import('./modules/games/beta/verbSprint.js'));
 
 route('/testme', () => import('./modules/testme/index.js'));
 route('/testme/run', () => import('./modules/testme/run.js'));

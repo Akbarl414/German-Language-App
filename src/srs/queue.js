@@ -169,9 +169,45 @@ export function submitGradeForCardId(cardId, gradeValue, now = Date.now()) {
   if (wasNew) store.recordDailyActivity('newSeen');
 }
 
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** Higher = more urgent: overdue days plus a weakness bonus, so badly-overdue and shaky cards surface first within a session. */
+function urgencyScore(card, now) {
+  const overdueDays = Math.max(0, (now - card.due) / DAY_MS);
+  const weakness = 1 - engine.strength(card);
+  return overdueDays + weakness;
+}
+
+function dueRefs(now = Date.now()) {
+  ensureContentCards();
+  const refs = allCardRefs().filter((r) => isSourceActive(r.type, r.sourceId));
+  return refs.filter((r) => r.card.status !== 'new' && engine.isDue(r.card, now));
+}
+
+/** Count of due (non-new) cards only — the true backlog, unaffected by new-card throttling or session chunking. */
+export function dueOnlyCount(now = Date.now()) {
+  return dueRefs(now).length;
+}
+
 /**
- * Builds today's review session: all due (learning/review) cards, plus new
- * cards up to the remaining daily allowance, interleaved across modules.
+ * Auto-throttle status for new-card intake, based on the raw due backlog:
+ * 'reduced' halves the daily new-card allowance, 'paused' stops new cards
+ * entirely, so the queue is self-correcting instead of snowballing.
+ */
+export function throttleStatus(now = Date.now()) {
+  const settings = store.getSettings();
+  const due = dueOnlyCount(now);
+  if (due >= settings.throttlePauseThreshold) return { level: 'paused', due };
+  if (due >= settings.throttleQueueThreshold) return { level: 'reduced', due };
+  return { level: null, due };
+}
+
+/**
+ * Builds today's full review assignment: all due (learning/review) cards —
+ * most overdue and weakest first — plus new cards up to the remaining daily
+ * allowance (reduced or paused by throttleStatus), interleaved across
+ * modules. The dashboard/review UI slices this into session-sized chunks
+ * (see Settings > review session size) rather than serving it all at once.
  */
 export function buildReviewSession({ now = Date.now() } = {}) {
   ensureContentCards();
@@ -179,10 +215,13 @@ export function buildReviewSession({ now = Date.now() } = {}) {
 
   const due = refs
     .filter((r) => r.card.status !== 'new' && engine.isDue(r.card, now))
-    .sort((a, b) => a.card.due - b.card.due);
+    .sort((a, b) => urgencyScore(b.card, now) - urgencyScore(a.card, now));
 
   const settings = store.getSettings();
-  const allowanceLeft = Math.max(0, settings.dailyNewLimit - getTodayNewSeenCount());
+  const { level: throttleLevel } = throttleStatus(now);
+  const dailyLimit =
+    throttleLevel === 'paused' ? 0 : throttleLevel === 'reduced' ? Math.floor(settings.dailyNewLimit / 2) : settings.dailyNewLimit;
+  const allowanceLeft = Math.max(0, dailyLimit - getTodayNewSeenCount());
 
   const newByType = { vocab: [], phrase: [], grammar: [] };
   for (const r of refs) {

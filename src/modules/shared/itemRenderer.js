@@ -30,7 +30,7 @@ function exampleBlock(word) {
 }
 
 /** Full word info shown as feedback after answering, regardless of which facet was tested. */
-function fullInfoHTML(w) {
+export function fullInfoHTML(w) {
   const parts = [];
   if (w.pos === 'noun') {
     parts.push(`${genderBadgeHTML(w.gender)} <strong>${escapeHtml(w.lemma)}</strong> <span class="drill-sub">(die ${escapeHtml(w.plural)})</span>`);
@@ -49,7 +49,7 @@ function fullInfoHTML(w) {
 }
 
 /** Contextual hint per facet: everything safe EXCEPT the fact being tested. Returns '' if nothing safe to show. */
-function hintForFacet(w, facet) {
+export function hintForFacet(w, facet) {
   if (facet === 'meaning_de_en' || facet === 'meaning') {
     if (w.pos === 'noun') return `${genderBadgeHTML(w.gender)} plural: ${escapeHtml(w.plural)}`;
     if (w.pos === 'verb') return `${escapeHtml(w.present_3sg)} · ${escapeHtml(w.praeteritum)} · ${escapeHtml(w.perfekt)}`;

@@ -224,16 +224,22 @@
       "type": "reorder",
       "prompt": "Put the words in the correct order (Perfekt).",
       "tokens": ["gestern", "einen", "Film", "wir", "haben", "gesehen"],
-      "answerOrder": ["Wir", "haben", "gestern", "einen", "Film", "gesehen"],
-      "explanation": "Perfekt word order: subject + conjugated haben/sein (position 2) + ... + Partizip II at the very end."
+      "answerOrders": [
+        ["Wir", "haben", "gestern", "einen", "Film", "gesehen"],
+        ["Gestern", "haben", "wir", "einen", "Film", "gesehen"]
+      ],
+      "explanation": "Perfekt word order: subject + conjugated haben/sein (position 2) + ... + Partizip II at the very end. The time expression \"gestern\" can also be fronted, with subject-verb inversion (Gestern haben wir ...)."
     },
     {
       "id": "ro-2",
       "type": "reorder",
       "prompt": "Put the words in the correct order (Perfekt).",
       "tokens": ["um", "sieben", "Uhr", "ist", "aufgestanden", "sie"],
-      "answerOrder": ["Sie", "ist", "um", "sieben", "Uhr", "aufgestanden"],
-      "explanation": "Perfekt with sein: subject + ist (position 2) + time expression + Partizip II at the end."
+      "answerOrders": [
+        ["Sie", "ist", "um", "sieben", "Uhr", "aufgestanden"],
+        ["Um", "sieben", "Uhr", "ist", "sie", "aufgestanden"]
+      ],
+      "explanation": "Perfekt with sein: subject + ist (position 2) + time expression + Partizip II at the end. The time expression can also be fronted, with subject-verb inversion (Um sieben Uhr ist sie ...)."
     },
     {
       "id": "ro-3",

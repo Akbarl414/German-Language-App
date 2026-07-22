@@ -74,7 +74,8 @@
         "answerIndex": { "type": "integer", "minimum": 0, "description": "Required for multiple-choice and choose-form: index into options." },
 
         "tokens": { "type": "array", "items": { "type": "string" }, "minItems": 2, "description": "Required for reorder: scrambled word/phrase tokens." },
-        "answerOrder": { "type": "array", "items": { "type": "string" }, "minItems": 2, "description": "Required for reorder: tokens in correct order." }
+        "answerOrder": { "type": "array", "items": { "type": "string" }, "minItems": 2, "description": "Required for reorder unless answerOrders is given: tokens in correct order." },
+        "answerOrders": { "type": "array", "minItems": 1, "items": { "type": "array", "items": { "type": "string" }, "minItems": 2 }, "description": "Optional for reorder: multiple accepted correct orders (German often allows more than one valid word order, e.g. fronting an adverbial). Takes precedence over answerOrder when present." }
       },
       "allOf": [
         {
@@ -87,7 +88,10 @@
         },
         {
           "if": { "properties": { "type": { "const": "reorder" } } },
-          "then": { "required": ["tokens", "answerOrder"] }
+          "then": {
+            "required": ["tokens"],
+            "anyOf": [{ "required": ["answerOrder"] }, { "required": ["answerOrders"] }]
+          }
         },
         {
           "if": { "properties": { "type": { "const": "error-spot" } } },

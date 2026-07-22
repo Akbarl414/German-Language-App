@@ -229,8 +229,11 @@
       "type": "reorder",
       "prompt": "Put the words in the correct order.",
       "tokens": ["frisches", "Brot", "kaufen", "wir", "jeden", "Tag"],
-      "answerOrder": ["Wir", "kaufen", "jeden", "Tag", "frisches", "Brot"],
-      "explanation": "Strong declension (no article): \"frisches Brot\" — neuter accusative ending -es, since there's no article to carry the signal."
+      "answerOrders": [
+        ["Wir", "kaufen", "jeden", "Tag", "frisches", "Brot"],
+        ["Jeden", "Tag", "kaufen", "wir", "frisches", "Brot"]
+      ],
+      "explanation": "Strong declension (no article): \"frisches Brot\" — neuter accusative ending -es, since there's no article to carry the signal. The time expression \"jeden Tag\" can also be fronted for emphasis, with subject-verb inversion."
     }
   ]
 }

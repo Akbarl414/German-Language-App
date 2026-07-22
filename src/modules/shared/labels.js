@@ -22,3 +22,10 @@ export function labelForItem(item) {
 export function moduleLabel(type) {
   return { vocab: 'Vocabulary', phrase: 'Phrases', grammar: 'Grammar' }[type] || type;
 }
+
+/** Small note shown when the review queue's auto-throttle is reducing/pausing new cards. '' when inactive. */
+export function throttleNoteHTML(level) {
+  if (level === 'paused') return `<p class="page-subtitle" style="margin:0 0 16px;">⏸️ New words paused until your queue shrinks.</p>`;
+  if (level === 'reduced') return `<p class="page-subtitle" style="margin:0 0 16px;">🐢 New words slowed down until your queue shrinks.</p>`;
+  return '';
+}
