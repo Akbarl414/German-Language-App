@@ -1,18 +1,19 @@
-// BETA — German words fall down the screen; tap the correct English meaning
-// from 3 choices before the word lands. Speed increases each correct answer;
-// 3 misses ends the run. On a miss (wrong tap or the word landing), the
-// round pauses briefly to show the correct answer before the next word
-// falls, and remaining misses are shown as a prominent heart tracker.
+// German words fall down the screen; tap the correct meaning from 3 choices
+// before the word lands (direction is configurable — see the pre-game menu).
+// Speed increases each correct answer; 3 misses ends the run. On a miss
+// (wrong tap or the word landing), the round pauses briefly to show the
+// correct answer before the next word falls, and remaining misses are shown
+// as a prominent heart tracker.
 
-import { getAllVocabWords } from '../../../db/contentLoader.js';
-import { vocabCardId, submitGradeForCardId } from '../../../srs/queue.js';
-import { gradeFromCorrectness } from '../../../srs/engine.js';
-import { store } from '../../../db/storage.js';
-import { escapeHtml, genderBadgeHTML } from '../../../components/gender.js';
-import { hintForFacet } from '../../shared/itemRenderer.js';
-import { resultsListHTML } from '../../shared/resultsSummary.js';
-import { renderMissesReview } from '../../shared/missesReview.js';
-import { t } from '../../../i18n.js';
+import { getAllVocabWords, getVocabPacks } from '../../db/contentLoader.js';
+import { vocabCardId, submitGradeForCardId } from '../../srs/queue.js';
+import { gradeFromCorrectness } from '../../srs/engine.js';
+import { store } from '../../db/storage.js';
+import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
+import { hintForFacet } from '../shared/itemRenderer.js';
+import { resultsListHTML } from '../shared/resultsSummary.js';
+import { renderMissesReview } from '../shared/missesReview.js';
+import { t } from '../../i18n.js';
 
 const START_FALL_MS = 4200;
 const MIN_FALL_MS = 1500;
@@ -33,6 +34,32 @@ function missTrackerHTML(misses) {
   return `<div class="miss-tracker">${Array.from({ length: MAX_MISSES }, (_, i) => (i < misses ? '❌' : '❤️')).join('')}</div>`;
 }
 
+function normalizeDirection(dir) {
+  return dir === 'en_de' ? 'en_de' : 'de_en';
+}
+
+/** What's shown as the falling prompt. */
+function promptLabel(w, direction) {
+  return direction === 'en_de' ? w.meaning_en : w.lemma;
+}
+
+/** What's shown on each tappable option. */
+function optionLabel(w, direction) {
+  return direction === 'en_de' ? w.lemma : w.meaning_en;
+}
+
+/**
+ * SRS facet to grade. de_en keeps Wordfall's original unconditional
+ * 'meaning_de_en' (unchanged, so existing progress on this facet isn't
+ * orphaned). en_de mirrors Type it's convention: nouns get the dedicated
+ * meaning_en_de facet, everything else falls back to the single 'meaning'
+ * facet those parts of speech use in both directions.
+ */
+function facetFor(word, direction) {
+  if (direction === 'en_de') return word.pos === 'noun' ? 'meaning_en_de' : 'meaning';
+  return 'meaning_de_en';
+}
+
 export async function render(container) {
   let landTimeoutId = null;
   let pauseTimeoutId = null;
@@ -47,20 +74,67 @@ export async function render(container) {
   function renderIntro() {
     clearTimers();
     const best = store.getStats().gameBests.wordfall;
+    const settings = store.getSettings();
+    const direction = normalizeDirection(settings.wordfallDirection);
+    const packs = getVocabPacks();
+    const selectedIds = new Set(settings.wordfallPackIds || []);
+
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Wordfall <span class="tag">beta</span></h1>
+        <h1 class="page-title">Wordfall 🌧️</h1>
         <p class="page-subtitle">Tap the right meaning before the word lands. Speed ramps up. 3 misses ends the run.</p>
         ${best ? `<p class="page-subtitle" style="margin-top:-12px;">${t('bestScoreValue', best.score)}</p>` : ''}
-        <button class="btn btn-primary btn-block" id="start">Start</button>
+
+        <div class="section-heading">${t('direction')}</div>
+        <div class="card">
+          <div class="btn-row">
+            <button class="btn ${direction === 'de_en' ? 'btn-primary' : ''}" data-direction="de_en">${t('directionDeToEn')}</button>
+            <button class="btn ${direction === 'en_de' ? 'btn-primary' : ''}" data-direction="en_de">${t('directionEnToDe')}</button>
+          </div>
+        </div>
+
+        <details class="card">
+          <summary>${t('advancedSettings')}</summary>
+          <p class="page-subtitle" style="margin:10px 0 8px;">Choose which vocab packs to pull words from. Leave all unchecked to use every pack.</p>
+          <div>
+            ${packs
+              .map(
+                (p) => `
+              <div class="switch-row">
+                <span>${escapeHtml(p.title)} <span class="page-subtitle">(${p.words.length})</span></span>
+                <input type="checkbox" data-pack="${p.id}" ${selectedIds.has(p.id) ? 'checked' : ''} />
+              </div>`
+              )
+              .join('')}
+          </div>
+        </details>
+
+        <button class="btn btn-primary btn-block" id="start" style="margin-top:16px;">Start</button>
       </div>`;
+
     container.querySelector('#start').addEventListener('click', startGame);
+    container.querySelectorAll('[data-direction]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        store.updateSettings({ wordfallDirection: btn.dataset.direction });
+        renderIntro();
+      })
+    );
+    container.querySelectorAll('[data-pack]').forEach((el) =>
+      el.addEventListener('change', () => {
+        const checked = Array.from(container.querySelectorAll('[data-pack]:checked')).map((c) => c.dataset.pack);
+        store.updateSettings({ wordfallPackIds: checked });
+      })
+    );
   }
 
   function startGame() {
-    const words = getAllVocabWords();
+    const settings = store.getSettings();
+    const direction = normalizeDirection(settings.wordfallDirection);
+    const packIds = settings.wordfallPackIds || [];
+    const selectedIds = packIds.length ? new Set(packIds) : null;
+    const words = getAllVocabWords().filter((w) => !selectedIds || selectedIds.has(w.packId));
     if (words.length < 6) {
-      container.innerHTML = `<div class="view empty-state">Not enough vocab activated yet. Activate a pack first.</div>`;
+      container.innerHTML = `<div class="view empty-state">Not enough vocab in the selected packs. Choose more packs in Advanced settings, or clear your selection to use every pack.</div>`;
       return;
     }
     let score = 0;
@@ -72,7 +146,7 @@ export async function render(container) {
 
     function nextQuestion() {
       const [target, ...rest] = shuffle(words);
-      const distractors = shuffle(rest.filter((w) => w.meaning_en !== target.meaning_en)).slice(0, 2);
+      const distractors = shuffle(rest.filter((w) => optionLabel(w, direction) !== optionLabel(target, direction))).slice(0, 2);
       const options = shuffle([target, ...distractors]);
       return { target, options };
     }
@@ -83,7 +157,7 @@ export async function render(container) {
       locked = false;
       hintUsed = false;
       const { target, options } = current;
-      const hintText = hintForFacet(target, 'meaning_de_en');
+      const hintText = hintForFacet(target, facetFor(target, direction));
       container.innerHTML = `
         <div class="view">
           <div class="card-row">
@@ -91,11 +165,11 @@ export async function render(container) {
           </div>
           ${missTrackerHTML(misses)}
           <div class="wordfall-track" id="track">
-            <div class="wordfall-word" id="falling">${escapeHtml(target.lemma)}</div>
+            <div class="wordfall-word" id="falling">${escapeHtml(promptLabel(target, direction))}</div>
           </div>
           <div id="hint-panel" class="drill-sub" style="display:none; margin:-8px 0 10px;"></div>
           <div class="option-list">
-            ${options.map((o, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(o.meaning_en)}</button>`).join('')}
+            ${options.map((o, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(optionLabel(o, direction))}</button>`).join('')}
           </div>
           ${hintText ? `<button class="btn btn-sm" id="hint-btn" style="margin-top:10px;">${t('hintBtn')}</button>` : ''}
         </div>`;
@@ -144,7 +218,7 @@ export async function render(container) {
     }
 
     function resolveRound(correct, target) {
-      submitGradeForCardId(vocabCardId(target.packId, target.id, 'meaning_de_en'), gradeFromCorrectness(correct, hintUsed));
+      submitGradeForCardId(vocabCardId(target.packId, target.id, facetFor(target, direction)), gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word: target, correct });
       if (correct) {
         score++;
@@ -223,10 +297,10 @@ export async function render(container) {
         missBtn.addEventListener('click', () => {
           const items = misses_.map((r) => ({
             type: 'vocab',
-            facet: 'meaning_de_en',
+            facet: facetFor(r.word, direction),
             sourceId: r.word.packId,
             itemId: r.word.id,
-            cardId: vocabCardId(r.word.packId, r.word.id, 'meaning_de_en'),
+            cardId: vocabCardId(r.word.packId, r.word.id, facetFor(r.word, direction)),
             content: r.word,
           }));
           renderMissesReview({ container, items, onDone: renderIntro });

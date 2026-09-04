@@ -167,6 +167,12 @@ const LABELS = {
 
   // --- Type it: gender-check toggle (new) ---
   checkGenderToggle: { de: 'Genus prüfen', en: 'Check gender' },
+
+  // --- Wordfall ---
+  direction: { de: 'Richtung', en: 'Direction' },
+  directionDeToEn: { de: 'Deutsch → Englisch', en: 'German → English' },
+  directionEnToDe: { de: 'Englisch → Deutsch', en: 'English → German' },
+  advancedSettings: { de: 'Erweiterte Einstellungen', en: 'Advanced settings' },
 };
 
 export function getUiLanguage() {

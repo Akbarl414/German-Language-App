@@ -31,6 +31,8 @@ function defaultData() {
       throttlePauseThreshold: 100, // due queue size above which new cards pause entirely
       uiLanguage: 'de', // 'de' | 'en' — nav/button/tab chrome translated via src/i18n.js
       typeItCheckGender: false, // Type it (beta game): require the article (e.g. "der Löffel") on noun answers
+      wordfallDirection: 'de_en', // 'de_en' | 'en_de' — Wordfall practice direction
+      wordfallPackIds: [], // vocab pack ids Wordfall draws from; empty = every pack
     },
     stats: {
       streak: 0,
