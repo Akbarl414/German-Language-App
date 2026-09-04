@@ -50,6 +50,7 @@
       "type": "fill-blank",
       "prompt": "Das Buch liegt auf ___ Tisch. (wo?)",
       "answer": "dem",
+      "translation_en": "The book is lying on the table.",
       "explanation": "\"liegen\" describes a fixed location (wo?), so \"auf\" takes the dative: der Tisch → dem Tisch."
     },
     {
@@ -57,6 +58,7 @@
       "type": "fill-blank",
       "prompt": "Ich lege das Buch auf ___ Tisch. (wohin?)",
       "answer": "den",
+      "translation_en": "I'm putting the book on the table.",
       "explanation": "\"legen\" describes a movement onto a surface (wohin?), so \"auf\" takes the accusative: der Tisch → den Tisch."
     },
     {
@@ -64,6 +66,7 @@
       "type": "fill-blank",
       "prompt": "Die Katze sitzt unter ___ Stuhl.",
       "answer": "dem",
+      "translation_en": "The cat is sitting under the chair.",
       "explanation": "\"sitzen\" is a state (wo?), so dative: der Stuhl → dem Stuhl."
     },
     {
@@ -71,6 +74,7 @@
       "type": "fill-blank",
       "prompt": "Er hängt das Bild an ___ Wand.",
       "answer": "die",
+      "translation_en": "He's hanging the picture on the wall.",
       "explanation": "\"hängen\" (weak, transitive) here means the action of hanging something up (wohin?), so accusative: die Wand stays \"die\" in feminine accusative."
     },
     {
@@ -78,6 +82,7 @@
       "type": "fill-blank",
       "prompt": "Wir gehen heute Abend ___ Kino.",
       "answer": "ins",
+      "translation_en": "We're going to the movies tonight.",
       "explanation": "Motion into a place (wohin?): in + das Kino → ins Kino (contracted)."
     },
     {
@@ -85,6 +90,7 @@
       "type": "fill-blank",
       "prompt": "Am Wochenende bin ich ___ Kino gewesen.",
       "answer": "im",
+      "translation_en": "I was at the movies over the weekend.",
       "explanation": "\"sein\" here describes being located somewhere (wo?): in + dem Kino → im Kino (contracted)."
     },
     {
@@ -92,6 +98,7 @@
       "type": "fill-blank",
       "prompt": "Der Ball rollt unter ___ Auto.",
       "answer": "das",
+      "translation_en": "The ball is rolling under the car.",
       "explanation": "Motion of the ball to a new position under the car (wohin?): das Auto stays \"das\" in neuter accusative."
     },
     {
@@ -99,6 +106,7 @@
       "type": "fill-blank",
       "prompt": "Zwischen ___ beiden Häusern steht ein Baum.",
       "answer": "den",
+      "translation_en": "There is a tree between the two houses.",
       "explanation": "Plural + dative (wo? — the tree's fixed location): die Häuser → den Häusern."
     },
     {
@@ -259,6 +267,7 @@
       "type": "fill-blank",
       "prompt": "Steig bitte ___ Auto ein! (into the car)",
       "answer": "ins",
+      "translation_en": "Please get into the car!",
       "explanation": "Motion into the car (wohin?): in + das Auto → ins Auto (contracted)."
     },
     {

@@ -69,6 +69,7 @@
 
         "answer": { "type": "string", "description": "Required for fill-blank, choose-form (as the correct option text), error-spot (corrected sentence)." },
         "altAnswers": { "type": "array", "items": { "type": "string" }, "description": "Optional accepted alternative answers for fill-blank." },
+        "translation_en": { "type": "string", "minLength": 1, "description": "Required for fill-blank: English translation of the full sentence with the blank filled in, shown alongside the prompt (not hint-gated) so the learner knows what word/form is being asked for." },
 
         "options": { "type": "array", "items": { "type": "string" }, "minItems": 2, "description": "Required for multiple-choice and choose-form." },
         "answerIndex": { "type": "integer", "minimum": 0, "description": "Required for multiple-choice and choose-form: index into options." },
@@ -80,7 +81,7 @@
       "allOf": [
         {
           "if": { "properties": { "type": { "const": "fill-blank" } } },
-          "then": { "required": ["answer"] }
+          "then": { "required": ["answer", "translation_en"] }
         },
         {
           "if": { "properties": { "type": { "enum": ["multiple-choice", "choose-form"] } } },

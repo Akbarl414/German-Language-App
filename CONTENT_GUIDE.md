@@ -117,7 +117,7 @@ Schema: `content/schemas/grammar-unit.schema.json`. Existing units: `wechselprae
 
 All exercise objects need `id`, `type`, `prompt`, `explanation` (shown after answering).
 
-- **`fill-blank`**: `prompt` contains a literal `___` marker; `answer` (string); optional `altAnswers` (array of accepted alternatives).
+- **`fill-blank`**: `prompt` contains a literal `___` marker; `answer` (string); `translation_en` (**required** — English translation of the full sentence with the blank filled in; shown alongside the prompt, always visible, not hint-gated — without it a learner often has no way to know what word is even being asked for); optional `altAnswers` (array of accepted alternatives).
 - **`multiple-choice`**: `options` (array of strings), `answerIndex` (0-based index of the correct option).
 - **`choose-form`**: same shape as `multiple-choice` — use this type when the question is specifically "pick the right inflected form" (for UI/analytics grouping), otherwise identical.
 - **`reorder`**: `tokens` (scrambled word/phrase array as shown to the user), `answerOrder` (same tokens in correct order).

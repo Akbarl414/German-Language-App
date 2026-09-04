@@ -100,6 +100,7 @@ function renderFillBlank(exercise, container, onResult) {
   container.innerHTML = `
     <div class="drill-card" style="text-align:left; align-items:stretch;">
       <div class="drill-sub">${translate('fillInTheBlank')}</div>
+      ${exercise.translation_en ? `<div class="drill-sub" style="font-style:italic; opacity:0.8;">${escapeHtml(exercise.translation_en)}</div>` : ''}
       <div style="font-size:1.15rem; margin:10px 0;">
         ${escapeHtml(parts[0] || '')}<input id="fb-input" type="text" autocapitalize="none" autocorrect="off" spellcheck="false" lang="de" style="width:140px; display:inline-block; margin:0 4px;" />${escapeHtml(parts[1] || '')}
       </div>

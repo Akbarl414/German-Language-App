@@ -53,6 +53,7 @@
       "type": "fill-blank",
       "prompt": "Gestern ___ ich meine Hausaufgaben gemacht. (Perfekt of haben)",
       "answer": "habe",
+      "translation_en": "Yesterday I did my homework.",
       "explanation": "\"machen\" takes haben, 1st person singular present of haben is \"habe\"."
     },
     {
@@ -60,6 +61,7 @@
       "type": "fill-blank",
       "prompt": "Wir ___ letztes Jahr nach Italien gefahren. (Perfekt of sein)",
       "answer": "sind",
+      "translation_en": "We went to Italy last year.",
       "explanation": "\"fahren\" is a motion verb, so it takes sein; 1st person plural is \"sind\"."
     },
     {
@@ -67,6 +69,7 @@
       "type": "fill-blank",
       "prompt": "Sie hat den ganzen Tag ___ . (Partizip II of arbeiten)",
       "answer": "gearbeitet",
+      "translation_en": "She worked all day.",
       "explanation": "Weak verb: ge- + stem (arbeit) + -et (extra -e- because the stem ends in -t)."
     },
     {
@@ -74,6 +77,7 @@
       "type": "fill-blank",
       "prompt": "Er hat das Buch schon ___ . (Partizip II of lesen)",
       "answer": "gelesen",
+      "translation_en": "He has already read the book.",
       "explanation": "Strong verb: ge- + stem with vowel change (les→lesen) + -en."
     },
     {
@@ -81,6 +85,7 @@
       "type": "fill-blank",
       "prompt": "Ich habe gestern mit meiner Mutter ___ . (Partizip II of telefonieren)",
       "answer": "telefoniert",
+      "translation_en": "I talked to my mother on the phone yesterday.",
       "explanation": "Verbs ending in -ieren never take ge- in the Partizip II: telefonieren → telefoniert."
     },
     {
@@ -88,6 +93,7 @@
       "type": "fill-blank",
       "prompt": "Als Kind ___ ich jeden Sommer ans Meer. (Präteritum of fahren)",
       "answer": "fuhr",
+      "translation_en": "As a child, I went to the seaside every summer.",
       "explanation": "Strong verb Präteritum with vowel change: fahren → fuhr (1st person singular has no extra ending)."
     },
     {
@@ -95,6 +101,7 @@
       "type": "fill-blank",
       "prompt": "Es ___ sehr kalt letzten Winter. (Präteritum of sein)",
       "answer": "war",
+      "translation_en": "It was very cold last winter.",
       "explanation": "\"sein\" is almost always used in the Präteritum, even in speech: sein → war."
     },
     {
@@ -102,6 +109,7 @@
       "type": "fill-blank",
       "prompt": "Er ___ nicht, wo seine Schlüssel waren. (Präteritum of wissen)",
       "answer": "wusste",
+      "translation_en": "He didn't know where his keys were.",
       "explanation": "Mixed verb: vowel change (wiss→wuss) plus -te ending: wissen → wusste."
     },
     {
@@ -109,6 +117,7 @@
       "type": "fill-blank",
       "prompt": "Wir haben das Auto vor dem Haus ___ . (Partizip II of parken)",
       "answer": "geparkt",
+      "translation_en": "We parked the car in front of the house.",
       "explanation": "Weak verb: ge- + stem (park) + -t."
     },
     {

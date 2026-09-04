@@ -50,6 +50,7 @@
       "type": "fill-blank",
       "prompt": "Der klein___ Hund schläft. (Nominativ, Maskulin, nach \"der\")",
       "answer": "e",
+      "translation_en": "The small dog is sleeping.",
       "explanation": "Weak declension after \"der\": masculine nominative ending is -e."
     },
     {
@@ -57,6 +58,7 @@
       "type": "fill-blank",
       "prompt": "Ich sehe den klein___ Hund. (Akkusativ, Maskulin, nach \"den\")",
       "answer": "en",
+      "translation_en": "I see the small dog.",
       "explanation": "Weak declension: masculine accusative ending after \"den\" is -en."
     },
     {
@@ -64,6 +66,7 @@
       "type": "fill-blank",
       "prompt": "Ein klein___ Hund schläft. (Nominativ, Maskulin, nach \"ein\")",
       "answer": "er",
+      "translation_en": "A small dog is sleeping.",
       "explanation": "Mixed declension: \"ein\" doesn't show gender in the masculine nominative, so the adjective takes -er to signal it."
     },
     {
@@ -71,6 +74,7 @@
       "type": "fill-blank",
       "prompt": "Ich habe einen klein___ Hund. (Akkusativ, Maskulin, nach \"einen\")",
       "answer": "en",
+      "translation_en": "I have a small dog.",
       "explanation": "\"einen\" already clearly marks masculine accusative, so the adjective is weak: -en."
     },
     {
@@ -78,6 +82,7 @@
       "type": "fill-blank",
       "prompt": "Das ist ein neu___ Auto. (Nominativ, Neutrum, nach \"ein\")",
       "answer": "es",
+      "translation_en": "That's a new car.",
       "explanation": "Mixed declension: \"ein\" doesn't show gender for neuter either, so the adjective takes -es."
     },
     {
@@ -85,6 +90,7 @@
       "type": "fill-blank",
       "prompt": "Wir kaufen frisch___ Brot. (Akkusativ, Neutrum, kein Artikel)",
       "answer": "es",
+      "translation_en": "We're buying fresh bread.",
       "explanation": "Strong declension (no article): the adjective must carry the neuter signal itself, -es, matching what \"das\" would show."
     },
     {
@@ -92,6 +98,7 @@
       "type": "fill-blank",
       "prompt": "Meine gut___ Freundin kommt heute. (Nominativ, Feminin, nach \"meine\")",
       "answer": "e",
+      "translation_en": "My good friend is coming today.",
       "explanation": "Feminine nominative/accusative after an ein-word is always weak: -e."
     },
     {
@@ -99,6 +106,7 @@
       "type": "fill-blank",
       "prompt": "Kalt___ Wasser schmeckt im Sommer gut. (Nominativ, Neutrum, kein Artikel)",
       "answer": "es",
+      "translation_en": "Cold water tastes good in summer.",
       "explanation": "Strong declension: no article, so the adjective takes -es to show neuter nominative."
     },
     {
@@ -106,6 +114,7 @@
       "type": "fill-blank",
       "prompt": "Sie hat keine neu___ Ideen. (Akkusativ, Plural, nach \"keine\")",
       "answer": "en",
+      "translation_en": "She has no new ideas.",
       "explanation": "Plural after an ein-word (keine) is weak: -en, just like after \"die\"."
     },
     {

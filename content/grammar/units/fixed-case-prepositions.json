@@ -417,6 +417,7 @@
       "type": "fill-blank",
       "prompt": "Wir fahren mit ___ Fahrrad zur Schule. (das Fahrrad, mit + Dat)",
       "answer": "dem",
+      "translation_en": "We ride to school by bike.",
       "explanation": "\"mit\" verlangt immer den Dativ; \"das Fahrrad\" ist neutral, im Dativ \"dem Fahrrad\"."
     },
     {
@@ -424,6 +425,7 @@
       "type": "fill-blank",
       "prompt": "Er kommt aus ___ Türkei. (die Türkei, aus + Dat)",
       "answer": "der",
+      "translation_en": "He comes from Turkey.",
       "explanation": "\"aus\" verlangt immer den Dativ; \"die Türkei\" ist wie \"die Schweiz\" ein Ländername mit Artikel, im Dativ \"der Türkei\"."
     },
     {
@@ -431,6 +433,7 @@
       "type": "fill-blank",
       "prompt": "Wegen ___ Kosten sagen wir den Urlaub ab. (die Kosten, Plural, wegen + Gen)",
       "answer": "der",
+      "translation_en": "Because of the costs, we're cancelling the vacation.",
       "explanation": "\"wegen\" verlangt den Genitiv; der Plural-Genitiv-Artikel ist immer \"der\": \"die Kosten\" → \"der Kosten\"."
     },
     {
@@ -438,6 +441,7 @@
       "type": "fill-blank",
       "prompt": "Ohne ___ Hilfe unserer Freunde hätten wir es nicht geschafft. (die Hilfe, ohne + Akk)",
       "answer": "die",
+      "translation_en": "Without our friends' help, we wouldn't have managed it.",
       "explanation": "\"ohne\" verlangt den Akkusativ; bei femininen Nomen ist der Akkusativ-Artikel wie im Nominativ \"die\"."
     },
     {

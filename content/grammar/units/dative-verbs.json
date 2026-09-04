@@ -56,6 +56,7 @@
       "type": "fill-blank",
       "prompt": "Der Kuchen schmeckt ___ Gästen ausgezeichnet.",
       "answer": "den",
+      "translation_en": "The cake tastes excellent to the guests.",
       "explanation": "\"schmecken\" governs the dative. \"die Gäste\" (plural) → dative \"den Gästen\"."
     },
     {
@@ -63,6 +64,7 @@
       "type": "fill-blank",
       "prompt": "Ich glaube ___ einfach nicht mehr.",
       "answer": "ihm",
+      "translation_en": "I simply don't believe him anymore.",
       "explanation": "\"glauben\" + Dativ (person) = to believe someone. \"ihm\" is the dative form of \"er\"."
     },
     {
@@ -70,6 +72,7 @@
       "type": "fill-blank",
       "prompt": "Das neue Auto gehört ___ Bruder.",
       "answer": "meinem",
+      "translation_en": "The new car belongs to my brother.",
       "explanation": "\"gehören\" governs the dative. \"mein Bruder\" (masculine) → dative \"meinem Bruder\"."
     },
     {
@@ -77,6 +80,7 @@
       "type": "fill-blank",
       "prompt": "Sie folgt ___ Anweisungen des Arztes genau.",
       "answer": "den",
+      "translation_en": "She follows the doctor's instructions exactly.",
       "explanation": "\"folgen\" governs the dative. \"die Anweisungen\" (plural) → dative \"den Anweisungen\"."
     },
     {
