@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Project-specific guidance for working in this repo. See also [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for the content-generation pipeline (vocab packs, grammar units, phrase sets, stories).
+Project-specific guidance for working in this repo. See also [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for the content-generation pipeline (vocab packs, grammar units, phrase sets, stories), and [ARCHITECTURE.md](./ARCHITECTURE.md) for a full tour of the app's architecture, modules, and conventions.
 
 ## User progress data is sacred
 

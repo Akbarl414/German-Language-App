@@ -2,7 +2,7 @@
 
 A personal, offline-capable PWA for German vocabulary, grammar, and phrases — built to supplement in-person lessons. Pure static site (Vite + vanilla JS), no backend. All learning content is versioned JSON in this repo; all progress lives in the browser's localStorage on your device.
 
-See [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for how to add vocab packs, grammar units, phrase sets, and stories (the Path B content pipeline for Claude Code sessions).
+See [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for how to add vocab packs, grammar units, phrase sets, and stories (the Path B content pipeline for Claude Code sessions), and [ARCHITECTURE.md](./ARCHITECTURE.md) for a full guide to the app's architecture and conventions.
 
 ## Local development
 
