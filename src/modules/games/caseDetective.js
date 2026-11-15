@@ -87,13 +87,13 @@ export async function render(container) {
     const best = store.getStats().gameBests.caseDetective;
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Case detective</h1>
-        <p class="page-subtitle">Pick the article or ending that fits. Tap "Why?" any time you want the rule spelled out.</p>
+        <h1 class="page-title">${t('gameCaseDetectiveName')}</h1>
+        <p class="page-subtitle">${t('caseIntro')}</p>
         ${best ? `<p class="page-subtitle" style="margin-top:-12px;">${t('bestScoreOutOf', best.score, best.total)}</p>` : ''}
         ${
           pool.length < 3
-            ? `<div class="empty-state">Not enough case exercises available yet.</div>`
-            : `<button class="btn btn-primary btn-block" id="start">Start (${Math.min(ROUND_SIZE, pool.length)} questions)</button>`
+            ? `<div class="empty-state">${t('caseNotEnough')}</div>`
+            : `<button class="btn btn-primary btn-block" id="start">${t('caseStart', Math.min(ROUND_SIZE, pool.length))}</button>`
         }
       </div>`;
     const startBtn = container.querySelector('#start');
@@ -214,7 +214,7 @@ export async function render(container) {
 
       container.innerHTML = `
         <div class="view">
-          <h1 class="page-title">Case closed 🕵️</h1>
+          <h1 class="page-title">${t('caseClosed')} 🕵️</h1>
           <div class="stat-grid">
             <div class="stat-tile"><div class="value">${score}/${rounds.length}</div><div class="label">${t('correct')}</div></div>
           </div>

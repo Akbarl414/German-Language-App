@@ -138,6 +138,58 @@ const LABELS = {
   gameCaseDetectiveName: { de: 'Kasus-Detektiv', en: 'Case detective' },
   gameVerbSprintName: { de: 'Verbformen-Sprint', en: 'Verb forms sprint' },
 
+  // --- Game titles, instructions and buttons ---
+  startGame: { de: 'Start', en: 'Start' },
+  sortingChooseMode: { de: 'Wähle einen Modus.', en: 'Choose a mode.' },
+  storiesTitle: { de: 'Lückengeschichten', en: 'Fill-in-the-blank stories' },
+  storiesIntro: {
+    de: 'Leseübung mit deinem aktuellen Wortschatz und deiner Grammatik.',
+    en: 'Reading practice using your current vocab and grammar.',
+  },
+  storiesNone: { de: 'Noch keine Geschichten.', en: 'No stories yet.' },
+  wordfallIntro: {
+    de: 'Tippe die richtige Bedeutung, bevor das Wort landet. Es wird immer schneller. Bei 3 Fehlern ist Schluss.',
+    en: 'Tap the right meaning before the word lands. Speed ramps up. 3 misses ends the run.',
+  },
+  wordfallOver: { de: 'Wordfall vorbei', en: 'Wordfall over' },
+  typeItIntro: {
+    de: 'Du siehst das Englische, tippe das Deutsche. Auf die genaue Schreibweise kommt es an: Nomen werden großgeschrieben.',
+    en: 'You see the English, type the German. Exact spelling counts — nouns need capital letters.',
+  },
+  typeItGenderHelp: {
+    de: 'Wenn aktiv, muss die Antwort bei Nomen den Artikel enthalten (z. B. "der Löffel"). Sonst wird das Nomen ohne Artikel akzeptiert.',
+    en: 'When on, noun answers must include the article (e.g. "der Löffel"). When off, the bare noun is accepted.',
+  },
+  typeItSoClose: { de: 'Knapp daneben! 🤏', en: 'So close! 🤏' },
+  typeItNotQuite: { de: 'Nicht ganz', en: 'Not quite' },
+  typeItYouWrote: { de: 'Du hast geschrieben', en: 'You wrote' },
+  typeItCorrectLabel: { de: 'Richtig', en: 'Correct' },
+  typeItInputLabel: { de: 'Das deutsche Wort eintippen', en: 'Type the German word' },
+  typeItHintText: {
+    de: (first, len, isNoun) => `Beginnt mit "${first}" · ${len} Buchstaben${isNoun ? ' · Nomen werden großgeschrieben' : ''}`,
+    en: (first, len, isNoun) => `Starts with "${first}" · ${len} letters${isNoun ? ' · nouns are always capitalized' : ''}`,
+  },
+  caseIntro: {
+    de: 'Wähle den Artikel oder die Endung, die passt. Tippe jederzeit auf "Warum?", wenn du die Regel sehen willst.',
+    en: 'Pick the article or ending that fits. Tap "Why?" any time you want the rule spelled out.',
+  },
+  caseNotEnough: { de: 'Noch nicht genug Kasus-Übungen vorhanden.', en: 'Not enough case exercises available yet.' },
+  caseStart: { de: (n) => `Start (${n} Fragen)`, en: (n) => `Start (${n} questions)` },
+  caseClosed: { de: 'Fall abgeschlossen', en: 'Case closed' },
+  verbSprintIntro: {
+    de: 'Bilde das Perfekt: wähle hat/ist, dann das Partizip.',
+    en: 'Build the Perfekt: pick hat/ist, then the participle.',
+  },
+  extraPacksHelp: {
+    de: 'Wörter aus deinen aktiven Vokabelpaketen sind immer dabei. Wähle Zusatzpakete, um auch deren Wörter zu üben. Zusatzwörter sind nur zum Üben: Sie kommen nie in deine tägliche Wiederholung.',
+    en: 'Words from your active vocab packs are always included. Tick extra packs to practise their words too. Extra words are practice only: they never go into your daily review.',
+  },
+  extraPacksNone: { de: 'Alle Vokabelpakete sind bereits aktiv.', en: 'All vocab packs are already active.' },
+  poolTooSmallHelp: {
+    de: 'Aktiviere weitere Vokabelpakete oder wähle unten unter Erweiterte Einstellungen Zusatzpakete.',
+    en: 'Activate more vocab packs, or choose extra packs under Advanced settings below.',
+  },
+
   // --- Sorting / timed / stories ---
   hintGenderMeaning: { de: '💡 Tipp (zeigt Bedeutung, nicht Genus)', en: '💡 Hint (shows meaning, not gender)' },
   backToStories: { de: '&larr; Geschichten', en: '&larr; Stories' },

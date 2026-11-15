@@ -16,8 +16,8 @@ export async function render(container) {
   function renderList() {
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Fill-in-the-blank Stories</h1>
-        <p class="page-subtitle">Reading practice using your current vocab and grammar.</p>
+        <h1 class="page-title">${t('storiesTitle')}</h1>
+        <p class="page-subtitle">${t('storiesIntro')}</p>
         <div class="card" style="padding:0;">
           ${stories
             .map(
@@ -128,7 +128,7 @@ export async function render(container) {
   }
 
   if (stories.length === 0) {
-    container.innerHTML = `<div class="view empty-state">No stories yet.</div>`;
+    container.innerHTML = `<div class="view empty-state">${t('storiesNone')}</div>`;
     return;
   }
   renderList();

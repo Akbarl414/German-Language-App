@@ -36,10 +36,10 @@ export function extraPacksPickerHTML({ open = false } = {}) {
   return `
     <details class="card" id="extra-packs" ${open ? 'open' : ''}>
       <summary>${t('advancedSettings')}</summary>
-      <p class="page-subtitle" style="margin:10px 0 8px;">Words from your active vocab packs are always included. Tick extra packs to practise their words too. Extra words are practice only: they never go into your daily review.</p>
+      <p class="page-subtitle" style="margin:10px 0 8px;">${t('extraPacksHelp')}</p>
       ${
         packs.length === 0
-          ? `<p class="page-subtitle" style="margin:0;">All vocab packs are already active.</p>`
+          ? `<p class="page-subtitle" style="margin:0;">${t('extraPacksNone')}</p>`
           : `<div>
               ${packs
                 .map(
@@ -71,7 +71,7 @@ export function poolTooSmallHTML() {
   return `
     <div class="card" style="border-color:var(--warn);">
       <p style="margin:0 0 6px; color:var(--warn); font-weight:700;">${t('notEnoughWordsToPlay')}</p>
-      <p class="page-subtitle" style="margin:0 0 10px;">Activate more vocab packs, or choose extra packs under Advanced settings below.</p>
+      <p class="page-subtitle" style="margin:0 0 10px;">${t('poolTooSmallHelp')}</p>
       <a href="#/vocab" class="btn btn-sm">${t('activatePacksLink')}</a>
     </div>`;
 }

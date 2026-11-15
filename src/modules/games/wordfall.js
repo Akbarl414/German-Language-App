@@ -78,8 +78,8 @@ export async function render(container) {
 
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Wordfall 🌧️</h1>
-        <p class="page-subtitle">Tap the right meaning before the word lands. Speed ramps up. 3 misses ends the run.</p>
+        <h1 class="page-title">${t('gameWordfallName')} 🌧️</h1>
+        <p class="page-subtitle">${t('wordfallIntro')}</p>
         ${best ? `<p class="page-subtitle" style="margin-top:-12px;">${t('bestScoreValue', best.score)}</p>` : ''}
         ${tooSmall ? poolTooSmallHTML() : ''}
 
@@ -93,7 +93,7 @@ export async function render(container) {
 
         ${extraPacksPickerHTML({ open: tooSmall })}
 
-        <button class="btn btn-primary btn-block" id="start" style="margin-top:16px;">Start</button>
+        <button class="btn btn-primary btn-block" id="start" style="margin-top:16px;">${t('startGame')}</button>
       </div>`;
 
     container.querySelector('#start').addEventListener('click', startGame);
@@ -260,7 +260,7 @@ export async function render(container) {
 
       container.innerHTML = `
         <div class="view">
-          <h1 class="page-title">Wordfall over 🌧️</h1>
+          <h1 class="page-title">${t('wordfallOver')} 🌧️</h1>
           <div class="stat-grid">
             <div class="stat-tile"><div class="value">${score}</div><div class="label">${t('score')}</div></div>
             <div class="stat-tile"><div class="value">${rounds.length}</div><div class="label">${t('wordsSeen')}</div></div>

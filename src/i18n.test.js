@@ -59,3 +59,23 @@ test('onLanguageChange listeners fire on toggle and can unsubscribe', () => {
   setUiLanguage('de');
   assert.equal(calls, 1); // did not fire after unsubscribing
 });
+
+test('games hub and in-game labels exist in both languages', () => {
+  const keys = [
+    'gamesHubIntro', 'betaHeading', 'betaBlurb', 'gameSortingName', 'gameStoriesName', 'gameWordfallName', 'gameTypeItName',
+    'gameCaseDetectiveName', 'gameVerbSprintName', 'startGame', 'sortingChooseMode', 'storiesTitle', 'storiesIntro', 'storiesNone',
+    'wordfallIntro', 'wordfallOver', 'typeItIntro', 'typeItGenderHelp', 'typeItSoClose', 'typeItNotQuite', 'typeItYouWrote',
+    'typeItCorrectLabel', 'typeItInputLabel', 'typeItHintText', 'caseIntro', 'caseNotEnough', 'caseStart', 'caseClosed',
+    'verbSprintIntro', 'extraPacksHelp', 'extraPacksNone', 'poolTooSmallHelp',
+  ];
+  for (const lang of ['de', 'en']) {
+    setUiLanguage(lang);
+    for (const key of keys) {
+      const value = t(key, 'x', 5, true);
+      assert.notEqual(value, key, `${key} missing for ${lang}`);
+      assert.ok(value.length > 0);
+    }
+  }
+  setUiLanguage('de');
+  assert.equal(t('caseStart', 10), 'Start (10 Fragen)');
+});

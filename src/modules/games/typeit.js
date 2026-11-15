@@ -89,12 +89,12 @@ export async function render(container) {
     const checkGender = !!store.getSettings().typeItCheckGender;
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Type it</h1>
-        <p class="page-subtitle">You see the English, type the German. Exact spelling counts — nouns need capital letters.</p>
+        <h1 class="page-title">${t('gameTypeItName')}</h1>
+        <p class="page-subtitle">${t('typeItIntro')}</p>
         ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card">
           <label class="switch-row"><span>${t('checkGenderToggle')}</span><input type="checkbox" id="check-gender" ${checkGender ? 'checked' : ''} /></label>
-          <p class="page-subtitle" style="margin:8px 0 0;">When on, noun answers must include the article (e.g. "der Löffel"). When off, the bare noun is accepted.</p>
+          <p class="page-subtitle" style="margin:8px 0 0;">${t('typeItGenderHelp')}</p>
         </div>
         <div class="card" style="padding:0;">
           ${TIMED_DURATIONS.map((s) => {
@@ -129,7 +129,7 @@ export async function render(container) {
     let hintUsed = false;
     const answer = expectedAnswer(word, checkGender);
     const first = answer.trim()[0] || '?';
-    const hintText = `Starts with "${first}" · ${answer.trim().length} letters${word.pos === 'noun' ? ' · nouns are always capitalized' : ''}`;
+    const hintText = t('typeItHintText', first, answer.trim().length, word.pos === 'noun');
 
     container.innerHTML = `
       <div class="view">
@@ -138,7 +138,7 @@ export async function render(container) {
           <div class="drill-prompt">${escapeHtml(word.meaning_en)}</div>
           <div id="hint-panel" class="drill-sub" style="display:none; margin-top:8px;"></div>
         </div>
-        ${umlautFieldHTML('type-input', { label: 'Type the German word', placeholder: '…' })}
+        ${umlautFieldHTML('type-input', { label: t('typeItInputLabel'), placeholder: '…' })}
         <div class="btn-row" style="margin-top:12px;">
           <button type="button" class="btn btn-sm" id="hint-btn">${t('hintBtn')}</button>
           <button class="btn btn-primary" id="check">${t('checkBtn')}</button>
@@ -198,13 +198,13 @@ export async function render(container) {
     container.innerHTML = `
       <div class="view">
         <div class="drill-card">
-          <div class="drill-prompt">${nearMiss ? 'So close! 🤏' : 'Not quite'}</div>
+          <div class="drill-prompt">${nearMiss ? t('typeItSoClose') : t('typeItNotQuite')}</div>
           ${
             nearMiss
               ? `<p class="drill-sub" style="margin-top:10px;">${nearMiss}</p>`
               : `<div style="display:flex; gap:24px; justify-content:center; margin-top:14px;">
-                   <div><div class="drill-sub">You wrote</div><div style="font-size:1.2rem; font-weight:700; color:var(--bad);">${escapeHtml(typed) || '—'}</div></div>
-                   <div><div class="drill-sub">Correct</div><div style="font-size:1.2rem; font-weight:700; color:var(--good);">${escapeHtml(answer)}</div></div>
+                   <div><div class="drill-sub">${t('typeItYouWrote')}</div><div style="font-size:1.2rem; font-weight:700; color:var(--bad);">${escapeHtml(typed) || '—'}</div></div>
+                   <div><div class="drill-sub">${t('typeItCorrectLabel')}</div><div style="font-size:1.2rem; font-weight:700; color:var(--good);">${escapeHtml(answer)}</div></div>
                  </div>`
           }
         </div>

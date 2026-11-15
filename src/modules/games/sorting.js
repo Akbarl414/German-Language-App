@@ -37,8 +37,8 @@ export async function render(container) {
     const streakBest = bests['sorting-streak'];
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">der/die/das Sorting</h1>
-        <p class="page-subtitle">Choose a mode.</p>
+        <h1 class="page-title">${translate('gameSortingName')}</h1>
+        <p class="page-subtitle">${translate('sortingChooseMode')}</p>
         ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card" style="padding:0;">
           ${TIMED_DURATIONS.map((s) => {

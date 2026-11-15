@@ -49,8 +49,8 @@ export async function render(container) {
     const bests = store.getStats().gameBests;
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Verb forms sprint</h1>
-        <p class="page-subtitle">Build the Perfekt: pick hat/ist, then the participle.</p>
+        <h1 class="page-title">${t('gameVerbSprintName')}</h1>
+        <p class="page-subtitle">${t('verbSprintIntro')}</p>
         ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card" style="padding:0;">
           ${TIMED_DURATIONS.map((s) => {
