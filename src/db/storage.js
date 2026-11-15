@@ -36,7 +36,8 @@ function defaultData() {
       uiLanguage: 'de', // 'de' | 'en' — nav/button/tab chrome translated via src/i18n.js
       typeItCheckGender: false, // Type it (beta game): require the article (e.g. "der Löffel") on noun answers
       wordfallDirection: 'de_en', // 'de_en' | 'en_de' — Wordfall practice direction
-      wordfallPackIds: [], // vocab pack ids Wordfall draws from; empty = every pack
+      wordfallPackIds: [], // retired: Wordfall's old pack picker. Kept in stored data, no longer read (see gameExtraPackIds)
+      gameExtraPackIds: [], // vocab pack ids every vocab game also draws from, practice-only (never graded into the SRS)
     },
     stats: {
       streak: 0,

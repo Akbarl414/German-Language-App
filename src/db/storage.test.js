@@ -378,3 +378,33 @@ test('markUpdatesSeen hides the alert, persists, and keeps it hidden after reloa
   assert.equal(reloaded.shouldShowUpdateAlert(), false);
   assert.deepEqual(reloaded.allCards(), validBlob().srsCards);
 });
+
+// --- Games/review scoping change: pre-change stored data must load intact ---
+
+test('pre-change stored data (game-created cards, user-added words, wordfallPackIds) loads with every card intact', async () => {
+  const card = (due) => ({ status: 'review', ease: 2.4, interval: 7, learningStep: 0, reps: 4, lapses: 1, due, lastReviewed: due - 1 });
+  const blob = {
+    version: 2,
+    srsCards: {
+      'vocab:core-verbs-1::gehen:meaning': card(10), // active pack
+      'vocab:core-nouns-1::tisch:gender': card(20), // never-activated pack, created by a game
+      'vocab:core-adj-1::gross:meaning_de_en': card(30), // explicitly deactivated pack
+      'vocab:user-added::hund-abc:gender': card(40), // user-added word, partial cards from a game
+      'grammar:dative-verbs::ex-1:default': card(50),
+      'phrase:classic-idioms::wurst:phrase_to_meaning': card(60),
+    },
+    packs: { 'vocab:core-verbs-1': { active: true, triaged: true }, 'vocab:core-adj-1': { active: false, triaged: true } },
+    settings: { dailyNewLimit: 12, theme: 'dark', wordfallDirection: 'en_de', wordfallPackIds: ['core-nouns-1'] },
+    stats: { streak: 3, bestStreak: 8, lastStudyDate: '2026-11-14', history: {}, gameBests: { wordfall: { score: 9 } } },
+    userContent: { vocab: [{ id: 'hund-abc', pos: 'noun', lemma: 'Hund', meaning_en: 'dog', gender: 'der', plural: 'Hunde' }], phrases: [], notes: [] },
+    meta: { createdAt: '2026-01-01T00:00:00.000Z', lastSeenUpdateId: '2026-11-15-update-notes' },
+  };
+  const store = await freshStore({ [MAIN_KEY]: JSON.stringify(blob) });
+  assert.equal(store.loadFailed, false);
+  assert.deepEqual(store.allCards(), blob.srsCards);
+  assert.deepEqual(store.allPackStates(), blob.packs);
+  assert.deepEqual(store.getUserContent().vocab, blob.userContent.vocab);
+  assert.deepEqual(store.getSettings().wordfallPackIds, ['core-nouns-1']); // kept, unused
+  assert.deepEqual(store.getSettings().gameExtraPackIds, []); // additive default
+  assert.equal(store.getSettings().dailyNewLimit, 12);
+});
