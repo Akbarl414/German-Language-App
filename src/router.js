@@ -24,6 +24,15 @@ export function route(pattern, loader) {
   routes.push({ regex, paramNames, loader });
 }
 
+/** Old hash -> new hash. Keeps bookmarked/old links working after a screen moves or is removed. */
+export function redirect(from, to) {
+  route(from, async () => ({
+    render() {
+      location.replace('#' + to);
+    },
+  }));
+}
+
 function parseHash() {
   const hash = location.hash.slice(1) || '/';
   const [path, query] = hash.split('?');

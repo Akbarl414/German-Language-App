@@ -1,5 +1,5 @@
 import './style.css';
-import { route, initRouter, rerenderCurrentRoute } from './router.js';
+import { route, redirect, initRouter, rerenderCurrentRoute } from './router.js';
 import { renderNav } from './components/nav.js';
 import { initTheme } from './theme.js';
 import { onLanguageChange, t } from './i18n.js';
@@ -26,7 +26,7 @@ route('/phrases/quiz', () => import('./modules/phrases/quiz.js'));
 
 route('/games', () => import('./modules/games/hub.js'));
 route('/games/sorting', () => import('./modules/games/sorting.js'));
-route('/games/timed', () => import('./modules/games/timed.js'));
+redirect('/games/timed', '/games'); // Timed challenge was removed
 route('/games/stories', () => import('./modules/games/stories.js'));
 route('/games/wordfall', () => import('./modules/games/wordfall.js'));
 route('/games/beta/typeit', () => import('./modules/games/beta/typeit.js'));
