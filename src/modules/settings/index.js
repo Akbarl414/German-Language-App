@@ -11,6 +11,12 @@ const THEME_OPTIONS = [
   { value: 'system', labelKey: 'themeSystem' },
 ];
 
+/** Approximate size for display; `chars` is a stored-string length (browsers' ~5 MB limit counts characters). */
+function fmtSize(chars) {
+  if (chars < 1024 * 1024) return `≈ ${Math.max(chars ? 1 : 0, Math.round(chars / 1024))} KB`;
+  return `≈ ${(chars / (1024 * 1024)).toFixed(1)} MB`;
+}
+
 export async function render(container) {
   let persisted = null; // null = unknown/unsupported, true/false once checked
   if (navigator.storage?.persisted) {
@@ -24,6 +30,7 @@ export async function render(container) {
     const vocabPacks = getVocabPacks();
     const snapshots = store.listSnapshots();
     const uiLang = getUiLanguage();
+    const usage = store.getStorageUsage();
 
     container.innerHTML = `
       <div class="view">
@@ -106,10 +113,12 @@ export async function render(container) {
           </div>
           <input type="file" id="import-file" accept="application/json" style="display:none;" />
           <div id="backup-msg"></div>
+          <p class="page-subtitle" style="margin:10px 0 0; font-size:0.85rem;">${t('storageUsed', fmtSize(usage.main), fmtSize(usage.snapshots))}</p>
         </div>
 
         <div class="section-heading">${t('automaticSnapshots')}</div>
         <div class="card">
+          ${store.snapshotsFailing ? `<p style="margin:0 0 10px; color:var(--warn);">${t('snapshotsFailingWarning')}</p>` : ''}
           <p class="page-subtitle" style="margin:0 0 10px;">A checkpoint of your progress is kept automatically for each of the last ${snapshots.length ? 'few' : '7'} days, in case something goes wrong between exports.</p>
           ${
             snapshots.length === 0
