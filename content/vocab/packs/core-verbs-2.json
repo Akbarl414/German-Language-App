@@ -6,6 +6,7 @@
   "words": [
     {
       "id": "erzaehlen",
+      "rank": 170,
       "pos": "verb",
       "lemma": "erzählen",
       "meaning_en": "to tell, to narrate",
@@ -19,6 +20,7 @@
     },
     {
       "id": "zeigen",
+      "rank": 210,
       "pos": "verb",
       "lemma": "zeigen",
       "meaning_en": "to show",
@@ -32,6 +34,7 @@
     },
     {
       "id": "fragen",
+      "rank": 132,
       "pos": "verb",
       "lemma": "fragen",
       "meaning_en": "to ask",
@@ -46,6 +49,7 @@
     },
     {
       "id": "antworten",
+      "rank": 465,
       "pos": "verb",
       "lemma": "antworten",
       "meaning_en": "to answer, to reply",
@@ -60,6 +64,7 @@
     },
     {
       "id": "erklaeren",
+      "rank": 377,
       "pos": "verb",
       "lemma": "erklären",
       "meaning_en": "to explain",
@@ -73,6 +78,7 @@
     },
     {
       "id": "danken",
+      "rank": 918,
       "pos": "verb",
       "lemma": "danken",
       "meaning_en": "to thank",
@@ -87,6 +93,7 @@
     },
     {
       "id": "entschuldigen",
+      "rank": 259,
       "pos": "verb",
       "lemma": "entschuldigen",
       "meaning_en": "to apologize (sich entschuldigen); to excuse",
@@ -101,6 +108,7 @@
     },
     {
       "id": "versprechen",
+      "rank": 322,
       "pos": "verb",
       "lemma": "versprechen",
       "meaning_en": "to promise",
@@ -129,6 +137,7 @@
     },
     {
       "id": "raten",
+      "rank": 640,
       "pos": "verb",
       "lemma": "raten",
       "meaning_en": "to advise; to guess",
@@ -143,6 +152,7 @@
     },
     {
       "id": "warnen",
+      "rank": 801,
       "pos": "verb",
       "lemma": "warnen",
       "meaning_en": "to warn",
@@ -157,6 +167,7 @@
     },
     {
       "id": "einladen",
+      "rank": 740,
       "pos": "verb",
       "lemma": "einladen",
       "meaning_en": "to invite",
@@ -170,6 +181,7 @@
     },
     {
       "id": "vorstellen",
+      "rank": 476,
       "pos": "verb",
       "lemma": "vorstellen",
       "meaning_en": "to introduce (sich vorstellen = to introduce oneself)",
@@ -183,6 +195,7 @@
     },
     {
       "id": "treffen",
+      "rank": 188,
       "pos": "verb",
       "lemma": "treffen",
       "meaning_en": "to meet",
@@ -196,6 +209,7 @@
     },
     {
       "id": "kennenlernen",
+      "rank": 632,
       "pos": "verb",
       "lemma": "kennenlernen",
       "meaning_en": "to get to know, to meet (for the first time)",
@@ -209,6 +223,7 @@
     },
     {
       "id": "freuen",
+      "rank": 380,
       "pos": "verb",
       "lemma": "freuen",
       "meaning_en": "to be happy, to be glad (sich freuen)",
@@ -237,6 +252,7 @@
     },
     {
       "id": "fuehlen",
+      "rank": 222,
       "pos": "verb",
       "lemma": "fühlen",
       "meaning_en": "to feel (sich fühlen)",
@@ -250,6 +266,7 @@
     },
     {
       "id": "interessieren",
+      "rank": 637,
       "pos": "verb",
       "lemma": "interessieren",
       "meaning_en": "to interest; to be interested in (sich interessieren für)",
@@ -264,6 +281,7 @@
     },
     {
       "id": "ueberlegen",
+      "rank": 625,
       "pos": "verb",
       "lemma": "überlegen",
       "meaning_en": "to think over, to consider (sich überlegen)",
@@ -277,6 +295,7 @@
     },
     {
       "id": "entscheiden",
+      "rank": 602,
       "pos": "verb",
       "lemma": "entscheiden",
       "meaning_en": "to decide (sich entscheiden für)",
@@ -291,6 +310,7 @@
     },
     {
       "id": "vergessen",
+      "rank": 206,
       "pos": "verb",
       "lemma": "vergessen",
       "meaning_en": "to forget",
@@ -304,6 +324,7 @@
     },
     {
       "id": "erinnern",
+      "rank": 253,
       "pos": "verb",
       "lemma": "erinnern",
       "meaning_en": "to remember (sich erinnern an + Akk)",
@@ -318,6 +339,7 @@
     },
     {
       "id": "hoffen",
+      "rank": 279,
       "pos": "verb",
       "lemma": "hoffen",
       "meaning_en": "to hope",
@@ -332,6 +354,7 @@
     },
     {
       "id": "wuenschen",
+      "rank": 348,
       "pos": "verb",
       "lemma": "wünschen",
       "meaning_en": "to wish (sich etwas wünschen = to wish for something)",
@@ -346,6 +369,7 @@
     },
     {
       "id": "traeumen",
+      "rank": 538,
       "pos": "verb",
       "lemma": "träumen",
       "meaning_en": "to dream",
@@ -360,6 +384,7 @@
     },
     {
       "id": "reisen",
+      "rank": 620,
       "pos": "verb",
       "lemma": "reisen",
       "meaning_en": "to travel",
@@ -399,6 +424,7 @@
     },
     {
       "id": "heiraten",
+      "rank": 357,
       "pos": "verb",
       "lemma": "heiraten",
       "meaning_en": "to marry, to get married",
@@ -412,6 +438,7 @@
     },
     {
       "id": "sterben",
+      "rank": 168,
       "pos": "verb",
       "lemma": "sterben",
       "meaning_en": "to die",
@@ -425,6 +452,7 @@
     },
     {
       "id": "wachsen",
+      "rank": 815,
       "pos": "verb",
       "lemma": "wachsen",
       "meaning_en": "to grow",
@@ -438,6 +466,7 @@
     },
     {
       "id": "gewinnen",
+      "rank": 350,
       "pos": "verb",
       "lemma": "gewinnen",
       "meaning_en": "to win",
@@ -451,6 +480,7 @@
     },
     {
       "id": "kaempfen",
+      "rank": 406,
       "pos": "verb",
       "lemma": "kämpfen",
       "meaning_en": "to fight, to struggle",
@@ -465,6 +495,7 @@
     },
     {
       "id": "retten",
+      "rank": 301,
       "pos": "verb",
       "lemma": "retten",
       "meaning_en": "to save, to rescue",
@@ -492,6 +523,7 @@
     },
     {
       "id": "vorbereiten",
+      "rank": 832,
       "pos": "verb",
       "lemma": "vorbereiten",
       "meaning_en": "to prepare (sich vorbereiten auf = to prepare oneself for)",
@@ -506,6 +538,7 @@
     },
     {
       "id": "erreichen",
+      "rank": 553,
       "pos": "verb",
       "lemma": "erreichen",
       "meaning_en": "to reach, to achieve",
@@ -519,6 +552,7 @@
     },
     {
       "id": "verlassen",
+      "rank": 286,
       "pos": "verb",
       "lemma": "verlassen",
       "meaning_en": "to leave (a place); to abandon",
@@ -532,6 +566,7 @@
     },
     {
       "id": "passieren",
+      "rank": 144,
       "pos": "verb",
       "lemma": "passieren",
       "meaning_en": "to happen",
@@ -545,6 +580,7 @@
     },
     {
       "id": "geschehen",
+      "rank": 424,
       "pos": "verb",
       "lemma": "geschehen",
       "meaning_en": "to happen, to occur",
@@ -558,6 +594,7 @@
     },
     {
       "id": "bedeuten",
+      "rank": 304,
       "pos": "verb",
       "lemma": "bedeuten",
       "meaning_en": "to mean",
@@ -571,6 +608,7 @@
     },
     {
       "id": "gehoeren",
+      "rank": 521,
       "pos": "verb",
       "lemma": "gehören",
       "meaning_en": "to belong to",
@@ -598,6 +636,7 @@
     },
     {
       "id": "funktionieren",
+      "rank": 419,
       "pos": "verb",
       "lemma": "funktionieren",
       "meaning_en": "to function, to work (of a device/system)",
@@ -611,6 +650,7 @@
     },
     {
       "id": "reparieren",
+      "rank": 964,
       "pos": "verb",
       "lemma": "reparieren",
       "meaning_en": "to repair, to fix",
@@ -718,6 +758,7 @@
     },
     {
       "id": "probieren",
+      "rank": 837,
       "pos": "verb",
       "lemma": "probieren",
       "meaning_en": "to try, to taste, to sample",
@@ -744,6 +785,7 @@
     },
     {
       "id": "riechen",
+      "rank": 649,
       "pos": "verb",
       "lemma": "riechen",
       "meaning_en": "to smell",
@@ -758,6 +800,7 @@
     },
     {
       "id": "erlauben",
+      "rank": 708,
       "pos": "verb",
       "lemma": "erlauben",
       "meaning_en": "to allow, to permit",
@@ -772,6 +815,7 @@
     },
     {
       "id": "wirken",
+      "rank": 692,
       "pos": "verb",
       "lemma": "wirken",
       "meaning_en": "to seem, to appear, to have an effect",
@@ -785,6 +829,7 @@
     },
     {
       "id": "scheinen",
+      "rank": 315,
       "pos": "verb",
       "lemma": "scheinen",
       "meaning_en": "to seem; to shine",
@@ -798,6 +843,7 @@
     },
     {
       "id": "klingen",
+      "rank": 342,
       "pos": "verb",
       "lemma": "klingen",
       "meaning_en": "to sound",

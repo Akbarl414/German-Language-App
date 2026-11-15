@@ -6,6 +6,7 @@
   "words": [
     {
       "id": "gluecklich",
+      "rank": 371,
       "pos": "adjective",
       "lemma": "glücklich",
       "meaning_en": "happy",
@@ -14,6 +15,7 @@
     },
     {
       "id": "traurig",
+      "rank": 644,
       "pos": "adjective",
       "lemma": "traurig",
       "meaning_en": "sad",
@@ -38,6 +40,7 @@
     },
     {
       "id": "nervoes",
+      "rank": 862,
       "pos": "adjective",
       "lemma": "nervös",
       "meaning_en": "nervous",
@@ -78,6 +81,7 @@
     },
     {
       "id": "stolz",
+      "rank": 578,
       "pos": "adjective",
       "lemma": "stolz",
       "meaning_en": "proud",
@@ -102,6 +106,7 @@
     },
     {
       "id": "zufrieden",
+      "rank": 966,
       "pos": "adjective",
       "lemma": "zufrieden",
       "meaning_en": "satisfied, content",
@@ -150,6 +155,7 @@
     },
     {
       "id": "verliebt",
+      "rank": 804,
       "pos": "adjective",
       "lemma": "verliebt",
       "meaning_en": "in love",
@@ -166,6 +172,7 @@
     },
     {
       "id": "ehrlich",
+      "rank": 411,
       "pos": "adjective",
       "lemma": "ehrlich",
       "meaning_en": "honest",
@@ -222,6 +229,7 @@
     },
     {
       "id": "sicher",
+      "rank": 116,
       "pos": "adjective",
       "lemma": "sicher",
       "meaning_en": "sure, certain",
@@ -238,6 +246,7 @@
     },
     {
       "id": "interessant",
+      "rank": 621,
       "pos": "adjective",
       "lemma": "interessant",
       "meaning_en": "interesting",
@@ -254,6 +263,7 @@
     },
     {
       "id": "komisch",
+      "rank": 548,
       "pos": "adjective",
       "lemma": "komisch",
       "meaning_en": "funny, strange",
@@ -270,6 +280,7 @@
     },
     {
       "id": "wunderbar",
+      "rank": 557,
       "pos": "adjective",
       "lemma": "wunderbar",
       "meaning_en": "wonderful",
@@ -278,6 +289,7 @@
     },
     {
       "id": "schrecklich",
+      "rank": 537,
       "pos": "adjective",
       "lemma": "schrecklich",
       "meaning_en": "terrible, awful",
@@ -286,6 +298,7 @@
     },
     {
       "id": "gefuehl",
+      "rank": 402,
       "pos": "noun",
       "lemma": "Gefühl",
       "gender": "das",
@@ -296,6 +309,7 @@
     },
     {
       "id": "freude",
+      "rank": 886,
       "pos": "noun",
       "lemma": "Freude",
       "gender": "die",
@@ -306,6 +320,7 @@
     },
     {
       "id": "angst",
+      "rank": 225,
       "pos": "noun",
       "lemma": "Angst",
       "gender": "die",
@@ -326,6 +341,7 @@
     },
     {
       "id": "liebe",
+      "rank": 278,
       "pos": "noun",
       "lemma": "Liebe",
       "gender": "die",
@@ -346,6 +362,7 @@
     },
     {
       "id": "hoffnung",
+      "rank": 798,
       "pos": "noun",
       "lemma": "Hoffnung",
       "gender": "die",
@@ -356,6 +373,7 @@
     },
     {
       "id": "meinung",
+      "rank": 624,
       "pos": "noun",
       "lemma": "Meinung",
       "gender": "die",
@@ -376,6 +394,7 @@
     },
     {
       "id": "ueberraschung",
+      "rank": 773,
       "pos": "noun",
       "lemma": "Überraschung",
       "gender": "die",
@@ -386,6 +405,7 @@
     },
     {
       "id": "meinen",
+      "rank": 218,
       "pos": "verb",
       "lemma": "meinen",
       "meaning_en": "to think, to mean (an opinion)",

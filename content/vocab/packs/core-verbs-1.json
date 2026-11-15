@@ -6,6 +6,7 @@
   "words": [
     {
       "id": "gehen",
+      "rank": 36,
       "pos": "verb",
       "lemma": "gehen",
       "meaning_en": "to go, to walk",
@@ -19,6 +20,7 @@
     },
     {
       "id": "kommen",
+      "rank": 39,
       "pos": "verb",
       "lemma": "kommen",
       "meaning_en": "to come",
@@ -32,6 +34,7 @@
     },
     {
       "id": "sehen",
+      "rank": 47,
       "pos": "verb",
       "lemma": "sehen",
       "meaning_en": "to see",
@@ -45,6 +48,7 @@
     },
     {
       "id": "geben",
+      "rank": 56,
       "pos": "verb",
       "lemma": "geben",
       "meaning_en": "to give",
@@ -58,6 +62,7 @@
     },
     {
       "id": "nehmen",
+      "rank": 99,
       "pos": "verb",
       "lemma": "nehmen",
       "meaning_en": "to take",
@@ -71,6 +76,7 @@
     },
     {
       "id": "machen",
+      "rank": 41,
       "pos": "verb",
       "lemma": "machen",
       "meaning_en": "to do, to make",
@@ -84,6 +90,7 @@
     },
     {
       "id": "sagen",
+      "rank": 34,
       "pos": "verb",
       "lemma": "sagen",
       "meaning_en": "to say, to tell",
@@ -97,6 +104,7 @@
     },
     {
       "id": "sprechen",
+      "rank": 138,
       "pos": "verb",
       "lemma": "sprechen",
       "meaning_en": "to speak",
@@ -110,6 +118,7 @@
     },
     {
       "id": "fahren",
+      "rank": 161,
       "pos": "verb",
       "lemma": "fahren",
       "meaning_en": "to drive, to go (by vehicle)",
@@ -123,6 +132,7 @@
     },
     {
       "id": "essen",
+      "rank": 181,
       "pos": "verb",
       "lemma": "essen",
       "meaning_en": "to eat",
@@ -136,6 +146,7 @@
     },
     {
       "id": "trinken",
+      "rank": 273,
       "pos": "verb",
       "lemma": "trinken",
       "meaning_en": "to drink",
@@ -149,6 +160,7 @@
     },
     {
       "id": "schlafen",
+      "rank": 242,
       "pos": "verb",
       "lemma": "schlafen",
       "meaning_en": "to sleep",
@@ -162,6 +174,7 @@
     },
     {
       "id": "arbeiten",
+      "rank": 175,
       "pos": "verb",
       "lemma": "arbeiten",
       "meaning_en": "to work",
@@ -175,6 +188,7 @@
     },
     {
       "id": "spielen",
+      "rank": 177,
       "pos": "verb",
       "lemma": "spielen",
       "meaning_en": "to play",
@@ -188,6 +202,7 @@
     },
     {
       "id": "lernen",
+      "rank": 300,
       "pos": "verb",
       "lemma": "lernen",
       "meaning_en": "to learn, to study",
@@ -201,6 +216,7 @@
     },
     {
       "id": "wohnen",
+      "rank": 414,
       "pos": "verb",
       "lemma": "wohnen",
       "meaning_en": "to live, to reside",
@@ -214,6 +230,7 @@
     },
     {
       "id": "kaufen",
+      "rank": 319,
       "pos": "verb",
       "lemma": "kaufen",
       "meaning_en": "to buy",
@@ -227,6 +244,7 @@
     },
     {
       "id": "verkaufen",
+      "rank": 401,
       "pos": "verb",
       "lemma": "verkaufen",
       "meaning_en": "to sell",
@@ -240,6 +258,7 @@
     },
     {
       "id": "helfen",
+      "rank": 124,
       "pos": "verb",
       "lemma": "helfen",
       "meaning_en": "to help",
@@ -254,6 +273,7 @@
     },
     {
       "id": "brauchen",
+      "rank": 98,
       "pos": "verb",
       "lemma": "brauchen",
       "meaning_en": "to need",
@@ -267,6 +287,7 @@
     },
     {
       "id": "finden",
+      "rank": 90,
       "pos": "verb",
       "lemma": "finden",
       "meaning_en": "to find, to think (of an opinion)",
@@ -280,6 +301,7 @@
     },
     {
       "id": "verlieren",
+      "rank": 347,
       "pos": "verb",
       "lemma": "verlieren",
       "meaning_en": "to lose",
@@ -293,6 +315,7 @@
     },
     {
       "id": "beginnen",
+      "rank": 423,
       "pos": "verb",
       "lemma": "beginnen",
       "meaning_en": "to begin, to start",
@@ -306,6 +329,7 @@
     },
     {
       "id": "wissen",
+      "rank": 44,
       "pos": "verb",
       "lemma": "wissen",
       "meaning_en": "to know (a fact)",
@@ -319,6 +343,7 @@
     },
     {
       "id": "kennen",
+      "rank": 120,
       "pos": "verb",
       "lemma": "kennen",
       "meaning_en": "to know (be familiar with)",
@@ -332,6 +357,7 @@
     },
     {
       "id": "denken",
+      "rank": 74,
       "pos": "verb",
       "lemma": "denken",
       "meaning_en": "to think",
@@ -345,6 +371,7 @@
     },
     {
       "id": "glauben",
+      "rank": 87,
       "pos": "verb",
       "lemma": "glauben",
       "meaning_en": "to believe, to think",
@@ -358,6 +385,7 @@
     },
     {
       "id": "verstehen",
+      "rank": 108,
       "pos": "verb",
       "lemma": "verstehen",
       "meaning_en": "to understand",
@@ -371,6 +399,7 @@
     },
     {
       "id": "hoeren",
+      "rank": 68,
       "pos": "verb",
       "lemma": "hören",
       "meaning_en": "to hear, to listen",
@@ -384,6 +413,7 @@
     },
     {
       "id": "lesen",
+      "rank": 307,
       "pos": "verb",
       "lemma": "lesen",
       "meaning_en": "to read",
@@ -397,6 +427,7 @@
     },
     {
       "id": "schreiben",
+      "rank": 276,
       "pos": "verb",
       "lemma": "schreiben",
       "meaning_en": "to write",
@@ -410,6 +441,7 @@
     },
     {
       "id": "oeffnen",
+      "rank": 453,
       "pos": "verb",
       "lemma": "öffnen",
       "meaning_en": "to open",
@@ -423,6 +455,7 @@
     },
     {
       "id": "schliessen",
+      "rank": 432,
       "pos": "verb",
       "lemma": "schließen",
       "meaning_en": "to close, to shut",
@@ -436,6 +469,7 @@
     },
     {
       "id": "bringen",
+      "rank": 105,
       "pos": "verb",
       "lemma": "bringen",
       "meaning_en": "to bring",
@@ -449,6 +483,7 @@
     },
     {
       "id": "holen",
+      "rank": 182,
       "pos": "verb",
       "lemma": "holen",
       "meaning_en": "to fetch, to get",
@@ -462,6 +497,7 @@
     },
     {
       "id": "tragen",
+      "rank": 305,
       "pos": "verb",
       "lemma": "tragen",
       "meaning_en": "to carry, to wear",
@@ -475,6 +511,7 @@
     },
     {
       "id": "laufen",
+      "rank": 167,
       "pos": "verb",
       "lemma": "laufen",
       "meaning_en": "to run, to walk",
@@ -488,6 +525,7 @@
     },
     {
       "id": "fallen",
+      "rank": 324,
       "pos": "verb",
       "lemma": "fallen",
       "meaning_en": "to fall",
@@ -501,6 +539,7 @@
     },
     {
       "id": "stehen",
+      "rank": 131,
       "pos": "verb",
       "lemma": "stehen",
       "meaning_en": "to stand",
@@ -514,6 +553,7 @@
     },
     {
       "id": "sitzen",
+      "rank": 295,
       "pos": "verb",
       "lemma": "sitzen",
       "meaning_en": "to sit",
@@ -527,6 +567,7 @@
     },
     {
       "id": "liegen",
+      "rank": 228,
       "pos": "verb",
       "lemma": "liegen",
       "meaning_en": "to lie, to be located",
@@ -540,6 +581,7 @@
     },
     {
       "id": "bleiben",
+      "rank": 113,
       "pos": "verb",
       "lemma": "bleiben",
       "meaning_en": "to stay, to remain",
@@ -553,6 +595,7 @@
     },
     {
       "id": "aufstehen",
+      "rank": 910,
       "pos": "verb",
       "lemma": "aufstehen",
       "meaning_en": "to get up, to stand up",
@@ -566,6 +609,7 @@
     },
     {
       "id": "anrufen",
+      "rank": 303,
       "pos": "verb",
       "lemma": "anrufen",
       "meaning_en": "to call (on the phone)",
@@ -592,6 +636,7 @@
     },
     {
       "id": "ankommen",
+      "rank": 834,
       "pos": "verb",
       "lemma": "ankommen",
       "meaning_en": "to arrive",
@@ -605,6 +650,7 @@
     },
     {
       "id": "aufwachen",
+      "rank": 922,
       "pos": "verb",
       "lemma": "aufwachen",
       "meaning_en": "to wake up",
@@ -631,6 +677,7 @@
     },
     {
       "id": "anfangen",
+      "rank": 407,
       "pos": "verb",
       "lemma": "anfangen",
       "meaning_en": "to begin, to start",
@@ -670,6 +717,7 @@
     },
     {
       "id": "fernsehen",
+      "rank": 961,
       "pos": "verb",
       "lemma": "fernsehen",
       "meaning_en": "to watch TV",
@@ -683,6 +731,7 @@
     },
     {
       "id": "aussehen",
+      "rank": 541,
       "pos": "verb",
       "lemma": "aussehen",
       "meaning_en": "to look, to appear",
@@ -696,6 +745,7 @@
     },
     {
       "id": "anziehen",
+      "rank": 913,
       "pos": "verb",
       "lemma": "anziehen",
       "meaning_en": "to put on (clothing)",
@@ -748,6 +798,7 @@
     },
     {
       "id": "leben",
+      "rank": 91,
       "pos": "verb",
       "lemma": "leben",
       "meaning_en": "to live, to be alive",
@@ -761,6 +812,7 @@
     },
     {
       "id": "warten",
+      "rank": 109,
       "pos": "verb",
       "lemma": "warten",
       "meaning_en": "to wait",
@@ -775,6 +827,7 @@
     },
     {
       "id": "rufen",
+      "rank": 194,
       "pos": "verb",
       "lemma": "rufen",
       "meaning_en": "to call, to shout",

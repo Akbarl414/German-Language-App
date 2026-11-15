@@ -6,6 +6,7 @@
   "words": [
     {
       "id": "tisch",
+      "rank": 638,
       "pos": "noun",
       "lemma": "Tisch",
       "gender": "der",
@@ -26,6 +27,7 @@
     },
     {
       "id": "fenster",
+      "rank": 684,
       "pos": "noun",
       "lemma": "Fenster",
       "gender": "das",
@@ -36,6 +38,7 @@
     },
     {
       "id": "tuer",
+      "rank": 294,
       "pos": "noun",
       "lemma": "Tür",
       "gender": "die",
@@ -46,6 +49,7 @@
     },
     {
       "id": "haus",
+      "rank": 117,
       "pos": "noun",
       "lemma": "Haus",
       "gender": "das",
@@ -56,6 +60,7 @@
     },
     {
       "id": "wohnung",
+      "rank": 575,
       "pos": "noun",
       "lemma": "Wohnung",
       "gender": "die",
@@ -66,6 +71,7 @@
     },
     {
       "id": "zimmer",
+      "rank": 378,
       "pos": "noun",
       "lemma": "Zimmer",
       "gender": "das",
@@ -76,6 +82,7 @@
     },
     {
       "id": "bett",
+      "rank": 383,
       "pos": "noun",
       "lemma": "Bett",
       "gender": "das",
@@ -116,6 +123,7 @@
     },
     {
       "id": "uhr",
+      "rank": 288,
       "pos": "noun",
       "lemma": "Uhr",
       "gender": "die",
@@ -126,6 +134,7 @@
     },
     {
       "id": "handy",
+      "rank": 606,
       "pos": "noun",
       "lemma": "Handy",
       "gender": "das",
@@ -136,6 +145,7 @@
     },
     {
       "id": "computer",
+      "rank": 812,
       "pos": "noun",
       "lemma": "Computer",
       "gender": "der",
@@ -146,6 +156,7 @@
     },
     {
       "id": "buch",
+      "rank": 437,
       "pos": "noun",
       "lemma": "Buch",
       "gender": "das",
@@ -156,6 +167,7 @@
     },
     {
       "id": "zeitung",
+      "rank": 849,
       "pos": "noun",
       "lemma": "Zeitung",
       "gender": "die",
@@ -166,6 +178,7 @@
     },
     {
       "id": "schluessel",
+      "rank": 574,
       "pos": "noun",
       "lemma": "Schlüssel",
       "gender": "der",
@@ -176,6 +189,7 @@
     },
     {
       "id": "tasche",
+      "rank": 695,
       "pos": "noun",
       "lemma": "Tasche",
       "gender": "die",
@@ -216,6 +230,7 @@
     },
     {
       "id": "wand",
+      "rank": 850,
       "pos": "noun",
       "lemma": "Wand",
       "gender": "die",
@@ -226,6 +241,7 @@
     },
     {
       "id": "boden",
+      "rank": 608,
       "pos": "noun",
       "lemma": "Boden",
       "gender": "der",
@@ -276,6 +292,7 @@
     },
     {
       "id": "kueche",
+      "rank": 898,
       "pos": "noun",
       "lemma": "Küche",
       "gender": "die",
@@ -306,6 +323,7 @@
     },
     {
       "id": "strasse",
+      "rank": 470,
       "pos": "noun",
       "lemma": "Straße",
       "gender": "die",
@@ -316,6 +334,7 @@
     },
     {
       "id": "stadt",
+      "rank": 284,
       "pos": "noun",
       "lemma": "Stadt",
       "gender": "die",
@@ -326,6 +345,7 @@
     },
     {
       "id": "dorf",
+      "rank": 924,
       "pos": "noun",
       "lemma": "Dorf",
       "gender": "das",
@@ -346,6 +366,7 @@
     },
     {
       "id": "schule",
+      "rank": 399,
       "pos": "noun",
       "lemma": "Schule",
       "gender": "die",
@@ -356,6 +377,7 @@
     },
     {
       "id": "kirche",
+      "rank": 803,
       "pos": "noun",
       "lemma": "Kirche",
       "gender": "die",
@@ -366,6 +388,7 @@
     },
     {
       "id": "krankenhaus",
+      "rank": 567,
       "pos": "noun",
       "lemma": "Krankenhaus",
       "gender": "das",
@@ -376,6 +399,7 @@
     },
     {
       "id": "bank",
+      "rank": 775,
       "pos": "noun",
       "lemma": "Bank",
       "gender": "die",
@@ -416,6 +440,7 @@
     },
     {
       "id": "platz",
+      "rank": 422,
       "pos": "noun",
       "lemma": "Platz",
       "gender": "der",
@@ -436,6 +461,7 @@
     },
     {
       "id": "geschaeft",
+      "rank": 497,
       "pos": "noun",
       "lemma": "Geschäft",
       "gender": "das",
@@ -446,6 +472,7 @@
     },
     {
       "id": "familie",
+      "rank": 241,
       "pos": "noun",
       "lemma": "Familie",
       "gender": "die",
@@ -456,6 +483,7 @@
     },
     {
       "id": "mutter",
+      "rank": 160,
       "pos": "noun",
       "lemma": "Mutter",
       "gender": "die",
@@ -466,6 +494,7 @@
     },
     {
       "id": "vater",
+      "rank": 142,
       "pos": "noun",
       "lemma": "Vater",
       "gender": "der",
@@ -476,6 +505,7 @@
     },
     {
       "id": "schwester",
+      "rank": 313,
       "pos": "noun",
       "lemma": "Schwester",
       "gender": "die",
@@ -486,6 +516,7 @@
     },
     {
       "id": "bruder",
+      "rank": 247,
       "pos": "noun",
       "lemma": "Bruder",
       "gender": "der",
@@ -496,6 +527,7 @@
     },
     {
       "id": "tochter",
+      "rank": 326,
       "pos": "noun",
       "lemma": "Tochter",
       "gender": "die",
@@ -506,6 +538,7 @@
     },
     {
       "id": "sohn",
+      "rank": 244,
       "pos": "noun",
       "lemma": "Sohn",
       "gender": "der",
@@ -516,6 +549,7 @@
     },
     {
       "id": "frau",
+      "rank": 103,
       "pos": "noun",
       "lemma": "Frau",
       "gender": "die",
@@ -526,6 +560,7 @@
     },
     {
       "id": "mann",
+      "rank": 78,
       "pos": "noun",
       "lemma": "Mann",
       "gender": "der",
@@ -536,6 +571,7 @@
     },
     {
       "id": "kind",
+      "rank": 134,
       "pos": "noun",
       "lemma": "Kind",
       "gender": "das",
@@ -546,6 +582,7 @@
     },
     {
       "id": "freund",
+      "rank": 140,
       "pos": "noun",
       "lemma": "Freund",
       "gender": "der",
@@ -566,6 +603,7 @@
     },
     {
       "id": "kopf",
+      "rank": 282,
       "pos": "noun",
       "lemma": "Kopf",
       "gender": "der",
@@ -576,6 +614,7 @@
     },
     {
       "id": "hand",
+      "rank": 232,
       "pos": "noun",
       "lemma": "Hand",
       "gender": "die",
@@ -586,6 +625,7 @@
     },
     {
       "id": "fuss",
+      "rank": 547,
       "pos": "noun",
       "lemma": "Fuß",
       "gender": "der",
@@ -596,6 +636,7 @@
     },
     {
       "id": "auge",
+      "rank": 263,
       "pos": "noun",
       "lemma": "Auge",
       "gender": "das",
@@ -606,6 +647,7 @@
     },
     {
       "id": "ohr",
+      "rank": 766,
       "pos": "noun",
       "lemma": "Ohr",
       "gender": "das",
@@ -616,6 +658,7 @@
     },
     {
       "id": "mund",
+      "rank": 609,
       "pos": "noun",
       "lemma": "Mund",
       "gender": "der",
@@ -626,6 +669,7 @@
     },
     {
       "id": "nase",
+      "rank": 822,
       "pos": "noun",
       "lemma": "Nase",
       "gender": "die",
@@ -636,6 +680,7 @@
     },
     {
       "id": "haar",
+      "rank": 559,
       "pos": "noun",
       "lemma": "Haar",
       "gender": "das",
@@ -646,6 +691,7 @@
     },
     {
       "id": "arm",
+      "rank": 329,
       "pos": "noun",
       "lemma": "Arm",
       "gender": "der",
@@ -656,6 +702,7 @@
     },
     {
       "id": "bein",
+      "rank": 582,
       "pos": "noun",
       "lemma": "Bein",
       "gender": "das",
@@ -676,6 +723,7 @@
     },
     {
       "id": "hose",
+      "rank": 871,
       "pos": "noun",
       "lemma": "Hose",
       "gender": "die",
@@ -686,6 +734,7 @@
     },
     {
       "id": "kleid",
+      "rank": 691,
       "pos": "noun",
       "lemma": "Kleid",
       "gender": "das",

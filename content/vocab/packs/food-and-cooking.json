@@ -46,6 +46,7 @@
     },
     {
       "id": "ei",
+      "rank": 739,
       "pos": "noun",
       "lemma": "Ei",
       "gender": "das",
@@ -66,6 +67,7 @@
     },
     {
       "id": "fisch",
+      "rank": 816,
       "pos": "noun",
       "lemma": "Fisch",
       "gender": "der",
@@ -386,6 +388,7 @@
     },
     {
       "id": "flasche",
+      "rank": 896,
       "pos": "noun",
       "lemma": "Flasche",
       "gender": "die",
@@ -396,6 +399,7 @@
     },
     {
       "id": "glas",
+      "rank": 827,
       "pos": "noun",
       "lemma": "Glas",
       "gender": "das",
@@ -436,6 +440,7 @@
     },
     {
       "id": "messer",
+      "rank": 935,
       "pos": "noun",
       "lemma": "Messer",
       "gender": "das",
@@ -506,6 +511,7 @@
     },
     {
       "id": "kochen",
+      "rank": 745,
       "pos": "verb",
       "lemma": "kochen",
       "meaning_en": "to cook, to boil",
@@ -545,6 +551,7 @@
     },
     {
       "id": "schneiden",
+      "rank": 710,
       "pos": "verb",
       "lemma": "schneiden",
       "meaning_en": "to cut",
@@ -597,6 +604,7 @@
     },
     {
       "id": "bestellen",
+      "rank": 869,
       "pos": "verb",
       "lemma": "bestellen",
       "meaning_en": "to order",
@@ -610,6 +618,7 @@
     },
     {
       "id": "schmecken",
+      "rank": 866,
       "pos": "verb",
       "lemma": "schmecken",
       "meaning_en": "to taste",

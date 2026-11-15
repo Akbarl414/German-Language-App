@@ -6,6 +6,7 @@
   "words": [
     {
       "id": "gross",
+      "rank": 129,
       "pos": "adjective",
       "lemma": "groß",
       "meaning_en": "big, tall, large",
@@ -16,6 +17,7 @@
     },
     {
       "id": "klein",
+      "rank": 128,
       "pos": "adjective",
       "lemma": "klein",
       "meaning_en": "small, little",
@@ -24,6 +26,7 @@
     },
     {
       "id": "lang",
+      "rank": 231,
       "pos": "adjective",
       "lemma": "lang",
       "meaning_en": "long",
@@ -32,6 +35,7 @@
     },
     {
       "id": "kurz",
+      "rank": 281,
       "pos": "adjective",
       "lemma": "kurz",
       "meaning_en": "short",
@@ -56,6 +60,7 @@
     },
     {
       "id": "hoch",
+      "rank": 274,
       "pos": "adjective",
       "lemma": "hoch",
       "meaning_en": "high, tall",
@@ -74,6 +79,7 @@
     },
     {
       "id": "schwer",
+      "rank": 297,
       "pos": "adjective",
       "lemma": "schwer",
       "meaning_en": "heavy; difficult",
@@ -82,6 +88,7 @@
     },
     {
       "id": "leicht",
+      "rank": 436,
       "pos": "adjective",
       "lemma": "leicht",
       "meaning_en": "light; easy",
@@ -90,6 +97,7 @@
     },
     {
       "id": "schnell",
+      "rank": 184,
       "pos": "adjective",
       "lemma": "schnell",
       "meaning_en": "fast, quick",
@@ -98,6 +106,7 @@
     },
     {
       "id": "langsam",
+      "rank": 438,
       "pos": "adjective",
       "lemma": "langsam",
       "meaning_en": "slow",
@@ -106,6 +115,7 @@
     },
     {
       "id": "alt",
+      "rank": 149,
       "pos": "adjective",
       "lemma": "alt",
       "meaning_en": "old",
@@ -114,6 +124,7 @@
     },
     {
       "id": "jung",
+      "rank": 201,
       "pos": "adjective",
       "lemma": "jung",
       "meaning_en": "young",
@@ -122,6 +133,7 @@
     },
     {
       "id": "neu",
+      "rank": 148,
       "pos": "adjective",
       "lemma": "neu",
       "meaning_en": "new",
@@ -130,6 +142,7 @@
     },
     {
       "id": "teuer",
+      "rank": 944,
       "pos": "adjective",
       "lemma": "teuer",
       "meaning_en": "expensive",
@@ -146,6 +159,7 @@
     },
     {
       "id": "gut",
+      "rank": 29,
       "pos": "adjective",
       "lemma": "gut",
       "meaning_en": "good",
@@ -156,6 +170,7 @@
     },
     {
       "id": "schlecht",
+      "rank": 266,
       "pos": "adjective",
       "lemma": "schlecht",
       "meaning_en": "bad",
@@ -164,6 +179,7 @@
     },
     {
       "id": "schoen",
+      "rank": 111,
       "pos": "adjective",
       "lemma": "schön",
       "meaning_en": "beautiful, nice",
@@ -180,6 +196,7 @@
     },
     {
       "id": "sauber",
+      "rank": 757,
       "pos": "adjective",
       "lemma": "sauber",
       "meaning_en": "clean",
@@ -196,6 +213,7 @@
     },
     {
       "id": "voll",
+      "rank": 428,
       "pos": "adjective",
       "lemma": "voll",
       "meaning_en": "full",
@@ -204,6 +222,7 @@
     },
     {
       "id": "leer",
+      "rank": 730,
       "pos": "adjective",
       "lemma": "leer",
       "meaning_en": "empty",
@@ -212,6 +231,7 @@
     },
     {
       "id": "hart",
+      "rank": 426,
       "pos": "adjective",
       "lemma": "hart",
       "meaning_en": "hard",
@@ -228,6 +248,7 @@
     },
     {
       "id": "warm",
+      "rank": 928,
       "pos": "adjective",
       "lemma": "warm",
       "meaning_en": "warm",
@@ -236,6 +257,7 @@
     },
     {
       "id": "kalt",
+      "rank": 595,
       "pos": "adjective",
       "lemma": "kalt",
       "meaning_en": "cold",
@@ -244,6 +266,7 @@
     },
     {
       "id": "heiss",
+      "rank": 354,
       "pos": "adjective",
       "lemma": "heiß",
       "meaning_en": "hot",
@@ -284,6 +307,7 @@
     },
     {
       "id": "dunkel",
+      "rank": 661,
       "pos": "adjective",
       "lemma": "dunkel",
       "meaning_en": "dark",
@@ -292,6 +316,7 @@
     },
     {
       "id": "laut",
+      "rank": 418,
       "pos": "adjective",
       "lemma": "laut",
       "meaning_en": "loud",
@@ -300,6 +325,7 @@
     },
     {
       "id": "leise",
+      "rank": 808,
       "pos": "adjective",
       "lemma": "leise",
       "meaning_en": "quiet, soft (sound)",
@@ -308,6 +334,7 @@
     },
     {
       "id": "stark",
+      "rank": 384,
       "pos": "adjective",
       "lemma": "stark",
       "meaning_en": "strong",
@@ -316,6 +343,7 @@
     },
     {
       "id": "schwach",
+      "rank": 911,
       "pos": "adjective",
       "lemma": "schwach",
       "meaning_en": "weak",
@@ -324,6 +352,7 @@
     },
     {
       "id": "einfach",
+      "rank": 102,
       "pos": "adjective",
       "lemma": "einfach",
       "meaning_en": "simple, easy",
@@ -332,6 +361,7 @@
     },
     {
       "id": "schwierig",
+      "rank": 724,
       "pos": "adjective",
       "lemma": "schwierig",
       "meaning_en": "difficult",
@@ -340,6 +370,7 @@
     },
     {
       "id": "richtig",
+      "rank": 147,
       "pos": "adjective",
       "lemma": "richtig",
       "meaning_en": "correct, right",
@@ -348,6 +379,7 @@
     },
     {
       "id": "falsch",
+      "rank": 293,
       "pos": "adjective",
       "lemma": "falsch",
       "meaning_en": "wrong, false",
@@ -356,6 +388,7 @@
     },
     {
       "id": "offen",
+      "rank": 593,
       "pos": "adjective",
       "lemma": "offen",
       "meaning_en": "open",
@@ -372,6 +405,7 @@
     },
     {
       "id": "frei",
+      "rank": 355,
       "pos": "adjective",
       "lemma": "frei",
       "meaning_en": "free, available",
@@ -388,6 +422,7 @@
     },
     {
       "id": "gesund",
+      "rank": 807,
       "pos": "adjective",
       "lemma": "gesund",
       "meaning_en": "healthy",
@@ -396,6 +431,7 @@
     },
     {
       "id": "krank",
+      "rank": 487,
       "pos": "adjective",
       "lemma": "krank",
       "meaning_en": "sick, ill",
@@ -404,6 +440,7 @@
     },
     {
       "id": "muede",
+      "rank": 759,
       "pos": "adjective",
       "lemma": "müde",
       "meaning_en": "tired",

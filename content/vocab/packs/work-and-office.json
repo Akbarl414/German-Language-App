@@ -16,6 +16,7 @@
     },
     {
       "id": "arbeit",
+      "rank": 249,
       "pos": "noun",
       "lemma": "Arbeit",
       "gender": "die",
@@ -26,6 +27,7 @@
     },
     {
       "id": "firma",
+      "rank": 755,
       "pos": "noun",
       "lemma": "Firma",
       "gender": "die",
@@ -46,6 +48,7 @@
     },
     {
       "id": "buero",
+      "rank": 474,
       "pos": "noun",
       "lemma": "Büro",
       "gender": "das",
@@ -56,6 +59,7 @@
     },
     {
       "id": "chef",
+      "rank": 718,
       "pos": "noun",
       "lemma": "Chef",
       "gender": "der",
@@ -76,6 +80,7 @@
     },
     {
       "id": "kollege",
+      "rank": 973,
       "pos": "noun",
       "lemma": "Kollege",
       "gender": "der",
@@ -116,6 +121,7 @@
     },
     {
       "id": "kunde",
+      "rank": 942,
       "pos": "noun",
       "lemma": "Kunde",
       "gender": "der",
@@ -226,6 +232,7 @@
     },
     {
       "id": "aufgabe",
+      "rank": 949,
       "pos": "noun",
       "lemma": "Aufgabe",
       "gender": "die",
@@ -406,6 +413,7 @@
     },
     {
       "id": "team",
+      "rank": 586,
       "pos": "noun",
       "lemma": "Team",
       "gender": "das",
@@ -436,6 +444,7 @@
     },
     {
       "id": "ziel",
+      "rank": 592,
       "pos": "noun",
       "lemma": "Ziel",
       "gender": "das",
@@ -456,6 +465,7 @@
     },
     {
       "id": "erfahrung",
+      "rank": 986,
       "pos": "noun",
       "lemma": "Erfahrung",
       "gender": "die",
@@ -527,6 +537,7 @@
     },
     {
       "id": "verdienen",
+      "rank": 405,
       "pos": "verb",
       "lemma": "verdienen",
       "meaning_en": "to earn",
@@ -553,6 +564,7 @@
     },
     {
       "id": "leiten",
+      "rank": 960,
       "pos": "verb",
       "lemma": "leiten",
       "meaning_en": "to lead, to manage, to run (a department, project)",

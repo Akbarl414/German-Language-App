@@ -16,6 +16,7 @@
     },
     {
       "id": "flugzeug",
+      "rank": 777,
       "pos": "noun",
       "lemma": "Flugzeug",
       "gender": "das",
@@ -36,6 +37,7 @@
     },
     {
       "id": "zug",
+      "rank": 683,
       "pos": "noun",
       "lemma": "Zug",
       "gender": "der",
@@ -126,6 +128,7 @@
     },
     {
       "id": "grenze",
+      "rank": 920,
       "pos": "noun",
       "lemma": "Grenze",
       "gender": "die",
@@ -136,6 +139,7 @@
     },
     {
       "id": "hotel",
+      "rank": 636,
       "pos": "noun",
       "lemma": "Hotel",
       "gender": "das",
@@ -186,6 +190,7 @@
     },
     {
       "id": "meer",
+      "rank": 979,
       "pos": "noun",
       "lemma": "Meer",
       "gender": "das",
@@ -206,6 +211,7 @@
     },
     {
       "id": "see",
+      "rank": 980,
       "pos": "noun",
       "lemma": "See",
       "gender": "der",
@@ -216,6 +222,7 @@
     },
     {
       "id": "wald",
+      "rank": 799,
       "pos": "noun",
       "lemma": "Wald",
       "gender": "der",
@@ -226,6 +233,7 @@
     },
     {
       "id": "insel",
+      "rank": 953,
       "pos": "noun",
       "lemma": "Insel",
       "gender": "die",
@@ -426,6 +434,7 @@
     },
     {
       "id": "kamera",
+      "rank": 770,
       "pos": "noun",
       "lemma": "Kamera",
       "gender": "die",
@@ -436,6 +445,7 @@
     },
     {
       "id": "foto",
+      "rank": 505,
       "pos": "noun",
       "lemma": "Foto",
       "gender": "das",
@@ -529,6 +539,7 @@
     },
     {
       "id": "packen",
+      "rank": 698,
       "pos": "verb",
       "lemma": "packen",
       "meaning_en": "to pack",
@@ -555,6 +566,7 @@
     },
     {
       "id": "landen",
+      "rank": 492,
       "pos": "verb",
       "lemma": "landen",
       "meaning_en": "to land",
