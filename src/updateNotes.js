@@ -5,6 +5,17 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-15-games-cleanup',
+    date: '2026-11-15',
+    lines: [
+      'The Timed challenge game is gone. Your best scores in the other games are kept.',
+      'Type it, Case detective and Verb forms sprint are now regular games, no longer marked beta. Old links to them still work.',
+      'Wordfall now shows wrong options of the same word type (noun, verb, ...) as the right answer, so you cannot guess from the word type.',
+      'Wordfall now counts German to English answers for verbs, adjectives and other non-noun words under their normal meaning card. Daily review and Test me ignore leftover cards that do not belong to a word.',
+      'Game titles, instructions and buttons now follow the interface language. The Games screen says that results count for words already in your reviews and other words are practice only.',
+    ],
+  },
+  {
     id: '2026-11-15-games-review-words',
     date: '2026-11-15',
     lines: [
