@@ -11,6 +11,8 @@
 // fields, not a substitute for a real migration when values themselves need
 // to change shape or meaning.
 
+import { localDayKey, previousDayKey } from './dayKey.js';
+
 const STORAGE_KEY = 'german-app-data-v1';
 const SNAPSHOTS_KEY = 'german-app-snapshots-v1';
 const RECOVERY_KEY = 'german-app-recovery-v1';
@@ -225,7 +227,7 @@ function loadSnapshots() {
 
 function maybeSnapshot(data) {
   if (loadFailed) return;
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localDayKey();
   const snapshots = loadSnapshots();
   if (snapshots.some((s) => s.date === today)) return;
   snapshots.push({ date: today, data: JSON.parse(JSON.stringify(data)) });
@@ -301,7 +303,7 @@ export const store = {
   },
   recordDailyActivity(kind, count = 1) {
     const data = load();
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDayKey();
     if (!data.stats.history[today]) {
       data.stats.history[today] = { reviewed: 0, newSeen: 0, gamesPlayed: 0 };
     }
@@ -407,7 +409,7 @@ export const store = {
 
 function bumpStreak(data, today) {
   if (data.stats.lastStudyDate === today) return;
-  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const yesterday = previousDayKey(today);
   data.stats.streak = data.stats.lastStudyDate === yesterday ? data.stats.streak + 1 : 1;
   data.stats.bestStreak = Math.max(data.stats.bestStreak || 0, data.stats.streak);
   data.stats.lastStudyDate = today;

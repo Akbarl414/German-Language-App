@@ -3,6 +3,7 @@ import { getVocabPacks, getPhraseSets, getGrammarUnits } from '../../db/contentL
 import { activateVocabPack, deactivateVocabPack } from '../../srs/queue.js';
 import { applyTheme } from '../../theme.js';
 import { t, getUiLanguage, setUiLanguage } from '../../i18n.js';
+import { localDayKey } from '../../db/dayKey.js';
 
 const THEME_OPTIONS = [
   { value: 'light', labelKey: 'themeLight' },
@@ -182,7 +183,7 @@ export async function render(container) {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `german-app-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.download = `german-app-backup-${localDayKey()}.json`;
       a.click();
       URL.revokeObjectURL(url);
       container.querySelector('#backup-msg').innerHTML = `<p style="color:var(--good);">Backup downloaded.</p>`;

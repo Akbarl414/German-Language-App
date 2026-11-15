@@ -5,6 +5,7 @@
 
 import { store } from '../db/storage.js';
 import * as engine from './engine.js';
+import { localDayKey } from '../db/dayKey.js';
 import {
   getVocabPacks,
   getPhraseSets,
@@ -151,7 +152,7 @@ export function getRefsByType(type) {
 }
 
 export function getTodayNewSeenCount() {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localDayKey();
   return store.getStats().history[today]?.newSeen || 0;
 }
 
