@@ -11,15 +11,15 @@
 // the "Why?" tap. Pulls straight from the grammar units so it reinforces
 // what's already being studied there.
 
-import { getGrammarUnits } from '../../../db/contentLoader.js';
-import { grammarCardId, submitGradeForCardId } from '../../../srs/queue.js';
-import { gradeFromCorrectness } from '../../../srs/engine.js';
-import { store } from '../../../db/storage.js';
-import { escapeHtml } from '../../../components/gender.js';
-import { resolveHint, wireHint, hintControlsHTML } from '../../grammar/exerciseRenderer.js';
-import { resultsListHTML } from '../../shared/resultsSummary.js';
-import { renderMissesReview } from '../../shared/missesReview.js';
-import { t } from '../../../i18n.js';
+import { getGrammarUnits } from '../../db/contentLoader.js';
+import { grammarCardId, submitGradeForCardId } from '../../srs/queue.js';
+import { gradeFromCorrectness } from '../../srs/engine.js';
+import { store } from '../../db/storage.js';
+import { escapeHtml } from '../../components/gender.js';
+import { resolveHint, wireHint, hintControlsHTML } from '../grammar/exerciseRenderer.js';
+import { resultsListHTML } from '../shared/resultsSummary.js';
+import { renderMissesReview } from '../shared/missesReview.js';
+import { t } from '../../i18n.js';
 
 // Any grammar unit here contributes its bare-option multiple-choice/choose-form
 // blanks to the pool — see CONTENT_GUIDE.md "Case detective sentence packs"
@@ -87,7 +87,7 @@ export async function render(container) {
     const best = store.getStats().gameBests.caseDetective;
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Case detective <span class="tag">beta</span></h1>
+        <h1 class="page-title">Case detective</h1>
         <p class="page-subtitle">Pick the article or ending that fits. Tap "Why?" any time you want the rule spelled out.</p>
         ${best ? `<p class="page-subtitle" style="margin-top:-12px;">${t('bestScoreOutOf', best.score, best.total)}</p>` : ''}
         ${

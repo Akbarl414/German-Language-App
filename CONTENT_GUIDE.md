@@ -136,7 +136,7 @@ Aim for a real mix — roughly a third fill-blank, a third multiple-choice/choos
 
 ### Case detective sentence packs (Games > Beta > Case detective)
 
-The Case detective beta game (`src/modules/games/beta/caseDetective.js`) doesn't have its own content files — it draws its question pool directly from grammar units, by scanning every unit listed in that file's `CASE_UNIT_IDS` array for `multiple-choice`/`choose-form` exercises that have a `___` blank in the prompt. So the way to add more Case detective questions in a future session is to **add more qualifying exercises to a grammar unit** (new or existing) and add that unit's id to `CASE_UNIT_IDS`.
+The Case detective game (`src/modules/games/caseDetective.js`) doesn't have its own content files — it draws its question pool directly from grammar units, by scanning every unit listed in that file's `CASE_UNIT_IDS` array for `multiple-choice`/`choose-form` exercises that have a `___` blank in the prompt. So the way to add more Case detective questions in a future session is to **add more qualifying exercises to a grammar unit** (new or existing) and add that unit's id to `CASE_UNIT_IDS`.
 
 Two hard requirements for an exercise to qualify (the game filters out anything that doesn't meet them, silently shrinking the pool rather than erroring):
 

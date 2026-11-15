@@ -1,22 +1,40 @@
 import { t } from '../../i18n.js';
 
+// Games shown in the Beta section. The whole section is hidden while this is
+// empty. Entry shape: { href, icon, labelKey } (labelKey is a LABELS key).
+const BETA_GAMES = [];
+
+function gameLink({ href, icon, labelKey }) {
+  return `<a class="list-item" style="padding:16px;" href="${href}">${icon}&nbsp;&nbsp;${t(labelKey)}</a>`;
+}
+
+const MAIN_GAMES = [
+  { href: '#/games/sorting', icon: '🗂️', labelKey: 'gameSortingName' },
+  { href: '#/games/stories', icon: '📖', labelKey: 'gameStoriesName' },
+  { href: '#/games/wordfall', icon: '🌧️', labelKey: 'gameWordfallName' },
+  { href: '#/games/typeit', icon: '⌨️', labelKey: 'gameTypeItName' },
+  { href: '#/games/case-detective', icon: '🕵️', labelKey: 'gameCaseDetectiveName' },
+  { href: '#/games/verb-sprint', icon: '🏃', labelKey: 'gameVerbSprintName' },
+];
+
 export async function render(container) {
+  const betaHTML =
+    BETA_GAMES.length === 0
+      ? ''
+      : `
+      <div class="section-heading">${t('betaHeading')}</div>
+      <p class="page-subtitle" style="margin-top:-14px;">${t('betaBlurb')}</p>
+      <div class="card" style="padding:0;">
+        ${BETA_GAMES.map((g) => gameLink(g).replace('</a>', ` <span class="tag">beta</span></a>`)).join('')}
+      </div>`;
+
   container.innerHTML = `
     <div class="view">
       <h1 class="page-title">${t('gamesTitle')}</h1>
-      <p class="page-subtitle">Quick, motivating drills. Results feed back into your review queue.</p>
+      <p class="page-subtitle">${t('gamesHubIntro')}</p>
       <div class="card" style="padding:0;">
-        <a class="list-item" style="padding:16px;" href="#/games/sorting">🗂️&nbsp;&nbsp;der/die/das sorting</a>
-        <a class="list-item" style="padding:16px;" href="#/games/stories">📖&nbsp;&nbsp;Fill-in-the-blank story</a>
-        <a class="list-item" style="padding:16px;" href="#/games/wordfall">🌧️&nbsp;&nbsp;Wordfall</a>
+        ${MAIN_GAMES.map(gameLink).join('')}
       </div>
-
-      <div class="section-heading">Beta</div>
-      <p class="page-subtitle" style="margin-top:-14px;">New games still being tuned — play them and tell me what to keep.</p>
-      <div class="card" style="padding:0;">
-        <a class="list-item" style="padding:16px;" href="#/games/beta/typeit">⌨️&nbsp;&nbsp;Type it <span class="tag">beta</span></a>
-        <a class="list-item" style="padding:16px;" href="#/games/beta/case-detective">🕵️&nbsp;&nbsp;Case detective <span class="tag">beta</span></a>
-        <a class="list-item" style="padding:16px;" href="#/games/beta/verb-sprint">🏃&nbsp;&nbsp;Verb forms sprint <span class="tag">beta</span></a>
-      </div>
+      ${betaHTML}
     </div>`;
 }

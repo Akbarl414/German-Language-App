@@ -4,15 +4,15 @@
 // classic traps (sein verbs, separable prefixes, irregular participles)
 // since it draws straight from the verbs' authored `perfekt`/`auxiliary`.
 
-import { vocabCardId, gradeGameWord } from '../../../srs/queue.js';
-import { gradeFromCorrectness } from '../../../srs/engine.js';
-import { store } from '../../../db/storage.js';
-import { escapeHtml } from '../../../components/gender.js';
-import { hintForFacet } from '../../shared/itemRenderer.js';
-import { resultsListHTML } from '../../shared/resultsSummary.js';
-import { renderMissesReview } from '../../shared/missesReview.js';
-import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../../shared/gamePool.js';
-import { t } from '../../../i18n.js';
+import { vocabCardId, gradeGameWord } from '../../srs/queue.js';
+import { gradeFromCorrectness } from '../../srs/engine.js';
+import { store } from '../../db/storage.js';
+import { escapeHtml } from '../../components/gender.js';
+import { hintForFacet } from '../shared/itemRenderer.js';
+import { resultsListHTML } from '../shared/resultsSummary.js';
+import { renderMissesReview } from '../shared/missesReview.js';
+import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../shared/gamePool.js';
+import { t } from '../../i18n.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
 const WRONG_FLASH_MS = 1100;
@@ -49,7 +49,7 @@ export async function render(container) {
     const bests = store.getStats().gameBests;
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Verb forms sprint <span class="tag">beta</span></h1>
+        <h1 class="page-title">Verb forms sprint</h1>
         <p class="page-subtitle">Build the Perfekt: pick hat/ist, then the participle.</p>
         ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card" style="padding:0;">

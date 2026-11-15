@@ -29,9 +29,12 @@ route('/games/sorting', () => import('./modules/games/sorting.js'));
 redirect('/games/timed', '/games'); // Timed challenge was removed
 route('/games/stories', () => import('./modules/games/stories.js'));
 route('/games/wordfall', () => import('./modules/games/wordfall.js'));
-route('/games/beta/typeit', () => import('./modules/games/beta/typeit.js'));
-route('/games/beta/case-detective', () => import('./modules/games/beta/caseDetective.js'));
-route('/games/beta/verb-sprint', () => import('./modules/games/beta/verbSprint.js'));
+route('/games/typeit', () => import('./modules/games/typeit.js'));
+redirect('/games/beta/typeit', '/games/typeit');
+route('/games/case-detective', () => import('./modules/games/caseDetective.js'));
+redirect('/games/beta/case-detective', '/games/case-detective');
+route('/games/verb-sprint', () => import('./modules/games/verbSprint.js'));
+redirect('/games/beta/verb-sprint', '/games/verb-sprint');
 
 route('/testme', () => import('./modules/testme/index.js'));
 route('/testme/run', () => import('./modules/testme/run.js'));

@@ -11,15 +11,15 @@
 // — only capitalization, a missing umlaut/ß, or just the wrong article —
 // gets its own "so close" message instead).
 
-import { vocabCardId, gradeGameWord } from '../../../srs/queue.js';
-import { gradeFromCorrectness } from '../../../srs/engine.js';
-import { store } from '../../../db/storage.js';
-import { escapeHtml, genderBadgeHTML } from '../../../components/gender.js';
-import { umlautFieldHTML, wireUmlautButtons } from '../../../components/umlaut.js';
-import { resultsListHTML } from '../../shared/resultsSummary.js';
-import { renderMissesReview } from '../../shared/missesReview.js';
-import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../../shared/gamePool.js';
-import { t } from '../../../i18n.js';
+import { vocabCardId, gradeGameWord } from '../../srs/queue.js';
+import { gradeFromCorrectness } from '../../srs/engine.js';
+import { store } from '../../db/storage.js';
+import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
+import { umlautFieldHTML, wireUmlautButtons } from '../../components/umlaut.js';
+import { resultsListHTML } from '../shared/resultsSummary.js';
+import { renderMissesReview } from '../shared/missesReview.js';
+import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../shared/gamePool.js';
+import { t } from '../../i18n.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
 const CORRECT_FLASH_MS = 500;
@@ -89,7 +89,7 @@ export async function render(container) {
     const checkGender = !!store.getSettings().typeItCheckGender;
     container.innerHTML = `
       <div class="view">
-        <h1 class="page-title">Type it <span class="tag">beta</span></h1>
+        <h1 class="page-title">Type it</h1>
         <p class="page-subtitle">You see the English, type the German. Exact spelling counts — nouns need capital letters.</p>
         ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card">

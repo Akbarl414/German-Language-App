@@ -122,6 +122,21 @@ const LABELS = {
 
   // --- Games hub ---
   gamesTitle: { de: 'Spiele', en: 'Games' },
+  gamesHubIntro: {
+    de: 'Ergebnisse zählen für Wörter, die schon in deinen Wiederholungen sind. Andere Wörter sind nur zum Üben.',
+    en: 'Results count for words already in your reviews; other words are practice only.',
+  },
+  betaHeading: { de: 'Beta', en: 'Beta' },
+  betaBlurb: {
+    de: 'Neue Spiele, die noch abgestimmt werden. Probier sie aus und sag mir, was bleiben soll.',
+    en: 'New games still being tuned. Play them and tell me what to keep.',
+  },
+  gameSortingName: { de: 'der/die/das-Sortieren', en: 'der/die/das sorting' },
+  gameStoriesName: { de: 'Lückengeschichte', en: 'Fill-in-the-blank story' },
+  gameWordfallName: { de: 'Wordfall', en: 'Wordfall' },
+  gameTypeItName: { de: 'Type it', en: 'Type it' },
+  gameCaseDetectiveName: { de: 'Kasus-Detektiv', en: 'Case detective' },
+  gameVerbSprintName: { de: 'Verbformen-Sprint', en: 'Verb forms sprint' },
 
   // --- Sorting / timed / stories ---
   hintGenderMeaning: { de: '💡 Tipp (zeigt Bedeutung, nicht Genus)', en: '💡 Hint (shows meaning, not gender)' },
