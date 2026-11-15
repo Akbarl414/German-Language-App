@@ -74,6 +74,8 @@ Single `localStorage` key (`german-app-data-v1`), structured as one JSON blob:
 
 Also in `storage.js`: daily snapshots (one JSON copy per day, 7-day rolling retention, separate `localStorage` key so a bad write to one can't corrupt the other) and the Export/Import backup feature (downloads/restores the whole blob as JSON — this is the user's actual backup strategy since there's no server; Settings nags them about it after 7 days).
 
+**Full or failing storage.** Live data plus up to 7 snapshots can approach the browser's ~5 MB (≈5M characters) localStorage limit. `persist()` wraps `setItem` in try/catch and never throws to callers: on failure it keeps the in-memory data, sets `store.saveFailed` (logging and notifying `store.onSaveStatusChange()` listeners only on the transition), and returns the error; every later `persist()` retries writing the whole blob, and the first success clears the flag. A `setItem` that throws writes nothing, so the last good blob on disk is left byte-for-byte. Nothing is deleted or shrunk to make room, and snapshots aren't freed for the main blob. `replaceAndSave()` (import, snapshot restore, recovery start-fresh) rethrows that error so those flows still report failure instead of reloading into old data; `resetAll()` ignores it. `main.js` shows a sticky, non-blocking banner (`#save-warning` in `index.html`, `.save-warning` in `style.css`, carries the top safe-area inset itself) on every normal screen while `saveFailed` is true, linking to Settings. `maybeSnapshot()` (once per load) tries `[...existing, today]` trimmed to 7; if that throws it drops the oldest and retries, down to today's alone. If even that fails it leaves the snapshot key untouched and sets `store.snapshotsFailing`, which Settings shows as a quieter warning in the snapshots card. Both flags are in-memory only (no data-shape change). `store.getStorageUsage()` returns the stored character counts of the main key and the snapshots key for the Settings "storage used" line. `storage.test.js` covers all of this with a `QuotaLocalStorage` fake.
+
 ## The SRS engine: `src/srs/engine.js` + `src/srs/queue.js`
 
 **`engine.js`** is pure functions, no I/O — a simplified SM-2 spaced-repetition algorithm. Key exports:
@@ -132,7 +134,7 @@ A single flat `LABELS` map, each key holding `{ de: ..., en: ... }` (a value may
 - **`phrases/`** — `list.js`, `quiz.js` (situation→phrase context quiz).
 - **`testme/`** — `index.js` (module/length picker), `run.js` (runs a weighted-sampled mixed quiz across chosen modules, shows a "what to review" list of misses at the end).
 - **`addcontent/`** — Path A manual entry (word/phrase/note tabs).
-- **`settings/`** — theme, UI language, daily limits, auto-throttle thresholds, vocab pack activation checkboxes, Export/Import backup, snapshot restore, danger zone (erase all progress).
+- **`settings/`** — theme, UI language, daily limits, auto-throttle thresholds, vocab pack activation checkboxes, Export/Import backup (plus an approximate storage-used line), snapshot restore (with a warning when today's snapshot couldn't be written), danger zone (erase all progress).
 - **`games/`** — see below, it's the most actively-growing part of the app.
 - **`shared/`** — covered above.
 
