@@ -80,7 +80,9 @@ if (store.loadFailed) {
   });
 }
 
-if ('serviceWorker' in navigator) {
+// Production only: in dev the worker would serve stale /src files cache-first.
+// (vite.config.js injects a dev-only script that removes leftover workers.)
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register(new URL('sw.js', document.baseURI)).catch((e) => console.error('SW registration failed', e));
   });
