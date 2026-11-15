@@ -819,7 +819,7 @@
     {
       "id": "denn",
       "rank": 94,
-      "pos": "adverb",
+      "pos": "other",
       "lemma": "denn",
       "meaning_en": "because, for; (particle in questions) then",
       "example_de": "Ich bleibe zu Hause, denn ich bin erkältet.",
@@ -1011,13 +1011,18 @@
       "example_en": "The shop is open until 8 pm."
     },
     {
-      "id": "leid",
+      "id": "leidtun",
       "rank": 127,
-      "pos": "adverb",
-      "lemma": "leid",
-      "meaning_en": "sorry (es tut mir leid: I'm sorry)",
+      "pos": "verb",
+      "lemma": "leidtun",
+      "meaning_en": "to be sorry; to feel sorry for",
       "example_de": "Es tut mir leid, ich habe den Termin vergessen.",
-      "example_en": "I'm sorry, I forgot the appointment."
+      "example_en": "I'm sorry, I forgot the appointment.",
+      "present_3sg": "tut leid",
+      "praeteritum": "tat leid",
+      "perfekt": "hat leidgetan",
+      "auxiliary": "haben",
+      "separable": true
     }
   ]
 }

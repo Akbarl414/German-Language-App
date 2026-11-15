@@ -36,6 +36,7 @@ DeReWo forbids commercial use and forbids passing the lists on without their doc
    - Leave out abbreviations (§1.1) and country, city and language names (§1.9), since those are abbreviations or proper names. The nationality adjective *deutsch* stays in.
    - Stem entries are written as full headwords: *all-*→alle, *dies-*→dieser, *ander-*→andere, *beid-*→beide, *einig-*→einige, *letzt-*→letzte, *nächst-*→nächste, *jed-*→jeder, *welch-*→welcher, *solch-*→solche, *manch-*→manche, *zweit-*/*dritt-*→zweite/dritte.
    - The plural form *Daten* is recorded under its headword *Datum*.
+   - Goethe's *leid tun* (tut leid, tat leid, hat leidgetan) is recorded in today's spelling as the separable verb *leidtun*. Its frequency comes from the form *leid*.
 2. **Closed-class exception.** The Goethe list has no entries for the personal pronouns, the possessives or the definite article. By the owner's decision these qualify by frequency alone:
    - personal pronouns: ich, du, er, sie, Sie, wir, ihr
    - possessives: mein, dein, sein, ihr/Ihr, unser, euer
