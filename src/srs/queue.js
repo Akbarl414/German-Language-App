@@ -19,6 +19,7 @@ import { vocabCardId, phraseCardId, grammarCardId } from './cardIds.js';
 import {
   USER_VOCAB_PACK_ID,
   parseCardId,
+  isValidVocabFacet,
   isSourceInReview,
   triageQueueFor,
   triageEntries,
@@ -147,12 +148,17 @@ function resolveContent(type, ref) {
   return null;
 }
 
-/** Walk every SRS card and yield {cardId, type, sourceId, itemId, facet, card}. */
+/** Walk every SRS card and yield {cardId, type, sourceId, itemId, facet, card}; skips vocab cards with a facet their word doesn't have. */
 function allCardRefs() {
   const cards = store.allCards();
   const refs = [];
   for (const cardId of Object.keys(cards)) {
     const { type, sourceId, itemId, facet } = parseCardId(cardId);
+    if (type === 'vocab') {
+      // Ignore a vocab card whose facet isn't one of its word's facets (stray cards stay stored, untouched).
+      const word = findWord(sourceId, itemId);
+      if (word && !isValidVocabFacet(word.pos, facet)) continue;
+    }
     refs.push({ cardId, type, sourceId, itemId, facet, card: cards[cardId] });
   }
   return refs;

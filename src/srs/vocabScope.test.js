@@ -6,6 +6,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   parseCardId,
+  isValidVocabFacet,
   isSourceInReview,
   wordKeysWithCards,
   triageQueueFor,
@@ -213,4 +214,19 @@ test('a word added to an already-active, fully triaged pack shows as pending (ol
   assert.deepEqual(store.allPackStates()[`vocab:${packId}`], packState); // stored fields untouched by reading
   // An inactive pack offers nothing.
   assert.equal(isSourceInReview('vocab', 'core-nouns-9', states), false);
+});
+
+test('a vocab card counts only if its facet is one of that word\'s facets in FACETS', () => {
+  for (const f of ['meaning_de_en', 'meaning_en_de', 'gender', 'plural']) assert.equal(isValidVocabFacet('noun', f), true);
+  assert.equal(isValidVocabFacet('noun', 'meaning'), false);
+  assert.equal(isValidVocabFacet('noun', 'principal_parts'), false);
+  for (const pos of ['verb', 'adjective', 'adverb', 'other']) {
+    assert.equal(isValidVocabFacet(pos, 'meaning'), true);
+    assert.equal(isValidVocabFacet(pos, 'meaning_de_en'), false); // the stray cards Wordfall used to create
+    assert.equal(isValidVocabFacet(pos, 'meaning_en_de'), false);
+    assert.equal(isValidVocabFacet(pos, 'gender'), false);
+  }
+  assert.equal(isValidVocabFacet('verb', 'principal_parts'), true);
+  assert.equal(isValidVocabFacet('adjective', 'principal_parts'), false);
+  assert.equal(isValidVocabFacet('somethingNew', 'meaning'), true); // unknown pos falls back to 'other'
 });

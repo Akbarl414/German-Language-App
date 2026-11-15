@@ -39,6 +39,15 @@ export function isSourceInReview(type, sourceId, packStates) {
   return active !== false; // grammar, phrases and the user-added pack: never touched counts as active
 }
 
+/**
+ * Whether `facet` is one of the facets a vocab word of this part of speech has
+ * (FACETS in engine.js). Cards for any other facet (e.g. a stray meaning_de_en
+ * on a verb) stay in storage but are ignored by review, due counts and Test me.
+ */
+export function isValidVocabFacet(pos, facet) {
+  return facetsFor(pos).includes(facet);
+}
+
 function wordKey(packId, wordId) {
   return `${packId}::${wordId}`;
 }
