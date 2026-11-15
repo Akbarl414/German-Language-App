@@ -37,6 +37,7 @@
         "example_de": { "type": "string", "minLength": 1 },
         "example_en": { "type": "string", "minLength": 1 },
         "tags": { "type": "array", "items": { "type": "string" } },
+        "rank": { "type": "integer", "minimum": 1, "maximum": 1000, "description": "Optional Core 1000 frequency rank (1 = most frequent). Unique across all vocab packs; see content/core/." },
 
         "gender": { "type": "string", "enum": ["der", "die", "das"], "description": "Required for pos=noun." },
         "plural": { "type": "string", "description": "Required for pos=noun. Use '-' if no plural / plural-only marked separately." },
@@ -47,6 +48,20 @@
         "auxiliary": { "type": "string", "enum": ["haben", "sein"], "description": "Required for pos=verb." },
         "separable": { "type": "boolean", "description": "Optional for pos=verb; true if separable-prefix verb." },
         "government": { "type": "string", "description": "Optional case/preposition government, e.g. 'warten auf + Akk'." },
+        "present_forms": {
+          "type": "object",
+          "description": "Optional for pos=verb, used for sein, haben, werden and the modal verbs: all six present-tense forms. 'er' = er/sie/es, 'sie' = sie/Sie.",
+          "required": ["ich", "du", "er", "wir", "ihr", "sie"],
+          "additionalProperties": false,
+          "properties": {
+            "ich": { "type": "string", "minLength": 1 },
+            "du": { "type": "string", "minLength": 1 },
+            "er": { "type": "string", "minLength": 1 },
+            "wir": { "type": "string", "minLength": 1 },
+            "ihr": { "type": "string", "minLength": 1 },
+            "sie": { "type": "string", "minLength": 1 }
+          }
+        },
 
         "comparative": { "type": "string", "description": "Optional for pos=adjective, only if irregular, e.g. 'gut -> besser'." },
         "superlative": { "type": "string", "description": "Optional for pos=adjective, only if irregular, e.g. 'gut -> best-'." }

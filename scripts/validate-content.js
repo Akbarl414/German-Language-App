@@ -61,6 +61,9 @@ const targets = [
 let errorCount = 0;
 let fileCount = 0;
 const globalIdsByLabel = new Map();
+// Core 1000: optional `rank` on vocab words, unique across all packs (see content/core/).
+const CORE_SIZE = 1000;
+const coreRanks = new Map(); // rank -> "pack::word"
 
 for (const target of targets) {
   const validate = ajv.compile(target.schema);
@@ -132,11 +135,33 @@ for (const target of targets) {
       }
     }
 
+    let rankErrors = 0;
+    if (target.label === 'vocab pack') {
+      for (const item of items) {
+        if (item.rank === undefined) continue;
+        const where = `${data.id}::${item.id}`;
+        if (!Number.isInteger(item.rank) || item.rank < 1 || item.rank > CORE_SIZE) {
+          console.error(`FAIL  ${file}\n      rank ${item.rank} on "${where}" is outside 1-${CORE_SIZE}`);
+          rankErrors++;
+        } else if (coreRanks.has(item.rank)) {
+          console.error(`FAIL  ${file}\n      duplicate rank ${item.rank}: "${where}" and "${coreRanks.get(item.rank)}"`);
+          rankErrors++;
+        } else {
+          coreRanks.set(item.rank, where);
+        }
+      }
+    }
+    if (rankErrors > 0) {
+      errorCount += rankErrors;
+      continue;
+    }
+
     console.log(`ok    ${file}  (${items.length} ${target.itemsKey})`);
   }
 }
 
-console.log(`\nChecked ${fileCount} file(s).`);
+console.log(`\nCore 1000: ${coreRanks.size} / ${CORE_SIZE} ranks present.`);
+console.log(`Checked ${fileCount} file(s).`);
 if (errorCount > 0) {
   console.error(`${errorCount} error(s) found.`);
   process.exit(1);
