@@ -12,6 +12,7 @@
 // to change shape or meaning.
 
 import { localDayKey, previousDayKey } from './dayKey.js';
+import { newestUpdateId, shouldShowUpdateAlert } from '../updateNotes.js';
 
 const STORAGE_KEY = 'german-app-data-v1';
 const SNAPSHOTS_KEY = 'german-app-snapshots-v1';
@@ -51,6 +52,10 @@ function defaultData() {
     },
     meta: {
       createdAt: new Date().toISOString(),
+      // Id of the newest update note this device has seen. null here on purpose:
+      // migrate() backfills it for existing users (so they see the alert once);
+      // only a genuine first run is stamped, in load().
+      lastSeenUpdateId: null,
     },
   };
 }
@@ -182,8 +187,10 @@ function load() {
     return cache;
   }
   if (raw === null) {
-    // First run: nothing saved yet.
+    // First run: nothing saved yet. A brand-new install has nothing to be
+    // told about, so it starts as having seen the newest update note.
     cache = defaultData();
+    cache.meta.lastSeenUpdateId = newestUpdateId();
   } else {
     try {
       const parsed = JSON.parse(raw);
@@ -409,6 +416,17 @@ export const store = {
   },
   resetAll() {
     cache = defaultData();
+    persist();
+  },
+
+  // --- Update notes ---
+  shouldShowUpdateAlert() {
+    return shouldShowUpdateAlert(load().meta.lastSeenUpdateId, newestUpdateId());
+  },
+  markUpdatesSeen() {
+    const data = load();
+    if (data.meta.lastSeenUpdateId === newestUpdateId()) return;
+    data.meta.lastSeenUpdateId = newestUpdateId();
     persist();
   },
 

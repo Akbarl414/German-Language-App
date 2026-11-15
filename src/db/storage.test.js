@@ -353,3 +353,28 @@ test('getStorageUsage reports the stored sizes of main data and snapshots', asyn
   });
   assert.deepEqual(store.getStorageUsage(), { main: MAIN_KEY.length + main.length, snapshots: SNAPSHOTS_KEY.length + snaps.length });
 });
+
+// --- Update-note alert: fresh install vs existing user ---
+
+test('fresh install (no saved data) does not show the update alert', async () => {
+  const store = await freshStore();
+  assert.equal(store.shouldShowUpdateAlert(), false);
+});
+
+test('existing saved data without lastSeenUpdateId shows the alert, and all progress is untouched', async () => {
+  const blob = validBlob();
+  const store = await freshStore({ [MAIN_KEY]: JSON.stringify(blob) });
+  assert.equal(store.shouldShowUpdateAlert(), true);
+  assert.deepEqual(store.allCards(), blob.srsCards);
+  assert.deepEqual(store.allPackStates(), blob.packs);
+});
+
+test('markUpdatesSeen hides the alert, persists, and keeps it hidden after reload', async () => {
+  const store = await freshStore({ [MAIN_KEY]: JSON.stringify(validBlob()) });
+  store.markUpdatesSeen();
+  assert.equal(store.shouldShowUpdateAlert(), false);
+  const saved = localStorage.getItem(MAIN_KEY);
+  const reloaded = await freshStore({ [MAIN_KEY]: saved });
+  assert.equal(reloaded.shouldShowUpdateAlert(), false);
+  assert.deepEqual(reloaded.allCards(), validBlob().srsCards);
+});
