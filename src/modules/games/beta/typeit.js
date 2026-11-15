@@ -11,14 +11,14 @@
 // — only capitalization, a missing umlaut/ß, or just the wrong article —
 // gets its own "so close" message instead).
 
-import { getAllVocabWords } from '../../../db/contentLoader.js';
-import { vocabCardId, submitGradeForCardId } from '../../../srs/queue.js';
+import { vocabCardId, gradeGameWord } from '../../../srs/queue.js';
 import { gradeFromCorrectness } from '../../../srs/engine.js';
 import { store } from '../../../db/storage.js';
 import { escapeHtml, genderBadgeHTML } from '../../../components/gender.js';
 import { umlautFieldHTML, wireUmlautButtons } from '../../../components/umlaut.js';
 import { resultsListHTML } from '../../shared/resultsSummary.js';
 import { renderMissesReview } from '../../shared/missesReview.js';
+import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../../shared/gamePool.js';
 import { t } from '../../../i18n.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
@@ -82,7 +82,7 @@ export async function render(container) {
     timerId = null;
   }
 
-  function renderOptions() {
+  function renderOptions({ tooSmall = false } = {}) {
     clearTimers();
     const bests = store.getStats().gameBests;
     const streakBest = bests.typeit;
@@ -91,6 +91,7 @@ export async function render(container) {
       <div class="view">
         <h1 class="page-title">Type it <span class="tag">beta</span></h1>
         <p class="page-subtitle">You see the English, type the German. Exact spelling counts — nouns need capital letters.</p>
+        ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card">
           <label class="switch-row"><span>${t('checkGenderToggle')}</span><input type="checkbox" id="check-gender" ${checkGender ? 'checked' : ''} /></label>
           <p class="page-subtitle" style="margin:8px 0 0;">When on, noun answers must include the article (e.g. "der Löffel"). When off, the bare noun is accepted.</p>
@@ -109,7 +110,9 @@ export async function render(container) {
             <span class="page-subtitle" style="margin:0;">${streakBest ? t('bestStreakValue', streakBest.streak) : t('noBestYet')}</span>
           </button>
         </div>
+        ${extraPacksPickerHTML({ open: tooSmall })}
       </div>`;
+    wireExtraPacksPicker(container);
     container.querySelector('#check-gender').addEventListener('change', (e) => {
       store.updateSettings({ typeItCheckGender: e.target.checked });
     });
@@ -118,7 +121,7 @@ export async function render(container) {
   }
 
   function notEnoughContent() {
-    container.innerHTML = `<div class="view empty-state">Not enough vocab activated yet. Activate a pack first.</div>`;
+    renderOptions({ tooSmall: true });
   }
 
   /** Shared question UI for both modes — differs only in the header line and what happens after an answer. */
@@ -212,7 +215,7 @@ export async function render(container) {
 
   // --- Mode A: Timed ---
   function startTimedGame(seconds) {
-    const words = shuffle(getAllVocabWords());
+    const words = shuffle(getGameWordPool());
     if (words.length < 5) return notEnoughContent();
     const checkGender = !!store.getSettings().typeItCheckGender;
     let idx = 0;
@@ -238,7 +241,7 @@ export async function render(container) {
     function onAnswer(typed, word, hintUsed) {
       const answer = expectedAnswer(word, checkGender);
       const correct = typed === answer;
-      submitGradeForCardId(vocabCardId(word.packId, word.id, facetFor(word)), gradeFromCorrectness(correct, hintUsed));
+      gradeGameWord(word, facetFor(word), gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word, correct });
       idx++;
       if (correct) {
@@ -278,7 +281,7 @@ export async function render(container) {
 
   // --- Mode B: Streak (no timer, ends on first mistake) ---
   function startStreakGame() {
-    const words = shuffle(getAllVocabWords());
+    const words = shuffle(getGameWordPool());
     if (words.length < 5) return notEnoughContent();
     const checkGender = !!store.getSettings().typeItCheckGender;
     let idx = 0;
@@ -295,7 +298,7 @@ export async function render(container) {
     function onAnswer(typed, word, hintUsed) {
       const answer = expectedAnswer(word, checkGender);
       const correct = typed === answer;
-      submitGradeForCardId(vocabCardId(word.packId, word.id, facetFor(word)), gradeFromCorrectness(correct, hintUsed));
+      gradeGameWord(word, facetFor(word), gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word, correct });
       idx++;
       if (correct) {
@@ -361,6 +364,7 @@ export async function render(container) {
           itemId: r.word.id,
           cardId: vocabCardId(r.word.packId, r.word.id, facetFor(r.word)),
           content: r.word,
+          graded: r.word.graded,
         }));
         renderMissesReview({ container, items, onDone: renderOptions });
       });

@@ -1,10 +1,10 @@
-import { getAllVocabWords } from '../../db/contentLoader.js';
-import { vocabCardId, submitGradeForCardId } from '../../srs/queue.js';
+import { vocabCardId, gradeGameWord } from '../../srs/queue.js';
 import { gradeFromCorrectness } from '../../srs/engine.js';
 import { store } from '../../db/storage.js';
 import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
 import { resultsListHTML } from '../shared/resultsSummary.js';
 import { renderMissesReview } from '../shared/missesReview.js';
+import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../shared/gamePool.js';
 // Aliased to avoid shadowing the local `t` (stat-tile) variable in renderRoundResults below.
 import { t as translate } from '../../i18n.js';
 
@@ -31,7 +31,7 @@ export async function render(container) {
     flashTimeoutId = null;
   }
 
-  function renderOptions() {
+  function renderOptions({ tooSmall = false } = {}) {
     clearTimers();
     const bests = store.getStats().gameBests;
     const streakBest = bests['sorting-streak'];
@@ -39,6 +39,7 @@ export async function render(container) {
       <div class="view">
         <h1 class="page-title">der/die/das Sorting</h1>
         <p class="page-subtitle">Choose a mode.</p>
+        ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card" style="padding:0;">
           ${TIMED_DURATIONS.map((s) => {
             const best = bests[`sorting-timed-${s}`];
@@ -53,7 +54,9 @@ export async function render(container) {
             <span class="page-subtitle" style="margin:0;">${streakBest ? translate('bestStreakValue', streakBest.streak) : translate('noBestYet')}</span>
           </button>
         </div>
+        ${extraPacksPickerHTML({ open: tooSmall })}
       </div>`;
+    wireExtraPacksPicker(container);
     container.querySelectorAll('[data-timed]').forEach((btn) => btn.addEventListener('click', () => startTimedGame(Number(btn.dataset.timed))));
     container.querySelector('[data-streak]').addEventListener('click', startStreakGame);
   }
@@ -90,12 +93,12 @@ export async function render(container) {
   }
 
   function notEnoughContent() {
-    container.innerHTML = `<div class="view empty-state">Not enough nouns activated yet. Activate a vocab pack first.</div>`;
+    renderOptions({ tooSmall: true });
   }
 
   // --- Mode A: Timed ---
   function startTimedGame(seconds) {
-    const nouns = shuffle(getAllVocabWords().filter((w) => w.pos === 'noun'));
+    const nouns = shuffle(getGameWordPool().filter((w) => w.pos === 'noun'));
     if (nouns.length < 5) return notEnoughContent();
     let idx = 0;
     let score = 0;
@@ -123,7 +126,7 @@ export async function render(container) {
     function onAnswer(pick, word, hintUsed) {
       if (locked) return;
       const correct = pick === word.gender;
-      submitGradeForCardId(vocabCardId(word.packId, word.id, 'gender'), gradeFromCorrectness(correct, hintUsed));
+      gradeGameWord(word, 'gender', gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word, correct });
       idx++;
       if (correct) {
@@ -188,7 +191,7 @@ export async function render(container) {
 
   // --- Mode B: Streak (no timer, ends on first miss) ---
   function startStreakGame() {
-    const nouns = shuffle(getAllVocabWords().filter((w) => w.pos === 'noun'));
+    const nouns = shuffle(getGameWordPool().filter((w) => w.pos === 'noun'));
     if (nouns.length < 5) return notEnoughContent();
     let idx = 0;
     let streak = 0;
@@ -203,7 +206,7 @@ export async function render(container) {
 
     function onAnswer(pick, word, hintUsed) {
       const correct = pick === word.gender;
-      submitGradeForCardId(vocabCardId(word.packId, word.id, 'gender'), gradeFromCorrectness(correct, hintUsed));
+      gradeGameWord(word, 'gender', gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word, correct });
       idx++;
       if (correct) {
@@ -273,6 +276,7 @@ export async function render(container) {
           itemId: r.word.id,
           cardId: vocabCardId(r.word.packId, r.word.id, 'gender'),
           content: r.word,
+          graded: r.word.graded,
         }));
         renderMissesReview({ container, items, onDone: renderOptions });
       });

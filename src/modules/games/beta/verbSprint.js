@@ -4,14 +4,14 @@
 // classic traps (sein verbs, separable prefixes, irregular participles)
 // since it draws straight from the verbs' authored `perfekt`/`auxiliary`.
 
-import { getAllVocabWords } from '../../../db/contentLoader.js';
-import { vocabCardId, submitGradeForCardId } from '../../../srs/queue.js';
+import { vocabCardId, gradeGameWord } from '../../../srs/queue.js';
 import { gradeFromCorrectness } from '../../../srs/engine.js';
 import { store } from '../../../db/storage.js';
 import { escapeHtml } from '../../../components/gender.js';
 import { hintForFacet } from '../../shared/itemRenderer.js';
 import { resultsListHTML } from '../../shared/resultsSummary.js';
 import { renderMissesReview } from '../../shared/missesReview.js';
+import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../../shared/gamePool.js';
 import { t } from '../../../i18n.js';
 
 const TIMED_DURATIONS = [30, 45, 60];
@@ -44,13 +44,14 @@ export async function render(container) {
     flashTimeoutId = null;
   }
 
-  function renderOptions() {
+  function renderOptions({ tooSmall = false } = {}) {
     clearTimers();
     const bests = store.getStats().gameBests;
     container.innerHTML = `
       <div class="view">
         <h1 class="page-title">Verb forms sprint <span class="tag">beta</span></h1>
         <p class="page-subtitle">Build the Perfekt: pick hat/ist, then the participle.</p>
+        ${tooSmall ? poolTooSmallHTML() : ''}
         <div class="card" style="padding:0;">
           ${TIMED_DURATIONS.map((s) => {
             const best = bests[`verbSprint-timed-${s}`];
@@ -61,16 +62,18 @@ export async function render(container) {
             </button>`;
           }).join('')}
         </div>
+        ${extraPacksPickerHTML({ open: tooSmall })}
       </div>`;
+    wireExtraPacksPicker(container);
     container.querySelectorAll('[data-timed]').forEach((btn) => btn.addEventListener('click', () => startTimedGame(Number(btn.dataset.timed))));
   }
 
   function notEnoughContent() {
-    container.innerHTML = `<div class="view empty-state">Not enough verbs activated yet. Activate a vocab pack with verbs first.</div>`;
+    renderOptions({ tooSmall: true });
   }
 
   function startTimedGame(seconds) {
-    const verbs = shuffle(getAllVocabWords().filter((w) => w.pos === 'verb' && w.perfekt && w.auxiliary));
+    const verbs = shuffle(getGameWordPool().filter((w) => w.pos === 'verb' && w.perfekt && w.auxiliary));
     if (verbs.length < 5) return notEnoughContent();
     let idx = 0;
     let score = 0;
@@ -167,7 +170,7 @@ export async function render(container) {
         if (locked) return;
         locked = true;
         const correct = auxPick === aux && participlePick === participle;
-        submitGradeForCardId(vocabCardId(w.packId, w.id, 'principal_parts'), gradeFromCorrectness(correct, hintUsed));
+        gradeGameWord(w, 'principal_parts', gradeFromCorrectness(correct, hintUsed));
         rounds.push({ word: w, correct });
         idx++;
         if (correct) {
@@ -274,6 +277,7 @@ export async function render(container) {
             itemId: r.word.id,
             cardId: vocabCardId(r.word.packId, r.word.id, 'principal_parts'),
             content: r.word,
+            graded: r.word.graded,
           }));
           renderMissesReview({ container, items, onDone: renderOptions });
         });

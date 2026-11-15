@@ -5,14 +5,14 @@
 // correct answer before the next word falls, and remaining misses are shown
 // as a prominent heart tracker.
 
-import { getAllVocabWords, getVocabPacks } from '../../db/contentLoader.js';
-import { vocabCardId, submitGradeForCardId } from '../../srs/queue.js';
+import { vocabCardId, gradeGameWord } from '../../srs/queue.js';
 import { gradeFromCorrectness } from '../../srs/engine.js';
 import { store } from '../../db/storage.js';
 import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
 import { hintForFacet } from '../shared/itemRenderer.js';
 import { resultsListHTML } from '../shared/resultsSummary.js';
 import { renderMissesReview } from '../shared/missesReview.js';
+import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../shared/gamePool.js';
 import { t } from '../../i18n.js';
 
 const START_FALL_MS = 4200;
@@ -71,19 +71,18 @@ export async function render(container) {
     pauseTimeoutId = null;
   }
 
-  function renderIntro() {
+  function renderIntro({ tooSmall = false } = {}) {
     clearTimers();
     const best = store.getStats().gameBests.wordfall;
     const settings = store.getSettings();
     const direction = normalizeDirection(settings.wordfallDirection);
-    const packs = getVocabPacks();
-    const selectedIds = new Set(settings.wordfallPackIds || []);
 
     container.innerHTML = `
       <div class="view">
         <h1 class="page-title">Wordfall 🌧️</h1>
         <p class="page-subtitle">Tap the right meaning before the word lands. Speed ramps up. 3 misses ends the run.</p>
         ${best ? `<p class="page-subtitle" style="margin-top:-12px;">${t('bestScoreValue', best.score)}</p>` : ''}
+        ${tooSmall ? poolTooSmallHTML() : ''}
 
         <div class="section-heading">${t('direction')}</div>
         <div class="card">
@@ -93,21 +92,7 @@ export async function render(container) {
           </div>
         </div>
 
-        <details class="card">
-          <summary>${t('advancedSettings')}</summary>
-          <p class="page-subtitle" style="margin:10px 0 8px;">Choose which vocab packs to pull words from. Leave all unchecked to use every pack.</p>
-          <div>
-            ${packs
-              .map(
-                (p) => `
-              <div class="switch-row">
-                <span>${escapeHtml(p.title)} <span class="page-subtitle">(${p.words.length})</span></span>
-                <input type="checkbox" data-pack="${p.id}" ${selectedIds.has(p.id) ? 'checked' : ''} />
-              </div>`
-              )
-              .join('')}
-          </div>
-        </details>
+        ${extraPacksPickerHTML({ open: tooSmall })}
 
         <button class="btn btn-primary btn-block" id="start" style="margin-top:16px;">Start</button>
       </div>`;
@@ -119,22 +104,15 @@ export async function render(container) {
         renderIntro();
       })
     );
-    container.querySelectorAll('[data-pack]').forEach((el) =>
-      el.addEventListener('change', () => {
-        const checked = Array.from(container.querySelectorAll('[data-pack]:checked')).map((c) => c.dataset.pack);
-        store.updateSettings({ wordfallPackIds: checked });
-      })
-    );
+    wireExtraPacksPicker(container);
   }
 
   function startGame() {
     const settings = store.getSettings();
     const direction = normalizeDirection(settings.wordfallDirection);
-    const packIds = settings.wordfallPackIds || [];
-    const selectedIds = packIds.length ? new Set(packIds) : null;
-    const words = getAllVocabWords().filter((w) => !selectedIds || selectedIds.has(w.packId));
+    const words = getGameWordPool();
     if (words.length < 6) {
-      container.innerHTML = `<div class="view empty-state">Not enough vocab in the selected packs. Choose more packs in Advanced settings, or clear your selection to use every pack.</div>`;
+      renderIntro({ tooSmall: true });
       return;
     }
     let score = 0;
@@ -218,7 +196,7 @@ export async function render(container) {
     }
 
     function resolveRound(correct, target) {
-      submitGradeForCardId(vocabCardId(target.packId, target.id, facetFor(target, direction)), gradeFromCorrectness(correct, hintUsed));
+      gradeGameWord(target, facetFor(target, direction), gradeFromCorrectness(correct, hintUsed));
       rounds.push({ word: target, correct });
       if (correct) {
         score++;
@@ -302,6 +280,7 @@ export async function render(container) {
             itemId: r.word.id,
             cardId: vocabCardId(r.word.packId, r.word.id, facetFor(r.word, direction)),
             content: r.word,
+            graded: r.word.graded,
           }));
           renderMissesReview({ container, items, onDone: renderIntro });
         });

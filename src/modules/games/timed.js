@@ -1,10 +1,10 @@
-import { getAllVocabWords } from '../../db/contentLoader.js';
-import { vocabCardId, submitGradeForCardId } from '../../srs/queue.js';
+import { vocabCardId, gradeGameWord } from '../../srs/queue.js';
 import { gradeFromCorrectness } from '../../srs/engine.js';
 import { store } from '../../db/storage.js';
 import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
 import { resultsListHTML } from '../shared/resultsSummary.js';
 import { renderMissesReview } from '../shared/missesReview.js';
+import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../shared/gamePool.js';
 import { t } from '../../i18n.js';
 
 const ROUND_SECONDS = 60;
@@ -21,20 +21,23 @@ function shuffle(arr) {
 export async function render(container) {
   let timerId = null;
 
-  function renderIntro() {
+  function renderIntro({ tooSmall = false } = {}) {
     container.innerHTML = `
       <div class="view">
         <h1 class="page-title">Timed Challenge</h1>
         <p class="page-subtitle">${ROUND_SECONDS}s. Pick the right meaning as fast as you can.</p>
-        <button class="btn btn-primary btn-block" id="start">Start</button>
+        ${tooSmall ? poolTooSmallHTML() : ''}
+        ${extraPacksPickerHTML({ open: tooSmall })}
+        <button class="btn btn-primary btn-block" id="start" style="margin-top:16px;">Start</button>
       </div>`;
+    wireExtraPacksPicker(container);
     container.querySelector('#start').addEventListener('click', startGame);
   }
 
   function startGame() {
-    const words = getAllVocabWords();
+    const words = getGameWordPool();
     if (words.length < 6) {
-      container.innerHTML = `<div class="view empty-state">Not enough vocab activated yet. Activate a pack first.</div>`;
+      renderIntro({ tooSmall: true });
       return;
     }
     let score = 0;
@@ -75,7 +78,7 @@ export async function render(container) {
           () => {
             const opt = options[Number(btn.dataset.i)];
             const correct = opt.id === target.id && opt.packId === target.packId;
-            submitGradeForCardId(vocabCardId(target.packId, target.id, 'meaning_de_en'), gradeFromCorrectness(correct, hintUsed));
+            gradeGameWord(target, 'meaning_de_en', gradeFromCorrectness(correct, hintUsed));
             rounds.push({ word: target, correct });
             if (correct) {
               score++;
@@ -166,6 +169,7 @@ export async function render(container) {
             itemId: r.word.id,
             cardId: vocabCardId(r.word.packId, r.word.id, 'meaning_de_en'),
             content: r.word,
+            graded: r.word.graded,
           }));
           renderMissesReview({ container, items, onDone: renderIntro });
         });
