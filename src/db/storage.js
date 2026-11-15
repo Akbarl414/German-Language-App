@@ -198,20 +198,57 @@ function load() {
   return cache;
 }
 
+// Save-failure state (storage full or otherwise refusing writes). A failed
+// write never throws to callers and never touches what's on disk: the
+// in-memory data is kept, `saveFailed` is set, and every later persist()
+// retries writing the whole blob. Nothing is ever deleted or shrunk to make
+// room. In-memory only; re-evaluated on every save.
+let saveFailed = false;
+// Set when today's daily snapshot couldn't be written even after dropping
+// older ones (see maybeSnapshot). In-memory only; re-evaluated on each load.
+let snapshotsFailing = false;
+const saveStatusListeners = new Set();
+
+function notifySaveStatus() {
+  saveStatusListeners.forEach((fn) => {
+    try {
+      fn();
+    } catch (e) {
+      console.error('Save-status listener failed.', e);
+    }
+  });
+}
+
+/** Writes the in-memory blob. Returns null on success, or the write error (never throws). */
 function persist() {
   if (loadFailed) {
     console.error('Not saving: stored data failed to load and is awaiting recovery.');
-    return;
+    return null;
   }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cache));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cache));
+  } catch (e) {
+    if (!saveFailed) {
+      console.error('Saving progress failed (storage may be full). Progress is kept in memory and saving will be retried on the next change; the last saved copy on disk is untouched.', e);
+      saveFailed = true;
+      notifySaveStatus();
+    }
+    return e;
+  }
+  if (saveFailed) {
+    saveFailed = false;
+    notifySaveStatus();
+  }
+  return null;
 }
 
-/** Replace the in-memory data with recovered data, leave the failed state, and save. */
+/** Replace the in-memory data with recovered data, leave the failed state, and save. Throws if the save fails, as before. */
 function replaceAndSave(data) {
   load(); // ensure an unloadable blob has been copied to the recovery key before we overwrite it
   cache = data;
   loadFailed = false;
-  persist();
+  const err = persist();
+  if (err) throw err;
   return cache;
 }
 
@@ -231,12 +268,23 @@ function maybeSnapshot(data) {
   const snapshots = loadSnapshots();
   if (snapshots.some((s) => s.date === today)) return;
   snapshots.push({ date: today, data: JSON.parse(JSON.stringify(data)) });
-  const trimmed = snapshots.slice(-SNAPSHOT_RETENTION_DAYS);
-  try {
-    localStorage.setItem(SNAPSHOTS_KEY, JSON.stringify(trimmed));
-  } catch (e) {
-    console.error('Failed to write daily snapshot (storage may be full).', e);
+  const candidates = snapshots.slice(-SNAPSHOT_RETENTION_DAYS);
+  // If it doesn't fit, drop the oldest snapshot and retry, down to today's
+  // alone. A setItem that throws writes nothing, so if every attempt fails
+  // the existing snapshots are left exactly as they were.
+  let lastError = null;
+  while (candidates.length > 0) {
+    try {
+      localStorage.setItem(SNAPSHOTS_KEY, JSON.stringify(candidates));
+      snapshotsFailing = false;
+      return;
+    } catch (e) {
+      lastError = e;
+      candidates.shift();
+    }
   }
+  snapshotsFailing = true;
+  console.error("Failed to write today's daily snapshot (storage may be full); existing snapshots left untouched.", lastError);
 }
 
 export const store = {
@@ -377,6 +425,34 @@ export const store = {
     if (!found) throw new Error(`No snapshot found for ${date}`);
     if (!hasLoadableShape(found.data)) throw new Error(`Snapshot for ${date} is not in a loadable shape.`);
     return replaceAndSave(migrate(found.data));
+  },
+
+  // --- Save health (see persist / maybeSnapshot) ---
+  /** True while the latest save failed (e.g. storage full); in-memory data is kept and the next save retries. */
+  get saveFailed() {
+    return saveFailed;
+  },
+  /** True when today's daily snapshot couldn't be written this session. */
+  get snapshotsFailing() {
+    load();
+    return snapshotsFailing;
+  },
+  /** Subscribe to saveFailed changes. Returns an unsubscribe function. */
+  onSaveStatusChange(fn) {
+    saveStatusListeners.add(fn);
+    return () => saveStatusListeners.delete(fn);
+  },
+  /** Approximate on-disk size in characters (key + stored value) of the main data and the snapshots. */
+  getStorageUsage() {
+    const size = (key) => {
+      try {
+        const v = localStorage.getItem(key);
+        return v == null ? 0 : key.length + v.length;
+      } catch {
+        return 0;
+      }
+    };
+    return { main: size(STORAGE_KEY), snapshots: size(SNAPSHOTS_KEY) };
   },
 
   // --- Failed-load recovery (see enterFailedState) ---

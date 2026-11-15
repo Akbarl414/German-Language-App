@@ -207,3 +207,149 @@ for (const [label, file] of Object.entries({
     assert.equal(store.loadFailed, false);
   });
 }
+
+// --- Full storage: a failed write must never damage what's on disk ---
+
+/** localStorage with a character quota (key + value, like browsers), throwing before changing anything when a write would exceed it. */
+class QuotaLocalStorage extends MemoryLocalStorage {
+  constructor() {
+    super();
+    this.quota = Infinity;
+    this.failKeys = new Set();
+  }
+  used() {
+    let n = 0;
+    for (const [k, v] of this.map) n += k.length + v.length;
+    return n;
+  }
+  setItem(key, value) {
+    const v = String(value);
+    const old = this.map.has(key) ? key.length + this.map.get(key).length : 0;
+    if (this.failKeys.has(key) || this.used() - old + key.length + v.length > this.quota) {
+      throw Object.assign(new Error('The quota has been exceeded.'), { name: 'QuotaExceededError' });
+    }
+    this.map.set(key, v);
+  }
+}
+
+/** Like freshStore, but over a QuotaLocalStorage seeded (with no quota) before `configure` applies limits. */
+async function freshQuotaStore(entries = {}, configure = () => {}) {
+  const ls = new QuotaLocalStorage();
+  for (const [k, v] of Object.entries(entries)) ls.setItem(k, v);
+  configure(ls);
+  globalThis.localStorage = ls;
+  const mod = await import(`./storage.js?fresh=${++freshCounter}`);
+  return { store: mod.store, ls };
+}
+
+test('a failed save keeps the stored blob byte-for-byte, keeps data in memory, and sets saveFailed', async () => {
+  const { store, ls } = await freshQuotaStore({ [MAIN_KEY]: JSON.stringify(validBlob()) });
+  store.data; // load
+  store.updateSettings({ dailyNewLimit: 11 }); // a normal save first, so the on-disk blob is in current format
+  const before = ls.getItem(MAIN_KEY);
+  let notified = 0;
+  store.onSaveStatusChange(() => notified++);
+
+  ls.failKeys.add(MAIN_KEY);
+  assert.doesNotThrow(() => store.setCard('vocab:x::a:meaning', { status: 'new' }));
+  assert.equal(ls.getItem(MAIN_KEY), before);
+  assert.equal(store.saveFailed, true);
+  assert.deepEqual(store.getCard('vocab:x::a:meaning'), { status: 'new' });
+  assert.equal(notified, 1);
+
+  store.setCard('vocab:x::b:meaning', { status: 'new' }); // still failing: no repeat notification, disk still untouched
+  assert.equal(ls.getItem(MAIN_KEY), before);
+  assert.equal(notified, 1);
+});
+
+test('a later successful save writes everything kept in memory and clears saveFailed', async () => {
+  const { store, ls } = await freshQuotaStore({ [MAIN_KEY]: JSON.stringify(validBlob()) });
+  store.data;
+  let notified = 0;
+  store.onSaveStatusChange(() => notified++);
+  ls.failKeys.add(MAIN_KEY);
+  store.setCard('vocab:x::a:meaning', { status: 'new' });
+  assert.equal(store.saveFailed, true);
+
+  ls.failKeys.delete(MAIN_KEY);
+  store.setCard('vocab:x::b:meaning', { status: 'new' });
+  assert.equal(store.saveFailed, false);
+  assert.equal(notified, 2);
+  const onDisk = JSON.parse(ls.getItem(MAIN_KEY));
+  assert.deepEqual(onDisk.srsCards['vocab:x::a:meaning'], { status: 'new' });
+  assert.deepEqual(onDisk.srsCards['vocab:x::b:meaning'], { status: 'new' });
+  assert.deepEqual(onDisk.srsCards['vocab:core-verbs-1::gehen:meaning'], validBlob().srsCards['vocab:core-verbs-1::gehen:meaning']);
+});
+
+test('importing a backup when storage is full still throws and leaves the stored blob byte-for-byte', async () => {
+  const { store, ls } = await freshQuotaStore({ [MAIN_KEY]: JSON.stringify(validBlob()) });
+  store.data;
+  const before = ls.getItem(MAIN_KEY);
+  ls.failKeys.add(MAIN_KEY);
+  assert.throws(() => store.importBackup(JSON.stringify({ ...validBlob(), settings: { dailyNewLimit: 3 } })));
+  assert.equal(ls.getItem(MAIN_KEY), before);
+});
+
+// Six older snapshots, each padded so dropping one frees a known amount of room.
+const OLD_SNAPSHOT_DATES = ['2026-01-01', '2026-01-02', '2026-01-03', '2026-01-04', '2026-01-05', '2026-01-06'];
+const oldSnapshots = () =>
+  JSON.stringify(OLD_SNAPSHOT_DATES.map((date) => ({ date, data: { ...validBlob(), meta: { createdAt: date, pad: 'p'.repeat(800) } } })));
+
+async function snapshotRun(roomBeyondMain) {
+  const seeded = { [MAIN_KEY]: JSON.stringify(validBlob()), [SNAPSHOTS_KEY]: oldSnapshots() };
+  const { store, ls } = await freshQuotaStore(seeded, (l) => {
+    // Room measured on top of the main data alone, so small values can't fit even today's snapshot.
+    l.quota = MAIN_KEY.length + seeded[MAIN_KEY].length + roomBeyondMain;
+  });
+  store.data; // load → maybeSnapshot
+  return { store, ls, before: seeded[SNAPSHOTS_KEY] };
+}
+
+test("today's snapshot is written by dropping the oldest snapshots, newest ones kept", async () => {
+  // Room for today's snapshot plus a little: some (not all) old snapshots must be dropped.
+  const { store, ls } = await snapshotRun(SNAPSHOTS_KEY.length + 4000);
+  const after = JSON.parse(ls.getItem(SNAPSHOTS_KEY));
+  const olds = after.slice(0, -1).map((s) => s.date);
+  assert.equal(store.snapshotsFailing, false);
+  assert.notEqual(after.at(-1).date, OLD_SNAPSHOT_DATES.at(-1)); // today's is last
+  assert.ok(olds.length > 0 && olds.length < OLD_SNAPSHOT_DATES.length, `kept ${olds.length}`);
+  assert.deepEqual(olds, OLD_SNAPSHOT_DATES.slice(-olds.length));
+});
+
+test("if even today's snapshot alone can't be written, existing snapshots are left byte-for-byte and snapshotsFailing is set", async () => {
+  const { store, ls, before } = await snapshotRun(100); // not even room for today's snapshot alone
+  assert.equal(ls.getItem(SNAPSHOTS_KEY), before);
+  assert.equal(store.snapshotsFailing, true);
+  assert.deepEqual(store.listSnapshots(), [...OLD_SNAPSHOT_DATES].reverse());
+  assert.equal(ls.getItem(MAIN_KEY), JSON.stringify(validBlob())); // main data untouched too
+});
+
+test('snapshot fallback never leaves fewer good snapshots than before unless it wrote today’s (quota sweep)', async () => {
+  const outcomes = new Set();
+  for (let room = 0; room <= 12000; room += 250) {
+    const { store, ls, before } = await snapshotRun(room);
+    const raw = ls.getItem(SNAPSHOTS_KEY);
+    if (raw === before) {
+      assert.equal(store.snapshotsFailing, true, `room ${room}`);
+      outcomes.add('failed');
+      continue;
+    }
+    const after = JSON.parse(raw);
+    assert.equal(store.snapshotsFailing, false, `room ${room}`);
+    assert.ok(!OLD_SNAPSHOT_DATES.includes(after.at(-1).date), `room ${room}: today's snapshot written last`);
+    const olds = after.slice(0, -1).map((s) => s.date);
+    assert.deepEqual(olds, OLD_SNAPSHOT_DATES.slice(OLD_SNAPSHOT_DATES.length - olds.length), `room ${room}: kept the newest old snapshots`);
+    outcomes.add(olds.length === OLD_SNAPSHOT_DATES.length ? 'all kept' : olds.length === 0 ? 'today only' : 'some dropped');
+  }
+  // The sweep really exercised every path.
+  assert.deepEqual([...outcomes].sort(), ['all kept', 'failed', 'some dropped', 'today only']);
+});
+
+test('getStorageUsage reports the stored sizes of main data and snapshots', async () => {
+  const main = JSON.stringify(validBlob());
+  const snaps = oldSnapshots();
+  const { store } = await freshQuotaStore({ [MAIN_KEY]: main, [SNAPSHOTS_KEY]: snaps }, (l) => {
+    l.failKeys.add(SNAPSHOTS_KEY); // keep the snapshot key exactly as seeded
+  });
+  assert.deepEqual(store.getStorageUsage(), { main: MAIN_KEY.length + main.length, snapshots: SNAPSHOTS_KEY.length + snaps.length });
+});
