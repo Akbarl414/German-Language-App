@@ -2,7 +2,7 @@ import './style.css';
 import { route, initRouter, rerenderCurrentRoute } from './router.js';
 import { renderNav } from './components/nav.js';
 import { initTheme } from './theme.js';
-import { onLanguageChange } from './i18n.js';
+import { onLanguageChange, t } from './i18n.js';
 import { store } from './db/storage.js';
 
 initTheme();
@@ -44,6 +44,16 @@ function paintNav() {
   navEl.innerHTML = renderNav(location.hash.slice(1) || '/');
 }
 
+// Persistent, non-blocking warning on every screen while saving to
+// localStorage fails (e.g. storage full); see persist() in storage.js.
+const saveWarningEl = document.getElementById('save-warning');
+function paintSaveWarning() {
+  const failed = store.saveFailed;
+  saveWarningEl.hidden = !failed;
+  document.body.classList.toggle('has-save-warning', failed);
+  saveWarningEl.innerHTML = failed ? `${t('saveFailedBanner')} <a href="#/settings">${t('saveFailedGoToSettings')}</a>` : '';
+}
+
 if (store.loadFailed) {
   // Saved data exists but couldn't be loaded: the store is read-only, and no
   // normal screen (or the nav that leads to them) is shown until the user
@@ -52,6 +62,8 @@ if (store.loadFailed) {
 } else {
   window.addEventListener('hashchange', paintNav);
   paintNav();
+  paintSaveWarning();
+  store.onSaveStatusChange(paintSaveWarning);
 
   initRouter(document.getElementById('app'));
 
@@ -59,6 +71,7 @@ if (store.loadFailed) {
   // language toggle in Settings changes.
   onLanguageChange(() => {
     paintNav();
+    paintSaveWarning();
     rerenderCurrentRoute();
   });
 }

@@ -161,6 +161,21 @@ const LABELS = {
   automaticSnapshots: { de: 'Automatische Schnappschüsse', en: 'Automatic snapshots' },
   restore: { de: 'Wiederherstellen', en: 'Restore' },
   dangerZone: { de: 'Gefahrenzone', en: 'Danger zone' },
+  snapshotsFailingWarning: {
+    de: 'Der heutige Schnappschuss konnte nicht gespeichert werden (Speicher voll). Exportiere regelmäßig ein Backup.',
+    en: "Today's snapshot couldn't be saved (storage full). Export a backup regularly.",
+  },
+  storageUsed: {
+    de: (main, snaps) => `Speicherbelegung: Daten ${main} · Schnappschüsse ${snaps}`,
+    en: (main, snaps) => `Storage used: data ${main} · snapshots ${snaps}`,
+  },
+
+  // --- Save-failure banner (every screen, while saving fails) ---
+  saveFailedBanner: {
+    de: 'Speichern fehlgeschlagen: Der Speicher ist voll. Exportiere jetzt ein Backup, sonst geht neuer Fortschritt beim Schließen verloren.',
+    en: 'Saving failed: storage is full. Export a backup now, or new progress will be lost when you close the app.',
+  },
+  saveFailedGoToSettings: { de: 'Zu den Einstellungen', en: 'Go to Settings' },
   // --- Recovery screen (shown when saved data fails to load) ---
   recoveryTitle: { de: 'Gespeicherte Daten wiederherstellen', en: 'Recover saved data' },
   recoveryDownloadRaw: { de: 'Rohdaten herunterladen', en: 'Download raw saved data' },

@@ -139,8 +139,26 @@ button { font-family: inherit; }
 .bottom-nav a .icon { font-size: 1.25rem; }
 .bottom-nav a.active { color: var(--accent); }
 
+/* --- Save-failure banner (main.js): sticky, in normal flow, never blocks taps --- */
+.save-warning {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  /* Carries the top safe-area inset itself; #app drops its own while the banner shows. */
+  padding: calc(env(safe-area-inset-top) + 8px) calc(16px + env(safe-area-inset-right)) 8px calc(16px + env(safe-area-inset-left));
+  background: var(--warn);
+  color: #1a1200;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.save-warning[hidden] { display: none; }
+.save-warning a { color: inherit; text-decoration: underline; white-space: nowrap; }
+body.has-save-warning #app { padding-top: 0; }
+
 @media (min-width: 860px) {
   #app { padding-bottom: 0; padding-left: calc(96px + env(safe-area-inset-left)); }
+  .save-warning { margin-left: calc(96px + env(safe-area-inset-left)); padding-left: 16px; }
   .bottom-nav {
     top: 0; bottom: 0; right: auto; height: 100dvh; width: 88px;
     flex-direction: column; border-top: none; border-right: 1px solid var(--border);
