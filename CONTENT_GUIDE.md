@@ -19,7 +19,7 @@ Every JSON file under `content/vocab/packs/`, `content/grammar/units/`, `content
 1. Write a new JSON file in the right folder.
 2. Make sure `"id"` inside the file exactly matches the filename (without `.json`).
 3. Run `npm run validate`.
-4. Done — it'll show up in the app automatically (vocab packs default OFF until the user activates + triages them in Settings; grammar units and phrase sets default ON).
+4. Done — it'll show up in the app automatically (vocab packs default OFF until the user activates + triages them in Settings, and only active packs reach daily review or are graded by games; grammar units and phrase sets default ON). Words added to a pack the user has already activated don't get triaged automatically: games treat them as practice-only until the user re-activates the pack, which triages only words without cards.
 
 ## Directory layout
 
@@ -215,4 +215,4 @@ Alternate `text` and `blank` segments. Each `blank` needs `answer` plus 2-4 `opt
 
 ## Path A vs Path B
 
-This guide covers Path B (bulk content generation via Claude Code). Path A (in-app manual entry, right after a lesson) stores words/phrases/notes directly in the browser's localStorage via `src/db/storage.js` — they're merged into the same lists at runtime by `contentLoader.js` under a synthetic `"user-added"` pack/set, and ride along in the Export/Import backup. You don't need to do anything in this repo for Path A entries; they never touch the filesystem.
+This guide covers Path B (bulk content generation via Claude Code). Path A (in-app manual entry, right after a lesson) stores words/phrases/notes directly in the browser's localStorage via `src/db/storage.js` — they're merged into the same lists at runtime by `contentLoader.js` under a synthetic `"user-added"` pack/set, and ride along in the Export/Import backup. User-added words go straight into daily review as new cards (the `user-added` pack counts as active unless the user switches it off). You don't need to do anything in this repo for Path A entries; they never touch the filesystem.
