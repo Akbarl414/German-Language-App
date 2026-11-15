@@ -11,19 +11,23 @@ import {
   getPhraseSets,
   getGrammarUnits,
   findWord,
+  findVocabPack,
   findPhrase,
   findExercise,
 } from '../db/contentLoader.js';
+import { vocabCardId, phraseCardId, grammarCardId } from './cardIds.js';
+import {
+  USER_VOCAB_PACK_ID,
+  parseCardId,
+  isSourceInReview,
+  wordKeysWithCards,
+  triageQueueFor,
+  triageEntries,
+  missingFacetEntries,
+  shouldGradeGameWord,
+} from './vocabScope.js';
 
-export function vocabCardId(packId, wordId, facet) {
-  return `vocab:${packId}::${wordId}:${facet}`;
-}
-export function phraseCardId(setId, phraseId, facet) {
-  return `phrase:${setId}::${phraseId}:${facet}`;
-}
-export function grammarCardId(unitId, exerciseId) {
-  return `grammar:${unitId}::${exerciseId}:default`;
-}
+export { vocabCardId, phraseCardId, grammarCardId };
 
 function packKey(type, id) {
   return `${type}:${id}`;
@@ -38,10 +42,13 @@ export function isPackActive(type, id) {
 export function activateVocabPack(packId) {
   const pack = getVocabPacks().find((p) => p.id === packId);
   if (!pack) return;
+  // Only words with no cards yet need triage; words that already have cards
+  // (from an earlier activation, or a game before this rule existed) keep them as they are.
+  const pending = triageQueueFor(pack.words, packId, wordKeysWithCards(Object.keys(store.allCards())));
   store.setPackState(packKey('vocab', packId), {
     active: true,
-    triaged: pack.words.length === 0,
-    pendingTriageWordIds: pack.words.map((w) => w.id),
+    triaged: pending.length === 0,
+    pendingTriageWordIds: pending,
   });
 }
 
@@ -57,18 +64,16 @@ export function getPendingTriageWords(packId) {
   return (pack?.words || []).filter((w) => pending.has(w.id));
 }
 
-/** Apply a triage decision for one word: 'known' schedules all facets far out, 'drill' enqueues them as new cards. */
+/**
+ * Apply a triage decision for one word: 'known' schedules its facets far out,
+ * 'drill' enqueues them as new cards. Only facets with no card are written;
+ * triage never replaces an existing card.
+ */
 export function triageWord(packId, wordId, decision) {
   const word = findWord(packId, wordId);
   if (!word) return;
-  const now = Date.now();
-  const facets = engine.facetsFor(word.pos);
-  const entries = facets.map((facet) => {
-    const id = vocabCardId(packId, wordId, facet);
-    const card = decision === 'known' ? engine.learnedCard(now) : engine.newCard(now);
-    return [id, card];
-  });
-  store.setCards(entries);
+  const entries = triageEntries(packId, word, decision, store.allCards(), Date.now());
+  if (entries.length) store.setCards(entries);
 
   const key = packKey('vocab', packId);
   const state = store.getPackState(key);
@@ -97,7 +102,23 @@ function isActiveByDefault(type, id) {
   return state.active !== false; // undefined (never touched) counts as active
 }
 
+/**
+ * Words added in the app go straight into daily review as new cards: create
+ * any missing facet cards for every user-added word (never touching existing
+ * ones). Idempotent; also backfills words added before this rule existed.
+ */
+export function ensureUserVocabCards() {
+  if (!isSourceInReview('vocab', USER_VOCAB_PACK_ID, store.allPackStates())) return;
+  const pack = findVocabPack(USER_VOCAB_PACK_ID);
+  if (!pack) return;
+  const now = Date.now();
+  const cards = store.allCards();
+  const entries = pack.words.flatMap((w) => missingFacetEntries(USER_VOCAB_PACK_ID, w, cards, now));
+  if (entries.length) store.setCards(entries);
+}
+
 export function ensureContentCards() {
+  ensureUserVocabCards();
   for (const set of getPhraseSets()) {
     if (!isActiveByDefault('phrase', set.id)) continue;
     for (const phrase of set.phrases) ensurePhraseCards(set.id, phrase);
@@ -122,19 +143,19 @@ function allCardRefs() {
   const cards = store.allCards();
   const refs = [];
   for (const cardId of Object.keys(cards)) {
-    const type = cardId.slice(0, cardId.indexOf(':'));
-    const rest = cardId.slice(type.length + 1); // "sourceId::itemId:facet"
-    const [sourceId, itemAndFacet] = rest.split('::');
-    const lastColon = itemAndFacet.lastIndexOf(':');
-    const itemId = itemAndFacet.slice(0, lastColon);
-    const facet = itemAndFacet.slice(lastColon + 1);
+    const { type, sourceId, itemId, facet } = parseCardId(cardId);
     refs.push({ cardId, type, sourceId, itemId, facet, card: cards[cardId] });
   }
   return refs;
 }
 
+/**
+ * Whether a card's source counts toward review (queue, due counts, throttle,
+ * strength, weakest items, Test me). Vocab packs must be explicitly active;
+ * cards from other packs stay stored, just unused. See vocabScope.js.
+ */
 function isSourceActive(type, sourceId) {
-  return store.getPackState(packKey(type, sourceId)).active !== false;
+  return isSourceInReview(type, sourceId, store.allPackStates());
 }
 
 /**
@@ -168,6 +189,16 @@ export function submitGradeForCardId(cardId, gradeValue, now = Date.now()) {
   store.setCard(cardId, next);
   store.recordDailyActivity('reviewed');
   if (wasNew) store.recordDailyActivity('newSeen');
+}
+
+/**
+ * The only way vocab games grade a word. Words from the game pool
+ * (shared/gamePool.js) marked practice-only are ignored: no card is created
+ * or changed. Graded words go through submitGradeForCardId as before.
+ */
+export function gradeGameWord(word, facet, gradeValue, now = Date.now()) {
+  if (!shouldGradeGameWord(word)) return;
+  submitGradeForCardId(vocabCardId(word.packId, word.id, facet), gradeValue, now);
 }
 
 const DAY_MS = 24 * 60 * 60 * 1000;
