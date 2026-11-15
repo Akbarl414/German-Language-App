@@ -9,7 +9,9 @@
 //   (`active === true`). Cards from other packs stay in storage, just unused.
 // - The in-app "user-added" pack counts as active unless explicitly switched
 //   off, like grammar units and phrase sets.
-// - Triage never replaces an existing card.
+// - In an active vocab pack, a word is pending triage if it is missing a card
+//   for any of its facets. Triage writes only the missing facets and never
+//   replaces an existing card.
 // - Games grade a word only if its pack is in review AND the word already has
 //   at least one card ("already in the user's reviews"); everything else in
 //   the game pool is practice-only.
@@ -52,9 +54,14 @@ export function wordKeysWithCards(cardIds) {
   return keys;
 }
 
-/** Ids of the pack's words that have no card yet — the only ones (re-)activation queues for triage. */
-export function triageQueueFor(words, packId, keysWithCards) {
-  return words.filter((w) => !keysWithCards.has(wordKey(packId, w.id))).map((w) => w.id);
+/** A word in an active vocab pack is pending triage if it lacks a card for ANY of its facets. cards: store.allCards(). */
+export function wordNeedsTriage(packId, word, cards) {
+  return facetsFor(word.pos).some((facet) => !cards[vocabCardId(packId, word.id, facet)]);
+}
+
+/** Ids of the pack's words pending triage (missing any facet card). Triage then writes only the missing facets. */
+export function triageQueueFor(words, packId, cards) {
+  return words.filter((w) => wordNeedsTriage(packId, w, cards)).map((w) => w.id);
 }
 
 /** [cardId, card] entries for each of the word's facets that has no card. Existing cards are never included. */

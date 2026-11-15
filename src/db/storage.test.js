@@ -408,3 +408,28 @@ test('pre-change stored data (game-created cards, user-added words, wordfallPack
   assert.deepEqual(store.getSettings().gameExtraPackIds, []); // additive default
   assert.equal(store.getSettings().dailyNewLimit, 12);
 });
+
+test('pre-change stored triage fields (triaged / pendingTriageWordIds) and partial cards load intact', async () => {
+  const card = (due) => ({ status: 'review', ease: 2.5, interval: 3, learningStep: 0, reps: 2, lapses: 0, due, lastReviewed: due - 1 });
+  const blob = {
+    version: 2,
+    srsCards: {
+      'vocab:core-nouns-1::tisch:gender': card(1), // partial: only gender, from a game
+      'vocab:core-verbs-1::gehen:meaning': card(2),
+      'vocab:core-verbs-1::gehen:principal_parts': card(3),
+    },
+    packs: {
+      'vocab:core-verbs-1': { active: true, triaged: true, pendingTriageWordIds: [] },
+      'vocab:core-nouns-1': { active: true, triaged: false, pendingTriageWordIds: ['lampe', 'stuhl'] },
+      'vocab:core-adj-1': { active: false, triaged: true },
+    },
+    settings: { dailyNewLimit: 18 },
+    stats: { streak: 1, bestStreak: 1, lastStudyDate: '2026-11-14', history: {}, gameBests: {} },
+    userContent: { vocab: [], phrases: [], notes: [] },
+    meta: { createdAt: '2026-01-01T00:00:00.000Z' },
+  };
+  const store = await freshStore({ [MAIN_KEY]: JSON.stringify(blob) });
+  assert.equal(store.loadFailed, false);
+  assert.deepEqual(store.allCards(), blob.srsCards);
+  assert.deepEqual(store.allPackStates(), blob.packs);
+});

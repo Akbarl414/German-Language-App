@@ -20,7 +20,6 @@ import {
   USER_VOCAB_PACK_ID,
   parseCardId,
   isSourceInReview,
-  wordKeysWithCards,
   triageQueueFor,
   triageEntries,
   missingFacetEntries,
@@ -47,9 +46,9 @@ export function isVocabPackInReview(packId) {
 export function activateVocabPack(packId) {
   const pack = getVocabPacks().find((p) => p.id === packId);
   if (!pack) return;
-  // Only words with no cards yet need triage; words that already have cards
-  // (from an earlier activation, or a game before this rule existed) keep them as they are.
-  const pending = triageQueueFor(pack.words, packId, wordKeysWithCards(Object.keys(store.allCards())));
+  // Words missing a card for any facet need triage; triage fills only the
+  // missing facets, so cards from an earlier activation or a game are kept as they are.
+  const pending = triageQueueFor(pack.words, packId, store.allCards());
   store.setPackState(packKey('vocab', packId), {
     active: true,
     triaged: pending.length === 0,
@@ -61,11 +60,18 @@ export function deactivateVocabPack(packId) {
   store.setPackState(packKey('vocab', packId), { active: false });
 }
 
+/**
+ * Words of an active pack still pending triage, computed live from the cards
+ * (any facet missing), so words added to the pack by a later content update
+ * are offered too. The stored pendingTriageWordIds/triaged are kept up to date
+ * by activateVocabPack/triageWord but are not what this reads: every word in
+ * that stored list is either still missing a facet (included here) or fully
+ * carded (nothing left to triage).
+ */
 export function getPendingTriageWords(packId) {
-  const state = store.getPackState(packKey('vocab', packId));
-  if (!state.active || state.triaged) return [];
+  if (!isVocabPackInReview(packId)) return [];
   const pack = getVocabPacks().find((p) => p.id === packId);
-  const pending = new Set(state.pendingTriageWordIds || []);
+  const pending = new Set(triageQueueFor(pack?.words || [], packId, store.allCards()));
   return (pack?.words || []).filter((w) => pending.has(w.id));
 }
 
@@ -80,10 +86,8 @@ export function triageWord(packId, wordId, decision) {
   const entries = triageEntries(packId, word, decision, store.allCards(), Date.now());
   if (entries.length) store.setCards(entries);
 
-  const key = packKey('vocab', packId);
-  const state = store.getPackState(key);
-  const remaining = (state.pendingTriageWordIds || []).filter((id) => id !== wordId);
-  store.setPackState(key, { pendingTriageWordIds: remaining, triaged: remaining.length === 0 });
+  const remaining = getPendingTriageWords(packId).map((w) => w.id);
+  store.setPackState(packKey('vocab', packId), { pendingTriageWordIds: remaining, triaged: remaining.length === 0 });
 }
 
 function ensurePhraseCards(setId, phrase) {

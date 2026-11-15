@@ -9,6 +9,7 @@ import {
   isSourceInReview,
   wordKeysWithCards,
   triageQueueFor,
+  wordNeedsTriage,
   triageEntries,
   missingFacetEntries,
   buildGamePool,
@@ -97,7 +98,7 @@ test('a card from a never-activated pack is not in review and still exists in st
   assert.deepEqual(store.getCard(leakedId), original[leakedId]);
 });
 
-test('re-activation queues only words without cards, and triage leaves existing cards byte-identical', async () => {
+test('re-activation queues words missing any facet card, and triage leaves existing cards byte-identical', async () => {
   const packId = 'core-nouns-1';
   const words = [
     { id: 'tisch', pos: 'noun' }, // fully reviewed
@@ -110,8 +111,8 @@ test('re-activation queues only words without cards, and triage leaves existing 
   const store = await freshStore(blobWith(structuredClone(cards), { [`vocab:${packId}`]: { active: false, triaged: true } }));
   const before = JSON.stringify(store.allCards());
 
-  const pending = triageQueueFor(words, packId, wordKeysWithCards(Object.keys(store.allCards())));
-  assert.deepEqual(pending, ['lampe']);
+  const pending = triageQueueFor(words, packId, store.allCards());
+  assert.deepEqual(pending, ['stuhl', 'lampe']); // tisch is fully carded
 
   // Even if a word with cards reaches triage, only its missing facets are written.
   for (const w of words) {
@@ -164,4 +165,52 @@ test('user-added words get new cards for missing facets only', () => {
   assert.deepEqual(entries.map(([id]) => id).sort(), ['meaning_de_en', 'meaning_en_de', 'plural'].map((f) => vocabCardId('user-added', 'hund-1', f)).sort());
   assert.ok(entries.every(([, c]) => c.status === 'new' && c.due === 42));
   assert.deepEqual(missingFacetEntries('user-added', { id: 'hund-1', pos: 'noun' }, Object.fromEntries([[existingId, cards[existingId]], ...entries]), 42), []);
+});
+
+const NOUN_FACETS = ['meaning_de_en', 'meaning_en_de', 'gender', 'plural'];
+
+for (const decision of ['known', 'drill']) {
+  test(`a noun with only a gender card in a newly activated pack is queued, and after triage ('${decision}') has all four facets with the gender card byte-identical`, async () => {
+    const packId = 'core-nouns-2';
+    const word = { id: 'fenster', pos: 'noun' };
+    const genderId = vocabCardId(packId, word.id, 'gender');
+    const genderCard = reviewCard(333);
+    const store = await freshStore(blobWith({ [genderId]: structuredClone(genderCard) })); // pack never activated: card came from a game
+    const genderBefore = JSON.stringify(store.getCard(genderId));
+
+    store.setPackState(`vocab:${packId}`, { active: true }); // what activateVocabPack does, with:
+    assert.deepEqual(triageQueueFor([word], packId, store.allCards()), ['fenster']);
+
+    store.setCards(triageEntries(packId, word, decision, store.allCards(), 7000)); // what triageWord writes
+    for (const f of NOUN_FACETS) assert.ok(store.getCard(vocabCardId(packId, word.id, f)), `${f} exists`);
+    assert.equal(JSON.stringify(store.getCard(genderId)), genderBefore);
+    assert.equal(wordNeedsTriage(packId, word, store.allCards()), false);
+    assert.deepEqual(triageQueueFor([word], packId, store.allCards()), []);
+  });
+}
+
+test('a fully carded word is not queued', () => {
+  const cards = Object.fromEntries(NOUN_FACETS.map((f) => [vocabCardId('p', 'tisch', f), reviewCard()]));
+  cards[vocabCardId('p', 'gehen', 'meaning')] = reviewCard();
+  cards[vocabCardId('p', 'gehen', 'principal_parts')] = reviewCard();
+  const words = [{ id: 'tisch', pos: 'noun' }, { id: 'gehen', pos: 'verb' }];
+  assert.deepEqual(triageQueueFor(words, 'p', cards), []);
+  // Cards from another pack for the same word id don't count.
+  assert.deepEqual(triageQueueFor(words, 'other', cards), ['tisch', 'gehen']);
+});
+
+test('a word added to an already-active, fully triaged pack shows as pending (old stored triage fields)', async () => {
+  const packId = 'core-verbs-1';
+  const cards = { [vocabCardId(packId, 'gehen', 'meaning')]: reviewCard(), [vocabCardId(packId, 'gehen', 'principal_parts')]: reviewCard() };
+  const packState = { active: true, triaged: true, pendingTriageWordIds: [] };
+  const store = await freshStore(blobWith(structuredClone(cards), { [`vocab:${packId}`]: structuredClone(packState) }));
+  const words = [{ id: 'gehen', pos: 'verb' }, { id: 'laufen', pos: 'verb' }]; // laufen arrived in a content update
+
+  // Same computation as queue.js getPendingTriageWords: in review + any facet missing, ignoring the stored flags.
+  const states = store.allPackStates();
+  const pending = isSourceInReview('vocab', packId, states) ? triageQueueFor(words, packId, store.allCards()) : [];
+  assert.deepEqual(pending, ['laufen']);
+  assert.deepEqual(store.allPackStates()[`vocab:${packId}`], packState); // stored fields untouched by reading
+  // An inactive pack offers nothing.
+  assert.equal(isSourceInReview('vocab', 'core-nouns-9', states), false);
 });

@@ -19,7 +19,7 @@ Every JSON file under `content/vocab/packs/`, `content/grammar/units/`, `content
 1. Write a new JSON file in the right folder.
 2. Make sure `"id"` inside the file exactly matches the filename (without `.json`).
 3. Run `npm run validate`.
-4. Done — it'll show up in the app automatically (vocab packs default OFF until the user activates + triages them in Settings, and only active packs reach daily review or are graded by games; grammar units and phrase sets default ON). Words added to a pack the user has already activated don't get triaged automatically: games treat them as practice-only until the user re-activates the pack, which triages only words without cards.
+4. Done — it'll show up in the app automatically (vocab packs default OFF until the user activates + triages them in Settings, and only active packs reach daily review or are graded by games; grammar units and phrase sets default ON). Words added to a pack the user has already activated are offered for triage automatically; games treat them as practice-only until they have a card.
 
 ## Directory layout
 

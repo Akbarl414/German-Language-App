@@ -11,7 +11,7 @@ export const UPDATE_NOTES = [
       'Games now use the words from your active vocab packs, and only words already in your reviews count toward your progress. Playing a game no longer adds new words to your daily review.',
       'Each game has an "extra packs" choice under Advanced settings. Words from extra packs are for practice only and never go into your daily review.',
       'Daily review, due counts and Test me now include only vocab packs you have switched on. Cards from other packs are kept and come back if you switch the pack on.',
-      'Switching a pack off and on again no longer resets words you have already learned.',
+      'Switching a pack off and on again no longer resets words you have already learned, and new words added to a pack you use are offered for triage.',
       'Words you add yourself now go straight into your daily review.',
     ],
   },
