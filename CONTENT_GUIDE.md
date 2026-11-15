@@ -6,6 +6,8 @@ How to add German-learning content to this app. Read this before generating any 
 
 Content files here (vocab/grammar/phrases/stories) are separate from the user's on-device progress in `localStorage` (`src/db/storage.js`), but content changes can still affect it indirectly — e.g. renaming or removing a pack/word/exercise `id` orphans any SRS card already scheduled against it. Prefer adding new ids over renaming existing ones. See CLAUDE.md for the full rule: no change, anywhere in this repo, may reset, wipe, or break compatibility with existing user progress.
 
+**Update notes are not `content/`.** The "what changed" list lives in `src/updateNotes.js` (plain English, newest first), not under `content/`, and is not schema-validated. Adding content that learners will notice (a new pack, unit or set) should add an update note there.
+
 ## The golden rule
 
 **Never generate more than ~100 vocab words (or one grammar unit, or one phrase set) in a single pass.** Accuracy on genders, plurals, and verb principal parts degrades in giant single-shot generations. Generate one file, run `npm run validate`, fix any errors, then move on to the next file.

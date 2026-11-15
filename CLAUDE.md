@@ -87,6 +87,7 @@ A snapshot to orient you, not a spec. Run `ls content/*/*/` and read `main.js` /
   - *Beta:* **Type it** (Timed/Streak, best scores, "Genus prüfen" toggle requiring the article, "so close" diff for capitalisation/umlaut/article near-misses), **Case detective** (bare choices like "den"/"dem"; draws its sentences from grammar units' bare-option exercises rather than its own content; recency tracking via `stats.gameBests` so rounds vary; "Why?" only after answering), **Verb forms sprint** (build the Perfekt incl. hat/ist; instant green check; corrections as `infinitive: Perfekt form`).
 - **Test me:** configurable mixed quizzes, weighted toward weak/new material, with a "what to review" list at the end.
 - **Settings:** theme (Light/Dark/System), interface language, daily new-card limit, review session size, throttle thresholds, vocab pack activation, Export/Import, snapshot restore, backup reminder after 7+ days, approximate storage used, snapshot-failure warning, danger zone. A save-failure banner shows on every screen while saving fails.
+- **Update notes:** `/updates` (More → "Neuigkeiten") lists `src/updateNotes.js`; Home shows a one-time dismissible alert when the newest note hasn't been seen on this device.
 - **Navigation:** bottom bar = Home, Spiele, Teste mich, More. "Aktive Inhalte" (in More, and one button on Home) holds grammar management, vocab pack management, and Add content.
 
 ## Owner's taste — how to make judgement calls
@@ -104,6 +105,7 @@ A snapshot to orient you, not a spec. Run `ls content/*/*/` and read `main.js` /
 4. Progress-schema change → migration + version bump + test (invariant 1).
 5. New UI text → `LABELS` entry in German and English.
 6. New screens → check dark mode, safe-area insets, and phone-width layout manually (`npm run dev`). Return a cleanup function from `render()` if the screen uses timers.
+7. Every user-visible change adds an entry (newest first, stable id) to `src/updateNotes.js` in the same commit. Notes are plain English; see *ARCHITECTURE.md § Persistence* for how the "updated" alert works.
 
 ## Keeping docs true
 
