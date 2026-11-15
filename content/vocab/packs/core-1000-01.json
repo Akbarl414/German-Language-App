@@ -1,0 +1,1023 @@
+{
+  "id": "core-1000-01",
+  "title": "Core 1000 · 01",
+  "level": "A1",
+  "topic": "The most frequent German words, part 1 (ranks 1–127)",
+  "words": [
+    {
+      "id": "der",
+      "rank": 1,
+      "pos": "other",
+      "lemma": "der",
+      "meaning_en": "the (definite article: der/die/das); also: that one, who, which",
+      "example_de": "Der Hund schläft, die Katze spielt und das Kind lacht.",
+      "example_en": "The dog is sleeping, the cat is playing and the child is laughing."
+    },
+    {
+      "id": "ich",
+      "rank": 2,
+      "pos": "other",
+      "lemma": "ich",
+      "meaning_en": "I",
+      "example_de": "Ich komme aus Spanien.",
+      "example_en": "I come from Spain."
+    },
+    {
+      "id": "sein",
+      "rank": 3,
+      "pos": "verb",
+      "lemma": "sein",
+      "meaning_en": "to be",
+      "example_de": "Meine Schwester ist Lehrerin.",
+      "example_en": "My sister is a teacher.",
+      "present_3sg": "ist",
+      "praeteritum": "war",
+      "perfekt": "ist gewesen",
+      "auxiliary": "sein",
+      "separable": false,
+      "present_forms": {
+        "ich": "bin",
+        "du": "bist",
+        "er": "ist",
+        "wir": "sind",
+        "ihr": "seid",
+        "sie": "sind"
+      }
+    },
+    {
+      "id": "du",
+      "rank": 4,
+      "pos": "other",
+      "lemma": "du",
+      "meaning_en": "you (informal, one person)",
+      "example_de": "Hast du heute Abend Zeit?",
+      "example_en": "Are you free this evening?"
+    },
+    {
+      "id": "sie-formal",
+      "rank": 5,
+      "pos": "other",
+      "lemma": "Sie",
+      "meaning_en": "you (formal, one or more people)",
+      "example_de": "Können Sie mir bitte helfen?",
+      "example_en": "Could you help me, please?"
+    },
+    {
+      "id": "sie",
+      "rank": 6,
+      "pos": "other",
+      "lemma": "sie",
+      "meaning_en": "she; they; her, them",
+      "example_de": "Ich rufe Lisa an, weil sie heute Geburtstag hat.",
+      "example_en": "I'm calling Lisa because it's her birthday today."
+    },
+    {
+      "id": "haben",
+      "rank": 7,
+      "pos": "verb",
+      "lemma": "haben",
+      "meaning_en": "to have",
+      "example_de": "Wir haben zwei Kinder.",
+      "example_en": "We have two children.",
+      "present_3sg": "hat",
+      "praeteritum": "hatte",
+      "perfekt": "hat gehabt",
+      "auxiliary": "haben",
+      "separable": false,
+      "present_forms": {
+        "ich": "habe",
+        "du": "hast",
+        "er": "hat",
+        "wir": "haben",
+        "ihr": "habt",
+        "sie": "haben"
+      }
+    },
+    {
+      "id": "ein",
+      "rank": 8,
+      "pos": "other",
+      "lemma": "ein",
+      "meaning_en": "a, an (indefinite article); one",
+      "example_de": "Ich hätte gern ein Glas Wasser.",
+      "example_en": "I'd like a glass of water."
+    },
+    {
+      "id": "nicht",
+      "rank": 9,
+      "pos": "other",
+      "lemma": "nicht",
+      "meaning_en": "not",
+      "example_de": "Das Wetter ist heute nicht so schön.",
+      "example_en": "The weather isn't so nice today."
+    },
+    {
+      "id": "es",
+      "rank": 10,
+      "pos": "other",
+      "lemma": "es",
+      "meaning_en": "it",
+      "example_de": "Es regnet schon den ganzen Tag.",
+      "example_en": "It has been raining all day."
+    },
+    {
+      "id": "und",
+      "rank": 11,
+      "pos": "other",
+      "lemma": "und",
+      "meaning_en": "and",
+      "example_de": "Ich trinke Kaffee mit Milch und Zucker.",
+      "example_en": "I drink coffee with milk and sugar."
+    },
+    {
+      "id": "wir",
+      "rank": 12,
+      "pos": "other",
+      "lemma": "wir",
+      "meaning_en": "we",
+      "example_de": "Wir fahren am Wochenende ans Meer.",
+      "example_en": "We're going to the seaside at the weekend."
+    },
+    {
+      "id": "er",
+      "rank": 13,
+      "pos": "other",
+      "lemma": "er",
+      "meaning_en": "he; it (for a der-word)",
+      "example_de": "Mein Bruder ist krank, deshalb kommt er nicht.",
+      "example_en": "My brother is ill, so he isn't coming."
+    },
+    {
+      "id": "zu",
+      "rank": 14,
+      "pos": "other",
+      "lemma": "zu",
+      "meaning_en": "to (a person or place); too (zu groß); closed",
+      "example_de": "Ich gehe jetzt zu meiner Oma.",
+      "example_en": "I'm going to my grandma's now."
+    },
+    {
+      "id": "in",
+      "rank": 15,
+      "pos": "other",
+      "lemma": "in",
+      "meaning_en": "in, into",
+      "example_de": "Die Milch ist im Kühlschrank.",
+      "example_en": "The milk is in the fridge."
+    },
+    {
+      "id": "was",
+      "rank": 16,
+      "pos": "other",
+      "lemma": "was",
+      "meaning_en": "what; something (colloquial)",
+      "example_de": "Was machst du am Samstag?",
+      "example_en": "What are you doing on Saturday?"
+    },
+    {
+      "id": "werden",
+      "rank": 17,
+      "pos": "verb",
+      "lemma": "werden",
+      "meaning_en": "to become, to get; (with an infinitive) will",
+      "example_de": "Mein Sohn wird nächste Woche zehn.",
+      "example_en": "My son turns ten next week.",
+      "present_3sg": "wird",
+      "praeteritum": "wurde",
+      "perfekt": "ist geworden",
+      "auxiliary": "sein",
+      "separable": false,
+      "present_forms": {
+        "ich": "werde",
+        "du": "wirst",
+        "er": "wird",
+        "wir": "werden",
+        "ihr": "werdet",
+        "sie": "werden"
+      }
+    },
+    {
+      "id": "mein",
+      "rank": 18,
+      "pos": "other",
+      "lemma": "mein",
+      "meaning_en": "my",
+      "example_de": "Das ist mein Fahrrad.",
+      "example_en": "That is my bike."
+    },
+    {
+      "id": "koennen",
+      "rank": 19,
+      "pos": "verb",
+      "lemma": "können",
+      "meaning_en": "can, to be able to",
+      "example_de": "Kannst du gut schwimmen?",
+      "example_en": "Can you swim well?",
+      "present_3sg": "kann",
+      "praeteritum": "konnte",
+      "perfekt": "hat gekonnt",
+      "auxiliary": "haben",
+      "separable": false,
+      "present_forms": {
+        "ich": "kann",
+        "du": "kannst",
+        "er": "kann",
+        "wir": "können",
+        "ihr": "könnt",
+        "sie": "können"
+      }
+    },
+    {
+      "id": "ihr",
+      "rank": 20,
+      "pos": "other",
+      "lemma": "ihr",
+      "meaning_en": "you (informal, more than one person)",
+      "example_de": "Kommt ihr heute Abend mit ins Kino?",
+      "example_en": "Are you coming to the cinema with us this evening?"
+    },
+    {
+      "id": "ja",
+      "rank": 21,
+      "pos": "other",
+      "lemma": "ja",
+      "meaning_en": "yes; (particle) really, after all",
+      "example_de": "Ja, das stimmt.",
+      "example_en": "Yes, that's right."
+    },
+    {
+      "id": "mit",
+      "rank": 22,
+      "pos": "other",
+      "lemma": "mit",
+      "meaning_en": "with; by (means of transport)",
+      "example_de": "Ich fahre mit dem Bus zur Arbeit.",
+      "example_en": "I go to work by bus."
+    },
+    {
+      "id": "wie",
+      "rank": 23,
+      "pos": "other",
+      "lemma": "wie",
+      "meaning_en": "how; like, as",
+      "example_de": "Wie heißt du?",
+      "example_en": "What's your name?"
+    },
+    {
+      "id": "dass",
+      "rank": 24,
+      "pos": "other",
+      "lemma": "dass",
+      "meaning_en": "that (conjunction)",
+      "example_de": "Ich glaube, dass er recht hat.",
+      "example_en": "I think that he's right."
+    },
+    {
+      "id": "auf",
+      "rank": 25,
+      "pos": "other",
+      "lemma": "auf",
+      "meaning_en": "on, onto; open",
+      "example_de": "Die Schlüssel liegen auf dem Tisch.",
+      "example_en": "The keys are on the table."
+    },
+    {
+      "id": "ihr-poss",
+      "rank": 26,
+      "pos": "other",
+      "lemma": "ihr",
+      "meaning_en": "her; their (Ihr: your, formal)",
+      "example_de": "Anna sucht ihre Brille.",
+      "example_en": "Anna is looking for her glasses."
+    },
+    {
+      "id": "aber",
+      "rank": 27,
+      "pos": "other",
+      "lemma": "aber",
+      "meaning_en": "but",
+      "example_de": "Das Hotel ist klein, aber sehr gemütlich.",
+      "example_en": "The hotel is small but very cosy."
+    },
+    {
+      "id": "wollen",
+      "rank": 28,
+      "pos": "verb",
+      "lemma": "wollen",
+      "meaning_en": "to want (to)",
+      "example_de": "Wir wollen im Sommer nach Italien fahren.",
+      "example_en": "We want to go to Italy in the summer.",
+      "present_3sg": "will",
+      "praeteritum": "wollte",
+      "perfekt": "hat gewollt",
+      "auxiliary": "haben",
+      "separable": false,
+      "present_forms": {
+        "ich": "will",
+        "du": "willst",
+        "er": "will",
+        "wir": "wollen",
+        "ihr": "wollt",
+        "sie": "wollen"
+      }
+    },
+    {
+      "id": "so",
+      "rank": 30,
+      "pos": "adverb",
+      "lemma": "so",
+      "meaning_en": "so, like this, this way",
+      "example_de": "Warum bist du so müde?",
+      "example_en": "Why are you so tired?"
+    },
+    {
+      "id": "an",
+      "rank": 31,
+      "pos": "other",
+      "lemma": "an",
+      "meaning_en": "at, on (a wall or edge), to",
+      "example_de": "Das Bild hängt an der Wand.",
+      "example_en": "The picture is hanging on the wall."
+    },
+    {
+      "id": "von",
+      "rank": 32,
+      "pos": "other",
+      "lemma": "von",
+      "meaning_en": "from; of; by",
+      "example_de": "Das ist ein Geschenk von meiner Mutter.",
+      "example_en": "This is a present from my mother."
+    },
+    {
+      "id": "hier",
+      "rank": 33,
+      "pos": "adverb",
+      "lemma": "hier",
+      "meaning_en": "here",
+      "example_de": "Wohnst du schon lange hier?",
+      "example_en": "Have you lived here long?"
+    },
+    {
+      "id": "fuer",
+      "rank": 35,
+      "pos": "other",
+      "lemma": "für",
+      "meaning_en": "for",
+      "example_de": "Diese Blumen sind für dich.",
+      "example_en": "These flowers are for you."
+    },
+    {
+      "id": "sein-poss",
+      "rank": 37,
+      "pos": "other",
+      "lemma": "sein",
+      "meaning_en": "his; its",
+      "example_de": "Tom hat seinen Schlüssel vergessen.",
+      "example_en": "Tom forgot his key."
+    },
+    {
+      "id": "alle",
+      "rank": 38,
+      "pos": "other",
+      "lemma": "alle",
+      "meaning_en": "all; everyone",
+      "example_de": "Alle waren pünktlich.",
+      "example_en": "Everyone was on time."
+    },
+    {
+      "id": "wenn",
+      "rank": 40,
+      "pos": "other",
+      "lemma": "wenn",
+      "meaning_en": "if; when, whenever",
+      "example_de": "Wenn es regnet, bleiben wir zu Hause.",
+      "example_en": "If it rains, we'll stay at home."
+    },
+    {
+      "id": "kein",
+      "rank": 42,
+      "pos": "other",
+      "lemma": "kein",
+      "meaning_en": "no, not a, not any",
+      "example_de": "Ich habe heute keine Zeit.",
+      "example_en": "I don't have any time today."
+    },
+    {
+      "id": "muessen",
+      "rank": 43,
+      "pos": "verb",
+      "lemma": "müssen",
+      "meaning_en": "must, to have to",
+      "example_de": "Ich muss morgen früh aufstehen.",
+      "example_en": "I have to get up early tomorrow.",
+      "present_3sg": "muss",
+      "praeteritum": "musste",
+      "perfekt": "hat gemusst",
+      "auxiliary": "haben",
+      "separable": false,
+      "present_forms": {
+        "ich": "muss",
+        "du": "musst",
+        "er": "muss",
+        "wir": "müssen",
+        "ihr": "müsst",
+        "sie": "müssen"
+      }
+    },
+    {
+      "id": "nein",
+      "rank": 45,
+      "pos": "other",
+      "lemma": "nein",
+      "meaning_en": "no",
+      "example_de": "Nein, danke, ich bin satt.",
+      "example_en": "No, thanks, I'm full."
+    },
+    {
+      "id": "dieser",
+      "rank": 46,
+      "pos": "other",
+      "lemma": "dieser",
+      "meaning_en": "this, this one",
+      "example_de": "Dieser Film ist wirklich spannend.",
+      "example_en": "This film is really exciting."
+    },
+    {
+      "id": "noch",
+      "rank": 48,
+      "pos": "adverb",
+      "lemma": "noch",
+      "meaning_en": "still; yet; more, another",
+      "example_de": "Ist noch Kaffee da?",
+      "example_en": "Is there any coffee left?"
+    },
+    {
+      "id": "nur",
+      "rank": 49,
+      "pos": "adverb",
+      "lemma": "nur",
+      "meaning_en": "only, just",
+      "example_de": "Ich habe nur zehn Euro dabei.",
+      "example_en": "I only have ten euros on me."
+    },
+    {
+      "id": "da",
+      "rank": 50,
+      "pos": "adverb",
+      "lemma": "da",
+      "meaning_en": "there; here (present); then; since (because)",
+      "example_de": "Ist Paul da? – Nein, er ist gerade weg.",
+      "example_en": "Is Paul there? – No, he's just gone out."
+    },
+    {
+      "id": "tun",
+      "rank": 51,
+      "pos": "verb",
+      "lemma": "tun",
+      "meaning_en": "to do",
+      "example_de": "Was kann ich für Sie tun?",
+      "example_en": "What can I do for you?",
+      "present_3sg": "tut",
+      "praeteritum": "tat",
+      "perfekt": "hat getan",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "sich",
+      "rank": 52,
+      "pos": "other",
+      "lemma": "sich",
+      "meaning_en": "oneself, himself, herself, itself, themselves (reflexive)",
+      "example_de": "Er freut sich auf den Urlaub.",
+      "example_en": "He's looking forward to the holiday."
+    },
+    {
+      "id": "dein",
+      "rank": 53,
+      "pos": "other",
+      "lemma": "dein",
+      "meaning_en": "your (informal, one person)",
+      "example_de": "Ist das dein Handy?",
+      "example_en": "Is that your phone?"
+    },
+    {
+      "id": "sollen",
+      "rank": 54,
+      "pos": "verb",
+      "lemma": "sollen",
+      "meaning_en": "should, to be supposed to",
+      "example_de": "Der Arzt sagt, ich soll mehr Wasser trinken.",
+      "example_en": "The doctor says I should drink more water.",
+      "present_3sg": "soll",
+      "praeteritum": "sollte",
+      "perfekt": "hat gesollt",
+      "auxiliary": "haben",
+      "separable": false,
+      "present_forms": {
+        "ich": "soll",
+        "du": "sollst",
+        "er": "soll",
+        "wir": "sollen",
+        "ihr": "sollt",
+        "sie": "sollen"
+      }
+    },
+    {
+      "id": "auch",
+      "rank": 55,
+      "pos": "adverb",
+      "lemma": "auch",
+      "meaning_en": "also, too",
+      "example_de": "Ich komme auch mit.",
+      "example_en": "I'm coming too."
+    },
+    {
+      "id": "schon",
+      "rank": 57,
+      "pos": "adverb",
+      "lemma": "schon",
+      "meaning_en": "already; (particle) surely, really",
+      "example_de": "Bist du schon fertig?",
+      "example_en": "Are you finished already?"
+    },
+    {
+      "id": "als",
+      "rank": 58,
+      "pos": "other",
+      "lemma": "als",
+      "meaning_en": "as; when (one event in the past); than",
+      "example_de": "Als Kind wohnte ich auf dem Land.",
+      "example_en": "As a child I lived in the country."
+    },
+    {
+      "id": "mal",
+      "rank": 59,
+      "pos": "adverb",
+      "lemma": "mal",
+      "meaning_en": "(particle) just, for a moment; once; times",
+      "example_de": "Komm mal her!",
+      "example_en": "Come here a moment!"
+    },
+    {
+      "id": "jetzt",
+      "rank": 60,
+      "pos": "adverb",
+      "lemma": "jetzt",
+      "meaning_en": "now",
+      "example_de": "Ich habe jetzt leider keine Zeit.",
+      "example_en": "Unfortunately I don't have time now."
+    },
+    {
+      "id": "dann",
+      "rank": 61,
+      "pos": "adverb",
+      "lemma": "dann",
+      "meaning_en": "then",
+      "example_de": "Zuerst essen wir, dann gehen wir spazieren.",
+      "example_en": "First we'll eat, then we'll go for a walk."
+    },
+    {
+      "id": "aus",
+      "rank": 62,
+      "pos": "other",
+      "lemma": "aus",
+      "meaning_en": "from, out of; (adverb) over, off",
+      "example_de": "Sie kommt aus Polen.",
+      "example_en": "She comes from Poland."
+    },
+    {
+      "id": "um",
+      "rank": 63,
+      "pos": "other",
+      "lemma": "um",
+      "meaning_en": "at (clock time); around; (um … zu) in order to",
+      "example_de": "Der Kurs beginnt um neun Uhr.",
+      "example_en": "The course starts at nine o'clock."
+    },
+    {
+      "id": "doch",
+      "rank": 64,
+      "pos": "other",
+      "lemma": "doch",
+      "meaning_en": "yes (answering a negative question); but, after all",
+      "example_de": "Du kommst nicht mit? – Doch, ich komme!",
+      "example_en": "You're not coming? – Yes, I am!"
+    },
+    {
+      "id": "lassen",
+      "rank": 65,
+      "pos": "verb",
+      "lemma": "lassen",
+      "meaning_en": "to let, to leave; to have something done",
+      "example_de": "Ich lasse mein Auto reparieren.",
+      "example_en": "I'm having my car repaired.",
+      "present_3sg": "lässt",
+      "praeteritum": "ließ",
+      "perfekt": "hat gelassen",
+      "auxiliary": "haben",
+      "separable": false
+    },
+    {
+      "id": "okay",
+      "rank": 66,
+      "pos": "other",
+      "lemma": "okay",
+      "meaning_en": "okay",
+      "example_de": "Wir treffen uns um acht, okay?",
+      "example_en": "We'll meet at eight, okay?"
+    },
+    {
+      "id": "oder",
+      "rank": 67,
+      "pos": "other",
+      "lemma": "oder",
+      "meaning_en": "or",
+      "example_de": "Möchtest du Tee oder Kaffee?",
+      "example_en": "Would you like tea or coffee?"
+    },
+    {
+      "id": "bei",
+      "rank": 69,
+      "pos": "other",
+      "lemma": "bei",
+      "meaning_en": "at, near; at someone's home; with",
+      "example_de": "Ich wohne noch bei meinen Eltern.",
+      "example_en": "I still live with my parents."
+    },
+    {
+      "id": "nach",
+      "rank": 70,
+      "pos": "other",
+      "lemma": "nach",
+      "meaning_en": "after; to (towns and countries); according to",
+      "example_de": "Nach dem Essen trinken wir einen Espresso.",
+      "example_en": "After the meal we have an espresso."
+    },
+    {
+      "id": "nichts",
+      "rank": 71,
+      "pos": "other",
+      "lemma": "nichts",
+      "meaning_en": "nothing",
+      "example_de": "Ich habe heute noch nichts gegessen.",
+      "example_en": "I haven't eaten anything yet today."
+    },
+    {
+      "id": "man",
+      "rank": 72,
+      "pos": "other",
+      "lemma": "man",
+      "meaning_en": "one, you, people (in general)",
+      "example_de": "Hier darf man nicht rauchen.",
+      "example_en": "You're not allowed to smoke here."
+    },
+    {
+      "id": "viel",
+      "rank": 73,
+      "pos": "other",
+      "lemma": "viel",
+      "meaning_en": "much, a lot (of)",
+      "example_de": "Er arbeitet zu viel.",
+      "example_en": "He works too much."
+    },
+    {
+      "id": "wo",
+      "rank": 75,
+      "pos": "adverb",
+      "lemma": "wo",
+      "meaning_en": "where",
+      "example_de": "Wo ist der Bahnhof?",
+      "example_en": "Where is the station?"
+    },
+    {
+      "id": "etwas",
+      "rank": 76,
+      "pos": "other",
+      "lemma": "etwas",
+      "meaning_en": "something; a little, somewhat",
+      "example_de": "Möchtest du etwas trinken?",
+      "example_en": "Would you like something to drink?"
+    },
+    {
+      "id": "mehr",
+      "rank": 77,
+      "pos": "other",
+      "lemma": "mehr",
+      "meaning_en": "more",
+      "example_de": "Ich brauche mehr Zeit.",
+      "example_en": "I need more time."
+    },
+    {
+      "id": "also",
+      "rank": 79,
+      "pos": "adverb",
+      "lemma": "also",
+      "meaning_en": "so, therefore; well",
+      "example_de": "Es ist spät, also gehe ich jetzt nach Hause.",
+      "example_en": "It's late, so I'm going home now."
+    },
+    {
+      "id": "bitte",
+      "rank": 80,
+      "pos": "other",
+      "lemma": "bitte",
+      "meaning_en": "please; you're welcome; pardon?",
+      "example_de": "Ein Brötchen, bitte.",
+      "example_en": "A bread roll, please."
+    },
+    {
+      "id": "immer",
+      "rank": 81,
+      "pos": "adverb",
+      "lemma": "immer",
+      "meaning_en": "always",
+      "example_de": "Sie ist immer freundlich.",
+      "example_en": "She is always friendly."
+    },
+    {
+      "id": "ganz",
+      "rank": 82,
+      "pos": "adverb",
+      "lemma": "ganz",
+      "meaning_en": "quite; completely; whole",
+      "example_de": "Das Essen war ganz gut.",
+      "example_en": "The food was quite good."
+    },
+    {
+      "id": "wer",
+      "rank": 83,
+      "pos": "other",
+      "lemma": "wer",
+      "meaning_en": "who",
+      "example_de": "Wer hat das gesagt?",
+      "example_en": "Who said that?"
+    },
+    {
+      "id": "unser",
+      "rank": 84,
+      "pos": "other",
+      "lemma": "unser",
+      "meaning_en": "our",
+      "example_de": "Unser Haus hat einen großen Garten.",
+      "example_en": "Our house has a big garden."
+    },
+    {
+      "id": "warum",
+      "rank": 85,
+      "pos": "adverb",
+      "lemma": "warum",
+      "meaning_en": "why",
+      "example_de": "Warum lernst du Deutsch?",
+      "example_en": "Why are you learning German?"
+    },
+    {
+      "id": "vor",
+      "rank": 86,
+      "pos": "other",
+      "lemma": "vor",
+      "meaning_en": "in front of; before; ago",
+      "example_de": "Ich warte vor dem Kino auf dich.",
+      "example_en": "I'll wait for you in front of the cinema."
+    },
+    {
+      "id": "los",
+      "rank": 88,
+      "pos": "adverb",
+      "lemma": "los",
+      "meaning_en": "off, away; (Was ist los?) going on, the matter",
+      "example_de": "Was ist denn los?",
+      "example_en": "What's the matter?"
+    },
+    {
+      "id": "wieder",
+      "rank": 89,
+      "pos": "adverb",
+      "lemma": "wieder",
+      "meaning_en": "again",
+      "example_de": "Der Zug hat schon wieder Verspätung.",
+      "example_en": "The train is late again."
+    },
+    {
+      "id": "danke",
+      "rank": 92,
+      "pos": "other",
+      "lemma": "danke",
+      "meaning_en": "thank you, thanks",
+      "example_de": "Danke für deine Hilfe!",
+      "example_en": "Thanks for your help!"
+    },
+    {
+      "id": "sehr",
+      "rank": 93,
+      "pos": "adverb",
+      "lemma": "sehr",
+      "meaning_en": "very; very much",
+      "example_de": "Das Konzert hat mir sehr gut gefallen.",
+      "example_en": "I liked the concert very much."
+    },
+    {
+      "id": "denn",
+      "rank": 94,
+      "pos": "adverb",
+      "lemma": "denn",
+      "meaning_en": "because, for; (particle in questions) then",
+      "example_de": "Ich bleibe zu Hause, denn ich bin erkältet.",
+      "example_en": "I'm staying at home because I have a cold."
+    },
+    {
+      "id": "andere",
+      "rank": 95,
+      "pos": "other",
+      "lemma": "andere",
+      "meaning_en": "other, different",
+      "example_de": "Haben Sie die Jacke auch in einer anderen Farbe?",
+      "example_en": "Do you have the jacket in another colour too?"
+    },
+    {
+      "id": "vielleicht",
+      "rank": 96,
+      "pos": "adverb",
+      "lemma": "vielleicht",
+      "meaning_en": "maybe, perhaps",
+      "example_de": "Vielleicht regnet es morgen.",
+      "example_en": "Maybe it will rain tomorrow."
+    },
+    {
+      "id": "ueber",
+      "rank": 97,
+      "pos": "other",
+      "lemma": "über",
+      "meaning_en": "over, above; about; via",
+      "example_de": "Über dem Sofa hängt eine Lampe.",
+      "example_en": "A lamp is hanging above the sofa."
+    },
+    {
+      "id": "wirklich",
+      "rank": 100,
+      "pos": "adverb",
+      "lemma": "wirklich",
+      "meaning_en": "really",
+      "example_de": "Das ist wirklich nett von dir.",
+      "example_en": "That's really kind of you."
+    },
+    {
+      "id": "nie",
+      "rank": 101,
+      "pos": "adverb",
+      "lemma": "nie",
+      "meaning_en": "never",
+      "example_de": "Ich war noch nie in Wien.",
+      "example_en": "I've never been to Vienna."
+    },
+    {
+      "id": "weg",
+      "rank": 104,
+      "pos": "adverb",
+      "lemma": "weg",
+      "meaning_en": "away; gone",
+      "example_de": "Meine Brille ist weg.",
+      "example_en": "My glasses are gone."
+    },
+    {
+      "id": "zeit",
+      "rank": 106,
+      "pos": "noun",
+      "lemma": "Zeit",
+      "gender": "die",
+      "plural": "Zeiten",
+      "meaning_en": "time",
+      "example_de": "Ich habe leider wenig Zeit.",
+      "example_en": "Unfortunately I have little time."
+    },
+    {
+      "id": "tag",
+      "rank": 107,
+      "pos": "noun",
+      "lemma": "Tag",
+      "gender": "der",
+      "plural": "Tage",
+      "meaning_en": "day",
+      "example_de": "Ich arbeite acht Stunden am Tag.",
+      "example_en": "I work eight hours a day."
+    },
+    {
+      "id": "weil",
+      "rank": 110,
+      "pos": "other",
+      "lemma": "weil",
+      "meaning_en": "because",
+      "example_de": "Ich komme später, weil der Bus Verspätung hat.",
+      "example_en": "I'll be late because the bus is delayed."
+    },
+    {
+      "id": "jeder",
+      "rank": 112,
+      "pos": "other",
+      "lemma": "jeder",
+      "meaning_en": "every, each; everyone",
+      "example_de": "Jeder Teilnehmer bekommt ein Zertifikat.",
+      "example_en": "Every participant gets a certificate."
+    },
+    {
+      "id": "heute",
+      "rank": 114,
+      "pos": "adverb",
+      "lemma": "heute",
+      "meaning_en": "today",
+      "example_de": "Heute ist Montag.",
+      "example_en": "Today is Monday."
+    },
+    {
+      "id": "reden",
+      "rank": 115,
+      "pos": "verb",
+      "lemma": "reden",
+      "meaning_en": "to talk, to speak",
+      "example_de": "Wir müssen mal reden.",
+      "example_en": "We need to talk.",
+      "present_3sg": "redet",
+      "praeteritum": "redete",
+      "perfekt": "hat geredet",
+      "auxiliary": "haben",
+      "separable": false,
+      "government": "reden mit + Dat, über + Akk"
+    },
+    {
+      "id": "damit",
+      "rank": 118,
+      "pos": "other",
+      "lemma": "damit",
+      "meaning_en": "so that; with it, with that",
+      "example_de": "Ich spare Geld, damit ich reisen kann.",
+      "example_en": "I'm saving money so that I can travel."
+    },
+    {
+      "id": "jemand",
+      "rank": 119,
+      "pos": "other",
+      "lemma": "jemand",
+      "meaning_en": "somebody, someone; anybody",
+      "example_de": "Hat jemand meinen Schirm gesehen?",
+      "example_en": "Has anybody seen my umbrella?"
+    },
+    {
+      "id": "jahr",
+      "rank": 121,
+      "pos": "noun",
+      "lemma": "Jahr",
+      "gender": "das",
+      "plural": "Jahre",
+      "meaning_en": "year",
+      "example_de": "Wir wohnen seit drei Jahren in Berlin.",
+      "example_en": "We have been living in Berlin for three years."
+    },
+    {
+      "id": "gott",
+      "rank": 122,
+      "pos": "noun",
+      "lemma": "Gott",
+      "gender": "der",
+      "plural": "Götter",
+      "meaning_en": "God; god",
+      "example_de": "Gott sei Dank ist nichts passiert!",
+      "example_en": "Thank God nothing happened!"
+    },
+    {
+      "id": "nun",
+      "rank": 123,
+      "pos": "adverb",
+      "lemma": "nun",
+      "meaning_en": "now; well",
+      "example_de": "Was machen wir nun?",
+      "example_en": "What do we do now?"
+    },
+    {
+      "id": "erst",
+      "rank": 125,
+      "pos": "adverb",
+      "lemma": "erst",
+      "meaning_en": "only, not until; first",
+      "example_de": "Der Film fängt erst um neun an.",
+      "example_en": "The film doesn't start until nine."
+    },
+    {
+      "id": "bis",
+      "rank": 126,
+      "pos": "other",
+      "lemma": "bis",
+      "meaning_en": "until, till; by",
+      "example_de": "Der Laden ist bis 20 Uhr geöffnet.",
+      "example_en": "The shop is open until 8 pm."
+    },
+    {
+      "id": "leid",
+      "rank": 127,
+      "pos": "adverb",
+      "lemma": "leid",
+      "meaning_en": "sorry (es tut mir leid: I'm sorry)",
+      "example_de": "Es tut mir leid, ich habe den Termin vergessen.",
+      "example_en": "I'm sorry, I forgot the appointment."
+    }
+  ]
+}
