@@ -3,6 +3,7 @@ import { route, initRouter, rerenderCurrentRoute } from './router.js';
 import { renderNav } from './components/nav.js';
 import { initTheme } from './theme.js';
 import { onLanguageChange } from './i18n.js';
+import { store } from './db/storage.js';
 
 initTheme();
 
@@ -42,17 +43,25 @@ const navEl = document.getElementById('nav');
 function paintNav() {
   navEl.innerHTML = renderNav(location.hash.slice(1) || '/');
 }
-window.addEventListener('hashchange', paintNav);
-paintNav();
 
-initRouter(document.getElementById('app'));
-
-// Flip nav chrome + the currently-displayed screen in place when the UI
-// language toggle in Settings changes.
-onLanguageChange(() => {
+if (store.loadFailed) {
+  // Saved data exists but couldn't be loaded: the store is read-only, and no
+  // normal screen (or the nav that leads to them) is shown until the user
+  // recovers via the recovery screen, which reloads the page on success.
+  import('./modules/recovery/index.js').then((mod) => mod.render(document.getElementById('app')));
+} else {
+  window.addEventListener('hashchange', paintNav);
   paintNav();
-  rerenderCurrentRoute();
-});
+
+  initRouter(document.getElementById('app'));
+
+  // Flip nav chrome + the currently-displayed screen in place when the UI
+  // language toggle in Settings changes.
+  onLanguageChange(() => {
+    paintNav();
+    rerenderCurrentRoute();
+  });
+}
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

@@ -13,6 +13,7 @@
 
 const STORAGE_KEY = 'german-app-data-v1';
 const SNAPSHOTS_KEY = 'german-app-snapshots-v1';
+const RECOVERY_KEY = 'german-app-recovery-v1';
 const SNAPSHOT_RETENTION_DAYS = 7;
 const BACKUP_REMINDER_DAYS = 7;
 
@@ -104,21 +105,112 @@ function migrate(rawData) {
 
 let cache = null;
 
+// Failed-load state. If a blob exists under STORAGE_KEY but can't be parsed,
+// validated, or migrated, we must NOT fall back to defaults and then save
+// over it — that would silently wipe the user's only copy of their progress.
+// Instead the raw string is copied to RECOVERY_KEY, the store goes read-only
+// (persist() and maybeSnapshot() become no-ops), and main.js shows the
+// recovery screen until a restore/import/confirmed start-fresh clears it.
+let loadFailed = false;
+let recoveryCopySaved = false;
+
+/** True for a plain `{...}` object (not null, not an array, not a primitive). */
+function isPlainObject(v) {
+  return v !== null && typeof v === 'object' && !Array.isArray(v);
+}
+
+/** Minimal sanity check on a stored blob: a plain object whose srsCards/settings/stats, where present, are plain objects. */
+function hasLoadableShape(data) {
+  if (!isPlainObject(data)) return false;
+  return ['srsCards', 'settings', 'stats'].every((k) => data[k] === undefined || isPlainObject(data[k]));
+}
+
+/** Stricter check for an imported file: it must look like a German-app backup, not just any JSON object. */
+function isGermanAppBackup(data) {
+  return isPlainObject(data) && ['srsCards', 'settings', 'stats'].every((k) => isPlainObject(data[k]));
+}
+
+/**
+ * Copy the unloadable raw string, untouched, to RECOVERY_KEY. Entries are
+ * appended (never replaced); an identical raw string already saved isn't
+ * duplicated. If the recovery key itself is unreadable, we write to a
+ * timestamped sibling key instead of overwriting it.
+ */
+function saveRecoveryCopy(raw, error) {
+  const entry = { savedAt: new Date().toISOString(), error: String(error?.message || error), raw };
+  try {
+    const existingRaw = localStorage.getItem(RECOVERY_KEY);
+    let entries = [];
+    if (existingRaw != null) {
+      try {
+        entries = JSON.parse(existingRaw);
+      } catch {
+        entries = null;
+      }
+      if (!Array.isArray(entries)) {
+        localStorage.setItem(`${RECOVERY_KEY}-${Date.now()}`, JSON.stringify([entry]));
+        return true;
+      }
+    }
+    if (entries.some((e) => e && e.raw === raw)) return true;
+    entries.push(entry);
+    localStorage.setItem(RECOVERY_KEY, JSON.stringify(entries));
+    return true;
+  } catch (e) {
+    console.error('Failed to save a recovery copy of the unloadable data (storage may be full). The original is still untouched under ' + STORAGE_KEY + '.', e);
+    return false;
+  }
+}
+
+function enterFailedState(raw, error) {
+  console.error('Saved app data could not be loaded. Saving is disabled until it is recovered; nothing has been overwritten.', error);
+  loadFailed = true;
+  recoveryCopySaved = raw != null ? saveRecoveryCopy(raw, error) : false;
+  // In-memory defaults only, so theme/i18n can still read settings. Never persisted while loadFailed.
+  cache = defaultData();
+}
+
 function load() {
   if (cache) return cache;
+  let raw;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    cache = raw ? migrate(JSON.parse(raw)) : defaultData();
+    raw = localStorage.getItem(STORAGE_KEY);
   } catch (e) {
-    console.error('Failed to load app data, starting fresh.', e);
+    enterFailedState(null, e);
+    return cache;
+  }
+  if (raw === null) {
+    // First run: nothing saved yet.
     cache = defaultData();
+  } else {
+    try {
+      const parsed = JSON.parse(raw);
+      if (!hasLoadableShape(parsed)) throw new Error('Saved data is not an object with the expected srsCards/settings/stats shape.');
+      cache = migrate(parsed);
+    } catch (e) {
+      enterFailedState(raw, e);
+      return cache;
+    }
   }
   maybeSnapshot(cache);
   return cache;
 }
 
 function persist() {
+  if (loadFailed) {
+    console.error('Not saving: stored data failed to load and is awaiting recovery.');
+    return;
+  }
   localStorage.setItem(STORAGE_KEY, JSON.stringify(cache));
+}
+
+/** Replace the in-memory data with recovered data, leave the failed state, and save. */
+function replaceAndSave(data) {
+  load(); // ensure an unloadable blob has been copied to the recovery key before we overwrite it
+  cache = data;
+  loadFailed = false;
+  persist();
+  return cache;
 }
 
 // --- Rolling daily snapshots (separate key, so a bad write to one can't take out the other) ---
@@ -132,6 +224,7 @@ function loadSnapshots() {
 }
 
 function maybeSnapshot(data) {
+  if (loadFailed) return;
   const today = new Date().toISOString().slice(0, 10);
   const snapshots = loadSnapshots();
   if (snapshots.some((s) => s.date === today)) return;
@@ -244,11 +337,18 @@ export const store = {
     persist();
     return JSON.stringify(data, null, 2);
   },
+  /** Validates before replacing anything: a non-JSON or non-German-app file throws and leaves current data untouched. */
   importBackup(json) {
-    const parsed = JSON.parse(json);
-    cache = migrate(parsed);
-    persist();
-    return cache;
+    let parsed;
+    try {
+      parsed = JSON.parse(json);
+    } catch {
+      throw new Error('That file is not valid JSON.');
+    }
+    if (!isGermanAppBackup(parsed)) {
+      throw new Error("That file doesn't look like a Deutsch Trainer backup (missing srsCards/settings/stats).");
+    }
+    return replaceAndSave(migrate(parsed));
   },
   /** True once it's been 7+ days since the last export (or since first use, if never exported). */
   shouldPromptBackup() {
@@ -273,9 +373,35 @@ export const store = {
     const snapshots = loadSnapshots();
     const found = snapshots.find((s) => s.date === date);
     if (!found) throw new Error(`No snapshot found for ${date}`);
-    cache = migrate(found.data);
-    persist();
-    return cache;
+    if (!hasLoadableShape(found.data)) throw new Error(`Snapshot for ${date} is not in a loadable shape.`);
+    return replaceAndSave(migrate(found.data));
+  },
+
+  // --- Failed-load recovery (see enterFailedState) ---
+  /** True when saved data exists but couldn't be loaded; the store is read-only until recovered. */
+  get loadFailed() {
+    load();
+    return loadFailed;
+  },
+  /** Whether the unloadable raw data was successfully copied to the recovery key. */
+  get recoveryCopySaved() {
+    load();
+    return recoveryCopySaved;
+  },
+  /** The raw saved string as it sits on disk (main key, falling back to the newest recovery copy), for download. */
+  getRawSavedData() {
+    const main = localStorage.getItem(STORAGE_KEY);
+    if (main != null) return main;
+    try {
+      const entries = JSON.parse(localStorage.getItem(RECOVERY_KEY));
+      return Array.isArray(entries) && entries.length ? entries[entries.length - 1].raw : null;
+    } catch {
+      return null;
+    }
+  },
+  /** Recovery screen's "Start fresh" (after explicit confirmation): fresh defaults, saving re-enabled, recovery copy kept. */
+  startFreshAfterFailedLoad() {
+    return replaceAndSave(defaultData());
   },
 };
 

@@ -161,6 +161,11 @@ const LABELS = {
   automaticSnapshots: { de: 'Automatische Schnappschüsse', en: 'Automatic snapshots' },
   restore: { de: 'Wiederherstellen', en: 'Restore' },
   dangerZone: { de: 'Gefahrenzone', en: 'Danger zone' },
+  // --- Recovery screen (shown when saved data fails to load) ---
+  recoveryTitle: { de: 'Gespeicherte Daten wiederherstellen', en: 'Recover saved data' },
+  recoveryDownloadRaw: { de: 'Rohdaten herunterladen', en: 'Download raw saved data' },
+  recoveryNoSnapshots: { de: 'Keine Schnappschüsse vorhanden.', en: 'No snapshots available.' },
+  recoveryStartFresh: { de: 'Neu beginnen', en: 'Start fresh' },
   eraseAllProgress: { de: 'Gesamten Fortschritt auf diesem Gerät löschen', en: 'Erase all progress on this device' },
 
   perfektAuxQuestion: { de: 'Perfekt: Hilfsverb?', en: 'Perfekt: auxiliary?' },

@@ -9,5 +9,6 @@ All on-device progress lives in `localStorage` under `src/db/storage.js` (SRS ca
 Concretely:
 - If you change the shape of anything under `defaultData()` in `storage.js`, add a migration step to `MIGRATIONS` (keyed by the version it upgrades from) rather than relying on defaults to paper over it. Bump `STORAGE_VERSION` when you do.
 - Never replace `localStorage.getItem/setItem` calls with logic that can silently start from an empty/default state when existing data fails to parse in an unexpected shape — fail loud (console.error) and fall back to the safest non-destructive option, not a wipe.
+- If stored data exists but fails to load, the store enters a read-only failed state (`store.loadFailed`): the raw string is kept under `german-app-recovery-v1`, `persist()`/`maybeSnapshot()` don't write, and `main.js` shows the recovery screen. Never add a write path that bypasses that guard, and never clear the recovery key.
 - The additive merge in `migrate()` (spread defaults, then overlay real data) is a safety net for missing fields, not a substitute for a real migration when a value's meaning or shape changes.
 - Don't touch `store.resetAll()` or the "Erase all progress" Settings button's behavior without being explicitly asked to.
