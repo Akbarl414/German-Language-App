@@ -17,6 +17,15 @@ export async function render(container) {
       <p class="page-subtitle">Your German training dashboard.</p>
 
       ${
+        store.shouldShowUpdateAlert()
+          ? `<div class="card update-alert" id="update-alert" role="status">
+              <span>🆕 ${t('updatesAlertText')} <a href="#/updates">${t('updatesAlertLink')}</a></span>
+              <button type="button" class="update-alert-dismiss" id="update-alert-dismiss" aria-label="${t('updatesDismiss')}">✕</button>
+            </div>`
+          : ''
+      }
+
+      ${
         store.shouldPromptBackup()
           ? `<a href="#/settings" class="card" style="display:block; border-color:var(--warn); text-decoration:none; color:inherit;">
               <strong style="color:var(--warn);">⚠️ Back up your progress</strong>
@@ -57,6 +66,11 @@ export async function render(container) {
       <a href="#/active" class="btn btn-block">${t('activeContentBtn')}</a>
     </div>
   `;
+
+  container.querySelector('#update-alert-dismiss')?.addEventListener('click', () => {
+    store.markUpdatesSeen();
+    container.querySelector('#update-alert')?.remove();
+  });
 }
 
 function strengthRow(label, value) {
