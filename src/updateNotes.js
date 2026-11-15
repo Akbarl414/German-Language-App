@@ -5,6 +5,14 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-15-core-1000-01',
+    date: '2026-11-15',
+    lines: [
+      'New vocab pack "Core 1000 · 01": the 100 most frequent German words not yet in any pack, including sein, haben, werden, the modal verbs, pronouns and other small everyday words. Like every vocab pack it is off until you switch it on.',
+      'This is the first step towards a Core 1000 list of the most common words on the B1 exam word list. Your existing words and progress are unchanged.',
+    ],
+  },
+  {
     id: '2026-11-15-games-cleanup',
     date: '2026-11-15',
     lines: [

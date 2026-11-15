@@ -45,6 +45,7 @@ Full tour in *ARCHITECTURE.md § The modules tour* and *§ Data flow*.
 
 ```
 content/{vocab/packs,grammar/units,phrases/sets,stories}/*.json   learning content (auto-discovered, no manifest)
+content/core/                        Core 1000 authoring plan + SOURCES.md (not loaded by the app)
 content/schemas/                     JSON Schemas used by validation
 scripts/validate-content.js          npm run validate (also runs before build)
 src/main.js                          registers every route: fastest overview of all screens
@@ -79,7 +80,8 @@ public/sw.js, public/manifest.webmanifest   PWA
 
 A snapshot to orient you, not a spec. Run `ls content/*/*/` and read `main.js` / `games/hub.js` for current truth.
 
-- **Vocabulary:** packs in `content/vocab/packs/` (8 packs, ~470 words at last count; the long-term goal is a ~1,500-word base). Nouns carry gender, plural, example; verbs carry principal parts, hat/ist, separable/case flags. In-app manual entry (`/add`, "Path A") stores words on-device under `userContent`, merged in as a synthetic `user-added` pack and included in backups; they go straight into daily review as new cards.
+- **Vocabulary:** packs in `content/vocab/packs/` (9 packs, ~570 words at last count; the long-term goal is a ~1,500-word base).
+  - **Core 1000** is the 1,000 most frequent headwords on the Goethe B1 list. It lives in the same pool: any word with a `rank` is a Core word. New Core words go in `core-1000-NN` packs; `core-1000-01` is written. The plan and sources are in `content/core/`, and there is no app screen for it yet. The rank data is CC BY-SA 4.0 and the Goethe list is used only to decide which words qualify (never copy from it). Details: CONTENT_GUIDE.md § Core 1000. Nouns carry gender, plural, example; verbs carry principal parts, hat/ist, separable/case flags. In-app manual entry (`/add`, "Path A") stores words on-device under `userContent`, merged in as a synthetic `user-added` pack and included in backups; they go straight into daily review as new cards.
 - **Grammar:** units with a cheat-sheet page and a static exercise bank (currently Wechselpräpositionen, Perfekt vs. Präteritum, adjective endings, dative verbs, fixed-case prepositions). Practised per unit or in a weakness-weighted mixed quiz. Five exercise types, all rendered by `exerciseRenderer.js`.
 - **Phrases & idioms:** literal translation, meaning, register, situations; quizzed situation-first (currently one set, `classic-idioms`).
 - **Games** (matching game was removed as unengaging). Details and per-game settings in *ARCHITECTURE.md § Games*.
