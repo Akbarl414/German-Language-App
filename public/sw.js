@@ -18,7 +18,10 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))))
+      .then((keys) =>
+        // Cache Storage is shared by every app on this origin (github.io), so only ever delete our own old caches.
+        Promise.all(keys.filter((k) => k.startsWith('deutsch-trainer-') && k !== CACHE_NAME).map((k) => caches.delete(k)))
+      )
       .then(() => self.clients.claim())
   );
 });
