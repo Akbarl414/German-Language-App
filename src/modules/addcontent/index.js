@@ -1,4 +1,5 @@
 import { store } from '../../db/storage.js';
+import { ensureUserVocabCards } from '../../srs/queue.js';
 import { umlautFieldHTML, wireUmlautButtons } from '../../components/umlaut.js';
 import { t } from '../../i18n.js';
 
@@ -127,6 +128,7 @@ function renderVocabForm(slot) {
       if (gov) word.government = gov;
     }
     store.addUserVocab(word);
+    ensureUserVocabCards(); // straight into daily review as new cards
     slot.querySelector('#v-msg').innerHTML = `<p style="color:var(--good);">Saved "${lemma}" — it'll show up under My Added Words.</p>`;
     slot.querySelectorAll('input[type="text"]').forEach((el) => (el.value = ''));
   });

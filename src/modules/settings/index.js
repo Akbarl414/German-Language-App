@@ -1,6 +1,6 @@
 import { store } from '../../db/storage.js';
 import { getVocabPacks, getPhraseSets, getGrammarUnits } from '../../db/contentLoader.js';
-import { activateVocabPack, deactivateVocabPack } from '../../srs/queue.js';
+import { activateVocabPack, deactivateVocabPack, isVocabPackInReview } from '../../srs/queue.js';
 import { applyTheme } from '../../theme.js';
 import { t, getUiLanguage, setUiLanguage } from '../../i18n.js';
 import { localDayKey } from '../../db/dayKey.js';
@@ -79,11 +79,10 @@ export async function render(container) {
         <div class="card" style="padding:0;">
           ${vocabPacks
             .map((p) => {
-              const state = store.getPackState(`vocab:${p.id}`);
               return `
               <div class="switch-row" style="padding:12px 16px;">
                 <span>${p.title} <span class="page-subtitle">(${p.words.length})</span></span>
-                <input type="checkbox" data-pack="${p.id}" ${state.active ? 'checked' : ''} />
+                <input type="checkbox" data-pack="${p.id}" ${isVocabPackInReview(p.id) ? 'checked' : ''} />
               </div>`;
             })
             .join('')}

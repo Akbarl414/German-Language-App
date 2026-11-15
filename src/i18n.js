@@ -199,6 +199,10 @@ const LABELS = {
   directionDeToEn: { de: 'Deutsch → Englisch', en: 'German → English' },
   directionEnToDe: { de: 'Englisch → Deutsch', en: 'English → German' },
   advancedSettings: { de: 'Erweiterte Einstellungen', en: 'Advanced settings' },
+
+  // --- Game word pool (all vocab games) ---
+  notEnoughWordsToPlay: { de: 'Zu wenige Wörter zum Spielen.', en: 'Not enough words to play.' },
+  activatePacksLink: { de: 'Wortpakete aktivieren', en: 'Activate vocab packs' },
 };
 
 export function getUiLanguage() {

@@ -1,6 +1,5 @@
 import { getVocabPacks } from '../../db/contentLoader.js';
-import { store } from '../../db/storage.js';
-import { activateVocabPack, deactivateVocabPack, getPendingTriageWords } from '../../srs/queue.js';
+import { activateVocabPack, deactivateVocabPack, getPendingTriageWords, isVocabPackInReview } from '../../srs/queue.js';
 import { t } from '../../i18n.js';
 
 export async function render(container) {
@@ -23,8 +22,7 @@ export async function render(container) {
         e.preventDefault();
         e.stopPropagation();
         const packId = el.dataset.toggle;
-        const state = store.getPackState(`vocab:${packId}`);
-        if (state.active) deactivateVocabPack(packId);
+        if (isVocabPackInReview(packId)) deactivateVocabPack(packId);
         else activateVocabPack(packId);
         paint();
       })
@@ -33,8 +31,8 @@ export async function render(container) {
 }
 
 function packRow(pack) {
-  const state = store.getPackState(`vocab:${pack.id}`);
-  const pending = state.active ? getPendingTriageWords(pack.id).length : 0;
+  const active = isVocabPackInReview(pack.id);
+  const pending = active ? getPendingTriageWords(pack.id).length : 0;
   // Note: intentionally no <a> wrapping the whole row — the "continue triage"
   // link inside would nest an <a> inside an <a>, which is invalid HTML and
   // gets silently mangled by the parser (browsers close the outer anchor early).
@@ -45,7 +43,7 @@ function packRow(pack) {
           <div style="font-weight:700;">${pack.title}</div>
           <div class="page-subtitle" style="margin:2px 0 0;">${pack.topic} · ${pack.level} · ${pack.words.length} words</div>
         </a>
-        <button class="btn btn-sm ${state.active ? 'btn-good' : ''}" data-toggle="${pack.id}">${state.active ? t('packActive') : t('packOff')}</button>
+        <button class="btn btn-sm ${active ? 'btn-good' : ''}" data-toggle="${pack.id}">${active ? t('packActive') : t('packOff')}</button>
       </div>
       ${pending > 0 ? `<a href="#/vocab/pack/${pack.id}/triage" class="tag" style="margin-top:10px; display:inline-block; color:var(--warn); border-color:var(--warn);">Continue triage (${pending} left)</a>` : ''}
     </div>`;

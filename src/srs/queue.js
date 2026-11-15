@@ -39,6 +39,11 @@ export function isPackActive(type, id) {
   return store.getPackState(packKey(type, id)).active;
 }
 
+/** Whether a vocab pack's cards count toward review — what the pack on/off toggles should show (user-added is on unless switched off). */
+export function isVocabPackInReview(packId) {
+  return isSourceInReview('vocab', packId, store.allPackStates());
+}
+
 export function activateVocabPack(packId) {
   const pack = getVocabPacks().find((p) => p.id === packId);
   if (!pack) return;
