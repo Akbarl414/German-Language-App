@@ -5,6 +5,14 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-15-core-1000-02',
+    date: '2026-11-15',
+    lines: [
+      'New vocab pack "Core 1000 · 02": the next 100 most frequent German words, including möchten, dürfen and mögen, everyday nouns such as Leute, Geld, Woche and Stunde, and many common small words. Like every vocab pack it is off until you switch it on.',
+      'Your existing words and progress are unchanged.',
+    ],
+  },
+  {
     id: '2026-11-15-core-1000-01',
     date: '2026-11-15',
     lines: [
