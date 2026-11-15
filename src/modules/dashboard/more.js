@@ -9,6 +9,7 @@ export async function render(container) {
         <a class="list-item" style="padding:16px;" href="#/games">🎮&nbsp;&nbsp;${t('navGames')}</a>
         <a class="list-item" style="padding:16px;" href="#/testme">🧪&nbsp;&nbsp;${t('navTestMe')}</a>
         <a class="list-item" style="padding:16px;" href="#/active">🗂️&nbsp;&nbsp;${t('moreActiveContent')}</a>
+        <a class="list-item" style="padding:16px;" href="#/updates">🆕&nbsp;&nbsp;${t('moreUpdates')}</a>
         <a class="list-item" style="padding:16px;" href="#/settings">⚙️&nbsp;&nbsp;${t('moreSettings')}</a>
       </div>
     </div>`;

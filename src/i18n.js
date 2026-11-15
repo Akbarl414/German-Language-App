@@ -26,6 +26,7 @@ const LABELS = {
   moreTitle: { de: 'Mehr', en: 'More' },
   morePhrases: { de: 'Phrasen &amp; Redewendungen', en: 'Phrases &amp; Idioms' },
   moreActiveContent: { de: 'Aktive Inhalte', en: 'Active content' },
+  moreUpdates: { de: 'Neuigkeiten', en: 'Update notes' },
   moreSettings: { de: 'Einstellungen', en: 'Settings' },
 
   activeContentTitle: { de: 'Aktive Inhalte', en: 'Active content' },
@@ -176,6 +177,11 @@ const LABELS = {
     en: 'Saving failed: storage is full. Export a backup now, or new progress will be lost when you close the app.',
   },
   saveFailedGoToSettings: { de: 'Zu den Einstellungen', en: 'Go to Settings' },
+  // --- Update notes ---
+  updatesTitle: { de: 'Neuigkeiten', en: 'Update notes' },
+  updatesAlertText: { de: 'Die App wurde aktualisiert.', en: 'The app has been updated.' },
+  updatesAlertLink: { de: 'Neuigkeiten ansehen', en: 'See what’s new' },
+  updatesDismiss: { de: 'Schließen', en: 'Dismiss' },
   // --- Recovery screen (shown when saved data fails to load) ---
   recoveryTitle: { de: 'Gespeicherte Daten wiederherstellen', en: 'Recover saved data' },
   recoveryDownloadRaw: { de: 'Rohdaten herunterladen', en: 'Download raw saved data' },

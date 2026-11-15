@@ -37,6 +37,7 @@ route('/testme', () => import('./modules/testme/index.js'));
 route('/testme/run', () => import('./modules/testme/run.js'));
 
 route('/add', () => import('./modules/addcontent/index.js'));
+route('/updates', () => import('./modules/updates/index.js'));
 route('/settings', () => import('./modules/settings/index.js'));
 
 const navEl = document.getElementById('nav');
