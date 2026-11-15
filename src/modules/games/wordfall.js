@@ -49,15 +49,14 @@ function optionLabel(w, direction) {
 }
 
 /**
- * SRS facet to grade. de_en keeps Wordfall's original unconditional
- * 'meaning_de_en' (unchanged, so existing progress on this facet isn't
- * orphaned). en_de mirrors Type it's convention: nouns get the dedicated
- * meaning_en_de facet, everything else falls back to the single 'meaning'
- * facet those parts of speech use in both directions.
+ * SRS facet to grade: the word's real meaning facet. Only nouns have the
+ * directional facets (meaning_de_en / meaning_en_de); every other part of
+ * speech has the single 'meaning' facet in both directions (see FACETS in
+ * srs/engine.js, same convention as Type it).
  */
 function facetFor(word, direction) {
-  if (direction === 'en_de') return word.pos === 'noun' ? 'meaning_en_de' : 'meaning';
-  return 'meaning_de_en';
+  if (word.pos !== 'noun') return 'meaning';
+  return direction === 'en_de' ? 'meaning_en_de' : 'meaning_de_en';
 }
 
 export async function render(container) {
@@ -124,7 +123,12 @@ export async function render(container) {
 
     function nextQuestion() {
       const [target, ...rest] = shuffle(words);
-      const distractors = shuffle(rest.filter((w) => optionLabel(w, direction) !== optionLabel(target, direction))).slice(0, 2);
+      // Wrong options share the target's part of speech whenever the pool has
+      // enough of them, so the answer can't be guessed from word type.
+      const candidates = shuffle(rest.filter((w) => optionLabel(w, direction) !== optionLabel(target, direction)));
+      const samePos = candidates.filter((w) => w.pos === target.pos);
+      const otherPos = candidates.filter((w) => w.pos !== target.pos);
+      const distractors = [...samePos, ...otherPos].slice(0, 2);
       const options = shuffle([target, ...distractors]);
       return { target, options };
     }
