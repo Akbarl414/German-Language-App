@@ -41,7 +41,7 @@ scripts/
 
 ## Vocabulary packs
 
-Schema: `content/schemas/vocab-pack.schema.json`. Existing packs (as of this writing): `core-verbs-1`, `core-verbs-2`, `everyday-nouns`, `food-and-cooking`, `work-and-office`, `travel`, `feelings-and-opinions`, `common-adjectives`, `core-1000-01`, `core-1000-02`, `core-1000-03`, `core-1000-04`, `core-1000-05`, `core-1000-06`, `core-1000-07` — 1170 words total.
+Schema: `content/schemas/vocab-pack.schema.json`. Existing packs (as of this writing): `core-verbs-1`, `core-verbs-2`, `everyday-nouns`, `food-and-cooking`, `work-and-office`, `travel`, `feelings-and-opinions`, `common-adjectives`, `core-1000-01`, `core-1000-02`, `core-1000-03`, `core-1000-04`, `core-1000-05`, `core-1000-06`, `core-1000-07`, `core-1000-08` — 1232 words total.
 
 ### File shape
 
@@ -100,9 +100,12 @@ Core 1000 is the 1,000 most frequent German headwords that are also on the Goeth
 
 ### Writing the next pack (core-1000-NN)
 
+The list is now complete: `core-1000-08` wrote the last new rows, and validation reports all 1,000 ranks present. These steps stay as the record of how the packs were written.
+
+
 1. In the plan, take the next **≤100** rows with `pack: "new"` and no `targetPack`, in rank order.
 2. Write `content/vocab/packs/core-1000-NN.json`:
-   - `level` "A1" for the early packs; use the band's real level once the words get harder (`core-1000-03`, ranks 270–417, and `core-1000-04`, ranks 420–540, are "A2"; `core-1000-05`, ranks 542–671, `core-1000-06`, ranks 672–793, and `core-1000-07`, ranks 794–923, are "A2-B1").
+   - `level` "A1" for the early packs; use the band's real level once the words get harder (`core-1000-03`, ranks 270–417, and `core-1000-04`, ranks 420–540, are "A2"; `core-1000-05`, ranks 542–671, `core-1000-06`, ranks 672–793, `core-1000-07`, ranks 794–923, and `core-1000-08`, ranks 925–1000, are "A2-B1").
    - title `Core 1000 · NN`, topic `The most frequent German words, part N (ranks a–b)`.
    - Each word in the normal format plus its `rank`.
    - Write every meaning and example yourself.

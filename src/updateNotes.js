@@ -5,51 +5,11 @@
 
 export const UPDATE_NOTES = [
   {
-    id: '2026-11-16-core-1000-07',
+    id: '2026-11-16-core-1000-complete',
     date: '2026-11-16',
     lines: [
-      'New vocab pack "Core 1000 · 07": the next 100 most frequent German words, including verbs such as genießen, abholen, unterhalten and sich konzentrieren, everyday nouns such as Geburtstag, Gespräch, Erfolg and Weihnachten, and common words such as nämlich, übrigens, allerdings and weder … noch. Like every vocab pack it is off until you switch it on.',
-      'Your existing words and progress are unchanged.',
-    ],
-  },
-  {
-    id: '2026-11-16-core-1000-06',
-    date: '2026-11-16',
-    lines: [
-      'New vocab pack "Core 1000 · 06": the next 100 most frequent German words, including verbs such as aufgeben, verpassen, vermissen and aufpassen, everyday nouns such as Möglichkeit, Erinnerung, Unfall and Hochzeit, and common words such as obwohl, hoffentlich, unbedingt and sowieso. Like every vocab pack it is off until you switch it on.',
-      'Your existing words and progress are unchanged.',
-    ],
-  },
-  {
-    id: '2026-11-16-core-1000-05',
-    date: '2026-11-16',
-    lines: [
-      'New vocab pack "Core 1000 · 05": the next 100 most frequent German words, including verbs such as übernehmen, verbringen, nachdenken and sich beeilen, everyday nouns such as Zukunft, Entscheidung, Geschenk and Beziehung, and common words such as plötzlich, außerdem and sobald. Like every vocab pack it is off until you switch it on.',
-      'Your existing words and progress are unchanged.',
-    ],
-  },
-  {
-    id: '2026-11-16-core-1000-04',
-    date: '2026-11-16',
-    lines: [
-      'New vocab pack "Core 1000 · 04": the next 100 most frequent German words, including verbs such as erfahren, behalten, stehlen and ansehen, everyday nouns such as Nachricht, Eltern, Arzt and Fehler, and common words such as leider, trotzdem and wahrscheinlich. Like every vocab pack it is off until you switch it on.',
-      'Your existing words and progress are unchanged.',
-    ],
-  },
-  {
-    id: '2026-11-16-core-1000-03',
-    date: '2026-11-16',
-    lines: [
-      'New vocab pack "Core 1000 · 03": the next 100 most frequent German words, including verbs such as verschwinden, kümmern, bitten and aufhören, everyday nouns such as Weg, Monat, Geschichte and Wasser, and common words such as eigentlich, ziemlich and deshalb. Like every vocab pack it is off until you switch it on.',
-      'Your existing words and progress are unchanged.',
-    ],
-  },
-  {
-    id: '2026-11-15-core-1000-02',
-    date: '2026-11-15',
-    lines: [
-      'New vocab pack "Core 1000 · 02": the next 100 most frequent German words, including möchten, dürfen and mögen, everyday nouns such as Leute, Geld, Woche and Stunde, and many common small words. Like every vocab pack it is off until you switch it on.',
-      'Your existing words and progress are unchanged.',
+      'The Core 1000 word list is now complete: the 1,000 most frequent words on the B1 exam word list. The new ones are in the vocab packs "Core 1000 · 01" to "Core 1000 · 08"; the rest were already in your other packs. Like every vocab pack they are off until you switch them on.',
+      'A Core 1000 screen comes next. Your existing words and progress are unchanged.',
     ],
   },
   {
