@@ -97,13 +97,19 @@ function sentenceProblems(sentence) {
     if (strip(tok) !== tok) problems.push(`"${sentence.id}": token "${tok}" carries punctuation (put it in answerOrders only)`);
   }
   const seen = new Set();
-  for (const order of sentence.answerOrders) {
-    if (!orderUsesTokens(order, sentence.tokens)) {
-      problems.push(`"${sentence.id}": accepted order "${order.join(' ')}" does not use exactly the tokens`);
+  const lists = [
+    ['accepted order', sentence.answerOrders],
+    ['alsoAccepted order', sentence.alsoAccepted || []],
+  ];
+  for (const [what, orders] of lists) {
+    for (const order of orders) {
+      if (!orderUsesTokens(order, sentence.tokens)) {
+        problems.push(`"${sentence.id}": ${what} "${order.join(' ')}" does not use exactly the tokens`);
+      }
+      const key = order.map((x) => strip(x).toLowerCase()).join('\u0001');
+      if (seen.has(key)) problems.push(`"${sentence.id}": ${what} "${order.join(' ')}" is listed twice (within a list or in both answerOrders and alsoAccepted)`);
+      seen.add(key);
     }
-    const key = order.map((x) => strip(x).toLowerCase()).join('\u0001');
-    if (seen.has(key)) problems.push(`"${sentence.id}": accepted order "${order.join(' ')}" is listed twice`);
-    seen.add(key);
   }
   if (seen.has(sentence.tokens.map((x) => x.toLowerCase()).join('\u0001'))) {
     problems.push(`"${sentence.id}": tokens are already in an accepted order (not scrambled)`);
@@ -112,6 +118,8 @@ function sentenceProblems(sentence) {
 }
 const sentenceTopicCounts = new Map();
 let sentenceCount = 0;
+let alsoSentences = 0;
+let alsoOrders = 0;
 
 let errorCount = 0;
 let fileCount = 0;
@@ -239,6 +247,10 @@ for (const target of targets) {
     if (target.label === 'sentence set') {
       for (const item of items) {
         sentenceCount++;
+        if (item.alsoAccepted) {
+          alsoSentences++;
+          alsoOrders += item.alsoAccepted.length;
+        }
         sentenceTopicCounts.set(item.topic, (sentenceTopicCounts.get(item.topic) || 0) + 1);
         for (const problem of sentenceProblems(item)) {
           console.error(`FAIL  ${file}\n      ${problem}`);
@@ -258,7 +270,7 @@ for (const target of targets) {
 console.log(`\nCore 1000: ${coreRanks.size} / ${CORE_SIZE} ranks present.`);
 console.log(`prompt_en: ${promptEnCount} words carry a clean English prompt.`);
 console.log(
-  `Satzbau: ${sentenceCount} sentences (${[...sentenceTopicCounts].map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}).`
+  `Satzbau: ${sentenceCount} sentences (${[...sentenceTopicCounts].map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}); ${alsoOrders} alsoAccepted orders in ${alsoSentences} sentences.`
 );
 console.log(`Checked ${fileCount} file(s).`);
 if (errorCount > 0) {
