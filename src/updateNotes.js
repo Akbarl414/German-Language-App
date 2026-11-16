@@ -5,6 +5,15 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-clean-english-prompts',
+    date: '2026-11-16',
+    lines: [
+      'When a card or game shows you English and asks for the German, the English no longer gives the answer away. About 180 words had German notes in their meaning, for example "the (definite article: der/die/das)" or "thanks (vielen Dank = many thanks)". These words now have a clean English prompt instead.',
+      'This affects English-to-German review cards (including the second stage of Kern 1000), Type it, and Wordfall played English to German. After you answer, the full meaning with its German notes is still shown as before.',
+      'Your progress is unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-core-1000-stage-two',
     date: '2026-11-16',
     lines: [
