@@ -11,7 +11,8 @@
       "answerOrders": [
         ["Heute", "gehe", "ich", "ins Kino."],
         ["Ich", "gehe", "heute", "ins Kino."],
-        ["Ins Kino", "gehe", "ich", "heute."]
+        ["Ins Kino", "gehe", "ich", "heute."],
+        ["Ich", "gehe", "ins Kino", "heute."]
       ],
       "translation_en": "Today I'm going to the cinema."
     },
@@ -23,7 +24,8 @@
       "answerOrders": [
         ["Morgen", "besuche", "ich", "meine Oma."],
         ["Ich", "besuche", "morgen", "meine Oma."],
-        ["Meine Oma", "besuche", "ich", "morgen."]
+        ["Meine Oma", "besuche", "ich", "morgen."],
+        ["Ich", "besuche", "meine Oma", "morgen."]
       ],
       "translation_en": "Tomorrow I'm visiting my grandma."
     },
@@ -35,7 +37,8 @@
       "answerOrders": [
         ["Am Wochenende", "fahren", "wir", "nach Berlin."],
         ["Wir", "fahren", "am Wochenende", "nach Berlin."],
-        ["Nach Berlin", "fahren", "wir", "am Wochenende."]
+        ["Nach Berlin", "fahren", "wir", "am Wochenende."],
+        ["Wir", "fahren", "nach Berlin", "am Wochenende."]
       ],
       "translation_en": "At the weekend we're going to Berlin."
     },
@@ -48,7 +51,12 @@
         ["Im Sommer", "ist", "es", "hier", "sehr heiß."],
         ["Hier", "ist", "es", "im Sommer", "sehr heiß."],
         ["Es", "ist", "im Sommer", "hier", "sehr heiß."],
-        ["Es", "ist", "hier", "im Sommer", "sehr heiß."]
+        ["Es", "ist", "hier", "im Sommer", "sehr heiß."],
+        ["Im Sommer", "ist", "es", "sehr heiß", "hier."],
+        ["Hier", "ist", "es", "sehr heiß", "im Sommer."],
+        ["Es", "ist", "hier", "sehr heiß", "im Sommer."],
+        ["Es", "ist", "im Sommer", "sehr heiß", "hier."],
+        ["Es", "ist", "sehr heiß", "hier", "im Sommer."]
       ],
       "translation_en": "It is very hot here in summer."
     },
@@ -60,7 +68,8 @@
       "answerOrders": [
         ["Jeden Tag", "trinkt", "er", "einen Kaffee."],
         ["Er", "trinkt", "jeden Tag", "einen Kaffee."],
-        ["Einen Kaffee", "trinkt", "er", "jeden Tag."]
+        ["Einen Kaffee", "trinkt", "er", "jeden Tag."],
+        ["Er", "trinkt", "einen Kaffee", "jeden Tag."]
       ],
       "translation_en": "He drinks a coffee every day."
     },
@@ -113,7 +122,11 @@
         ["Man", "sieht", "hier", "manchmal", "Vögel."],
         ["Man", "sieht", "manchmal", "hier", "Vögel."],
         ["Vögel", "sieht", "man", "hier", "manchmal."],
-        ["Vögel", "sieht", "man", "manchmal", "hier."]
+        ["Vögel", "sieht", "man", "manchmal", "hier."],
+        ["Man", "sieht", "Vögel", "hier", "manchmal."],
+        ["Man", "sieht", "Vögel", "manchmal", "hier."],
+        ["Manchmal", "sieht", "man", "Vögel", "hier."],
+        ["Hier", "sieht", "man", "Vögel", "manchmal."]
       ],
       "translation_en": "Sometimes you see birds here."
     },
@@ -125,7 +138,9 @@
       "answerOrders": [
         ["Deshalb", "nehme", "ich", "lieber", "den Bus."],
         ["Ich", "nehme", "deshalb", "lieber", "den Bus."],
-        ["Den Bus", "nehme", "ich", "deshalb", "lieber."]
+        ["Den Bus", "nehme", "ich", "deshalb", "lieber."],
+        ["Deshalb", "nehme", "ich", "den Bus", "lieber."],
+        ["Ich", "nehme", "den Bus", "deshalb", "lieber."]
       ],
       "translation_en": "That is why I prefer to take the bus."
     },
@@ -140,7 +155,8 @@
         ["Morgen", "fahre", "ich", "mit dem Zug", "nach Hamburg."],
         ["Mit dem Zug", "fahre", "ich", "morgen", "nach Hamburg."],
         ["Ich", "fahre", "morgen", "nach Hamburg", "mit dem Zug."],
-        ["Morgen", "fahre", "ich", "nach Hamburg", "mit dem Zug."]
+        ["Morgen", "fahre", "ich", "nach Hamburg", "mit dem Zug."],
+        ["Nach Hamburg", "fahre", "ich", "morgen", "mit dem Zug."]
       ],
       "translation_en": "Tomorrow I'm going to Hamburg by train."
     },
@@ -154,7 +170,8 @@
         ["Im Juli", "fliegen", "wir", "mit dem Flugzeug", "nach Spanien."],
         ["Wir", "fliegen", "im Juli", "nach Spanien", "mit dem Flugzeug."],
         ["Im Juli", "fliegen", "wir", "nach Spanien", "mit dem Flugzeug."],
-        ["Mit dem Flugzeug", "fliegen", "wir", "im Juli", "nach Spanien."]
+        ["Mit dem Flugzeug", "fliegen", "wir", "im Juli", "nach Spanien."],
+        ["Nach Spanien", "fliegen", "wir", "im Juli", "mit dem Flugzeug."]
       ],
       "translation_en": "In July we're flying to Spain by plane."
     },
@@ -166,7 +183,8 @@
       "answerOrders": [
         ["Sie", "arbeitet", "seit Montag", "zu Hause."],
         ["Seit Montag", "arbeitet", "sie", "zu Hause."],
-        ["Zu Hause", "arbeitet", "sie", "seit Montag."]
+        ["Zu Hause", "arbeitet", "sie", "seit Montag."],
+        ["Sie", "arbeitet", "zu Hause", "seit Montag."]
       ],
       "translation_en": "She has been working from home since Monday."
     },
@@ -180,7 +198,10 @@
         ["Am Samstag", "treffe", "ich", "meine Freunde", "im Park."],
         ["Ich", "treffe", "am Samstag", "meine Freunde", "im Park."],
         ["Meine Freunde", "treffe", "ich", "am Samstag", "im Park."],
-        ["Im Park", "treffe", "ich", "meine Freunde", "am Samstag."]
+        ["Im Park", "treffe", "ich", "meine Freunde", "am Samstag."],
+        ["Ich", "treffe", "meine Freunde", "im Park", "am Samstag."],
+        ["Meine Freunde", "treffe", "ich", "im Park", "am Samstag."],
+        ["Im Park", "treffe", "ich", "am Samstag", "meine Freunde."]
       ],
       "translation_en": "I'm meeting my friends in the park on Saturday."
     },
@@ -192,7 +213,10 @@
       "answerOrders": [
         ["Er", "kommt", "heute", "zu spät", "zur Arbeit."],
         ["Heute", "kommt", "er", "zu spät", "zur Arbeit."],
-        ["Zur Arbeit", "kommt", "er", "heute", "zu spät."]
+        ["Zur Arbeit", "kommt", "er", "heute", "zu spät."],
+        ["Er", "kommt", "heute", "zur Arbeit", "zu spät."],
+        ["Heute", "kommt", "er", "zur Arbeit", "zu spät."],
+        ["Zu spät", "kommt", "er", "heute", "zur Arbeit."]
       ],
       "translation_en": "He is late for work today."
     },
@@ -204,7 +228,10 @@
       "answerOrders": [
         ["Die Kinder", "spielen", "jeden Nachmittag", "gern", "im Garten."],
         ["Jeden Nachmittag", "spielen", "die Kinder", "gern", "im Garten."],
-        ["Im Garten", "spielen", "die Kinder", "jeden Nachmittag", "gern."]
+        ["Im Garten", "spielen", "die Kinder", "jeden Nachmittag", "gern."],
+        ["Die Kinder", "spielen", "gern", "jeden Nachmittag", "im Garten."],
+        ["Im Garten", "spielen", "die Kinder", "gern", "jeden Nachmittag."],
+        ["Gern", "spielen", "die Kinder", "jeden Nachmittag", "im Garten."]
       ],
       "translation_en": "The children like playing in the garden every afternoon."
     },
@@ -229,7 +256,8 @@
       "answerOrders": [
         ["Wir", "treffen", "uns", "morgen um acht", "vor dem Kino."],
         ["Morgen um acht", "treffen", "wir", "uns", "vor dem Kino."],
-        ["Vor dem Kino", "treffen", "wir", "uns", "morgen um acht."]
+        ["Vor dem Kino", "treffen", "wir", "uns", "morgen um acht."],
+        ["Wir", "treffen", "uns", "vor dem Kino", "morgen um acht."]
       ],
       "translation_en": "We're meeting in front of the cinema at eight tomorrow."
     },
@@ -243,7 +271,8 @@
         ["Jedes Jahr", "fahren", "meine Eltern", "mit dem Auto", "an die Ostsee."],
         ["Meine Eltern", "fahren", "jedes Jahr", "an die Ostsee", "mit dem Auto."],
         ["Jedes Jahr", "fahren", "meine Eltern", "an die Ostsee", "mit dem Auto."],
-        ["Mit dem Auto", "fahren", "meine Eltern", "jedes Jahr", "an die Ostsee."]
+        ["Mit dem Auto", "fahren", "meine Eltern", "jedes Jahr", "an die Ostsee."],
+        ["An die Ostsee", "fahren", "meine Eltern", "jedes Jahr", "mit dem Auto."]
       ],
       "translation_en": "Every year my parents drive to the Baltic Sea."
     },
@@ -255,7 +284,10 @@
       "answerOrders": [
         ["Die Studenten", "diskutieren", "heute", "lebhaft", "im Seminar."],
         ["Heute", "diskutieren", "die Studenten", "lebhaft", "im Seminar."],
-        ["Im Seminar", "diskutieren", "die Studenten", "heute", "lebhaft."]
+        ["Im Seminar", "diskutieren", "die Studenten", "heute", "lebhaft."],
+        ["Die Studenten", "diskutieren", "heute", "im Seminar", "lebhaft."],
+        ["Heute", "diskutieren", "die Studenten", "im Seminar", "lebhaft."],
+        ["Lebhaft", "diskutieren", "die Studenten", "heute", "im Seminar."]
       ],
       "translation_en": "Today the students are having a lively discussion in the seminar."
     },
@@ -267,7 +299,8 @@
       "tokens": ["aufstehen", "muss", "heute", "früh", "ich"],
       "answerOrders": [
         ["Ich", "muss", "heute", "früh", "aufstehen."],
-        ["Heute", "muss", "ich", "früh", "aufstehen."]
+        ["Heute", "muss", "ich", "früh", "aufstehen."],
+        ["Früh", "muss", "ich", "heute", "aufstehen."]
       ],
       "translation_en": "I have to get up early today."
     },
@@ -302,7 +335,8 @@
       "answerOrders": [
         ["Wir", "wollen", "im Sommer", "nach Italien", "fahren."],
         ["Im Sommer", "wollen", "wir", "nach Italien", "fahren."],
-        ["Nach Italien", "wollen", "wir", "im Sommer", "fahren."]
+        ["Nach Italien", "wollen", "wir", "im Sommer", "fahren."],
+        ["Wir", "wollen", "nach Italien", "im Sommer", "fahren."]
       ],
       "translation_en": "We want to go to Italy in the summer."
     },
@@ -333,7 +367,8 @@
       "answerOrders": [
         ["Man", "soll", "im Kino", "das Handy", "ausschalten."],
         ["Im Kino", "soll", "man", "das Handy", "ausschalten."],
-        ["Das Handy", "soll", "man", "im Kino", "ausschalten."]
+        ["Das Handy", "soll", "man", "im Kino", "ausschalten."],
+        ["Man", "soll", "das Handy", "im Kino", "ausschalten."]
       ],
       "translation_en": "You should switch your phone off in the cinema."
     },
@@ -345,7 +380,8 @@
       "answerOrders": [
         ["Er", "will", "nächstes Jahr", "ein Haus", "kaufen."],
         ["Nächstes Jahr", "will", "er", "ein Haus", "kaufen."],
-        ["Ein Haus", "will", "er", "nächstes Jahr", "kaufen."]
+        ["Ein Haus", "will", "er", "nächstes Jahr", "kaufen."],
+        ["Er", "will", "ein Haus", "nächstes Jahr", "kaufen."]
       ],
       "translation_en": "He wants to buy a house next year."
     },
@@ -357,7 +393,8 @@
       "answerOrders": [
         ["Sie", "müssen", "hier", "Ihren Namen", "schreiben."],
         ["Hier", "müssen", "Sie", "Ihren Namen", "schreiben."],
-        ["Ihren Namen", "müssen", "Sie", "hier", "schreiben."]
+        ["Ihren Namen", "müssen", "Sie", "hier", "schreiben."],
+        ["Sie", "müssen", "Ihren Namen", "hier", "schreiben."]
       ],
       "translation_en": "You have to write your name here."
     },
@@ -394,7 +431,8 @@
       "answerOrders": [
         ["Wir", "sind", "am Sonntag", "nach Köln", "gefahren."],
         ["Am Sonntag", "sind", "wir", "nach Köln", "gefahren."],
-        ["Nach Köln", "sind", "wir", "am Sonntag", "gefahren."]
+        ["Nach Köln", "sind", "wir", "am Sonntag", "gefahren."],
+        ["Wir", "sind", "nach Köln", "am Sonntag", "gefahren."]
       ],
       "translation_en": "We went to Cologne on Sunday."
     },
@@ -438,7 +476,9 @@
         ["Letzten Sommer", "haben", "wir", "viel Zeit", "am See", "verbracht."],
         ["Wir", "haben", "letzten Sommer", "viel Zeit", "am See", "verbracht."],
         ["Viel Zeit", "haben", "wir", "letzten Sommer", "am See", "verbracht."],
-        ["Am See", "haben", "wir", "letzten Sommer", "viel Zeit", "verbracht."]
+        ["Am See", "haben", "wir", "letzten Sommer", "viel Zeit", "verbracht."],
+        ["Letzten Sommer", "haben", "wir", "am See", "viel Zeit", "verbracht."],
+        ["Wir", "haben", "letzten Sommer", "am See", "viel Zeit", "verbracht."]
       ],
       "translation_en": "Last summer we spent a lot of time at the lake."
     },
@@ -470,7 +510,10 @@
         ["Ich", "habe", "leider", "meinen Schlüssel", "zu Hause", "vergessen."],
         ["Leider", "habe", "ich", "meinen Schlüssel", "zu Hause", "vergessen."],
         ["Ich", "habe", "meinen Schlüssel", "leider", "zu Hause", "vergessen."],
-        ["Meinen Schlüssel", "habe", "ich", "leider", "zu Hause", "vergessen."]
+        ["Meinen Schlüssel", "habe", "ich", "leider", "zu Hause", "vergessen."],
+        ["Ich", "habe", "meinen Schlüssel", "zu Hause", "leider", "vergessen."],
+        ["Zu Hause", "habe", "ich", "leider", "meinen Schlüssel", "vergessen."],
+        ["Zu Hause", "habe", "ich", "meinen Schlüssel", "leider", "vergessen."]
       ],
       "translation_en": "Unfortunately I left my key at home."
     },
@@ -538,7 +581,8 @@
       "tokens": ["aus", "das Licht", "bitte", "mach"],
       "answerOrders": [
         ["Mach", "bitte", "das Licht", "aus!"],
-        ["Mach", "das Licht", "bitte", "aus!"]
+        ["Mach", "das Licht", "bitte", "aus!"],
+        ["Mach", "das Licht", "aus,", "bitte!"]
       ],
       "translation_en": "Please turn off the light."
     },
@@ -549,7 +593,8 @@
       "tokens": ["ein", "zum Essen", "wir", "unsere Nachbarn", "laden"],
       "answerOrders": [
         ["Wir", "laden", "unsere Nachbarn", "zum Essen", "ein."],
-        ["Unsere Nachbarn", "laden", "wir", "zum Essen", "ein."]
+        ["Unsere Nachbarn", "laden", "wir", "zum Essen", "ein."],
+        ["Zum Essen", "laden", "wir", "unsere Nachbarn", "ein."]
       ],
       "translation_en": "We're inviting our neighbours for dinner."
     },
@@ -571,7 +616,8 @@
       "tokens": ["mit", "nimm", "bitte", "deinen Regenschirm"],
       "answerOrders": [
         ["Nimm", "bitte", "deinen Regenschirm", "mit!"],
-        ["Nimm", "deinen Regenschirm", "bitte", "mit!"]
+        ["Nimm", "deinen Regenschirm", "bitte", "mit!"],
+        ["Nimm", "deinen Regenschirm", "mit,", "bitte!"]
       ],
       "translation_en": "Please take your umbrella with you."
     },
@@ -584,7 +630,8 @@
       "answerOrders": [
         ["Ich", "bleibe", "heute", "zu Hause,", "weil", "ich", "krank", "bin."],
         ["Heute", "bleibe", "ich", "zu Hause,", "weil", "ich", "krank", "bin."],
-        ["Weil", "ich", "krank", "bin,", "bleibe", "ich", "heute", "zu Hause."]
+        ["Weil", "ich", "krank", "bin,", "bleibe", "ich", "heute", "zu Hause."],
+        ["Zu Hause", "bleibe", "ich", "heute,", "weil", "ich", "krank", "bin."]
       ],
       "translation_en": "I'm staying at home today because I'm ill."
     },
@@ -607,7 +654,8 @@
       "tokens": ["ich", "ist", "weil", "nicht", "das Wasser", "gehe", "schwimmen", "zu kalt"],
       "answerOrders": [
         ["Ich", "gehe", "nicht", "schwimmen,", "weil", "das Wasser", "zu kalt", "ist."],
-        ["Weil", "das Wasser", "zu kalt", "ist,", "gehe", "ich", "nicht", "schwimmen."]
+        ["Weil", "das Wasser", "zu kalt", "ist,", "gehe", "ich", "nicht", "schwimmen."],
+        ["Schwimmen", "gehe", "ich", "nicht,", "weil", "das Wasser", "zu kalt", "ist."]
       ],
       "translation_en": "I'm not going swimming because the water is too cold."
     },
@@ -618,7 +666,8 @@
       "tokens": ["sind", "wir", "ein Taxi", "weil", "nehmen", "wir", "spät dran"],
       "answerOrders": [
         ["Wir", "nehmen", "ein Taxi,", "weil", "wir", "spät dran", "sind."],
-        ["Weil", "wir", "spät dran", "sind,", "nehmen", "wir", "ein Taxi."]
+        ["Weil", "wir", "spät dran", "sind,", "nehmen", "wir", "ein Taxi."],
+        ["Ein Taxi", "nehmen", "wir,", "weil", "wir", "spät dran", "sind."]
       ],
       "translation_en": "We're taking a taxi because we're running late."
     },
@@ -659,7 +708,8 @@
       "tokens": ["wir", "bleiben", "wenn", "es", "zu Hause", "regnet"],
       "answerOrders": [
         ["Wenn", "es", "regnet,", "bleiben", "wir", "zu Hause."],
-        ["Wir", "bleiben", "zu Hause,", "wenn", "es", "regnet."]
+        ["Wir", "bleiben", "zu Hause,", "wenn", "es", "regnet."],
+        ["Zu Hause", "bleiben", "wir,", "wenn", "es", "regnet."]
       ],
       "translation_en": "If it rains, we stay at home."
     },
@@ -681,7 +731,8 @@
       "tokens": ["ich", "mache", "wenn", "habe", "ich", "mehr Zeit", "einen Spaziergang"],
       "answerOrders": [
         ["Wenn", "ich", "mehr Zeit", "habe,", "mache", "ich", "einen Spaziergang."],
-        ["Ich", "mache", "einen Spaziergang,", "wenn", "ich", "mehr Zeit", "habe."]
+        ["Ich", "mache", "einen Spaziergang,", "wenn", "ich", "mehr Zeit", "habe."],
+        ["Einen Spaziergang", "mache", "ich,", "wenn", "ich", "mehr Zeit", "habe."]
       ],
       "translation_en": "If I have more time, I'll go for a walk."
     },
@@ -692,7 +743,8 @@
       "tokens": ["er", "obwohl", "geht", "krank", "zur Arbeit", "ist", "er"],
       "answerOrders": [
         ["Er", "geht", "zur Arbeit,", "obwohl", "er", "krank", "ist."],
-        ["Obwohl", "er", "krank", "ist,", "geht", "er", "zur Arbeit."]
+        ["Obwohl", "er", "krank", "ist,", "geht", "er", "zur Arbeit."],
+        ["Zur Arbeit", "geht", "er,", "obwohl", "er", "krank", "ist."]
       ],
       "translation_en": "He goes to work although he is ill."
     },
@@ -703,7 +755,8 @@
       "tokens": ["wir", "spazieren", "obwohl", "kalt", "gehen", "es", "ist"],
       "answerOrders": [
         ["Obwohl", "es", "kalt", "ist,", "gehen", "wir", "spazieren."],
-        ["Wir", "gehen", "spazieren,", "obwohl", "es", "kalt", "ist."]
+        ["Wir", "gehen", "spazieren,", "obwohl", "es", "kalt", "ist."],
+        ["Spazieren", "gehen", "wir,", "obwohl", "es", "kalt", "ist."]
       ],
       "translation_en": "Although it is cold, we're going for a walk."
     }
