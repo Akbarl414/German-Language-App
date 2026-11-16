@@ -15,9 +15,11 @@
 //   every band; new ones only from unlocked bands, in rank order.
 // - Games: a miss on any Core meaning card that has already been reviewed
 //   counts as AGAIN, whichever pack the word came from; a correct answer
-//   changes nothing.
+//   changes nothing. Once a word has switched to stage two, game results land
+//   on its meaning_en_de card instead (coreGameTargetFacet).
+// - Stage two (English to German): see the section above buildCoreSession.
 
-import { Grade, newCard, learnedCard, isDue } from './engine.js';
+import { Grade, newCard, learnedCard, isDue, grade } from './engine.js';
 import { vocabCardId } from './cardIds.js';
 import { isSourceInReview } from './vocabScope.js';
 
@@ -77,38 +79,129 @@ export function isRecognised(card) {
   return card.status === 'review';
 }
 
+// --- Stage two (English to German) ------------------------------------------
+// Opens once every ranked word has been seen in stage one. From then on a word
+// whose stage-one card is recognised (last grade Gut or better) is eligible to
+// switch to its meaning_en_de card; eligible words are introduced in rank
+// order through the Core new-word allowance. A switched word is marked by
+// `coreStageTwoAt` on its meaning_en_de card (additive field: absent on every
+// card stored before stage two existed, which is the true state). After the
+// switch Core shows only that card; the stage-one card stays stored, untouched.
+// A miss keeps the word at stage two; there is no way back to stage one.
+// meaning_en_de is not in FACETS for non-nouns, so daily review and pack triage
+// never create or show it; Core reads cards directly, not via allCardRefs().
+
+export const STAGE_TWO_FACET = 'meaning_en_de';
+export const MASTERED_INTERVAL_DAYS = 21;
+
+export function stageTwoCardId(word) {
+  return vocabCardId(word.packId, word.id, STAGE_TWO_FACET);
+}
+
+/** Seen in stage one: the card exists and has been reviewed at least once or triaged as known (anything but 'new'). */
+export function isSeenInStageOne(card) {
+  return !!card && card.status !== 'new';
+}
+
+/** Stage two opens once all CORE_TOTAL ranked words have been seen in stage one. */
+export function isStageTwoOpen(rankedWords, cards) {
+  if (rankedWords.length < CORE_TOTAL) return false;
+  return rankedWords.every((w) => isSeenInStageOne(cards[stageOneCardId(w)]));
+}
+
+/** The word has switched to English to German (its meaning_en_de card carries coreStageTwoAt). */
+export function isIntroduced(word, cards) {
+  return cards[stageTwoCardId(word)]?.coreStageTwoAt != null;
+}
+
+/** Eligible to switch: stage two open (passed in), not switched yet, stage-one card recognised (Gut or better). */
+export function isStageTwoEligible(word, cards, stageTwoOpen) {
+  return !!stageTwoOpen && !isIntroduced(word, cards) && isRecognised(cards[stageOneCardId(word)]);
+}
+
+/** The one card Core uses for this word right now: { cardId, facet, card } (card may be undefined). */
+export function coreCurrentCard(word, cards) {
+  const facet = isIntroduced(word, cards) ? STAGE_TWO_FACET : stageOneFacet(word);
+  const cardId = vocabCardId(word.packId, word.id, facet);
+  return { cardId, facet, card: cards[cardId] };
+}
+
+/** Mastered: switched to English to German and that card's interval is 21 days or more. */
+export function isMastered(word, cards) {
+  if (!isIntroduced(word, cards)) return false;
+  return (cards[stageTwoCardId(word)].interval || 0) >= MASTERED_INTERVAL_DAYS;
+}
+
+export function coreMasteredCount(rankedWords, cards) {
+  return rankedWords.filter((w) => isMastered(w, cards)).length;
+}
+
+/**
+ * Which Core meaning card a game result lands on: once a word has switched,
+ * its English-to-German card (whatever direction the game asked), so the
+ * stage-one card stays untouched; otherwise the facet the game passed.
+ */
+export function coreGameTargetFacet(word, facet, cards) {
+  return isIntroduced(word, cards) ? STAGE_TWO_FACET : facet;
+}
+
+/**
+ * Grade a Core session item. Returns { card, countsAsNew }: the next card
+ * state (an introduction adds coreStageTwoAt, keeping all existing progress),
+ * and whether it uses up the Core new-word allowance (new cards and every
+ * introduction, even of a noun whose meaning_en_de card already had progress).
+ */
+export function coreReviewResult(item, gradeValue, now = Date.now()) {
+  let card = grade(item.card, gradeValue, now);
+  if (item.introduce && card.coreStageTwoAt == null) card = { ...card, coreStageTwoAt: now };
+  return { card, countsAsNew: item.card.status === 'new' || !!item.introduce };
+}
+
 /**
  * Core review session. rankedWords: [{ ...word, packId }] (rank set);
  * cards: store.allCards(). Returns [{ cardId, type, sourceId, itemId, facet,
- * card, content, isNew }]: due stage-one cards from every band, most urgent
- * first (urgency(card, now), higher = sooner), then new stage-one cards from
- * unlocked bands in rank order, up to newAllowanceLeft.
+ * card, content, isNew, introduce? }]: each word's current card if due, from
+ * every band, most urgent first (urgency(card, now), higher = sooner); then
+ * new stage-one cards from unlocked bands in rank order; then, once stage two
+ * is open, eligible words' meaning_en_de cards in rank order (introduce: true;
+ * the existing card, or a fresh unsaved one). New items share newAllowanceLeft.
+ * A word being introduced is left out of the due list, so no word appears twice.
  */
 export function buildCoreSession({ rankedWords, cards, unlockedBands, newAllowanceLeft, now = Date.now(), urgency }) {
   const due = [];
   const fresh = [];
+  const intro = [];
+  const stageTwoOpen = isStageTwoOpen(rankedWords, cards);
   for (const word of rankedWords) {
-    const facet = stageOneFacet(word);
-    const cardId = vocabCardId(word.packId, word.id, facet);
-    const card = cards[cardId];
+    const base = { type: 'vocab', sourceId: word.packId, itemId: word.id, content: word };
+    if (isStageTwoEligible(word, cards, stageTwoOpen)) {
+      const cardId = stageTwoCardId(word);
+      intro.push({ ...base, cardId, facet: STAGE_TWO_FACET, card: cards[cardId] || newCard(now), isNew: true, introduce: true });
+    }
+    const { cardId, facet, card } = coreCurrentCard(word, cards);
     if (!card) continue;
-    const item = { cardId, type: 'vocab', sourceId: word.packId, itemId: word.id, facet, card, content: word };
+    const item = { ...base, cardId, facet, card };
     if (card.status === 'new') {
       if (bandOf(word.rank) <= unlockedBands) fresh.push({ ...item, isNew: true });
     } else if (isDue(card, now)) {
       due.push({ ...item, isNew: false });
     }
   }
-  due.sort((a, b) => urgency(b.card, now) - urgency(a.card, now));
-  fresh.sort((a, b) => a.content.rank - b.content.rank);
-  return [...due, ...fresh.slice(0, Math.max(0, newAllowanceLeft))];
+  const byRank = (a, b) => a.content.rank - b.content.rank;
+  fresh.sort(byRank);
+  intro.sort(byRank);
+  const newItems = [...fresh, ...intro].slice(0, Math.max(0, newAllowanceLeft));
+  const introducing = new Set(newItems.filter((i) => i.introduce).map((i) => `${i.sourceId}::${i.itemId}`));
+  const dueKept = due.filter((i) => !introducing.has(`${i.sourceId}::${i.itemId}`));
+  dueKept.sort((a, b) => urgency(b.card, now) - urgency(a.card, now));
+  return [...dueKept, ...newItems];
 }
 
-/** Count of due (non-new) stage-one cards, any band. */
+/** Count of due (non-new) current cards (stage-one, or meaning_en_de once switched), any band. */
 export function coreDueCount(rankedWords, cards, now = Date.now()) {
   let n = 0;
   for (const word of rankedWords) {
-    const card = cards[stageOneCardId(word)];
+    const { card } = coreCurrentCard(word, cards);
     if (card && card.status !== 'new' && isDue(card, now)) n++;
   }
   return n;
