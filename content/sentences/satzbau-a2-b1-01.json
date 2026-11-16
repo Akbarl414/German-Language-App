@@ -11,9 +11,9 @@
       "answerOrders": [
         ["Heute", "gehe", "ich", "ins Kino."],
         ["Ich", "gehe", "heute", "ins Kino."],
-        ["Ins Kino", "gehe", "ich", "heute."],
-        ["Ich", "gehe", "ins Kino", "heute."]
+        ["Ins Kino", "gehe", "ich", "heute."]
       ],
+      "alsoAccepted": [["Ich", "gehe", "ins Kino", "heute."]],
       "translation_en": "Today I'm going to the cinema."
     },
     {
@@ -37,9 +37,9 @@
       "answerOrders": [
         ["Am Wochenende", "fahren", "wir", "nach Berlin."],
         ["Wir", "fahren", "am Wochenende", "nach Berlin."],
-        ["Nach Berlin", "fahren", "wir", "am Wochenende."],
-        ["Wir", "fahren", "nach Berlin", "am Wochenende."]
+        ["Nach Berlin", "fahren", "wir", "am Wochenende."]
       ],
+      "alsoAccepted": [["Wir", "fahren", "nach Berlin", "am Wochenende."]],
       "translation_en": "At the weekend we're going to Berlin."
     },
     {
@@ -51,11 +51,13 @@
         ["Im Sommer", "ist", "es", "hier", "sehr heiß."],
         ["Hier", "ist", "es", "im Sommer", "sehr heiß."],
         ["Es", "ist", "im Sommer", "hier", "sehr heiß."],
-        ["Es", "ist", "hier", "im Sommer", "sehr heiß."],
         ["Im Sommer", "ist", "es", "sehr heiß", "hier."],
         ["Hier", "ist", "es", "sehr heiß", "im Sommer."],
+        ["Es", "ist", "im Sommer", "sehr heiß", "hier."]
+      ],
+      "alsoAccepted": [
+        ["Es", "ist", "hier", "im Sommer", "sehr heiß."],
         ["Es", "ist", "hier", "sehr heiß", "im Sommer."],
-        ["Es", "ist", "im Sommer", "sehr heiß", "hier."],
         ["Es", "ist", "sehr heiß", "hier", "im Sommer."]
       ],
       "translation_en": "It is very hot here in summer."
@@ -68,9 +70,9 @@
       "answerOrders": [
         ["Jeden Tag", "trinkt", "er", "einen Kaffee."],
         ["Er", "trinkt", "jeden Tag", "einen Kaffee."],
-        ["Einen Kaffee", "trinkt", "er", "jeden Tag."],
-        ["Er", "trinkt", "einen Kaffee", "jeden Tag."]
+        ["Einen Kaffee", "trinkt", "er", "jeden Tag."]
       ],
+      "alsoAccepted": [["Er", "trinkt", "einen Kaffee", "jeden Tag."]],
       "translation_en": "He drinks a coffee every day."
     },
     {
@@ -106,9 +108,9 @@
       "answerOrders": [
         ["Seit einem Jahr", "lernt", "sie", "Deutsch."],
         ["Sie", "lernt", "seit einem Jahr", "Deutsch."],
-        ["Sie", "lernt", "Deutsch", "seit einem Jahr."],
         ["Deutsch", "lernt", "sie", "seit einem Jahr."]
       ],
+      "alsoAccepted": [["Sie", "lernt", "Deutsch", "seit einem Jahr."]],
       "translation_en": "She has been learning German for a year."
     },
     {
@@ -119,13 +121,15 @@
       "answerOrders": [
         ["Manchmal", "sieht", "man", "hier", "Vögel."],
         ["Hier", "sieht", "man", "manchmal", "Vögel."],
-        ["Man", "sieht", "hier", "manchmal", "Vögel."],
         ["Man", "sieht", "manchmal", "hier", "Vögel."],
-        ["Vögel", "sieht", "man", "hier", "manchmal."],
         ["Vögel", "sieht", "man", "manchmal", "hier."],
+        ["Manchmal", "sieht", "man", "Vögel", "hier."]
+      ],
+      "alsoAccepted": [
+        ["Man", "sieht", "hier", "manchmal", "Vögel."],
+        ["Vögel", "sieht", "man", "hier", "manchmal."],
         ["Man", "sieht", "Vögel", "hier", "manchmal."],
         ["Man", "sieht", "Vögel", "manchmal", "hier."],
-        ["Manchmal", "sieht", "man", "Vögel", "hier."],
         ["Hier", "sieht", "man", "Vögel", "manchmal."]
       ],
       "translation_en": "Sometimes you see birds here."
@@ -183,9 +187,9 @@
       "answerOrders": [
         ["Sie", "arbeitet", "seit Montag", "zu Hause."],
         ["Seit Montag", "arbeitet", "sie", "zu Hause."],
-        ["Zu Hause", "arbeitet", "sie", "seit Montag."],
-        ["Sie", "arbeitet", "zu Hause", "seit Montag."]
+        ["Zu Hause", "arbeitet", "sie", "seit Montag."]
       ],
+      "alsoAccepted": [["Sie", "arbeitet", "zu Hause", "seit Montag."]],
       "translation_en": "She has been working from home since Monday."
     },
     {
@@ -199,9 +203,11 @@
         ["Ich", "treffe", "am Samstag", "meine Freunde", "im Park."],
         ["Meine Freunde", "treffe", "ich", "am Samstag", "im Park."],
         ["Im Park", "treffe", "ich", "meine Freunde", "am Samstag."],
-        ["Ich", "treffe", "meine Freunde", "im Park", "am Samstag."],
-        ["Meine Freunde", "treffe", "ich", "im Park", "am Samstag."],
         ["Im Park", "treffe", "ich", "am Samstag", "meine Freunde."]
+      ],
+      "alsoAccepted": [
+        ["Ich", "treffe", "meine Freunde", "im Park", "am Samstag."],
+        ["Meine Freunde", "treffe", "ich", "im Park", "am Samstag."]
       ],
       "translation_en": "I'm meeting my friends in the park on Saturday."
     },
@@ -243,9 +249,9 @@
       "answerOrders": [
         ["Mein Bruder", "wohnt", "seit zwei Jahren", "in München."],
         ["Seit zwei Jahren", "wohnt", "mein Bruder", "in München."],
-        ["In München", "wohnt", "mein Bruder", "seit zwei Jahren."],
-        ["Mein Bruder", "wohnt", "in München", "seit zwei Jahren."]
+        ["In München", "wohnt", "mein Bruder", "seit zwei Jahren."]
       ],
+      "alsoAccepted": [["Mein Bruder", "wohnt", "in München", "seit zwei Jahren."]],
       "translation_en": "My brother has lived in Munich for two years."
     },
     {
@@ -256,9 +262,9 @@
       "answerOrders": [
         ["Wir", "treffen", "uns", "morgen um acht", "vor dem Kino."],
         ["Morgen um acht", "treffen", "wir", "uns", "vor dem Kino."],
-        ["Vor dem Kino", "treffen", "wir", "uns", "morgen um acht."],
-        ["Wir", "treffen", "uns", "vor dem Kino", "morgen um acht."]
+        ["Vor dem Kino", "treffen", "wir", "uns", "morgen um acht."]
       ],
+      "alsoAccepted": [["Wir", "treffen", "uns", "vor dem Kino", "morgen um acht."]],
       "translation_en": "We're meeting in front of the cinema at eight tomorrow."
     },
     {
@@ -335,9 +341,9 @@
       "answerOrders": [
         ["Wir", "wollen", "im Sommer", "nach Italien", "fahren."],
         ["Im Sommer", "wollen", "wir", "nach Italien", "fahren."],
-        ["Nach Italien", "wollen", "wir", "im Sommer", "fahren."],
-        ["Wir", "wollen", "nach Italien", "im Sommer", "fahren."]
+        ["Nach Italien", "wollen", "wir", "im Sommer", "fahren."]
       ],
+      "alsoAccepted": [["Wir", "wollen", "nach Italien", "im Sommer", "fahren."]],
       "translation_en": "We want to go to Italy in the summer."
     },
     {
@@ -380,9 +386,9 @@
       "answerOrders": [
         ["Er", "will", "nächstes Jahr", "ein Haus", "kaufen."],
         ["Nächstes Jahr", "will", "er", "ein Haus", "kaufen."],
-        ["Ein Haus", "will", "er", "nächstes Jahr", "kaufen."],
-        ["Er", "will", "ein Haus", "nächstes Jahr", "kaufen."]
+        ["Ein Haus", "will", "er", "nächstes Jahr", "kaufen."]
       ],
+      "alsoAccepted": [["Er", "will", "ein Haus", "nächstes Jahr", "kaufen."]],
       "translation_en": "He wants to buy a house next year."
     },
     {
@@ -418,9 +424,9 @@
       "answerOrders": [
         ["Ich", "habe", "gestern", "einen Film", "gesehen."],
         ["Gestern", "habe", "ich", "einen Film", "gesehen."],
-        ["Einen Film", "habe", "ich", "gestern", "gesehen."],
-        ["Ich", "habe", "einen Film", "gestern", "gesehen."]
+        ["Einen Film", "habe", "ich", "gestern", "gesehen."]
       ],
+      "alsoAccepted": [["Ich", "habe", "einen Film", "gestern", "gesehen."]],
       "translation_en": "I watched a film yesterday."
     },
     {
@@ -431,9 +437,9 @@
       "answerOrders": [
         ["Wir", "sind", "am Sonntag", "nach Köln", "gefahren."],
         ["Am Sonntag", "sind", "wir", "nach Köln", "gefahren."],
-        ["Nach Köln", "sind", "wir", "am Sonntag", "gefahren."],
-        ["Wir", "sind", "nach Köln", "am Sonntag", "gefahren."]
+        ["Nach Köln", "sind", "wir", "am Sonntag", "gefahren."]
       ],
+      "alsoAccepted": [["Wir", "sind", "nach Köln", "am Sonntag", "gefahren."]],
       "translation_en": "We went to Cologne on Sunday."
     },
     {
@@ -569,9 +575,9 @@
       "answerOrders": [
         ["Sie", "kauft", "jeden Samstag", "auf dem Markt", "ein."],
         ["Jeden Samstag", "kauft", "sie", "auf dem Markt", "ein."],
-        ["Auf dem Markt", "kauft", "sie", "jeden Samstag", "ein."],
-        ["Sie", "kauft", "auf dem Markt", "jeden Samstag", "ein."]
+        ["Auf dem Markt", "kauft", "sie", "jeden Samstag", "ein."]
       ],
+      "alsoAccepted": [["Sie", "kauft", "auf dem Markt", "jeden Samstag", "ein."]],
       "translation_en": "She does her shopping at the market every Saturday."
     },
     {
@@ -671,6 +677,7 @@
       ],
       "translation_en": "We're taking a taxi because we're running late."
     },
+
     {
       "id": "dass-glaube-kommt",
       "level": "A2-B1",
@@ -701,6 +708,7 @@
       "answerOrders": [["Es", "ist", "wichtig,", "dass", "du", "pünktlich", "bist."]],
       "translation_en": "It is important that you are on time."
     },
+
     {
       "id": "wenn-regnet-zu-hause",
       "level": "A2",
@@ -736,6 +744,7 @@
       ],
       "translation_en": "If I have more time, I'll go for a walk."
     },
+
     {
       "id": "obwohl-krank-arbeit",
       "level": "A2-B1",
