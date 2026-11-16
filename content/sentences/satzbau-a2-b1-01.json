@@ -1,0 +1,711 @@
+{
+  "id": "satzbau-a2-b1-01",
+  "title": "Satzbau A2–B1, set 1",
+  "level": "A2-B1",
+  "sentences": [
+    {
+      "id": "v2-heute-kino",
+      "level": "A2",
+      "topic": "v2-fronted",
+      "tokens": ["gehe", "ins Kino", "ich", "heute"],
+      "answerOrders": [
+        ["Heute", "gehe", "ich", "ins Kino."],
+        ["Ich", "gehe", "heute", "ins Kino."],
+        ["Ins Kino", "gehe", "ich", "heute."]
+      ],
+      "translation_en": "Today I'm going to the cinema."
+    },
+    {
+      "id": "v2-morgen-oma",
+      "level": "A2",
+      "topic": "v2-fronted",
+      "tokens": ["besuche", "meine Oma", "morgen", "ich"],
+      "answerOrders": [
+        ["Morgen", "besuche", "ich", "meine Oma."],
+        ["Ich", "besuche", "morgen", "meine Oma."],
+        ["Meine Oma", "besuche", "ich", "morgen."]
+      ],
+      "translation_en": "Tomorrow I'm visiting my grandma."
+    },
+    {
+      "id": "v2-wochenende-berlin",
+      "level": "A2",
+      "topic": "v2-fronted",
+      "tokens": ["wir", "nach Berlin", "fahren", "am Wochenende"],
+      "answerOrders": [
+        ["Am Wochenende", "fahren", "wir", "nach Berlin."],
+        ["Wir", "fahren", "am Wochenende", "nach Berlin."],
+        ["Nach Berlin", "fahren", "wir", "am Wochenende."]
+      ],
+      "translation_en": "At the weekend we're going to Berlin."
+    },
+    {
+      "id": "v2-sommer-heiss",
+      "level": "A2",
+      "topic": "v2-fronted",
+      "tokens": ["es", "sehr heiß", "ist", "hier", "im Sommer"],
+      "answerOrders": [
+        ["Im Sommer", "ist", "es", "hier", "sehr heiß."],
+        ["Hier", "ist", "es", "im Sommer", "sehr heiß."],
+        ["Es", "ist", "im Sommer", "hier", "sehr heiß."],
+        ["Es", "ist", "hier", "im Sommer", "sehr heiß."]
+      ],
+      "translation_en": "It is very hot here in summer."
+    },
+    {
+      "id": "v2-kaffee-jeden-tag",
+      "level": "A2",
+      "topic": "v2-fronted",
+      "tokens": ["er", "einen Kaffee", "jeden Tag", "trinkt"],
+      "answerOrders": [
+        ["Jeden Tag", "trinkt", "er", "einen Kaffee."],
+        ["Er", "trinkt", "jeden Tag", "einen Kaffee."],
+        ["Einen Kaffee", "trinkt", "er", "jeden Tag."]
+      ],
+      "translation_en": "He drinks a coffee every day."
+    },
+    {
+      "id": "v2-leider-keine-zeit",
+      "level": "A2-B1",
+      "topic": "v2-fronted",
+      "tokens": ["habe", "ich", "keine Zeit", "leider"],
+      "answerOrders": [
+        ["Leider", "habe", "ich", "keine Zeit."],
+        ["Ich", "habe", "leider", "keine Zeit."],
+        ["Keine Zeit", "habe", "ich", "leider."]
+      ],
+      "translation_en": "Unfortunately I have no time."
+    },
+    {
+      "id": "v2-dort-brot",
+      "level": "A2-B1",
+      "topic": "v2-fronted",
+      "tokens": ["unser Brot", "dort", "wir", "kaufen"],
+      "answerOrders": [
+        ["Dort", "kaufen", "wir", "unser Brot."],
+        ["Wir", "kaufen", "dort", "unser Brot."],
+        ["Wir", "kaufen", "unser Brot", "dort."],
+        ["Unser Brot", "kaufen", "wir", "dort."]
+      ],
+      "translation_en": "We buy our bread there."
+    },
+    {
+      "id": "v2-seit-einem-jahr-deutsch",
+      "level": "A2-B1",
+      "topic": "v2-fronted",
+      "tokens": ["Deutsch", "sie", "seit einem Jahr", "lernt"],
+      "answerOrders": [
+        ["Seit einem Jahr", "lernt", "sie", "Deutsch."],
+        ["Sie", "lernt", "seit einem Jahr", "Deutsch."],
+        ["Sie", "lernt", "Deutsch", "seit einem Jahr."],
+        ["Deutsch", "lernt", "sie", "seit einem Jahr."]
+      ],
+      "translation_en": "She has been learning German for a year."
+    },
+    {
+      "id": "v2-voegel-sehen",
+      "level": "A2-B1",
+      "topic": "v2-fronted",
+      "tokens": ["man", "Vögel", "hier", "manchmal", "sieht"],
+      "answerOrders": [
+        ["Manchmal", "sieht", "man", "hier", "Vögel."],
+        ["Hier", "sieht", "man", "manchmal", "Vögel."],
+        ["Man", "sieht", "hier", "manchmal", "Vögel."],
+        ["Man", "sieht", "manchmal", "hier", "Vögel."],
+        ["Vögel", "sieht", "man", "hier", "manchmal."],
+        ["Vögel", "sieht", "man", "manchmal", "hier."]
+      ],
+      "translation_en": "Sometimes you see birds here."
+    },
+    {
+      "id": "v2-deshalb-bus",
+      "level": "B1",
+      "topic": "v2-fronted",
+      "tokens": ["den Bus", "ich", "lieber", "nehme", "deshalb"],
+      "answerOrders": [
+        ["Deshalb", "nehme", "ich", "lieber", "den Bus."],
+        ["Ich", "nehme", "deshalb", "lieber", "den Bus."],
+        ["Den Bus", "nehme", "ich", "deshalb", "lieber."]
+      ],
+      "translation_en": "That is why I prefer to take the bus."
+    },
+
+    {
+      "id": "tmp-hamburg-zug",
+      "level": "A2",
+      "topic": "time-manner-place",
+      "tokens": ["mit dem Zug", "fahre", "nach Hamburg", "ich", "morgen"],
+      "answerOrders": [
+        ["Ich", "fahre", "morgen", "mit dem Zug", "nach Hamburg."],
+        ["Morgen", "fahre", "ich", "mit dem Zug", "nach Hamburg."],
+        ["Mit dem Zug", "fahre", "ich", "morgen", "nach Hamburg."],
+        ["Ich", "fahre", "morgen", "nach Hamburg", "mit dem Zug."],
+        ["Morgen", "fahre", "ich", "nach Hamburg", "mit dem Zug."]
+      ],
+      "translation_en": "Tomorrow I'm going to Hamburg by train."
+    },
+    {
+      "id": "tmp-spanien-flugzeug",
+      "level": "A2",
+      "topic": "time-manner-place",
+      "tokens": ["nach Spanien", "wir", "mit dem Flugzeug", "fliegen", "im Juli"],
+      "answerOrders": [
+        ["Wir", "fliegen", "im Juli", "mit dem Flugzeug", "nach Spanien."],
+        ["Im Juli", "fliegen", "wir", "mit dem Flugzeug", "nach Spanien."],
+        ["Wir", "fliegen", "im Juli", "nach Spanien", "mit dem Flugzeug."],
+        ["Im Juli", "fliegen", "wir", "nach Spanien", "mit dem Flugzeug."],
+        ["Mit dem Flugzeug", "fliegen", "wir", "im Juli", "nach Spanien."]
+      ],
+      "translation_en": "In July we're flying to Spain by plane."
+    },
+    {
+      "id": "tmp-montag-zu-hause",
+      "level": "A2",
+      "topic": "time-manner-place",
+      "tokens": ["zu Hause", "arbeitet", "seit Montag", "sie"],
+      "answerOrders": [
+        ["Sie", "arbeitet", "seit Montag", "zu Hause."],
+        ["Seit Montag", "arbeitet", "sie", "zu Hause."],
+        ["Zu Hause", "arbeitet", "sie", "seit Montag."]
+      ],
+      "translation_en": "She has been working from home since Monday."
+    },
+    {
+      "id": "tmp-samstag-park",
+      "level": "A2",
+      "topic": "time-manner-place",
+      "tokens": ["im Park", "ich", "meine Freunde", "treffe", "am Samstag"],
+      "answerOrders": [
+        ["Ich", "treffe", "meine Freunde", "am Samstag", "im Park."],
+        ["Am Samstag", "treffe", "ich", "meine Freunde", "im Park."],
+        ["Ich", "treffe", "am Samstag", "meine Freunde", "im Park."],
+        ["Meine Freunde", "treffe", "ich", "am Samstag", "im Park."],
+        ["Im Park", "treffe", "ich", "meine Freunde", "am Samstag."]
+      ],
+      "translation_en": "I'm meeting my friends in the park on Saturday."
+    },
+    {
+      "id": "tmp-heute-zu-spaet",
+      "level": "A2-B1",
+      "topic": "time-manner-place",
+      "tokens": ["zur Arbeit", "kommt", "zu spät", "heute", "er"],
+      "answerOrders": [
+        ["Er", "kommt", "heute", "zu spät", "zur Arbeit."],
+        ["Heute", "kommt", "er", "zu spät", "zur Arbeit."],
+        ["Zur Arbeit", "kommt", "er", "heute", "zu spät."]
+      ],
+      "translation_en": "He is late for work today."
+    },
+    {
+      "id": "tmp-kinder-garten",
+      "level": "A2-B1",
+      "topic": "time-manner-place",
+      "tokens": ["im Garten", "gern", "die Kinder", "spielen", "jeden Nachmittag"],
+      "answerOrders": [
+        ["Die Kinder", "spielen", "jeden Nachmittag", "gern", "im Garten."],
+        ["Jeden Nachmittag", "spielen", "die Kinder", "gern", "im Garten."],
+        ["Im Garten", "spielen", "die Kinder", "jeden Nachmittag", "gern."]
+      ],
+      "translation_en": "The children like playing in the garden every afternoon."
+    },
+    {
+      "id": "tmp-bruder-muenchen",
+      "level": "A2-B1",
+      "topic": "time-manner-place",
+      "tokens": ["in München", "mein Bruder", "wohnt", "seit zwei Jahren"],
+      "answerOrders": [
+        ["Mein Bruder", "wohnt", "seit zwei Jahren", "in München."],
+        ["Seit zwei Jahren", "wohnt", "mein Bruder", "in München."],
+        ["In München", "wohnt", "mein Bruder", "seit zwei Jahren."],
+        ["Mein Bruder", "wohnt", "in München", "seit zwei Jahren."]
+      ],
+      "translation_en": "My brother has lived in Munich for two years."
+    },
+    {
+      "id": "tmp-kino-um-acht",
+      "level": "A2-B1",
+      "topic": "time-manner-place",
+      "tokens": ["vor dem Kino", "treffen", "uns", "wir", "morgen um acht"],
+      "answerOrders": [
+        ["Wir", "treffen", "uns", "morgen um acht", "vor dem Kino."],
+        ["Morgen um acht", "treffen", "wir", "uns", "vor dem Kino."],
+        ["Vor dem Kino", "treffen", "wir", "uns", "morgen um acht."]
+      ],
+      "translation_en": "We're meeting in front of the cinema at eight tomorrow."
+    },
+    {
+      "id": "tmp-eltern-ostsee",
+      "level": "B1",
+      "topic": "time-manner-place",
+      "tokens": ["mit dem Auto", "an die Ostsee", "fahren", "jedes Jahr", "meine Eltern"],
+      "answerOrders": [
+        ["Meine Eltern", "fahren", "jedes Jahr", "mit dem Auto", "an die Ostsee."],
+        ["Jedes Jahr", "fahren", "meine Eltern", "mit dem Auto", "an die Ostsee."],
+        ["Meine Eltern", "fahren", "jedes Jahr", "an die Ostsee", "mit dem Auto."],
+        ["Jedes Jahr", "fahren", "meine Eltern", "an die Ostsee", "mit dem Auto."],
+        ["Mit dem Auto", "fahren", "meine Eltern", "jedes Jahr", "an die Ostsee."]
+      ],
+      "translation_en": "Every year my parents drive to the Baltic Sea."
+    },
+    {
+      "id": "tmp-studenten-seminar",
+      "level": "B1",
+      "topic": "time-manner-place",
+      "tokens": ["im Seminar", "lebhaft", "diskutieren", "heute", "die Studenten"],
+      "answerOrders": [
+        ["Die Studenten", "diskutieren", "heute", "lebhaft", "im Seminar."],
+        ["Heute", "diskutieren", "die Studenten", "lebhaft", "im Seminar."],
+        ["Im Seminar", "diskutieren", "die Studenten", "heute", "lebhaft."]
+      ],
+      "translation_en": "Today the students are having a lively discussion in the seminar."
+    },
+
+    {
+      "id": "mod-frueh-aufstehen",
+      "level": "A2",
+      "topic": "modal-infinitive",
+      "tokens": ["aufstehen", "muss", "heute", "früh", "ich"],
+      "answerOrders": [
+        ["Ich", "muss", "heute", "früh", "aufstehen."],
+        ["Heute", "muss", "ich", "früh", "aufstehen."]
+      ],
+      "translation_en": "I have to get up early today."
+    },
+    {
+      "id": "mod-hier-parken",
+      "level": "A2",
+      "topic": "modal-infinitive",
+      "tokens": ["parken", "nicht", "kannst", "du", "hier"],
+      "answerOrders": [
+        ["Du", "kannst", "hier", "nicht", "parken."],
+        ["Hier", "kannst", "du", "nicht", "parken."],
+        ["Du", "kannst", "nicht", "hier", "parken."]
+      ],
+      "translation_en": "You can't park here."
+    },
+    {
+      "id": "mod-abend-essen",
+      "level": "A2",
+      "topic": "modal-infinitive",
+      "tokens": ["essen", "mit uns", "möchtest", "heute Abend", "du"],
+      "answerOrders": [
+        ["Möchtest", "du", "heute Abend", "mit uns", "essen?"],
+        ["Möchtest", "du", "mit uns", "heute Abend", "essen?"]
+      ],
+      "translation_en": "Would you like to eat with us this evening?"
+    },
+    {
+      "id": "mod-italien-fahren",
+      "level": "A2",
+      "topic": "modal-infinitive",
+      "tokens": ["fahren", "wollen", "wir", "nach Italien", "im Sommer"],
+      "answerOrders": [
+        ["Wir", "wollen", "im Sommer", "nach Italien", "fahren."],
+        ["Im Sommer", "wollen", "wir", "nach Italien", "fahren."],
+        ["Nach Italien", "wollen", "wir", "im Sommer", "fahren."]
+      ],
+      "translation_en": "We want to go to Italy in the summer."
+    },
+    {
+      "id": "mod-sohn-fernsehen",
+      "level": "A2",
+      "topic": "modal-infinitive",
+      "tokens": ["fernsehen", "nicht", "darf", "abends", "mein Sohn"],
+      "answerOrders": [
+        ["Mein Sohn", "darf", "abends", "nicht", "fernsehen."],
+        ["Abends", "darf", "mein Sohn", "nicht", "fernsehen."]
+      ],
+      "translation_en": "My son isn't allowed to watch TV in the evening."
+    },
+    {
+      "id": "mod-bitte-helfen",
+      "level": "A2",
+      "topic": "modal-infinitive",
+      "tokens": ["helfen", "du", "bitte", "mir", "kannst"],
+      "answerOrders": [["Kannst", "du", "mir", "bitte", "helfen?"]],
+      "translation_en": "Can you help me, please?"
+    },
+    {
+      "id": "mod-kino-handy",
+      "level": "A2-B1",
+      "topic": "modal-infinitive",
+      "tokens": ["ausschalten", "soll", "im Kino", "das Handy", "man"],
+      "answerOrders": [
+        ["Man", "soll", "im Kino", "das Handy", "ausschalten."],
+        ["Im Kino", "soll", "man", "das Handy", "ausschalten."],
+        ["Das Handy", "soll", "man", "im Kino", "ausschalten."]
+      ],
+      "translation_en": "You should switch your phone off in the cinema."
+    },
+    {
+      "id": "mod-haus-kaufen",
+      "level": "A2-B1",
+      "topic": "modal-infinitive",
+      "tokens": ["kaufen", "ein Haus", "will", "nächstes Jahr", "er"],
+      "answerOrders": [
+        ["Er", "will", "nächstes Jahr", "ein Haus", "kaufen."],
+        ["Nächstes Jahr", "will", "er", "ein Haus", "kaufen."],
+        ["Ein Haus", "will", "er", "nächstes Jahr", "kaufen."]
+      ],
+      "translation_en": "He wants to buy a house next year."
+    },
+    {
+      "id": "mod-namen-schreiben",
+      "level": "A2-B1",
+      "topic": "modal-infinitive",
+      "tokens": ["schreiben", "Sie", "hier", "müssen", "Ihren Namen"],
+      "answerOrders": [
+        ["Sie", "müssen", "hier", "Ihren Namen", "schreiben."],
+        ["Hier", "müssen", "Sie", "Ihren Namen", "schreiben."],
+        ["Ihren Namen", "müssen", "Sie", "hier", "schreiben."]
+      ],
+      "translation_en": "You have to write your name here."
+    },
+    {
+      "id": "mod-weg-erklaeren",
+      "level": "B1",
+      "topic": "modal-infinitive",
+      "tokens": ["erklären", "Sie", "den Weg zum Bahnhof", "könnten", "mir", "bitte"],
+      "answerOrders": [
+        ["Könnten", "Sie", "mir", "bitte", "den Weg zum Bahnhof", "erklären?"],
+        ["Könnten", "Sie", "mir", "den Weg zum Bahnhof", "bitte", "erklären?"]
+      ],
+      "translation_en": "Could you please explain the way to the station to me?"
+    },
+
+    {
+      "id": "perf-film-gesehen",
+      "level": "A2",
+      "topic": "perfekt-bracket",
+      "tokens": ["gesehen", "einen Film", "habe", "gestern", "ich"],
+      "answerOrders": [
+        ["Ich", "habe", "gestern", "einen Film", "gesehen."],
+        ["Gestern", "habe", "ich", "einen Film", "gesehen."],
+        ["Einen Film", "habe", "ich", "gestern", "gesehen."],
+        ["Ich", "habe", "einen Film", "gestern", "gesehen."]
+      ],
+      "translation_en": "I watched a film yesterday."
+    },
+    {
+      "id": "perf-koeln-gefahren",
+      "level": "A2",
+      "topic": "perfekt-bracket",
+      "tokens": ["gefahren", "sind", "nach Köln", "am Sonntag", "wir"],
+      "answerOrders": [
+        ["Wir", "sind", "am Sonntag", "nach Köln", "gefahren."],
+        ["Am Sonntag", "sind", "wir", "nach Köln", "gefahren."],
+        ["Nach Köln", "sind", "wir", "am Sonntag", "gefahren."]
+      ],
+      "translation_en": "We went to Cologne on Sunday."
+    },
+    {
+      "id": "perf-buch-geschenkt",
+      "level": "A2",
+      "topic": "perfekt-bracket",
+      "tokens": ["geschenkt", "hat", "ein Buch", "mir", "er"],
+      "answerOrders": [
+        ["Er", "hat", "mir", "ein Buch", "geschenkt."],
+        ["Ein Buch", "hat", "er", "mir", "geschenkt."],
+        ["Mir", "hat", "er", "ein Buch", "geschenkt."]
+      ],
+      "translation_en": "He gave me a book."
+    },
+    {
+      "id": "perf-schon-gegessen",
+      "level": "A2",
+      "topic": "perfekt-bracket",
+      "tokens": ["gegessen", "du", "schon", "hast"],
+      "answerOrders": [["Hast", "du", "schon", "gegessen?"]],
+      "translation_en": "Have you eaten already?"
+    },
+    {
+      "id": "perf-schwester-wien",
+      "level": "A2",
+      "topic": "perfekt-bracket",
+      "tokens": ["studiert", "in Wien", "hat", "meine Schwester"],
+      "answerOrders": [
+        ["Meine Schwester", "hat", "in Wien", "studiert."],
+        ["In Wien", "hat", "meine Schwester", "studiert."]
+      ],
+      "translation_en": "My sister studied in Vienna."
+    },
+    {
+      "id": "perf-sommer-see",
+      "level": "A2-B1",
+      "topic": "perfekt-bracket",
+      "tokens": ["verbracht", "wir", "viel Zeit", "haben", "am See", "letzten Sommer"],
+      "answerOrders": [
+        ["Letzten Sommer", "haben", "wir", "viel Zeit", "am See", "verbracht."],
+        ["Wir", "haben", "letzten Sommer", "viel Zeit", "am See", "verbracht."],
+        ["Viel Zeit", "haben", "wir", "letzten Sommer", "am See", "verbracht."],
+        ["Am See", "haben", "wir", "letzten Sommer", "viel Zeit", "verbracht."]
+      ],
+      "translation_en": "Last summer we spent a lot of time at the lake."
+    },
+    {
+      "id": "perf-kinder-eingeschlafen",
+      "level": "A2-B1",
+      "topic": "perfekt-bracket",
+      "tokens": ["eingeschlafen", "früh", "die Kinder", "sind", "schon"],
+      "answerOrders": [
+        ["Die Kinder", "sind", "schon", "früh", "eingeschlafen."],
+        ["Schon", "früh", "sind", "die Kinder", "eingeschlafen."]
+      ],
+      "translation_en": "The children fell asleep early."
+    },
+    {
+      "id": "perf-warum-angerufen",
+      "level": "A2-B1",
+      "topic": "perfekt-bracket",
+      "tokens": ["angerufen", "hast", "mich", "nicht", "warum", "du"],
+      "answerOrders": [["Warum", "hast", "du", "mich", "nicht", "angerufen?"]],
+      "translation_en": "Why didn't you call me?"
+    },
+    {
+      "id": "perf-schluessel-vergessen",
+      "level": "B1",
+      "topic": "perfekt-bracket",
+      "tokens": ["vergessen", "meinen Schlüssel", "zu Hause", "ich", "leider", "habe"],
+      "answerOrders": [
+        ["Ich", "habe", "leider", "meinen Schlüssel", "zu Hause", "vergessen."],
+        ["Leider", "habe", "ich", "meinen Schlüssel", "zu Hause", "vergessen."],
+        ["Ich", "habe", "meinen Schlüssel", "leider", "zu Hause", "vergessen."],
+        ["Meinen Schlüssel", "habe", "ich", "leider", "zu Hause", "vergessen."]
+      ],
+      "translation_en": "Unfortunately I left my key at home."
+    },
+    {
+      "id": "perf-umzug-passiert",
+      "level": "B1",
+      "topic": "perfekt-bracket",
+      "tokens": ["passiert", "ist", "viel", "seit dem Umzug"],
+      "answerOrders": [
+        ["Seit dem Umzug", "ist", "viel", "passiert."],
+        ["Viel", "ist", "seit dem Umzug", "passiert."]
+      ],
+      "translation_en": "A lot has happened since the move."
+    },
+
+    {
+      "id": "sep-aufstehen-sieben",
+      "level": "A2",
+      "topic": "separable-verb",
+      "tokens": ["auf", "um sieben Uhr", "stehe", "ich", "jeden Morgen"],
+      "answerOrders": [
+        ["Ich", "stehe", "jeden Morgen", "um sieben Uhr", "auf."],
+        ["Jeden Morgen", "stehe", "ich", "um sieben Uhr", "auf."],
+        ["Um sieben Uhr", "stehe", "ich", "jeden Morgen", "auf."],
+        ["Ich", "stehe", "um sieben Uhr", "jeden Morgen", "auf."]
+      ],
+      "translation_en": "I get up at seven every morning."
+    },
+    {
+      "id": "sep-zug-ankommen",
+      "level": "A2",
+      "topic": "separable-verb",
+      "tokens": ["an", "kommt", "in München", "der Zug"],
+      "answerOrders": [
+        ["Der Zug", "kommt", "in München", "an."],
+        ["In München", "kommt", "der Zug", "an."]
+      ],
+      "translation_en": "The train arrives in Munich."
+    },
+    {
+      "id": "sep-anrufen-spaeter",
+      "level": "A2",
+      "topic": "separable-verb",
+      "tokens": ["an", "später", "rufst", "du", "mich"],
+      "answerOrders": [["Rufst", "du", "mich", "später", "an?"]],
+      "translation_en": "Will you call me later?"
+    },
+    {
+      "id": "sep-einkaufen-markt",
+      "level": "A2",
+      "topic": "separable-verb",
+      "tokens": ["ein", "auf dem Markt", "sie", "kauft", "jeden Samstag"],
+      "answerOrders": [
+        ["Sie", "kauft", "jeden Samstag", "auf dem Markt", "ein."],
+        ["Jeden Samstag", "kauft", "sie", "auf dem Markt", "ein."],
+        ["Auf dem Markt", "kauft", "sie", "jeden Samstag", "ein."],
+        ["Sie", "kauft", "auf dem Markt", "jeden Samstag", "ein."]
+      ],
+      "translation_en": "She does her shopping at the market every Saturday."
+    },
+    {
+      "id": "sep-licht-ausmachen",
+      "level": "A2-B1",
+      "topic": "separable-verb",
+      "tokens": ["aus", "das Licht", "bitte", "mach"],
+      "answerOrders": [
+        ["Mach", "bitte", "das Licht", "aus!"],
+        ["Mach", "das Licht", "bitte", "aus!"]
+      ],
+      "translation_en": "Please turn off the light."
+    },
+    {
+      "id": "sep-nachbarn-einladen",
+      "level": "A2-B1",
+      "topic": "separable-verb",
+      "tokens": ["ein", "zum Essen", "wir", "unsere Nachbarn", "laden"],
+      "answerOrders": [
+        ["Wir", "laden", "unsere Nachbarn", "zum Essen", "ein."],
+        ["Unsere Nachbarn", "laden", "wir", "zum Essen", "ein."]
+      ],
+      "translation_en": "We're inviting our neighbours for dinner."
+    },
+    {
+      "id": "sep-film-anfangen",
+      "level": "A2-B1",
+      "topic": "separable-verb",
+      "tokens": ["an", "fängt", "der Film", "um acht Uhr"],
+      "answerOrders": [
+        ["Der Film", "fängt", "um acht Uhr", "an."],
+        ["Um acht Uhr", "fängt", "der Film", "an."]
+      ],
+      "translation_en": "The film starts at eight o'clock."
+    },
+    {
+      "id": "sep-regenschirm-mitnehmen",
+      "level": "B1",
+      "topic": "separable-verb",
+      "tokens": ["mit", "nimm", "bitte", "deinen Regenschirm"],
+      "answerOrders": [
+        ["Nimm", "bitte", "deinen Regenschirm", "mit!"],
+        ["Nimm", "deinen Regenschirm", "bitte", "mit!"]
+      ],
+      "translation_en": "Please take your umbrella with you."
+    },
+
+    {
+      "id": "weil-krank-zu-hause",
+      "level": "A2",
+      "topic": "weil",
+      "tokens": ["bin", "weil", "ich", "zu Hause", "krank", "bleibe", "heute", "ich"],
+      "answerOrders": [
+        ["Ich", "bleibe", "heute", "zu Hause,", "weil", "ich", "krank", "bin."],
+        ["Heute", "bleibe", "ich", "zu Hause,", "weil", "ich", "krank", "bin."],
+        ["Weil", "ich", "krank", "bin,", "bleibe", "ich", "heute", "zu Hause."]
+      ],
+      "translation_en": "I'm staying at home today because I'm ill."
+    },
+    {
+      "id": "weil-deutsch-berlin",
+      "level": "A2-B1",
+      "topic": "weil",
+      "tokens": ["sie", "Deutsch", "lernt", "weil", "sie", "in Berlin", "arbeiten", "möchte"],
+      "answerOrders": [
+        ["Sie", "lernt", "Deutsch,", "weil", "sie", "in Berlin", "arbeiten", "möchte."],
+        ["Weil", "sie", "in Berlin", "arbeiten", "möchte,", "lernt", "sie", "Deutsch."],
+        ["Deutsch", "lernt", "sie,", "weil", "sie", "in Berlin", "arbeiten", "möchte."]
+      ],
+      "translation_en": "She is learning German because she wants to work in Berlin."
+    },
+    {
+      "id": "weil-wasser-kalt",
+      "level": "A2",
+      "topic": "weil",
+      "tokens": ["ich", "ist", "weil", "nicht", "das Wasser", "gehe", "schwimmen", "zu kalt"],
+      "answerOrders": [
+        ["Ich", "gehe", "nicht", "schwimmen,", "weil", "das Wasser", "zu kalt", "ist."],
+        ["Weil", "das Wasser", "zu kalt", "ist,", "gehe", "ich", "nicht", "schwimmen."]
+      ],
+      "translation_en": "I'm not going swimming because the water is too cold."
+    },
+    {
+      "id": "weil-taxi-spaet",
+      "level": "A2-B1",
+      "topic": "weil",
+      "tokens": ["sind", "wir", "ein Taxi", "weil", "nehmen", "wir", "spät dran"],
+      "answerOrders": [
+        ["Wir", "nehmen", "ein Taxi,", "weil", "wir", "spät dran", "sind."],
+        ["Weil", "wir", "spät dran", "sind,", "nehmen", "wir", "ein Taxi."]
+      ],
+      "translation_en": "We're taking a taxi because we're running late."
+    },
+    {
+      "id": "dass-glaube-kommt",
+      "level": "A2-B1",
+      "topic": "dass",
+      "tokens": ["kommt", "ich", "dass", "nicht", "glaube", "er", "heute"],
+      "answerOrders": [
+        ["Ich", "glaube,", "dass", "er", "heute", "nicht", "kommt."],
+        ["Dass", "er", "heute", "nicht", "kommt,", "glaube", "ich."]
+      ],
+      "translation_en": "I think he isn't coming today."
+    },
+    {
+      "id": "dass-lehrer-ueben",
+      "level": "A2-B1",
+      "topic": "dass",
+      "tokens": ["üben", "der Lehrer", "dass", "wir", "müssen", "sagt", "viel"],
+      "answerOrders": [
+        ["Der Lehrer", "sagt,", "dass", "wir", "viel", "üben", "müssen."],
+        ["Dass", "wir", "viel", "üben", "müssen,", "sagt", "der Lehrer."]
+      ],
+      "translation_en": "The teacher says that we have to practise a lot."
+    },
+    {
+      "id": "dass-wichtig-puenktlich",
+      "level": "B1",
+      "topic": "dass",
+      "tokens": ["bist", "du", "es", "dass", "wichtig", "pünktlich", "ist"],
+      "answerOrders": [["Es", "ist", "wichtig,", "dass", "du", "pünktlich", "bist."]],
+      "translation_en": "It is important that you are on time."
+    },
+    {
+      "id": "wenn-regnet-zu-hause",
+      "level": "A2",
+      "topic": "wenn",
+      "tokens": ["wir", "bleiben", "wenn", "es", "zu Hause", "regnet"],
+      "answerOrders": [
+        ["Wenn", "es", "regnet,", "bleiben", "wir", "zu Hause."],
+        ["Wir", "bleiben", "zu Hause,", "wenn", "es", "regnet."]
+      ],
+      "translation_en": "If it rains, we stay at home."
+    },
+    {
+      "id": "wenn-hilfe-brauchst",
+      "level": "A2-B1",
+      "topic": "wenn",
+      "tokens": ["Hilfe", "mich", "wenn", "an", "du", "ruf", "brauchst"],
+      "answerOrders": [
+        ["Ruf", "mich", "an,", "wenn", "du", "Hilfe", "brauchst."],
+        ["Wenn", "du", "Hilfe", "brauchst,", "ruf", "mich", "an."]
+      ],
+      "translation_en": "Call me if you need help."
+    },
+    {
+      "id": "wenn-mehr-zeit-spaziergang",
+      "level": "B1",
+      "topic": "wenn",
+      "tokens": ["ich", "mache", "wenn", "habe", "ich", "mehr Zeit", "einen Spaziergang"],
+      "answerOrders": [
+        ["Wenn", "ich", "mehr Zeit", "habe,", "mache", "ich", "einen Spaziergang."],
+        ["Ich", "mache", "einen Spaziergang,", "wenn", "ich", "mehr Zeit", "habe."]
+      ],
+      "translation_en": "If I have more time, I'll go for a walk."
+    },
+    {
+      "id": "obwohl-krank-arbeit",
+      "level": "A2-B1",
+      "topic": "obwohl",
+      "tokens": ["er", "obwohl", "geht", "krank", "zur Arbeit", "ist", "er"],
+      "answerOrders": [
+        ["Er", "geht", "zur Arbeit,", "obwohl", "er", "krank", "ist."],
+        ["Obwohl", "er", "krank", "ist,", "geht", "er", "zur Arbeit."]
+      ],
+      "translation_en": "He goes to work although he is ill."
+    },
+    {
+      "id": "obwohl-kalt-spazieren",
+      "level": "B1",
+      "topic": "obwohl",
+      "tokens": ["wir", "spazieren", "obwohl", "kalt", "gehen", "es", "ist"],
+      "answerOrders": [
+        ["Obwohl", "es", "kalt", "ist,", "gehen", "wir", "spazieren."],
+        ["Wir", "gehen", "spazieren,", "obwohl", "es", "kalt", "ist."]
+      ],
+      "translation_en": "Although it is cold, we're going for a walk."
+    }
+  ]
+}
