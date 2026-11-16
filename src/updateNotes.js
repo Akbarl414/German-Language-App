@@ -5,6 +5,17 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-core-1000-tab',
+    date: '2026-11-16',
+    lines: [
+      'New tab "Kern 1000" in the bottom bar, between Home and Games. It works through the 1,000 most common words in blocks of 50. Unlock a block when you are ready, sort its words into "Kenne ich" and "Üben", then review them German first, with the same four grades as daily review.',
+      'The meanings of these 1,000 words are now reviewed only in the Kern 1000 tab, so your daily review and its due count get smaller. Their gender, plural and verb forms stay in daily review.',
+      'Your progress carries over: meaning cards you already had for these words show up in Kern 1000 with their schedule unchanged.',
+      'Kern 1000 has its own allowance of new words per day (20 by default, in Settings). It does not use up the daily review\'s new-card limit, and its reviews count towards your streak.',
+      'In games, missing one of these words brings its meaning card back sooner, as if you had pressed Nochmal,, but only if you have reviewed it before. Getting it right in a game changes nothing.',
+    ],
+  },
+  {
     id: '2026-11-16-core-1000-complete',
     date: '2026-11-16',
     lines: [
