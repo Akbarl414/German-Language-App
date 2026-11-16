@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sentence-set.schema.json",
+  "title": "Satzbau sentence set",
+  "type": "object",
+  "required": ["id", "title", "level", "sentences"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "level": { "type": "string", "enum": ["A2", "A2-B1", "B1"] },
+    "sentences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "level", "topic", "tokens", "answerOrders", "translation_en"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "level": { "type": "string", "enum": ["A2", "A2-B1", "B1"] },
+          "topic": {
+            "type": "string",
+            "enum": ["v2-fronted", "time-manner-place", "modal-infinitive", "perfekt-bracket", "separable-verb", "weil", "dass", "wenn", "obwohl"],
+            "description": "The word-order pattern the sentence practises."
+          },
+          "tokens": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 3, "description": "Scrambled word/phrase tokens in natural mid-sentence casing, with no punctuation (the checker ignores it; the answer orders carry it for display)." },
+          "answerOrders": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 3 },
+            "description": "Every accepted correct order, same shape as reorder exercises, written as the finished sentence: first word capitalised, commas and final full stop attached. The first one is the order shown as the answer."
+          },
+          "translation_en": { "type": "string", "minLength": 1, "description": "English translation, shown only after answering." }
+        }
+      }
+    }
+  }
+}

@@ -57,7 +57,61 @@ const targets = [
     itemsKey: 'segments',
     noItemIds: true,
   },
+  {
+    label: 'sentence set',
+    dir: join(contentRoot, 'sentences'),
+    schema: loadSchema('sentence-set.schema.json'),
+    itemsKey: 'sentences',
+  },
 ];
+
+// Same edge-punctuation rule as src/modules/grammar/reorderChecker.js (which
+// ignores it when matching). Tokens carry none; accepted orders may.
+const EDGE_PUNCTUATION = /^[.,!?;:„"'()]+|[.,!?;:„"'()]+$/g;
+const strip = (tok) => tok.replace(EDGE_PUNCTUATION, '');
+const decapitalize = (tok) => tok.charAt(0).toLowerCase() + tok.slice(1);
+
+/** Same multiset of tokens, ignoring order. */
+function sameTokens(a, b) {
+  if (a.length !== b.length) return false;
+  const sa = [...a].sort();
+  const sb = [...b].sort();
+  return sa.every((x, i) => x === sb[i]);
+}
+
+/** An accepted order uses exactly the tokens (its first word may be capitalised, punctuation allowed). */
+function orderUsesTokens(order, tokens) {
+  const stripped = order.map(strip);
+  const t = tokens.map(strip);
+  return sameTokens(stripped, t) || sameTokens([decapitalize(stripped[0]), ...stripped.slice(1)], t);
+}
+
+/**
+ * Satzbau checks beyond the schema: tokens carry no punctuation, every accepted
+ * order uses exactly the scrambled tokens, no order is listed twice, and the
+ * tokens are not handed over already solved. Returns a list of problems.
+ */
+function sentenceProblems(sentence) {
+  const problems = [];
+  for (const tok of sentence.tokens) {
+    if (strip(tok) !== tok) problems.push(`"${sentence.id}": token "${tok}" carries punctuation (put it in answerOrders only)`);
+  }
+  const seen = new Set();
+  for (const order of sentence.answerOrders) {
+    if (!orderUsesTokens(order, sentence.tokens)) {
+      problems.push(`"${sentence.id}": accepted order "${order.join(' ')}" does not use exactly the tokens`);
+    }
+    const key = order.map((x) => strip(x).toLowerCase()).join('\u0001');
+    if (seen.has(key)) problems.push(`"${sentence.id}": accepted order "${order.join(' ')}" is listed twice`);
+    seen.add(key);
+  }
+  if (seen.has(sentence.tokens.map((x) => x.toLowerCase()).join('\u0001'))) {
+    problems.push(`"${sentence.id}": tokens are already in an accepted order (not scrambled)`);
+  }
+  return problems;
+}
+const sentenceTopicCounts = new Map();
+let sentenceCount = 0;
 
 let errorCount = 0;
 let fileCount = 0;
@@ -182,6 +236,16 @@ for (const target of targets) {
         }
       }
     }
+    if (target.label === 'sentence set') {
+      for (const item of items) {
+        sentenceCount++;
+        sentenceTopicCounts.set(item.topic, (sentenceTopicCounts.get(item.topic) || 0) + 1);
+        for (const problem of sentenceProblems(item)) {
+          console.error(`FAIL  ${file}\n      ${problem}`);
+          rankErrors++;
+        }
+      }
+    }
     if (rankErrors > 0) {
       errorCount += rankErrors;
       continue;
@@ -193,6 +257,9 @@ for (const target of targets) {
 
 console.log(`\nCore 1000: ${coreRanks.size} / ${CORE_SIZE} ranks present.`);
 console.log(`prompt_en: ${promptEnCount} words carry a clean English prompt.`);
+console.log(
+  `Satzbau: ${sentenceCount} sentences (${[...sentenceTopicCounts].map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}).`
+);
 console.log(`Checked ${fileCount} file(s).`);
 if (errorCount > 0) {
   console.error(`${errorCount} error(s) found.`);

@@ -10,6 +10,7 @@ const vocabModules = import.meta.glob('../../content/vocab/packs/*.json', { eage
 const grammarModules = import.meta.glob('../../content/grammar/units/*.json', { eager: true });
 const phraseModules = import.meta.glob('../../content/phrases/sets/*.json', { eager: true });
 const storyModules = import.meta.glob('../../content/stories/*.json', { eager: true });
+const sentenceModules = import.meta.glob('../../content/sentences/*.json', { eager: true });
 
 function unwrap(modules) {
   return Object.values(modules).map((m) => m.default ?? m);
@@ -19,6 +20,7 @@ const repoVocabPacks = unwrap(vocabModules);
 const repoGrammarUnits = unwrap(grammarModules);
 const repoPhraseSets = unwrap(phraseModules);
 const repoStories = unwrap(storyModules);
+const repoSentenceSets = unwrap(sentenceModules);
 
 const USER_VOCAB_PACK_ID = 'user-added';
 const USER_PHRASE_SET_ID = 'user-added';
@@ -44,6 +46,19 @@ export function getGrammarUnits() {
 
 export function getStories() {
   return repoStories;
+}
+
+export function getSentenceSets() {
+  return repoSentenceSets;
+}
+
+/** Every Satzbau sentence, each tagged with its set id as `setId`. */
+export function getAllSentences() {
+  const out = [];
+  for (const set of repoSentenceSets) {
+    for (const s of set.sentences) out.push({ ...s, setId: set.id });
+  }
+  return out;
 }
 
 export function findStory(storyId) {
