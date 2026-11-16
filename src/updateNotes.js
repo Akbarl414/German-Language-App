@@ -5,6 +5,17 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-core-1000-stage-two',
+    date: '2026-11-16',
+    lines: [
+      'Kern 1000 now has a second stage. Once you have seen all 1,000 words at least once, words you last rated Gut or Einfach start coming back the other way round: you see the English and recall the German.',
+      'Words switch a few at a time, in order, using the same "new words per day" allowance. Until a word switches, it keeps coming up German first. Words you last rated Schwer or Nochmal wait until you rate them Gut.',
+      'Each word has only one card in Kern 1000 at a time. Once a word has switched it stays English to German; a miss just brings it back sooner. Nothing you have already learned is lost.',
+      'The Kern 1000 page now also shows how many words you have mastered: words you can recall English to German with a gap of three weeks or more.',
+      'Until you have seen all 1,000 words, nothing changes.',
+    ],
+  },
+  {
     id: '2026-11-16-core-1000-tab',
     date: '2026-11-16',
     lines: [
