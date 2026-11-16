@@ -720,6 +720,7 @@
       "gender": "der",
       "plural": "Richter",
       "meaning_en": "judge (male; die Richterin = female)",
+      "prompt_en": "judge (male)",
       "example_de": "Der Richter hat lange mit den Zeugen gesprochen.",
       "example_en": "The judge spoke to the witnesses for a long time."
     },
@@ -1108,6 +1109,7 @@
       "pos": "verb",
       "lemma": "konzentrieren",
       "meaning_en": "(sich konzentrieren) to concentrate",
+      "prompt_en": "to concentrate",
       "example_de": "Bei diesem Lärm kann ich mich nicht konzentrieren.",
       "example_en": "I can't concentrate with this noise.",
       "present_3sg": "konzentriert",
@@ -1132,6 +1134,7 @@
       "pos": "adjective",
       "lemma": "ähnlich",
       "meaning_en": "similar (jemandem ähnlich sehen = to look like someone)",
+      "prompt_en": "similar; to look like (someone)",
       "example_de": "Du siehst deiner Mutter sehr ähnlich.",
       "example_en": "You look very like your mother."
     },
