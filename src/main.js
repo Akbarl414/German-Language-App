@@ -38,6 +38,7 @@ redirect('/games/beta/typeit', '/games/typeit');
 route('/games/case-detective', () => import('./modules/games/caseDetective.js'));
 redirect('/games/beta/case-detective', '/games/case-detective');
 route('/games/verb-sprint', () => import('./modules/games/verbSprint.js'));
+route('/games/beta/satzbau', () => import('./modules/games/beta/satzbau.js'));
 redirect('/games/beta/verb-sprint', '/games/verb-sprint');
 
 route('/testme', () => import('./modules/testme/index.js'));

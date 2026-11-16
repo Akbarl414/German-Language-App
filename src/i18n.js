@@ -138,6 +138,9 @@ const LABELS = {
   gameTypeItName: { de: 'Type it', en: 'Type it' },
   gameCaseDetectiveName: { de: 'Kasus-Detektiv', en: 'Case detective' },
   gameVerbSprintName: { de: 'Verbformen-Sprint', en: 'Verb forms sprint' },
+  gameSatzbauName: { de: 'Satzbau', en: 'Satzbau' },
+  satzbauInstruction: { de: 'Tippe die Wörter in die richtige Reihenfolge.', en: 'Tap the words into the right order.' },
+  satzbauMissed: { de: 'Falsch', en: 'Missed' },
 
   // --- Game titles, instructions and buttons ---
   startGame: { de: 'Start', en: 'Start' },

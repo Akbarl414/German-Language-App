@@ -2,7 +2,7 @@ import { t } from '../../i18n.js';
 
 // Games shown in the Beta section. The whole section is hidden while this is
 // empty. Entry shape: { href, icon, labelKey } (labelKey is a LABELS key).
-const BETA_GAMES = [];
+const BETA_GAMES = [{ href: '#/games/beta/satzbau', icon: '🧩', labelKey: 'gameSatzbauName' }];
 
 function gameLink({ href, icon, labelKey }) {
   return `<a class="list-item" style="padding:16px;" href="${href}">${icon}&nbsp;&nbsp;${t(labelKey)}</a>`;
