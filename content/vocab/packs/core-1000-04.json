@@ -12,6 +12,7 @@
       "gender": "die",
       "plural": "Nachrichten",
       "meaning_en": "message; (die Nachrichten) the news",
+      "prompt_en": "message; (plural) the news",
       "example_de": "Ich habe dir gestern eine Nachricht geschrieben.",
       "example_en": "I sent you a message yesterday."
     },
@@ -32,6 +33,7 @@
       "pos": "adjective",
       "lemma": "böse",
       "meaning_en": "angry; bad, evil (böse auf jemanden = angry with someone)",
+      "prompt_en": "angry; bad, evil",
       "example_de": "Bist du noch böse auf mich?",
       "example_en": "Are you still angry with me?"
     },
@@ -57,6 +59,7 @@
       "gender": "der",
       "plural": "Teile",
       "meaning_en": "part (zum Teil = partly)",
+      "prompt_en": "part (as in: partly)",
       "example_de": "Der erste Teil des Films war ziemlich langweilig.",
       "example_en": "The first part of the film was rather boring."
     },
@@ -68,6 +71,7 @@
       "gender": "das",
       "plural": "Länder",
       "meaning_en": "country; the countryside (auf dem Land = in the country)",
+      "prompt_en": "country; the countryside",
       "example_de": "Meine Großeltern wohnen auf dem Land.",
       "example_en": "My grandparents live in the countryside."
     },
@@ -185,6 +189,7 @@
       "pos": "other",
       "lemma": "außer",
       "meaning_en": "except, apart from (+ Dat)",
+      "prompt_en": "except, apart from",
       "example_de": "Alle außer mir waren schon da.",
       "example_en": "Everyone except me was already there."
     },
@@ -243,6 +248,7 @@
       "pos": "other",
       "lemma": "sondern",
       "meaning_en": "but (rather), after a negative (nicht …, sondern …)",
+      "prompt_en": "but (rather), after a negative",
       "example_de": "Das ist nicht mein Auto, sondern das von meinem Bruder.",
       "example_en": "That's not my car, it's my brother's."
     },
@@ -265,6 +271,7 @@
       "gender": "der",
       "plural": "Ärzte",
       "meaning_en": "doctor, physician (female: die Ärztin)",
+      "prompt_en": "doctor, physician (male)",
       "example_de": "Morgen habe ich einen Termin beim Arzt.",
       "example_en": "I have a doctor's appointment tomorrow."
     },
@@ -363,6 +370,7 @@
       "pos": "verb",
       "lemma": "verletzen",
       "meaning_en": "to injure, to hurt (sich verletzen = to get hurt)",
+      "prompt_en": "to injure, to hurt",
       "example_de": "Ich habe mich beim Fußball am Knie verletzt.",
       "example_en": "I hurt my knee playing football.",
       "present_3sg": "verletzt",
@@ -428,6 +436,7 @@
       "pos": "adjective",
       "lemma": "willkommen",
       "meaning_en": "welcome (herzlich willkommen = a warm welcome)",
+      "prompt_en": "welcome",
       "example_de": "Herzlich willkommen in unserer neuen Wohnung!",
       "example_en": "Welcome to our new flat!"
     },
@@ -439,6 +448,7 @@
       "gender": "die",
       "plural": "Damen",
       "meaning_en": "lady (meine Damen und Herren = ladies and gentlemen)",
+      "prompt_en": "lady (as in: ladies and gentlemen)",
       "example_de": "Eine ältere Dame hat mich nach dem Weg gefragt.",
       "example_en": "An elderly lady asked me the way."
     },
@@ -450,6 +460,7 @@
       "gender": "die",
       "plural": "Mengen",
       "meaning_en": "amount, quantity; crowd (eine Menge = a lot)",
+      "prompt_en": "amount, quantity; crowd; a lot (as a phrase)",
       "example_de": "Ich habe heute noch eine Menge Arbeit.",
       "example_en": "I still have a lot of work today."
     },
@@ -482,6 +493,7 @@
       "pos": "adjective",
       "lemma": "direkt",
       "meaning_en": "direct; directly, right (direkt neben = right next to)",
+      "prompt_en": "direct; directly, right (as in: right next to)",
       "example_de": "Die Bäckerei ist direkt neben dem Bahnhof.",
       "example_en": "The bakery is right next to the station."
     },
@@ -514,6 +526,7 @@
       "pos": "verb",
       "lemma": "hängen",
       "meaning_en": "to hang, to be hanging (hängte, hat gehängt = to hang something up)",
+      "prompt_en": "to hang, to be hanging; to hang (something) up",
       "example_de": "Das Bild hing früher in unserem Wohnzimmer.",
       "example_en": "The picture used to hang in our living room.",
       "present_3sg": "hängt",
@@ -580,6 +593,7 @@
       "pos": "verb",
       "lemma": "bewegen",
       "meaning_en": "to move (sich bewegen = to move, to get exercise)",
+      "prompt_en": "to move; to get exercise",
       "example_de": "Du sitzt zu viel, du musst dich mehr bewegen.",
       "example_en": "You sit too much, you need to move more.",
       "present_3sg": "bewegt",
@@ -665,6 +679,7 @@
       "pos": "adjective",
       "lemma": "recht",
       "meaning_en": "all right, convenient (jemandem recht sein = to suit someone); quite (recht gut = quite good)",
+      "prompt_en": "all right, convenient (to suit someone); quite (as in: quite good)",
       "example_de": "Ist es dir recht, wenn ich morgen etwas später komme?",
       "example_en": "Is it all right with you if I come a bit later tomorrow?"
     },
@@ -688,6 +703,7 @@
       "pos": "adjective",
       "lemma": "wert",
       "meaning_en": "worth (etwas wert sein = to be worth something)",
+      "prompt_en": "worth",
       "example_de": "Das alte Auto ist nicht mehr viel wert.",
       "example_en": "The old car isn't worth much any more."
     },
@@ -710,6 +726,7 @@
       "gender": "die",
       "plural": "Gefahren",
       "meaning_en": "danger (außer Gefahr = out of danger)",
+      "prompt_en": "danger",
       "example_de": "Der Arzt sagt, sie ist jetzt außer Gefahr.",
       "example_en": "The doctor says she's out of danger now."
     },
@@ -728,6 +745,7 @@
       "pos": "verb",
       "lemma": "brechen",
       "meaning_en": "to break (ist gebrochen = has broken by itself)",
+      "prompt_en": "to break",
       "example_de": "Er hat sich beim Skifahren das Bein gebrochen.",
       "example_en": "He broke his leg skiing.",
       "present_3sg": "bricht",
@@ -793,6 +811,7 @@
       "pos": "verb",
       "lemma": "ansehen",
       "meaning_en": "to look at; to watch (sich etwas ansehen)",
+      "prompt_en": "to look at; to watch",
       "example_de": "Wollen wir uns heute Abend einen Film ansehen?",
       "example_en": "Shall we watch a film tonight?",
       "present_3sg": "sieht an",
@@ -868,6 +887,7 @@
       "pos": "verb",
       "lemma": "fehlen",
       "meaning_en": "to be missing; to be absent (du fehlst mir = I miss you)",
+      "prompt_en": "to be missing; to be absent",
       "example_de": "Was fehlt dir? Bist du krank?",
       "example_en": "What's wrong? Are you ill?",
       "present_3sg": "fehlt",
@@ -883,6 +903,7 @@
       "pos": "adjective",
       "lemma": "halb",
       "meaning_en": "half (halb acht = half past seven)",
+      "prompt_en": "half (adjective, as in: half past seven)",
       "example_de": "Wir treffen uns um halb acht vor dem Kino.",
       "example_en": "We're meeting at half past seven outside the cinema."
     },
@@ -983,6 +1004,7 @@
       "pos": "verb",
       "lemma": "melden",
       "meaning_en": "to report; (sich melden) to get in touch",
+      "prompt_en": "to report; to get in touch",
       "example_de": "Melde dich, wenn du angekommen bist!",
       "example_en": "Let me know when you've arrived!",
       "present_3sg": "meldet",
@@ -1061,6 +1083,7 @@
       "gender": "der",
       "plural": "Sinne",
       "meaning_en": "sense; meaning, point (keinen Sinn haben = to be pointless)",
+      "prompt_en": "sense; meaning, point",
       "example_de": "Es hat keinen Sinn, noch länger zu warten.",
       "example_en": "There's no point waiting any longer."
     },
@@ -1092,6 +1115,7 @@
       "pos": "verb",
       "lemma": "fassen",
       "meaning_en": "to grasp, to touch; (es nicht fassen können) to be unable to believe it",
+      "prompt_en": "to grasp, to touch; can't believe it (with a negative)",
       "example_de": "Ich kann es nicht fassen, wir haben gewonnen!",
       "example_en": "I can't believe it, we've won!",
       "present_3sg": "fasst",
@@ -1106,6 +1130,7 @@
       "pos": "adverb",
       "lemma": "zwar",
       "meaning_en": "admittedly (zwar …, aber …); und zwar = namely, to be precise",
+      "prompt_en": "admittedly (… but …); namely, to be precise",
       "example_de": "Die Wohnung ist zwar klein, aber sehr gemütlich.",
       "example_en": "The flat may be small, but it's very cosy."
     }

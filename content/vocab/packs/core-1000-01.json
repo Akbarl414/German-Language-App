@@ -10,6 +10,7 @@
       "pos": "other",
       "lemma": "der",
       "meaning_en": "the (definite article: der/die/das); also: that one, who, which",
+      "prompt_en": "the (definite article); also: that one, who, which",
       "example_de": "Der Hund schläft, die Katze spielt und das Kind lacht.",
       "example_en": "The dog is sleeping, the cat is playing and the child is laughing."
     },
@@ -144,6 +145,7 @@
       "pos": "other",
       "lemma": "er",
       "meaning_en": "he; it (for a der-word)",
+      "prompt_en": "he; it (for a masculine noun)",
       "example_de": "Mein Bruder ist krank, deshalb kommt er nicht.",
       "example_en": "My brother is ill, so he isn't coming."
     },
@@ -153,6 +155,7 @@
       "pos": "other",
       "lemma": "zu",
       "meaning_en": "to (a person or place); too (zu groß); closed",
+      "prompt_en": "to (a person or place); too (as in: too big); closed",
       "example_de": "Ich gehe jetzt zu meiner Oma.",
       "example_en": "I'm going to my grandma's now."
     },
@@ -287,6 +290,7 @@
       "pos": "other",
       "lemma": "ihr",
       "meaning_en": "her; their (Ihr: your, formal)",
+      "prompt_en": "her; their; your (formal)",
       "example_de": "Anna sucht ihre Brille.",
       "example_en": "Anna is looking for her glasses."
     },
@@ -592,6 +596,7 @@
       "pos": "other",
       "lemma": "um",
       "meaning_en": "at (clock time); around; (um … zu) in order to",
+      "prompt_en": "at (clock time); around; in order to",
       "example_de": "Der Kurs beginnt um neun Uhr.",
       "example_en": "The course starts at nine o'clock."
     },
@@ -786,6 +791,7 @@
       "pos": "adverb",
       "lemma": "los",
       "meaning_en": "off, away; (Was ist los?) going on, the matter",
+      "prompt_en": "off, away; going on, the matter (as in: what's the matter?)",
       "example_de": "Was ist denn los?",
       "example_en": "What's the matter?"
     },

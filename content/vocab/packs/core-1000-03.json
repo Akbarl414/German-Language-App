@@ -66,6 +66,7 @@
       "gender": "der",
       "plural": "-",
       "meaning_en": "thanks, gratitude (vielen Dank = many thanks)",
+      "prompt_en": "thanks, gratitude",
       "example_de": "Vielen Dank für das schöne Geschenk!",
       "example_en": "Many thanks for the lovely present!"
     },
@@ -75,6 +76,7 @@
       "pos": "adjective",
       "lemma": "egal",
       "meaning_en": "all the same; it doesn't matter (das ist mir egal = I don't mind)",
+      "prompt_en": "all the same; it doesn't matter (I don't mind)",
       "example_de": "Pizza oder Pasta? Das ist mir egal.",
       "example_en": "Pizza or pasta? I don't mind."
     },
@@ -106,6 +108,7 @@
       "gender": "das",
       "plural": "Wörter",
       "meaning_en": "word (plural Wörter = separate words; Worte = things said)",
+      "prompt_en": "word",
       "example_de": "Wie heißt dieses Wort auf Englisch?",
       "example_en": "What's this word in English?"
     },
@@ -117,6 +120,7 @@
       "gender": "der",
       "plural": "Fälle",
       "meaning_en": "case (auf jeden Fall = definitely, in any case)",
+      "prompt_en": "case (as in: in any case)",
       "example_de": "Ich komme auf jeden Fall zu deiner Party.",
       "example_en": "I'm definitely coming to your party."
     },
@@ -173,6 +177,7 @@
       "gender": "das",
       "plural": "-",
       "meaning_en": "luck; happiness (Glück haben = to be lucky)",
+      "prompt_en": "luck; happiness",
       "example_de": "Wir hatten Glück mit dem Wetter.",
       "example_en": "We were lucky with the weather."
     },
@@ -202,6 +207,7 @@
       "pos": "adverb",
       "lemma": "bisschen",
       "meaning_en": "a little, a bit (ein bisschen)",
+      "prompt_en": "a little, a bit",
       "example_de": "Ich spreche ein bisschen Deutsch.",
       "example_en": "I speak a little German."
     },
@@ -278,6 +284,7 @@
       "gender": "die",
       "plural": "Ahnungen",
       "meaning_en": "idea, notion (keine Ahnung = no idea)",
+      "prompt_en": "idea, notion (as in: no idea)",
       "example_de": "Ich habe keine Ahnung, wann der Film anfängt.",
       "example_en": "I have no idea when the film starts."
     },
@@ -330,6 +337,7 @@
       "pos": "verb",
       "lemma": "kümmern",
       "meaning_en": "sich kümmern um: to take care of, to look after",
+      "prompt_en": "to take care of, to look after",
       "example_de": "Wer kümmert sich um den Hund, wenn ihr weg seid?",
       "example_en": "Who's looking after the dog when you're away?",
       "present_3sg": "kümmert",
@@ -452,6 +460,7 @@
       "gender": "die",
       "plural": "-",
       "meaning_en": "quiet, calm, peace (Lass mich in Ruhe! = Leave me alone!)",
+      "prompt_en": "quiet, calm, peace",
       "example_de": "Nach der Arbeit brauche ich ein bisschen Ruhe.",
       "example_en": "After work I need a bit of peace and quiet."
     },
@@ -483,6 +492,7 @@
       "pos": "adverb",
       "lemma": "drin",
       "meaning_en": "in it, inside (spoken form of darin)",
+      "prompt_en": "in it, inside (spoken)",
       "example_de": "Die Tasche ist leer, da ist nichts drin.",
       "example_en": "The bag is empty, there's nothing in it."
     },
@@ -501,6 +511,7 @@
       "pos": "other",
       "lemma": "je",
       "meaning_en": "ever; each; (je … desto) the … the",
+      "prompt_en": "ever; each; the … the (as in: the more, the better)",
       "example_de": "Je länger ich hier wohne, desto besser gefällt es mir.",
       "example_en": "The longer I live here, the more I like it."
     },
@@ -510,6 +521,7 @@
       "pos": "adverb",
       "lemma": "woher",
       "meaning_en": "where from; (woher weißt du …?) how",
+      "prompt_en": "where from; how (as in: how do you know?)",
       "example_de": "Woher kommen Sie?",
       "example_en": "Where are you from?"
     },
@@ -541,6 +553,7 @@
       "pos": "adverb",
       "lemma": "überhaupt",
       "meaning_en": "at all (überhaupt nicht = not at all); anyway",
+      "prompt_en": "at all (as in: not at all); anyway",
       "example_de": "Ich habe heute überhaupt keine Zeit.",
       "example_en": "I have no time at all today."
     },
@@ -665,6 +678,7 @@
       "pos": "verb",
       "lemma": "bitten",
       "meaning_en": "to ask, to request (bitten um = to ask for)",
+      "prompt_en": "to ask, to request; to ask for",
       "example_de": "Er hat mich um Hilfe gebeten.",
       "example_en": "He asked me for help.",
       "present_3sg": "bittet",
@@ -786,6 +800,7 @@
       "pos": "verb",
       "lemma": "ändern",
       "meaning_en": "to change (sich ändern = to change, intransitive)",
+      "prompt_en": "to change",
       "example_de": "Wir müssen unseren Plan ändern.",
       "example_en": "We have to change our plan.",
       "present_3sg": "ändert",
@@ -811,6 +826,7 @@
       "gender": "der",
       "plural": "Späße",
       "meaning_en": "fun; joke (Spaß machen = to be fun)",
+      "prompt_en": "fun; joke",
       "example_de": "Der Deutschkurs macht mir viel Spaß.",
       "example_en": "I really enjoy the German course."
     },
@@ -822,6 +838,7 @@
       "gender": "die",
       "plural": "Schulden",
       "meaning_en": "fault, guilt (plural Schulden = debts)",
+      "prompt_en": "fault, guilt",
       "example_de": "Es ist nicht deine Schuld.",
       "example_en": "It's not your fault."
     },
@@ -949,6 +966,7 @@
       "pos": "other",
       "lemma": "während",
       "meaning_en": "during (+ Gen); while",
+      "prompt_en": "during; while",
       "example_de": "Während der Fahrt hat das Kind geschlafen.",
       "example_en": "The child slept during the journey."
     },
