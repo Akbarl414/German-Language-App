@@ -1023,7 +1023,7 @@
     {
       "id": "halt",
       "rank": 262,
-      "pos": "adverb",
+      "pos": "other",
       "lemma": "halt",
       "meaning_en": "(particle) just, simply (that's how it is)",
       "example_de": "Das ist halt so.",
