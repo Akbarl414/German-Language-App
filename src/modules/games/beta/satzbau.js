@@ -7,7 +7,7 @@ import { t } from '../../../i18n.js';
 import { getAllSentences } from '../../../db/contentLoader.js';
 import { store } from '../../../db/storage.js';
 import { escapeHtml } from '../../../components/gender.js';
-import { checkReorderAnswer } from '../../grammar/reorderChecker.js';
+import { classifyAnswer, matchedOrder } from './satzbauCheck.js';
 import { createRoundTimer } from '../../shared/roundTimer.js';
 import { getBest, recordBest } from '../../shared/gameBests.js';
 import { renderGameEnd } from '../../shared/gameEnd.js';
@@ -32,15 +32,6 @@ function scrambledTiles(sentence) {
   let tiles = shuffle(sentence.tokens);
   for (let i = 0; i < 20 && solved.has(tiles.map(bare).join('\u0001')); i++) tiles = shuffle(sentence.tokens);
   return tiles;
-}
-
-/** The accepted order to show: the one the player built if correct, else the first. */
-function orderToShow(sentence, submitted, correct) {
-  if (correct) {
-    const match = sentence.answerOrders.find((o) => checkReorderAnswer(submitted, { answerOrders: [o] }));
-    if (match) return match.join(' ');
-  }
-  return sentence.answerOrders[0].join(' ');
 }
 
 export async function render(container) {
@@ -80,7 +71,7 @@ export async function render(container) {
 
   /**
    * One sentence: tiles, Hint, Check, then the feedback panel (correct order + English) and a continue button.
-   * onDone({ correct, hinted, shown }) runs when the player taps the continue button.
+   * onDone({ correct, hinted, shown, also, usual }) runs when the player taps the continue button.
    */
   function playSentence({ sentence, headerHTML, continueLabel, onFeedback, onDone }) {
     const pool = scrambledTiles(sentence).map((text, id) => ({ text, id }));
@@ -155,23 +146,29 @@ export async function render(container) {
       if (checked || pool.length > 0) return;
       checked = true;
       const submitted = answer.map((a) => a.text);
-      const correct = checkReorderAnswer(submitted, sentence);
-      const shown = orderToShow(sentence, submitted, correct);
+      const kind = classifyAnswer(submitted, sentence); // 'usual' | 'also' | 'wrong'
+      const correct = kind !== 'wrong';
+      const also = kind === 'also'; // grammatical, but not the neutral order: still correct
+      const usual = sentence.answerOrders[0].join(' ');
+      const shown = correct ? (matchedOrder(submitted, sentence) ?? sentence.answerOrders[0]).join(' ') : usual;
       paint();
       container.querySelector('#sb-actions').style.display = 'none';
       container.querySelector('#sb-feedback').innerHTML = `
-        <p style="color:${correct ? 'var(--good)' : 'var(--bad)'}; font-weight:700; margin:8px 0 4px;">${correct ? '✅ ' + t('correctExclaim') : '❌ ' + t('correctOrderValue', escapeHtml(shown))}</p>
+        <p style="color:${correct ? 'var(--good)' : 'var(--bad)'}; font-weight:700; margin:8px 0 4px;">${also ? '✅ ' + t('satzbauAlsoPossible') : correct ? '✅ ' + t('correctExclaim') : '❌ ' + t('correctOrderValue', escapeHtml(shown))}</p>
         ${correct ? `<p style="margin:0 0 4px;">${escapeHtml(shown)}</p>` : ''}
+        ${also ? `<p class="drill-sub" style="margin:0 0 4px;">${escapeHtml(t('satzbauMoreUsual', usual))}</p>` : ''}
         <p class="drill-sub" style="margin:0 0 12px;">${escapeHtml(sentence.translation_en)}</p>
         <button class="btn btn-primary btn-block" id="sb-continue">${continueLabel(correct)}</button>`;
       if (onFeedback) onFeedback(correct);
-      container.querySelector('#sb-continue').addEventListener('click', () => onDone({ correct, hinted, shown }), { once: true });
+      container.querySelector('#sb-continue').addEventListener('click', () => onDone({ correct, hinted, shown, also, usual }), { once: true });
     });
   }
 
   function endRows(rounds) {
     return rounds.map((r) => ({
-      label: `${escapeHtml(r.shown)}${r.hinted ? ' 💡' : ''}`,
+      label: `${escapeHtml(r.shown)}${r.hinted ? ' 💡' : ''}${
+        r.also ? `<div class="drill-sub" style="margin-top:2px;">${escapeHtml(t('satzbauAlsoTag'))} · ${escapeHtml(t('satzbauMoreUsual', r.usual))}</div>` : ''
+      }`,
       ok: r.correct,
       correctLabel: '',
     }));
@@ -243,8 +240,8 @@ export async function render(container) {
         </div>`,
         continueLabel: () => t('nextBtn'),
         onFeedback: () => timer && timer.pause(), // reading the answer and the English doesn't cost time
-        onDone: ({ correct, hinted, shown }) => {
-          rounds.push({ sentence, correct, hinted, shown });
+        onDone: ({ correct, hinted, shown, also, usual }) => {
+          rounds.push({ sentence, correct, hinted, shown, also, usual });
           if (correct) score++;
           if (timer) timer.resume();
           nextRound();
@@ -290,8 +287,8 @@ export async function render(container) {
         sentence,
         headerHTML: `<p class="page-subtitle">${t('streakColon', streak)}</p>`,
         continueLabel: (correct) => (correct ? t('nextBtn') : t('seeResultsBtn')),
-        onDone: ({ correct, hinted, shown }) => {
-          rounds.push({ sentence, correct, hinted, shown });
+        onDone: ({ correct, hinted, shown, also, usual }) => {
+          rounds.push({ sentence, correct, hinted, shown, also, usual });
           if (correct) {
             streak++;
             nextRound();

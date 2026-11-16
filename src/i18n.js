@@ -140,6 +140,9 @@ const LABELS = {
   gameVerbSprintName: { de: 'Verbformen-Sprint', en: 'Verb forms sprint' },
   gameSatzbauName: { de: 'Satzbau', en: 'Satzbau' },
   satzbauInstruction: { de: 'Tippe die Wörter in die richtige Reihenfolge.', en: 'Tap the words into the right order.' },
+  satzbauAlsoPossible: { de: 'Richtig! Auch möglich.', en: 'Correct! Also possible.' },
+  satzbauMoreUsual: { de: (o) => `Üblicher: ${o}`, en: (o) => `More usual: ${o}` },
+  satzbauAlsoTag: { de: 'auch möglich', en: 'also possible' },
   satzbauMissed: { de: 'Falsch', en: 'Missed' },
 
   // --- Game titles, instructions and buttons ---
