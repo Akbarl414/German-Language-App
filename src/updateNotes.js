@@ -5,6 +5,14 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-core-1000-06',
+    date: '2026-11-16',
+    lines: [
+      'New vocab pack "Core 1000 · 06": the next 100 most frequent German words, including verbs such as aufgeben, verpassen, vermissen and aufpassen, everyday nouns such as Möglichkeit, Erinnerung, Unfall and Hochzeit, and common words such as obwohl, hoffentlich, unbedingt and sowieso. Like every vocab pack it is off until you switch it on.',
+      'Your existing words and progress are unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-core-1000-05',
     date: '2026-11-16',
     lines: [
