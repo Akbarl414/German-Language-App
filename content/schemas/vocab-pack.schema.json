@@ -34,6 +34,7 @@
         "pos": { "type": "string", "enum": ["noun", "verb", "adjective", "adverb", "other"] },
         "lemma": { "type": "string", "minLength": 1, "description": "Headword as shown in lists, e.g. 'Löffel' or 'fahren'." },
         "meaning_en": { "type": "string", "minLength": 1 },
+        "prompt_en": { "type": "string", "minLength": 1, "description": "Optional clean English prompt with no German in it, shown only where English is the prompt (falls back to meaning_en)." },
         "example_de": { "type": "string", "minLength": 1 },
         "example_en": { "type": "string", "minLength": 1 },
         "tags": { "type": "array", "items": { "type": "string" } },

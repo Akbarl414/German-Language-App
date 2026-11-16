@@ -14,6 +14,7 @@ import { renderExercise } from '../grammar/exerciseRenderer.js';
 import { gradeFromCorrectness, Grade } from '../../srs/engine.js';
 import { genderBadgeHTML, escapeHtml } from '../../components/gender.js';
 import { findPhraseSet } from '../../db/contentLoader.js';
+import { englishPrompt } from './englishPrompt.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -82,7 +83,7 @@ function renderVocabItem(item, container, onGrade) {
   if (item.facet === 'meaning_en_de') {
     renderFlipCard({
       container,
-      frontHTML: escapeHtml(w.meaning_en),
+      frontHTML: escapeHtml(englishPrompt(w)),
       backHTML: fullInfoHTML(w),
       onGrade,
     });

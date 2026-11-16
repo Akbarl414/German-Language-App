@@ -17,6 +17,7 @@ import { store } from '../../db/storage.js';
 import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
 import { umlautFieldHTML, wireUmlautButtons } from '../../components/umlaut.js';
 import { resultsListHTML } from '../shared/resultsSummary.js';
+import { englishPrompt } from '../shared/englishPrompt.js';
 import { renderMissesReview } from '../shared/missesReview.js';
 import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../shared/gamePool.js';
 import { t } from '../../i18n.js';
@@ -135,7 +136,7 @@ export async function render(container) {
       <div class="view">
         ${headerHTML}
         <div class="drill-card">
-          <div class="drill-prompt">${escapeHtml(word.meaning_en)}</div>
+          <div class="drill-prompt">${escapeHtml(englishPrompt(word))}</div>
           <div id="hint-panel" class="drill-sub" style="display:none; margin-top:8px;"></div>
         </div>
         ${umlautFieldHTML('type-input', { label: t('typeItInputLabel'), placeholder: '…' })}

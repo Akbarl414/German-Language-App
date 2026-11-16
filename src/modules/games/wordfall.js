@@ -10,6 +10,7 @@ import { gradeFromCorrectness } from '../../srs/engine.js';
 import { store } from '../../db/storage.js';
 import { escapeHtml, genderBadgeHTML } from '../../components/gender.js';
 import { hintForFacet } from '../shared/itemRenderer.js';
+import { englishPrompt } from '../shared/englishPrompt.js';
 import { resultsListHTML } from '../shared/resultsSummary.js';
 import { renderMissesReview } from '../shared/missesReview.js';
 import { getGameWordPool, extraPacksPickerHTML, wireExtraPacksPicker, poolTooSmallHTML } from '../shared/gamePool.js';
@@ -40,7 +41,7 @@ function normalizeDirection(dir) {
 
 /** What's shown as the falling prompt. */
 function promptLabel(w, direction) {
-  return direction === 'en_de' ? w.meaning_en : w.lemma;
+  return direction === 'en_de' ? englishPrompt(w) : w.lemma;
 }
 
 /** What's shown on each tappable option. */
