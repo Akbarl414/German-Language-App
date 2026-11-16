@@ -51,6 +51,7 @@
       "gender": "der",
       "plural": "Geburtstage",
       "meaning_en": "birthday (Alles Gute zum Geburtstag! = Happy birthday!)",
+      "prompt_en": "birthday",
       "example_de": "Wann hast du Geburtstag?",
       "example_en": "When is your birthday?"
     },
@@ -133,6 +134,7 @@
       "gender": "der",
       "plural": "Patienten",
       "meaning_en": "patient (male; die Patientin = female)",
+      "prompt_en": "patient (male)",
       "example_de": "Der Arzt hat heute sehr viele Patienten.",
       "example_en": "The doctor has a lot of patients today."
     },
@@ -142,6 +144,7 @@
       "pos": "adverb",
       "lemma": "links",
       "meaning_en": "on the left, to the left (nach links = to the left)",
+      "prompt_en": "on the left, to the left",
       "example_de": "Gehen Sie hier links und dann immer geradeaus.",
       "example_en": "Turn left here and then keep going straight on."
     },
@@ -171,6 +174,7 @@
       "pos": "adjective",
       "lemma": "schuldig",
       "meaning_en": "guilty; (jemandem etwas schuldig sein) to owe someone something",
+      "prompt_en": "guilty; to owe (someone something)",
       "example_de": "Ich bin dir noch zehn Euro schuldig.",
       "example_en": "I still owe you ten euros."
     },
@@ -205,6 +209,7 @@
       "pos": "other",
       "lemma": "dritte",
       "meaning_en": "third (dritter, dritte, drittes)",
+      "prompt_en": "third (ordinal: the third one)",
       "example_de": "Das ist schon mein dritter Kaffee heute.",
       "example_en": "That's already my third coffee today."
     },
@@ -268,6 +273,7 @@
       "pos": "adverb",
       "lemma": "schade",
       "meaning_en": "a pity, a shame (Wie schade! = What a shame!)",
+      "prompt_en": "a pity, a shame",
       "example_de": "Schade, dass du nicht mitkommen kannst!",
       "example_en": "What a pity you can't come along!"
     },
@@ -305,6 +311,7 @@
       "pos": "verb",
       "lemma": "ausgehen",
       "meaning_en": "to go out; to run out (Das Geld geht aus. = The money is running out); (light) to go out",
+      "prompt_en": "to go out; to run out (money, supplies); (light) to go out",
       "example_de": "Am Freitag gehen wir zusammen aus.",
       "example_en": "On Friday we're going out together.",
       "present_3sg": "geht aus",
@@ -330,6 +337,7 @@
       "gender": "die",
       "plural": "Stellen",
       "meaning_en": "job, position; place, spot (an deiner Stelle = if I were you)",
+      "prompt_en": "job, position; place, spot (as in: if I were you)",
       "example_de": "Sie hat eine neue Stelle in einem Krankenhaus gefunden.",
       "example_en": "She's found a new job at a hospital."
     },
@@ -374,6 +382,7 @@
       "gender": "die",
       "plural": "Bands",
       "meaning_en": "band (music group); (der Band, Bände = volume of a book; das Band, Bänder = ribbon, tape)",
+      "prompt_en": "band (music group); volume (of a book); ribbon, tape",
       "example_de": "Meine Lieblingsband spielt nächsten Monat in Hamburg.",
       "example_en": "My favourite band is playing in Hamburg next month."
     },
@@ -399,6 +408,7 @@
       "gender": "das",
       "plural": "Weihnachten",
       "meaning_en": "Christmas (usually without an article; Frohe Weihnachten! = Merry Christmas!)",
+      "prompt_en": "Christmas",
       "example_de": "Zu Weihnachten fahren wir zu meinen Eltern.",
       "example_en": "At Christmas we're going to my parents'."
     },
@@ -419,6 +429,7 @@
       "pos": "verb",
       "lemma": "befinden",
       "meaning_en": "(sich befinden) to be (located), to find oneself (formal)",
+      "prompt_en": "to be (located), to find oneself (formal)",
       "example_de": "Der Ausgang befindet sich auf der linken Seite.",
       "example_en": "The exit is on the left-hand side.",
       "present_3sg": "befindet",
@@ -447,6 +458,7 @@
       "pos": "verb",
       "lemma": "unternehmen",
       "meaning_en": "to do (an activity), to undertake (etwas unternehmen = to do something, go out)",
+      "prompt_en": "to do (an activity), to undertake; to go out and do something",
       "example_de": "Was wollen wir am Wochenende unternehmen?",
       "example_en": "What shall we do at the weekend?",
       "present_3sg": "unternimmt",
@@ -515,6 +527,7 @@
       "pos": "adverb",
       "lemma": "heim",
       "meaning_en": "home (to one's home; often in heimgehen, heimkommen)",
+      "prompt_en": "home, homewards (to one's home)",
       "example_de": "Es ist schon spät, ich will jetzt heim.",
       "example_en": "It's already late, I want to go home now."
     },
@@ -546,6 +559,7 @@
       "gender": "der",
       "plural": "Grade",
       "meaning_en": "degree (temperature, angle; with numbers it stays Grad: zwanzig Grad)",
+      "prompt_en": "degree (temperature, angle)",
       "example_de": "Heute sind es nur fünf Grad, zieh eine Jacke an!",
       "example_en": "It's only five degrees today, put a jacket on!"
     },
@@ -566,6 +580,7 @@
       "gender": "die",
       "plural": "-",
       "meaning_en": "desire; (Lust haben) to feel like (doing something)",
+      "prompt_en": "desire; to feel like (doing something)",
       "example_de": "Hast du Lust, heute Abend ins Kino zu gehen?",
       "example_en": "Do you feel like going to the cinema tonight?"
     },
@@ -584,6 +599,7 @@
       "pos": "adjective",
       "lemma": "verantwortlich",
       "meaning_en": "responsible (für + Akk)",
+      "prompt_en": "responsible",
       "example_de": "Wer ist für dieses Projekt verantwortlich?",
       "example_en": "Who is responsible for this project?"
     },
@@ -593,6 +609,7 @@
       "pos": "adjective",
       "lemma": "übrig",
       "meaning_en": "left (over), remaining (übrig sein / übrig bleiben)",
+      "prompt_en": "left (over), remaining",
       "example_de": "Ist noch etwas Kuchen übrig?",
       "example_en": "Is there any cake left?"
     },
@@ -629,6 +646,7 @@
       "gender": "der",
       "plural": "Zeugen",
       "meaning_en": "witness (male; die Zeugin = female)",
+      "prompt_en": "witness (male)",
       "example_de": "Die Polizei sucht Zeugen für den Unfall.",
       "example_en": "The police are looking for witnesses to the accident."
     },
@@ -647,6 +665,7 @@
       "pos": "adverb",
       "lemma": "rechts",
       "meaning_en": "on the right, to the right (nach rechts = to the right)",
+      "prompt_en": "on the right, to the right",
       "example_de": "Das Badezimmer ist die zweite Tür rechts.",
       "example_en": "The bathroom is the second door on the right."
     },
@@ -710,6 +729,7 @@
       "pos": "other",
       "lemma": "weder",
       "meaning_en": "(weder … noch) neither … nor",
+      "prompt_en": "neither … nor",
       "example_de": "Ich habe weder Zeit noch Geld für einen Urlaub.",
       "example_en": "I have neither the time nor the money for a holiday."
     },
@@ -774,6 +794,7 @@
       "pos": "verb",
       "lemma": "unterhalten",
       "meaning_en": "(sich unterhalten) to talk, to chat; (jemanden unterhalten) to entertain",
+      "prompt_en": "to talk, to chat; to entertain",
       "example_de": "Wir haben uns lange über die Arbeit unterhalten.",
       "example_en": "We talked about work for a long time.",
       "present_3sg": "unterhält",
@@ -789,6 +810,7 @@
       "pos": "other",
       "lemma": "entweder",
       "meaning_en": "(entweder … oder) either … or",
+      "prompt_en": "either … or",
       "example_de": "Wir können entweder heute oder morgen ins Kino gehen.",
       "example_en": "We can go to the cinema either today or tomorrow."
     },
@@ -798,6 +820,7 @@
       "pos": "verb",
       "lemma": "wundern",
       "meaning_en": "(sich wundern) to be surprised, to wonder; (jemanden wundern) to surprise someone",
+      "prompt_en": "to be surprised, to wonder; to surprise (someone)",
       "example_de": "Ich wundere mich, dass er noch nicht angerufen hat.",
       "example_en": "I'm surprised he hasn't called yet.",
       "present_3sg": "wundert",
@@ -846,6 +869,7 @@
       "gender": "der",
       "plural": "Glückwünsche",
       "meaning_en": "congratulations (Herzlichen Glückwunsch! = Congratulations!)",
+      "prompt_en": "congratulations",
       "example_de": "Herzlichen Glückwunsch zum Geburtstag!",
       "example_en": "Happy birthday!"
     },
@@ -855,6 +879,7 @@
       "pos": "verb",
       "lemma": "starten",
       "meaning_en": "to start; (plane) to take off (with an object, e.g. den Motor starten, the Perfekt is hat gestartet)",
+      "prompt_en": "to start; (plane) to take off",
       "example_de": "Das Flugzeug ist pünktlich gestartet.",
       "example_en": "The plane took off on time.",
       "present_3sg": "startet",
@@ -880,6 +905,7 @@
       "pos": "verb",
       "lemma": "trennen",
       "meaning_en": "to separate; (sich trennen) to split up",
+      "prompt_en": "to separate; to split up",
       "example_de": "Wir trennen den Müll in Papier, Glas und Plastik.",
       "example_en": "We separate our rubbish into paper, glass and plastic.",
       "present_3sg": "trennt",
@@ -909,6 +935,7 @@
       "pos": "verb",
       "lemma": "streiten",
       "meaning_en": "to argue, to quarrel (often sich streiten)",
+      "prompt_en": "to argue, to quarrel",
       "example_de": "Die beiden streiten sich oft, aber sie lieben sich.",
       "example_en": "The two of them often argue, but they love each other.",
       "present_3sg": "streitet",
@@ -970,6 +997,7 @@
       "pos": "adjective",
       "lemma": "interessiert",
       "meaning_en": "interested (an + Dat)",
+      "prompt_en": "interested",
       "example_de": "Sie ist sehr an Kunst interessiert.",
       "example_en": "She's very interested in art."
     },
@@ -981,6 +1009,7 @@
       "gender": "das",
       "plural": "Vergnügen",
       "meaning_en": "pleasure, fun (Viel Vergnügen! = Have fun!)",
+      "prompt_en": "pleasure, fun (as in: have fun!)",
       "example_de": "Es war mir ein Vergnügen!",
       "example_en": "It was my pleasure!"
     },
@@ -992,6 +1021,7 @@
       "gender": "der",
       "plural": "Erfolge",
       "meaning_en": "success (Viel Erfolg! = Good luck!)",
+      "prompt_en": "success (as in: good luck!)",
       "example_de": "Viel Erfolg bei der Prüfung!",
       "example_en": "Good luck with the exam!"
     },
@@ -1048,6 +1078,7 @@
       "pos": "verb",
       "lemma": "gelten",
       "meaning_en": "to be valid, to apply; (gelten als) to be regarded as",
+      "prompt_en": "to be valid, to apply; to be regarded as",
       "example_de": "Das Ticket gilt für den ganzen Tag.",
       "example_en": "The ticket is valid for the whole day.",
       "present_3sg": "gilt",

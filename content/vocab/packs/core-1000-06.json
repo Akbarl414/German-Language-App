@@ -10,6 +10,7 @@
       "pos": "adverb",
       "lemma": "jemals",
       "meaning_en": "ever (Hast du jemals …? = Have you ever …?)",
+      "prompt_en": "ever (as in: have you ever …?)",
       "example_de": "Warst du jemals in Wien?",
       "example_en": "Have you ever been to Vienna?"
     },
@@ -53,6 +54,7 @@
       "pos": "verb",
       "lemma": "treiben",
       "meaning_en": "to drive, push; to do (Sport treiben = to do sport); (with sein) to drift",
+      "prompt_en": "to drive, to push; to do (sport); to drift",
       "example_de": "Meine Schwester treibt jeden Tag Sport.",
       "example_en": "My sister does sport every day.",
       "present_3sg": "treibt",
@@ -131,6 +133,7 @@
       "gender": "das",
       "plural": "Alter",
       "meaning_en": "age; old age (im Alter von … = at the age of …)",
+      "prompt_en": "age; old age",
       "example_de": "In deinem Alter habe ich schon gearbeitet.",
       "example_en": "At your age I was already working."
     },
@@ -142,6 +145,7 @@
       "gender": "der",
       "plural": "Augenblicke",
       "meaning_en": "moment (Einen Augenblick, bitte! = Just a moment, please!)",
+      "prompt_en": "moment, instant (literally: a blink of an eye)",
       "example_de": "Im Augenblick habe ich leider keine Zeit.",
       "example_en": "Unfortunately I don't have time at the moment."
     },
@@ -165,6 +169,7 @@
       "pos": "adjective",
       "lemma": "verheiratet",
       "meaning_en": "married (mit jemandem verheiratet sein)",
+      "prompt_en": "married",
       "example_de": "Meine Eltern sind seit dreißig Jahren verheiratet.",
       "example_en": "My parents have been married for thirty years."
     },
@@ -174,6 +179,7 @@
       "pos": "other",
       "lemma": "zweite",
       "meaning_en": "second (zweiter, zweite, zweites)",
+      "prompt_en": "second (ordinal: the second one)",
       "example_de": "Wir wohnen im zweiten Stock.",
       "example_en": "We live on the second floor."
     },
@@ -194,6 +200,7 @@
       "gender": "der",
       "plural": "-",
       "meaning_en": "trouble; annoyance, anger (Ärger bekommen = to get into trouble)",
+      "prompt_en": "trouble; annoyance, anger",
       "example_de": "Wenn du zu spät kommst, bekommst du Ärger.",
       "example_en": "If you're late, you'll get into trouble."
     },
@@ -219,6 +226,7 @@
       "gender": "die",
       "plural": "Spuren",
       "meaning_en": "track, trace; lane (keine Spur = not in the slightest)",
+      "prompt_en": "track, trace; lane",
       "example_de": "Die Polizei hat keine Spur von dem Mann gefunden.",
       "example_en": "The police found no trace of the man."
     },
@@ -228,6 +236,7 @@
       "pos": "adverb",
       "lemma": "dagegen",
       "meaning_en": "against it; on the other hand (Hast du etwas dagegen? = Do you mind?)",
+      "prompt_en": "against it; on the other hand",
       "example_de": "Ich mache das Fenster auf. Hast du etwas dagegen?",
       "example_en": "I'm opening the window. Do you mind?"
     },
@@ -239,6 +248,7 @@
       "gender": "der",
       "plural": "Halte",
       "meaning_en": "stop (Halt! = Stop!); hold, support",
+      "prompt_en": "stop! (command); hold, support",
       "example_de": "Der Zug macht einen kurzen Halt in Köln.",
       "example_en": "The train makes a short stop in Cologne."
     },
@@ -248,6 +258,7 @@
       "pos": "verb",
       "lemma": "leiden",
       "meaning_en": "to suffer; (nicht leiden können = can't stand)",
+      "prompt_en": "to suffer; can't stand (with a negative)",
       "example_de": "Viele Menschen leiden unter der Hitze.",
       "example_en": "Lots of people are suffering in the heat.",
       "present_3sg": "leidet",
@@ -326,6 +337,7 @@
       "gender": "die",
       "plural": "Sorgen",
       "meaning_en": "worry, concern (sich Sorgen machen = to worry; Keine Sorge! = Don't worry!)",
+      "prompt_en": "worry, concern",
       "example_de": "Mach dir keine Sorgen, alles wird gut.",
       "example_en": "Don't worry, everything will be fine."
     },
@@ -374,6 +386,7 @@
       "gender": "der",
       "plural": "Polizisten",
       "meaning_en": "police officer (female: die Polizistin)",
+      "prompt_en": "police officer (male)",
       "example_de": "Ein Polizist hat uns den Weg erklärt.",
       "example_en": "A police officer showed us the way."
     },
@@ -385,6 +398,7 @@
       "gender": "der",
       "plural": "Partner",
       "meaning_en": "partner (female: die Partnerin)",
+      "prompt_en": "partner (male)",
       "example_de": "Bringst du deinen Partner zur Party mit?",
       "example_en": "Are you bringing your partner to the party?"
     },
@@ -443,6 +457,7 @@
       "gender": "der",
       "plural": "Anfänge",
       "meaning_en": "beginning, start (am Anfang = at the beginning; Anfang Mai = early May)",
+      "prompt_en": "beginning, start",
       "example_de": "Am Anfang war der Kurs ziemlich schwer.",
       "example_en": "At the beginning the course was quite hard."
     },
@@ -465,6 +480,7 @@
       "gender": "der",
       "plural": "Blicke",
       "meaning_en": "look, glance; view (auf den ersten Blick = at first sight)",
+      "prompt_en": "look, glance; view",
       "example_de": "Von hier oben hat man einen tollen Blick auf die Stadt.",
       "example_en": "From up here you have a great view of the city."
     },
@@ -485,6 +501,7 @@
       "pos": "verb",
       "lemma": "verzeihen",
       "meaning_en": "to forgive (Verzeihung! = Excuse me! / Sorry!)",
+      "prompt_en": "to forgive",
       "example_de": "Kannst du mir noch einmal verzeihen?",
       "example_en": "Can you forgive me one more time?",
       "present_3sg": "verzeiht",
@@ -536,6 +553,7 @@
       "pos": "other",
       "lemma": "manche",
       "meaning_en": "some, quite a few (manche Leute = some people)",
+      "prompt_en": "some, quite a few",
       "example_de": "Manche Leute stehen jeden Tag um fünf Uhr auf.",
       "example_en": "Some people get up at five every day."
     },
@@ -629,6 +647,7 @@
       "gender": "die",
       "plural": "Reden",
       "meaning_en": "speech, talk (eine Rede halten = to give a speech; nicht der Rede wert = not worth mentioning)",
+      "prompt_en": "speech, talk",
       "example_de": "Auf der Hochzeit hat mein Bruder eine lustige Rede gehalten.",
       "example_en": "At the wedding my brother gave a funny speech."
     },
@@ -735,6 +754,7 @@
       "gender": "das",
       "plural": "Schweine",
       "meaning_en": "pig; (insult) swine (Schwein haben = to be lucky)",
+      "prompt_en": "pig; (insult) swine",
       "example_de": "Da hast du aber Schwein gehabt!",
       "example_en": "You were really lucky there!"
     },
@@ -780,6 +800,7 @@
       "gender": "das",
       "plural": "-",
       "meaning_en": "home (one's own home; zu Hause = at home)",
+      "prompt_en": "home (one's own home, as a noun)",
       "example_de": "Nach dem Umzug haben wir endlich ein richtiges Zuhause.",
       "example_en": "After the move we finally have a proper home."
     },
@@ -789,6 +810,7 @@
       "pos": "verb",
       "lemma": "nutzen",
       "meaning_en": "to use, to make use of (eine Chance nutzen = to take a chance)",
+      "prompt_en": "to use, to make use of",
       "example_de": "Ich nutze die Zeit im Zug zum Lesen.",
       "example_en": "I use the time on the train for reading.",
       "present_3sg": "nutzt",
@@ -803,6 +825,7 @@
       "pos": "verb",
       "lemma": "beschäftigen",
       "meaning_en": "to keep busy; to employ (sich beschäftigen mit = to deal with, to look into)",
+      "prompt_en": "to keep busy; to employ; to deal with",
       "example_de": "Mit diesem Thema beschäftige ich mich schon lange.",
       "example_en": "I've been looking into this topic for a long time.",
       "present_3sg": "beschäftigt",
@@ -818,6 +841,7 @@
       "pos": "adjective",
       "lemma": "fremd",
       "meaning_en": "foreign; strange, unfamiliar (Ich bin fremd hier = I'm not from round here)",
+      "prompt_en": "foreign; strange, unfamiliar",
       "example_de": "Entschuldigung, ich bin auch fremd hier.",
       "example_en": "Sorry, I'm not from round here either."
     },
@@ -851,6 +875,7 @@
       "pos": "verb",
       "lemma": "leisten",
       "meaning_en": "to achieve, to accomplish (sich etwas leisten = to afford something)",
+      "prompt_en": "to achieve, to accomplish; to afford (something)",
       "example_de": "Ein neues Auto kann ich mir im Moment nicht leisten.",
       "example_en": "I can't afford a new car at the moment.",
       "present_3sg": "leistet",
@@ -878,6 +903,7 @@
       "gender": "die",
       "plural": "Richtungen",
       "meaning_en": "direction (in Richtung … = towards …)",
+      "prompt_en": "direction",
       "example_de": "Fährt dieser Bus in Richtung Bahnhof?",
       "example_en": "Does this bus go towards the station?"
     },
@@ -914,6 +940,7 @@
       "pos": "verb",
       "lemma": "drücken",
       "meaning_en": "to press, to push; to squeeze (die Daumen drücken = to keep one's fingers crossed)",
+      "prompt_en": "to press, to push; to squeeze",
       "example_de": "Ich drücke dir morgen für die Prüfung die Daumen.",
       "example_en": "I'll keep my fingers crossed for your exam tomorrow.",
       "present_3sg": "drückt",
@@ -941,6 +968,7 @@
       "gender": "das",
       "plural": "Beispiele",
       "meaning_en": "example (zum Beispiel = for example)",
+      "prompt_en": "example",
       "example_de": "Kannst du mir ein Beispiel geben?",
       "example_en": "Can you give me an example?"
     },
@@ -961,6 +989,7 @@
       "pos": "adjective",
       "lemma": "sauer",
       "meaning_en": "sour; (colloquial) annoyed, cross (sauer auf + Akk)",
+      "prompt_en": "sour; (colloquial) annoyed, cross",
       "example_de": "Bist du immer noch sauer auf mich?",
       "example_en": "Are you still cross with me?"
     },
@@ -1004,6 +1033,7 @@
       "pos": "adverb",
       "lemma": "dahin",
       "meaning_en": "there (to that place); (bis dahin = until then)",
+      "prompt_en": "there (to that place); until then (as a phrase)",
       "example_de": "Wir fahren morgen nach Berlin. Wie lange braucht man dahin?",
       "example_en": "We're going to Berlin tomorrow. How long does it take to get there?"
     },
@@ -1015,6 +1045,7 @@
       "gender": "die",
       "plural": "-",
       "meaning_en": "caution, care (Vorsicht! = Careful! / Watch out!)",
+      "prompt_en": "caution, care; careful! watch out!",
       "example_de": "Vorsicht, der Boden ist nass!",
       "example_en": "Careful, the floor is wet!"
     },
@@ -1079,6 +1110,7 @@
       "pos": "verb",
       "lemma": "dienen",
       "meaning_en": "to serve (als … dienen = to serve as …)",
+      "prompt_en": "to serve (as)",
       "example_de": "Das kleine Zimmer dient uns als Büro.",
       "example_en": "We use the small room as an office.",
       "present_3sg": "dient",
@@ -1120,6 +1152,7 @@
       "gender": "der",
       "plural": "Professoren",
       "meaning_en": "professor (female: die Professorin)",
+      "prompt_en": "professor (male)",
       "example_de": "Unser Professor erklärt alles sehr klar.",
       "example_en": "Our professor explains everything very clearly."
     },
@@ -1131,6 +1164,7 @@
       "gender": "der",
       "plural": "-",
       "meaning_en": "hunger (Hunger haben = to be hungry)",
+      "prompt_en": "hunger",
       "example_de": "Ich habe Hunger, lass uns etwas essen.",
       "example_en": "I'm hungry, let's eat something."
     },

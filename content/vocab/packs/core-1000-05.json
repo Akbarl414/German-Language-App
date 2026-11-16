@@ -12,6 +12,7 @@
       "gender": "die",
       "plural": "Wahlen",
       "meaning_en": "choice; election (keine Wahl haben = to have no choice)",
+      "prompt_en": "choice; election",
       "example_de": "Ich hatte leider keine andere Wahl.",
       "example_en": "Unfortunately I had no other choice."
     },
@@ -57,6 +58,7 @@
       "gender": "der",
       "plural": "Witze",
       "meaning_en": "joke (Das ist doch ein Witz! = You must be joking!)",
+      "prompt_en": "joke (as in: you must be joking!)",
       "example_de": "Er erzählt immer die gleichen Witze.",
       "example_en": "He always tells the same jokes."
     },
@@ -89,6 +91,7 @@
       "pos": "adverb",
       "lemma": "meist",
       "meaning_en": "mostly, usually (also: meistens)",
+      "prompt_en": "mostly, usually",
       "example_de": "Am Wochenende schlafe ich meist bis zehn.",
       "example_en": "At the weekend I usually sleep until ten."
     },
@@ -107,6 +110,7 @@
       "pos": "verb",
       "lemma": "treten",
       "meaning_en": "to step; to kick (when kicking: hat getreten)",
+      "prompt_en": "to step; to kick",
       "example_de": "Sie ist ans Fenster getreten und hat hinausgesehen.",
       "example_en": "She stepped over to the window and looked out.",
       "present_3sg": "tritt",
@@ -184,6 +188,7 @@
       "gender": "der",
       "plural": "Reste",
       "meaning_en": "rest, remainder; (die Reste) leftovers",
+      "prompt_en": "rest, remainder; (plural) leftovers",
       "example_de": "Den Rest der Pizza esse ich morgen.",
       "example_en": "I'll eat the rest of the pizza tomorrow."
     },
@@ -218,6 +223,7 @@
       "gender": "die",
       "plural": "-",
       "meaning_en": "future (in Zukunft = from now on, in future)",
+      "prompt_en": "future (as in: from now on)",
       "example_de": "In Zukunft möchte ich mehr Zeit mit meiner Familie verbringen.",
       "example_en": "In future I'd like to spend more time with my family."
     },
@@ -238,6 +244,7 @@
       "pos": "verb",
       "lemma": "gucken",
       "meaning_en": "to look; to watch (informal: Fernsehen gucken)",
+      "prompt_en": "to look; to watch (informal)",
       "example_de": "Guck mal, da drüben ist ein Café!",
       "example_en": "Look, there's a café over there!",
       "present_3sg": "guckt",
@@ -274,6 +281,7 @@
       "pos": "adverb",
       "lemma": "drüben",
       "meaning_en": "over there (da drüben)",
+      "prompt_en": "over there",
       "example_de": "Der Bahnhof ist da drüben, gleich hinter der Kirche.",
       "example_en": "The station is over there, just behind the church."
     },
@@ -283,6 +291,7 @@
       "pos": "verb",
       "lemma": "merken",
       "meaning_en": "to notice; (sich etwas merken) to remember, to keep in mind",
+      "prompt_en": "to notice; to remember, to keep in mind",
       "example_de": "Hast du gemerkt, dass er heute sehr still war?",
       "example_en": "Did you notice that he was very quiet today?",
       "present_3sg": "merkt",
@@ -311,6 +320,7 @@
       "pos": "verb",
       "lemma": "beruhigen",
       "meaning_en": "to calm (someone) down; (sich beruhigen) to calm down",
+      "prompt_en": "to calm (someone) down; to calm down",
       "example_de": "Beruhig dich, es ist doch nichts passiert.",
       "example_en": "Calm down, nothing has happened.",
       "present_3sg": "beruhigt",
@@ -386,6 +396,7 @@
       "gender": "die",
       "plural": "Entscheidungen",
       "meaning_en": "decision (eine Entscheidung treffen = to make a decision)",
+      "prompt_en": "decision",
       "example_de": "Das war eine schwere Entscheidung für uns.",
       "example_en": "That was a difficult decision for us."
     },
@@ -439,6 +450,7 @@
       "gender": "die",
       "plural": "Klassen",
       "meaning_en": "class (at school, on a train); (informal, Klasse!) great",
+      "prompt_en": "class (at school, on a train); great! (informal)",
       "example_de": "Meine Tochter ist jetzt in der dritten Klasse.",
       "example_en": "My daughter is in Year 3 now."
     },
@@ -448,6 +460,7 @@
       "pos": "verb",
       "lemma": "fürchten",
       "meaning_en": "to fear; (sich fürchten vor + Dat) to be afraid of",
+      "prompt_en": "to fear; to be afraid of",
       "example_de": "Viele Kinder fürchten sich vor der Dunkelheit.",
       "example_en": "Many children are afraid of the dark.",
       "present_3sg": "fürchtet",
@@ -501,6 +514,7 @@
       "pos": "verb",
       "lemma": "beeilen",
       "meaning_en": "(sich beeilen) to hurry",
+      "prompt_en": "to hurry",
       "example_de": "Wir müssen uns beeilen, der Zug fährt gleich.",
       "example_en": "We have to hurry, the train is about to leave.",
       "present_3sg": "beeilt",
@@ -517,6 +531,7 @@
       "gender": "die",
       "plural": "Karten",
       "meaning_en": "card; ticket; map; menu (die Speisekarte)",
+      "prompt_en": "card; ticket; map; menu",
       "example_de": "Hast du schon die Karten für das Konzert gekauft?",
       "example_en": "Have you bought the tickets for the concert yet?"
     },
@@ -528,6 +543,7 @@
       "gender": "der",
       "plural": "Gedanken",
       "meaning_en": "thought, idea (sich Gedanken machen = to worry)",
+      "prompt_en": "thought, idea",
       "example_de": "Mach dir keine Gedanken, das wird schon.",
       "example_en": "Don't worry, it'll be fine."
     },
@@ -610,6 +626,7 @@
       "pos": "verb",
       "lemma": "verändern",
       "meaning_en": "to change, to alter; (sich verändern) to change",
+      "prompt_en": "to change, to alter",
       "example_de": "Die Stadt hat sich in den letzten Jahren stark verändert.",
       "example_en": "The town has changed a lot in recent years.",
       "present_3sg": "verändert",
@@ -626,6 +643,7 @@
       "gender": "der",
       "plural": "Schlüsse",
       "meaning_en": "end; conclusion (Schluss machen = to stop; to break up)",
+      "prompt_en": "end; conclusion; to stop, to break up (as a phrase)",
       "example_de": "Am Schluss des Films haben alle geweint.",
       "example_en": "At the end of the film everyone cried."
     },
@@ -635,6 +653,7 @@
       "pos": "verb",
       "lemma": "bestehen",
       "meaning_en": "to pass (an exam); (bestehen aus) to consist of",
+      "prompt_en": "to pass (an exam); to consist of",
       "example_de": "Sie hat die Prüfung beim ersten Mal bestanden.",
       "example_en": "She passed the exam first time.",
       "present_3sg": "besteht",
@@ -670,6 +689,7 @@
       "gender": "die",
       "plural": "Informationen",
       "meaning_en": "information (often in the plural: Informationen)",
+      "prompt_en": "information",
       "example_de": "Weitere Informationen finden Sie auf unserer Webseite.",
       "example_en": "You can find more information on our website."
     },
@@ -690,6 +710,7 @@
       "pos": "verb",
       "lemma": "irren",
       "meaning_en": "(sich irren) to be wrong, to be mistaken",
+      "prompt_en": "to be wrong, to be mistaken",
       "example_de": "Ich glaube, du irrst dich, der Laden ist heute geschlossen.",
       "example_en": "I think you're wrong; the shop is closed today.",
       "present_3sg": "irrt",
@@ -771,6 +792,7 @@
       "pos": "verb",
       "lemma": "aufhalten",
       "meaning_en": "to hold up, to delay; to stop; (sich aufhalten) to stay",
+      "prompt_en": "to hold up, to delay; to stop; to stay (somewhere)",
       "example_de": "Ich will dich nicht länger aufhalten.",
       "example_en": "I don't want to hold you up any longer.",
       "present_3sg": "hält auf",
@@ -785,6 +807,7 @@
       "pos": "adverb",
       "lemma": "selber",
       "meaning_en": "myself, yourself, etc. (informal for selbst)",
+      "prompt_en": "myself, yourself, etc. (informal)",
       "example_de": "Den Kuchen habe ich selber gebacken.",
       "example_en": "I baked the cake myself."
     },
@@ -829,6 +852,7 @@
       "gender": "die",
       "plural": "-",
       "meaning_en": "forgiveness; (Verzeihung!) excuse me, sorry",
+      "prompt_en": "forgiveness; excuse me, sorry!",
       "example_de": "Verzeihung, können Sie mir sagen, wie spät es ist?",
       "example_en": "Excuse me, can you tell me what time it is?"
     },
@@ -864,6 +888,7 @@
       "gender": "der",
       "plural": "Punkte",
       "meaning_en": "point; dot, full stop (um Punkt acht = at eight sharp)",
+      "prompt_en": "point; dot, full stop (as in: at eight sharp)",
       "example_de": "In diesem Punkt hast du recht.",
       "example_en": "You're right on this point."
     },
@@ -898,6 +923,7 @@
       "gender": "der",
       "plural": "Schmerzen",
       "meaning_en": "pain (often in the plural: Schmerzen)",
+      "prompt_en": "pain",
       "example_de": "Ich habe seit gestern starke Schmerzen im Rücken.",
       "example_en": "I've had bad back pain since yesterday."
     },
@@ -929,6 +955,7 @@
       "gender": "die",
       "plural": "Rollen",
       "meaning_en": "role, part (eine Rolle spielen = to matter)",
+      "prompt_en": "role, part (in a play)",
       "example_de": "Geld spielt für ihn keine große Rolle.",
       "example_en": "Money doesn't matter much to him."
     },
@@ -971,6 +998,7 @@
       "pos": "adjective",
       "lemma": "deutsch",
       "meaning_en": "German (the adjective; the language is Deutsch)",
+      "prompt_en": "German (the adjective)",
       "example_de": "Sie liest gern deutsche Bücher, um ihr Deutsch zu verbessern.",
       "example_en": "She likes reading German books to improve her German."
     },
@@ -1005,6 +1033,7 @@
       "pos": "adverb",
       "lemma": "heraus",
       "meaning_en": "out (towards the speaker; informal: raus)",
+      "prompt_en": "out (towards the speaker)",
       "example_de": "Komm bitte heraus, ich möchte mit dir reden!",
       "example_en": "Please come out, I want to talk to you!"
     },
@@ -1087,6 +1116,7 @@
       "pos": "verb",
       "lemma": "handeln",
       "meaning_en": "to act; to trade; (handeln von) to be about",
+      "prompt_en": "to act; to trade; to be about (a book, a film)",
       "example_de": "Das Buch handelt von einer Familie in Berlin.",
       "example_en": "The book is about a family in Berlin.",
       "present_3sg": "handelt",
@@ -1132,6 +1162,7 @@
       "gender": "der",
       "plural": "-",
       "meaning_en": "(Bescheid sagen/geben) to let someone know; (Bescheid wissen) to know about it",
+      "prompt_en": "word, notice (as in: to let someone know)",
       "example_de": "Sag mir bitte Bescheid, wenn du angekommen bist.",
       "example_en": "Please let me know when you've arrived."
     }
