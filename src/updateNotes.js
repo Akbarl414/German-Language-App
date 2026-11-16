@@ -5,6 +5,14 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-core-1000-03',
+    date: '2026-11-16',
+    lines: [
+      'New vocab pack "Core 1000 · 03": the next 100 most frequent German words, including verbs such as verschwinden, kümmern, bitten and aufhören, everyday nouns such as Weg, Monat, Geschichte and Wasser, and common words such as eigentlich, ziemlich and deshalb. Like every vocab pack it is off until you switch it on.',
+      'Your existing words and progress are unchanged.',
+    ],
+  },
+  {
     id: '2026-11-15-core-1000-02',
     date: '2026-11-15',
     lines: [

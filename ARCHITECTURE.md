@@ -117,7 +117,7 @@ Every JSON file under `content/{vocab/packs,grammar/units,phrases/sets,stories}/
 - `scripts/validate-content.js` (via `npm run validate`, which also runs automatically before `npm run build`) checks every file against its schema, confirms `id` matches the filename, and checks for duplicate ids within and across files of the same type. For vocab it also checks Core 1000 ranks: they must be unique across all packs and between 1 and 1000, and it prints how many of the 1,000 are present.
 - **Core 1000** is content only for now. A Core word is any vocab word with the optional `rank` field. Verbs may also carry `present_forms`. The app doesn't read either field yet: `itemRenderer.js` and `vocab/pack.js` render only the fields they name. `content/core/` (the authoring plan `core-1000-plan.json` and `SOURCES.md`) isn't globbed by `contentLoader.js` and isn't validated or bundled. Format and workflow are in CONTENT_GUIDE.md § Core 1000.
 
-**Content as of this writing:** 10 vocab packs (670 words, 438 of them Core 1000-ranked), 5 grammar units (`wechselpraepositionen`, `perfekt-vs-praeteritum`, `adjective-endings`, `dative-verbs`, `fixed-case-prepositions`), 1 phrase set (`classic-idioms`, 25 phrases), 2 stories. Treat this as a snapshot — `ls content/*/*/` to get the current truth.
+**Content as of this writing:** 11 vocab packs (770 words, 538 of them Core 1000-ranked), 5 grammar units (`wechselpraepositionen`, `perfekt-vs-praeteritum`, `adjective-endings`, `dative-verbs`, `fixed-case-prepositions`), 1 phrase set (`classic-idioms`, 25 phrases), 2 stories. Treat this as a snapshot — `ls content/*/*/` to get the current truth.
 
 ## i18n: `src/i18n.js`
 

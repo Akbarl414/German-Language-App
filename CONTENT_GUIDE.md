@@ -41,7 +41,7 @@ scripts/
 
 ## Vocabulary packs
 
-Schema: `content/schemas/vocab-pack.schema.json`. Existing packs (as of this writing): `core-verbs-1`, `core-verbs-2`, `everyday-nouns`, `food-and-cooking`, `work-and-office`, `travel`, `feelings-and-opinions`, `common-adjectives`, `core-1000-01`, `core-1000-02` — 670 words total.
+Schema: `content/schemas/vocab-pack.schema.json`. Existing packs (as of this writing): `core-verbs-1`, `core-verbs-2`, `everyday-nouns`, `food-and-cooking`, `work-and-office`, `travel`, `feelings-and-opinions`, `common-adjectives`, `core-1000-01`, `core-1000-02`, `core-1000-03` — 770 words total.
 
 ### File shape
 
@@ -102,7 +102,7 @@ Core 1000 is the 1,000 most frequent German headwords that are also on the Goeth
 
 1. In the plan, take the next **≤100** rows with `pack: "new"` and no `targetPack`, in rank order.
 2. Write `content/vocab/packs/core-1000-NN.json`:
-   - `level` "A1" for the early packs; use the band's real level once the words get harder.
+   - `level` "A1" for the early packs; use the band's real level once the words get harder (`core-1000-03`, ranks 270–417, is "A2").
    - title `Core 1000 · NN`, topic `The most frequent German words, part N (ranks a–b)`.
    - Each word in the normal format plus its `rank`.
    - Write every meaning and example yourself.
