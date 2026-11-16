@@ -4,6 +4,7 @@ import { activateVocabPack, deactivateVocabPack, isVocabPackInReview } from '../
 import { applyTheme } from '../../theme.js';
 import { t, getUiLanguage, setUiLanguage } from '../../i18n.js';
 import { localDayKey } from '../../db/dayKey.js';
+import { measureDisplayInfo, formatDisplayInfo } from './displayInfo.js';
 
 const THEME_OPTIONS = [
   { value: 'light', labelKey: 'themeLight' },
@@ -149,6 +150,10 @@ export async function render(container) {
           Vocab: ${vocabPacks.reduce((n, p) => n + p.words.length, 0)} words ·
           Phrases: ${getPhraseSets().reduce((n, s) => n + s.phrases.length, 0)} ·
           Grammar: ${getGrammarUnits().length} units
+        </p>
+
+        <p class="page-subtitle" id="display-info" style="text-align:center;user-select:text;-webkit-user-select:text;">
+          <strong>${t('displayInfo')}:</strong> ${formatDisplayInfo(measureDisplayInfo(), t)}
         </p>
       </div>`;
 

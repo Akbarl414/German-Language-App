@@ -5,6 +5,13 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-display-info',
+    date: '2026-11-16',
+    lines: [
+      'Settings now shows a small Display info line at the bottom, which helps diagnose how the app is drawn on iPhones. Your progress is unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-satzbau-also-possible',
     date: '2026-11-16',
     lines: [
