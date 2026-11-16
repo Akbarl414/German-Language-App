@@ -57,7 +57,9 @@ export function learnedCard(now = Date.now(), intervalDays = 21) {
 
 /** Grade a review and return the next card state. Does not mutate the input. */
 export function grade(card, gradeValue, now = Date.now()) {
-  const next = { ...card, lastReviewed: now, reps: card.reps + (gradeValue > Grade.AGAIN ? 1 : 0) };
+  // lastGrade: the grade just given (additive field, not used by scheduling;
+  // Core 1000 reads it). Cards graded before it existed simply lack it.
+  const next = { ...card, lastReviewed: now, reps: card.reps + (gradeValue > Grade.AGAIN ? 1 : 0), lastGrade: gradeValue };
 
   if (card.status === 'new' || card.status === 'learning') {
     if (gradeValue === Grade.AGAIN) {
