@@ -6,6 +6,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
+import { englishPrompt } from '../src/modules/shared/englishPrompt.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -64,6 +65,28 @@ const globalIdsByLabel = new Map();
 // Core 1000: optional `rank` on vocab words, unique across all packs (see content/core/).
 const CORE_SIZE = 1000;
 const coreRanks = new Map(); // rank -> "pack::word"
+let promptEnCount = 0;
+
+/**
+ * English prompts (prompt_en, or meaning_en when there is none) are shown where
+ * German is the answer, so they must not contain the word's own lemma inside
+ * brackets. Matching is case-insensitive: as a whole word, or for lemmas of 4+
+ * letters also as the start of a word (catches inflected forms like
+ * "Sachen", "Polizistin"). Returns the offending bracket text, or null.
+ */
+function lemmaInPromptBrackets(word) {
+  const lemma = word.lemma.replace(/\s*\([^)]*\)\s*/g, ' ').trim().toLowerCase();
+  if (!lemma) return null;
+  const esc = lemma.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = lemma.length >= 4
+    ? new RegExp(`(^|[^\\p{L}])${esc}`, 'u')
+    : new RegExp(`(^|[^\\p{L}])${esc}($|[^\\p{L}])`, 'u');
+  for (const m of englishPrompt(word).matchAll(/\(([^)]*)\)|\[([^\]]*)\]/g)) {
+    const inside = m[1] ?? m[2];
+    if (re.test(inside.toLowerCase())) return m[0];
+  }
+  return null;
+}
 
 for (const target of targets) {
   const validate = ajv.compile(target.schema);
@@ -150,6 +173,14 @@ for (const target of targets) {
           coreRanks.set(item.rank, where);
         }
       }
+      for (const item of items) {
+        if (item.prompt_en !== undefined) promptEnCount++;
+        const hit = lemmaInPromptBrackets(item);
+        if (hit) {
+          console.error(`FAIL  ${file}\n      English prompt of "${data.id}::${item.id}" contains its lemma "${item.lemma}" in brackets: ${hit} (add or fix prompt_en)`);
+          rankErrors++;
+        }
+      }
     }
     if (rankErrors > 0) {
       errorCount += rankErrors;
@@ -161,6 +192,7 @@ for (const target of targets) {
 }
 
 console.log(`\nCore 1000: ${coreRanks.size} / ${CORE_SIZE} ranks present.`);
+console.log(`prompt_en: ${promptEnCount} words carry a clean English prompt.`);
 console.log(`Checked ${fileCount} file(s).`);
 if (errorCount > 0) {
   console.error(`${errorCount} error(s) found.`);
