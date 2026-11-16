@@ -6,6 +6,7 @@ import { renderQueueItem } from './itemRenderer.js';
 import { submitReview } from '../../srs/queue.js';
 import { store } from '../../db/storage.js';
 import { newCard } from '../../srs/engine.js';
+import { isCoreMeaningFacet } from '../../srs/coreScope.js';
 import { t } from '../../i18n.js';
 
 /** items: [{ cardId, type: 'vocab', sourceId, itemId, facet, content, graded? }] — graded: false = practice only, not graded. */
@@ -27,7 +28,9 @@ export function renderMissesReview({ container, items, onDone }) {
       </div>`;
     renderQueueItem(item, container.querySelector('#miss-slot'), (gradeValue) => {
       // Practice-only game words (graded: false) are shown but never graded: no card is created or changed.
-      if (raw.graded !== false) submitReview(item, gradeValue);
+      // Core 1000 meaning cards aren't graded here either: the game already counted the miss,
+      // and nothing in a game may move a Core card forward (see coreScope.js).
+      if (raw.graded !== false && !isCoreMeaningFacet(raw.content, raw.facet)) submitReview(item, gradeValue);
       i++;
       paint();
     });

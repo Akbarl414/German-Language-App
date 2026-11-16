@@ -433,3 +433,66 @@ test('pre-change stored triage fields (triaged / pendingTriageWordIds) and parti
   assert.deepEqual(store.allCards(), blob.srsCards);
   assert.deepEqual(store.allPackStates(), blob.packs);
 });
+
+// --- Core 1000 tab: pre-change stored data must load intact, and existing meaning progress shows up in Core ---
+
+test('pre-Core stored data loads with every card intact; existing meaning progress on ranked words shows up in Core', async () => {
+  const { buildCoreSession, countsTowardDailyReview, isRecognised, coreDueCount } = await import('../srs/coreScope.js');
+  const { parseCardId } = await import('../srs/vocabScope.js');
+  const DAY = 24 * 60 * 60 * 1000;
+  const now = 1_800_000_000_000;
+  const card = (due, extra = {}) => ({ status: 'review', ease: 2.5, interval: 6, learningStep: 0, reps: 3, lapses: 0, due, lastReviewed: due - 6 * DAY, ...extra });
+  const blob = {
+    version: 2,
+    srsCards: {
+      'vocab:core-verbs-1::gehen:meaning': card(now - DAY), // ranked, due, active pack
+      'vocab:core-verbs-1::gehen:principal_parts': card(now - DAY), // ranked, not a meaning card
+      'vocab:core-1000-02::haus:meaning_de_en': card(now + 3 * DAY), // ranked, pack never activated
+      'vocab:core-1000-02::haus:meaning_en_de': card(now - DAY), // ranked, not stage one
+      'vocab:everyday-nouns::loeffel:meaning_de_en': card(now - DAY), // unranked
+      'grammar:dative-verbs::ex-1:default': card(now - DAY),
+    },
+    packs: { 'vocab:core-verbs-1': { active: true, triaged: true }, 'vocab:everyday-nouns': { active: true, triaged: true } },
+    settings: { dailyNewLimit: 18, theme: 'system', reviewSessionSize: 25 },
+    stats: { streak: 4, bestStreak: 6, lastStudyDate: '2026-11-15', history: { '2026-01-10': { reviewed: 10, newSeen: 5, gamesPlayed: 1 } }, gameBests: {} },
+    userContent: { vocab: [], phrases: [], notes: [] },
+    meta: { createdAt: '2026-01-01T00:00:00.000Z', lastSeenUpdateId: '2026-11-16-core-1000-complete' },
+  };
+  const store = await freshStore({ [MAIN_KEY]: JSON.stringify(blob) });
+  assert.equal(store.loadFailed, false);
+  assert.equal(store.data.version, 2); // no migration, no version bump
+  assert.deepEqual(store.allCards(), blob.srsCards);
+  assert.deepEqual(store.allPackStates(), blob.packs);
+  assert.deepEqual(store.getStats().history, blob.stats.history);
+  assert.equal(store.getSettings().coreNewPerDay, 20); // additive default
+  assert.equal(store.getSettings().reviewSessionSize, 25);
+  assert.deepEqual(store.getCoreState(), { unlockedBands: 0 }); // additive default
+
+  const words = { gehen: { id: 'gehen', rank: 7, pos: 'verb', packId: 'core-verbs-1' }, haus: { id: 'haus', rank: 120, pos: 'noun', packId: 'core-1000-02' }, loeffel: { id: 'loeffel', pos: 'noun', packId: 'everyday-nouns' } };
+  const ranked = [words.gehen, words.haus];
+
+  // Core sees the existing progress (stage-one cards only), even with no band unlocked.
+  const session = buildCoreSession({ rankedWords: ranked, cards: store.allCards(), unlockedBands: 0, newAllowanceLeft: 20, now, urgency: () => 0 });
+  assert.deepEqual(session.map((i) => i.cardId), ['vocab:core-verbs-1::gehen:meaning']);
+  assert.equal(coreDueCount(ranked, store.allCards(), now), 1);
+  assert.equal(ranked.filter((w) => isRecognised(store.allCards()[`vocab:${w.packId}::${w.id}:${w.pos === 'noun' ? 'meaning_de_en' : 'meaning'}`])).length, 2);
+
+  // Daily review keeps the non-meaning and unranked cards, drops ranked meaning cards.
+  const daily = Object.keys(store.allCards()).filter((id) => {
+    const ref = parseCardId(id);
+    return countsTowardDailyReview(ref, words[ref.itemId] || null, store.allPackStates());
+  });
+  assert.deepEqual(daily.sort(), ['grammar:dative-verbs::ex-1:default', 'vocab:core-verbs-1::gehen:principal_parts', 'vocab:everyday-nouns::loeffel:meaning_de_en']);
+
+  // Core state and the Core new-card counter persist without touching newSeen.
+  store.updateCoreState({ unlockedBands: 1 });
+  store.recordDailyActivity('coreNewSeen');
+  const saved = JSON.parse(localStorage.getItem(MAIN_KEY));
+  assert.deepEqual(saved.core, { unlockedBands: 1 });
+  assert.deepEqual(saved.srsCards, blob.srsCards);
+  const { localDayKey } = await import('./dayKey.js');
+  const todayStats = saved.stats.history[localDayKey()];
+  assert.equal(todayStats.coreNewSeen, 1);
+  assert.equal(todayStats.newSeen, 0); // Core new cards never use up the daily review's new-card limit
+  assert.deepEqual(saved.stats.history['2026-01-10'], blob.stats.history['2026-01-10']);
+});

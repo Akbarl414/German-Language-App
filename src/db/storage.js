@@ -38,6 +38,7 @@ function defaultData() {
       wordfallDirection: 'de_en', // 'de_en' | 'en_de' — Wordfall practice direction
       wordfallPackIds: [], // retired: Wordfall's old pack picker. Kept in stored data, no longer read (see gameExtraPackIds)
       gameExtraPackIds: [], // vocab pack ids every vocab game also draws from, practice-only (never graded into the SRS)
+      coreNewPerDay: 20, // Core 1000 tab: new words per day (separate from dailyNewLimit)
     },
     stats: {
       streak: 0,
@@ -45,6 +46,9 @@ function defaultData() {
       lastStudyDate: null, // 'YYYY-MM-DD'
       history: {}, // 'YYYY-MM-DD' -> { reviewed: n, newSeen: n, gamesPlayed: n }
       gameBests: {}, // gameId -> best score
+    },
+    core: {
+      unlockedBands: 0, // Core 1000 tab: how many bands of 50 (by rank) the user has unlocked, 0-20
     },
     userContent: {
       vocab: [], // full word objects, packId: 'user-added'
@@ -106,6 +110,7 @@ function migrate(rawData) {
       ...base.userContent,
       ...(data.userContent || {}),
     },
+    core: { ...base.core, ...(data.core || {}) },
     meta: { ...base.meta, ...(data.meta || {}) },
     version: STORAGE_VERSION,
   };
@@ -365,6 +370,16 @@ export const store = {
     }
     data.stats.history[today][kind] = (data.stats.history[today][kind] || 0) + count;
     bumpStreak(data, today);
+    persist();
+  },
+
+  // --- Core 1000 tab ---
+  getCoreState() {
+    return load().core;
+  },
+  updateCoreState(patch) {
+    const data = load();
+    data.core = { ...data.core, ...patch };
     persist();
   },
 

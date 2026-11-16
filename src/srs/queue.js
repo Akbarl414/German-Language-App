@@ -26,6 +26,20 @@ import {
   missingFacetEntries,
   shouldGradeGameWord,
 } from './vocabScope.js';
+import {
+  CORE_BAND_COUNT,
+  isRankedWord,
+  isCoreMeaningFacet,
+  countsTowardDailyReview,
+  buildCoreSession,
+  coreDueCount as coreDueCountFor,
+  coreTriageQueue,
+  coreTriageEntry,
+  coreGameGrade,
+  bandSummaries,
+  isRecognised,
+  stageOneCardId,
+} from './coreScope.js';
 
 export { vocabCardId, phraseCardId, grammarCardId };
 
@@ -148,29 +162,32 @@ function resolveContent(type, ref) {
   return null;
 }
 
-/** Walk every SRS card and yield {cardId, type, sourceId, itemId, facet, card}; skips vocab cards with a facet their word doesn't have. */
+/** Walk every SRS card and yield {cardId, type, sourceId, itemId, facet, card, word}; skips vocab cards with a facet their word doesn't have. */
 function allCardRefs() {
   const cards = store.allCards();
   const refs = [];
   for (const cardId of Object.keys(cards)) {
     const { type, sourceId, itemId, facet } = parseCardId(cardId);
+    let word = null;
     if (type === 'vocab') {
       // Ignore a vocab card whose facet isn't one of its word's facets (stray cards stay stored, untouched).
-      const word = findWord(sourceId, itemId);
+      word = findWord(sourceId, itemId) || null;
       if (word && !isValidVocabFacet(word.pos, facet)) continue;
     }
-    refs.push({ cardId, type, sourceId, itemId, facet, card: cards[cardId] });
+    refs.push({ cardId, type, sourceId, itemId, facet, card: cards[cardId], word });
   }
   return refs;
 }
 
 /**
- * Whether a card's source counts toward review (queue, due counts, throttle,
- * strength, weakest items, Test me). Vocab packs must be explicitly active;
- * cards from other packs stay stored, just unused. See vocabScope.js.
+ * Cards that count toward daily review (queue, due counts, throttle,
+ * strength, weakest items, Test me): source in review (vocab packs must be
+ * explicitly active) and not a Core 1000 meaning card, which belongs to the
+ * Core tab only. See coreScope.js.
  */
-function isSourceActive(type, sourceId) {
-  return isSourceInReview(type, sourceId, store.allPackStates());
+function dailyRefs() {
+  const packStates = store.allPackStates();
+  return allCardRefs().filter((r) => countsTowardDailyReview(r, r.word, packStates));
 }
 
 /**
@@ -181,8 +198,8 @@ function isSourceActive(type, sourceId) {
  */
 export function getRefsByType(type) {
   ensureContentCards();
-  return allCardRefs()
-    .filter((r) => r.type === type && isSourceActive(r.type, r.sourceId))
+  return dailyRefs()
+    .filter((r) => r.type === type)
     .map((r) => ({ ...r, content: resolveContent(r.type, r) }))
     .filter((r) => r.content != null);
 }
@@ -212,6 +229,14 @@ export function submitGradeForCardId(cardId, gradeValue, now = Date.now()) {
  * or changed. Graded words go through submitGradeForCardId as before.
  */
 export function gradeGameWord(word, facet, gradeValue, now = Date.now()) {
+  if (isCoreMeaningFacet(word, facet)) {
+    // Core 1000 meaning cards: a miss on an already-reviewed card counts as
+    // AGAIN (whichever pack the word came from); a hit changes nothing.
+    const cardId = vocabCardId(word.packId, word.id, facet);
+    const g = coreGameGrade(store.getCard(cardId), gradeValue);
+    if (g != null) submitGradeForCardId(cardId, g, now);
+    return;
+  }
   if (!shouldGradeGameWord(word)) return;
   submitGradeForCardId(vocabCardId(word.packId, word.id, facet), gradeValue, now);
 }
@@ -227,7 +252,7 @@ function urgencyScore(card, now) {
 
 function dueRefs(now = Date.now()) {
   ensureContentCards();
-  const refs = allCardRefs().filter((r) => isSourceActive(r.type, r.sourceId));
+  const refs = dailyRefs();
   return refs.filter((r) => r.card.status !== 'new' && engine.isDue(r.card, now));
 }
 
@@ -258,7 +283,7 @@ export function throttleStatus(now = Date.now()) {
  */
 export function buildReviewSession({ now = Date.now() } = {}) {
   ensureContentCards();
-  const refs = allCardRefs().filter((r) => isSourceActive(r.type, r.sourceId));
+  const refs = dailyRefs();
 
   const due = refs
     .filter((r) => r.card.status !== 'new' && engine.isDue(r.card, now))
@@ -344,7 +369,7 @@ export function dueTodayCount(now = Date.now()) {
 }
 
 export function moduleStrength() {
-  const refs = allCardRefs().filter((r) => isSourceActive(r.type, r.sourceId));
+  const refs = dailyRefs();
   const byType = { vocab: [], phrase: [], grammar: [] };
   for (const r of refs) byType[r.type]?.push(r.card);
   const avg = (cards) => (cards.length ? cards.reduce((s, c) => s + engine.strength(c), 0) / cards.length : null);
@@ -356,9 +381,7 @@ export function moduleStrength() {
 }
 
 export function weakestItems(count = 10) {
-  const refs = allCardRefs()
-    .filter((r) => isSourceActive(r.type, r.sourceId))
-    .filter((r) => r.card.status !== 'new' && r.card.reps > 0);
+  const refs = dailyRefs().filter((r) => r.card.status !== 'new' && r.card.reps > 0);
   const scored = refs
     .map((r) => ({ ...r, score: engine.strength(r.card) }))
     .sort((a, b) => a.score - b.score)
@@ -366,4 +389,88 @@ export function weakestItems(count = 10) {
     .map((r) => ({ ...r, content: resolveContent(r.type, r) }))
     .filter((r) => r.content != null);
   return scored;
+}
+
+// --- Core 1000 tab ------------------------------------------------------------
+// A self-contained review of word meanings, separate from daily review: same
+// cards and card ids, its own queue. Pure rules live in coreScope.js.
+
+/** Every ranked vocab word, from all packs (active or not), as { ...word, packId, packTitle }, in rank order. */
+export function getRankedWords() {
+  const out = [];
+  for (const pack of getVocabPacks()) {
+    for (const word of pack.words) {
+      if (isRankedWord(word)) out.push({ ...word, packId: pack.id, packTitle: pack.title });
+    }
+  }
+  return out.sort((a, b) => a.rank - b.rank);
+}
+
+export function getTodayCoreNewSeenCount() {
+  return store.getStats().history[localDayKey()]?.coreNewSeen || 0;
+}
+
+/** New Core cards still allowed today (settings.coreNewPerDay; separate from the daily review's limit and throttle). */
+export function coreNewAllowanceLeft() {
+  const perDay = Math.max(0, Number(store.getSettings().coreNewPerDay) || 0);
+  return Math.max(0, perDay - getTodayCoreNewSeenCount());
+}
+
+/** Core session: due stage-one cards (any band), most urgent first, then new ones from unlocked bands in rank order. */
+export function buildCoreReviewSession({ now = Date.now() } = {}) {
+  return buildCoreSession({
+    rankedWords: getRankedWords(),
+    cards: store.allCards(),
+    unlockedBands: store.getCoreState().unlockedBands || 0,
+    newAllowanceLeft: coreNewAllowanceLeft(),
+    now,
+    urgency: urgencyScore,
+  });
+}
+
+export function coreDueCount(now = Date.now()) {
+  return coreDueCountFor(getRankedWords(), store.allCards(), now);
+}
+
+/** Everything the Core home shows. */
+export function coreSummary(now = Date.now()) {
+  const words = getRankedWords();
+  const cards = store.allCards();
+  const unlockedBands = store.getCoreState().unlockedBands || 0;
+  return {
+    unlockedBands,
+    recognised: words.filter((w) => isRecognised(cards[stageOneCardId(w)])).length,
+    due: coreDueCountFor(words, cards, now),
+    newLeftToday: coreNewAllowanceLeft(),
+    pendingTriage: coreTriageQueue(words, cards, unlockedBands).length,
+    bands: bandSummaries(words, cards, unlockedBands),
+    sessionLength: buildCoreReviewSession({ now }).length,
+  };
+}
+
+/** Unlock the next band of 50 (no-op once all 20 are unlocked). Returns the new count. */
+export function unlockNextCoreBand() {
+  const current = store.getCoreState().unlockedBands || 0;
+  const next = Math.min(CORE_BAND_COUNT, current + 1);
+  if (next !== current) store.updateCoreState({ unlockedBands: next });
+  return next;
+}
+
+/** Words in unlocked bands with no stage-one card yet (computed live), in rank order. */
+export function getPendingCoreTriage() {
+  return coreTriageQueue(getRankedWords(), store.allCards(), store.getCoreState().unlockedBands || 0);
+}
+
+/** 'known' schedules the stage-one card 21 days out; 'drill' makes it new. Never overwrites an existing card. */
+export function triageCoreWord(word, decision) {
+  const entries = coreTriageEntry(word, decision, store.allCards(), Date.now());
+  if (entries.length) store.setCards(entries);
+}
+
+/** Grade a Core session item. Counts toward the streak; new cards count against coreNewPerDay, never the daily limit. */
+export function submitCoreReview(item, gradeValue, now = Date.now()) {
+  const wasNew = item.card.status === 'new';
+  store.setCard(item.cardId, engine.grade(item.card, gradeValue, now));
+  store.recordDailyActivity('reviewed');
+  if (wasNew) store.recordDailyActivity('coreNewSeen');
 }
