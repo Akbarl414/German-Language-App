@@ -5,6 +5,14 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-core-1000-07',
+    date: '2026-11-16',
+    lines: [
+      'New vocab pack "Core 1000 · 07": the next 100 most frequent German words, including verbs such as genießen, abholen, unterhalten and sich konzentrieren, everyday nouns such as Geburtstag, Gespräch, Erfolg and Weihnachten, and common words such as nämlich, übrigens, allerdings and weder … noch. Like every vocab pack it is off until you switch it on.',
+      'Your existing words and progress are unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-core-1000-06',
     date: '2026-11-16',
     lines: [
