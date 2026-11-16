@@ -168,6 +168,7 @@
       "pos": "other",
       "lemma": "nachdem",
       "meaning_en": "after (conjunction; the verb goes to the end)",
+      "prompt_en": "after (conjunction)",
       "example_de": "Nachdem wir gegessen hatten, sind wir spazieren gegangen.",
       "example_en": "After we had eaten, we went for a walk."
     },
@@ -485,6 +486,7 @@
       "pos": "other",
       "lemma": "sobald",
       "meaning_en": "as soon as (the verb goes to the end)",
+      "prompt_en": "as soon as",
       "example_de": "Ich rufe dich an, sobald ich zu Hause bin.",
       "example_en": "I'll call you as soon as I'm home."
     },
@@ -669,6 +671,7 @@
       "pos": "other",
       "lemma": "solange",
       "meaning_en": "as long as, while (the verb goes to the end)",
+      "prompt_en": "as long as",
       "example_de": "Solange es regnet, bleiben wir drinnen.",
       "example_en": "As long as it's raining, we're staying inside."
     },

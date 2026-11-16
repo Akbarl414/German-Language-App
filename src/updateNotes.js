@@ -10,6 +10,7 @@ export const UPDATE_NOTES = [
     lines: [
       'When a card or game shows you English and asks for the German, the English no longer gives the answer away. About 180 words had German notes in their meaning, for example "the (definite article: der/die/das)" or "thanks (vielen Dank = many thanks)". These words now have a clean English prompt instead.',
       'This affects English-to-German review cards (including the second stage of Kern 1000), Type it, and Wordfall played English to German. After you answer, the full meaning with its German notes is still shown as before.',
+      'Words with the same meaning, such as öffnen and aufmachen or beginnen and anfangen, now have English prompts that tell them apart, for example "everyday" or "slightly more formal". Grammar reminders such as "the verb goes to the end" are no longer shown before you answer.',
       'Your progress is unchanged.',
     ],
   },

@@ -108,6 +108,7 @@
       "pos": "other",
       "lemma": "obwohl",
       "meaning_en": "although (sends the verb to the end)",
+      "prompt_en": "although",
       "example_de": "Wir sind spazieren gegangen, obwohl es geregnet hat.",
       "example_en": "We went for a walk although it was raining."
     },
@@ -606,6 +607,7 @@
       "pos": "verb",
       "lemma": "bieten",
       "meaning_en": "to offer",
+      "prompt_en": "to offer, to provide (as in: the city offers a lot)",
       "example_de": "Die Stadt bietet viele Möglichkeiten für junge Leute.",
       "example_en": "The city offers lots of opportunities for young people.",
       "present_3sg": "bietet",

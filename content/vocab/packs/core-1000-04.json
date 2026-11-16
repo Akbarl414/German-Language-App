@@ -387,6 +387,7 @@
       "gender": "der",
       "plural": "Läden",
       "meaning_en": "shop, store",
+      "prompt_en": "shop (often a small one, e.g. on the corner)",
       "example_de": "Der kleine Laden an der Ecke hat bis zehn Uhr offen.",
       "example_en": "The little shop on the corner is open until ten."
     },

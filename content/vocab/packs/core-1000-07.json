@@ -709,6 +709,7 @@
       "pos": "other",
       "lemma": "indem",
       "meaning_en": "by (doing something) (sends the verb to the end)",
+      "prompt_en": "by (doing something)",
       "example_de": "Man lernt eine Sprache am besten, indem man viel spricht.",
       "example_en": "The best way to learn a language is by speaking a lot."
     },

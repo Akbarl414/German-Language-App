@@ -467,6 +467,7 @@
       "gender": "das",
       "plural": "Geschäfte",
       "meaning_en": "shop, store",
+      "prompt_en": "shop, store (the general word, e.g. for opening hours)",
       "example_de": "Das Geschäft schließt um zwanzig Uhr.",
       "example_en": "The shop closes at eight p.m."
     },

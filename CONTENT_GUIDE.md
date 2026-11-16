@@ -69,7 +69,8 @@ Always required: `id` (kebab-case, unique in the file, umlauts transliterated ä
   - **When it's needed:** add `prompt_en` whenever `meaning_en` contains German: the headword or a form of it, a German phrase (`sich …`, `Spaß machen`, `die Polizistin`), a "German = English" note, or a case label like `+ Dat`.
   - **What to keep:** keep the English senses and only the English disambiguation that tells words apart, such as "you (informal, plural)" for ihr, "you (formal)" for Sie, "that (conjunction)" for dass, "police officer (male)" for Polizist, or "half (adjective, …)" for halb vs Hälfte.
   - **Phrase-only senses:** where a German phrase was the only way a sense was shown, say the sense in English, e.g. Ahnung → "idea, notion (as in: no idea)".
-  - **Uniqueness:** words that share a spelling or meaning must end up with prompts that tell them apart.
+  - **Uniqueness:** words that share a spelling or meaning must end up with prompts that tell them apart. For near-synonyms, use English only: register ("everyday", "slightly more formal"), grammar ("separable verb") or a typical use, e.g. aufmachen "to open (everyday; separable verb)" vs öffnen "to open (standard word, also on signs)". Where two words really are interchangeable (etwa/ungefähr, wenigstens/zumindest), leave them alone rather than invent a difference.
+  - **No grammar rule reminders:** notes like "(the verb goes to the end)" or "(reflexive)" stay in `meaning_en` for the back. The prompt keeps only what identifies the word, e.g. nachdem "after (conjunction)", obwohl "although".
   - Validation fails if an English prompt contains the word's own lemma inside brackets (see Validation).
 - **Optional on verbs:** `present_forms`, all six present-tense forms as `{ "ich", "du", "er", "wir", "ihr", "sie" }` (`er` = er/sie/es, `sie` = sie/Sie). Use it only for sein, haben, werden and the modal verbs (können, müssen, dürfen, sollen, wollen, mögen, möchten), whose present tense is irregular.
 

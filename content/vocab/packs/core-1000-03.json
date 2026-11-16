@@ -914,6 +914,7 @@
       "pos": "verb",
       "lemma": "benutzen",
       "meaning_en": "to use",
+      "prompt_en": "to use (everyday: a phone, a tool)",
       "example_de": "Darf ich kurz dein Handy benutzen?",
       "example_en": "Can I use your phone for a moment?",
       "present_3sg": "benutzt",
