@@ -45,7 +45,7 @@ These override everything else. Never violate them, even to "improve" something.
 Full tour in *ARCHITECTURE.md § The modules tour* and *§ Data flow*.
 
 ```
-content/{vocab/packs,grammar/units,phrases/sets,stories}/*.json   learning content (auto-discovered, no manifest)
+content/{vocab/packs,grammar/units,phrases/sets,stories,sentences}/*.json   learning content (auto-discovered, no manifest)
 content/core/                        Core 1000 authoring plan + SOURCES.md (not loaded by the app)
 content/schemas/                     JSON Schemas used by validation
 scripts/validate-content.js          npm run validate (also runs before build)
@@ -59,7 +59,7 @@ src/srs/coreScope.js                 pure Core 1000 rules (bands, stage-one card
 src/i18n.js                          LABELS map {de, en} + t()
 src/components/gender.js             der/die/das badges + noun rendering
 src/modules/…                        screens: dashboard, core, active, vocab, grammar, phrases, testme,
-                                     addcontent, settings, games, shared
+                                     addcontent, settings, games, shared (incl. the small games kit new games use)
 src/style.css                        single global stylesheet, theme CSS vars
 public/sw.js, public/manifest.webmanifest   PWA
 .github/workflows/deploy.yml         push to main → GitHub Pages
@@ -91,6 +91,7 @@ A snapshot to orient you, not a spec. Run `ls content/*/*/` and read `main.js` /
   - *Main:* der/die/das sorting (Timed 30/45/60s + Streak, best score per mode; timed flashes a large X + correct-answer banner ~1s on misses; streak ends on first miss), Fill-in-the-blank stories, **Wordfall** (promoted from beta; German↔English direction toggle, mid-screen remaining-miss indicator, correction on each miss).
   - *All vocab games* (sorting, Wordfall, Type it, Verb forms sprint) share one word pool and the same "extra packs" picker under Advanced settings; if the pool is too small the start screen says so and links to pack activation.
   - *Also main (promoted from beta; the Beta section is currently empty and hidden):* **Type it** (Timed/Streak, best scores, "Genus prüfen" toggle requiring the article, "so close" diff for capitalisation/umlaut/article near-misses), **Case detective** (bare choices like "den"/"dem"; draws its sentences from grammar units' bare-option exercises rather than its own content; recency tracking via `stats.gameBests` so rounds vary; "Why?" only after answering), **Verb forms sprint** (build the Perfekt incl. hat/ist; instant green check; corrections as `infinitive: Perfekt form`).
+- **Beta:** **Satzbau** (`#/games/beta/satzbau`): build a sentence from word tiles (Timed 60s/90s and Streak, best scores; sentences in `content/sentences/`). Practice only: it grades no cards, only records a game played for the streak.
 - **Test me:** configurable mixed quizzes, weighted toward weak/new material, with a "what to review" list at the end.
 - **Settings:** theme (Light/Dark/System), interface language, daily new-card limit, Core 1000 new words per day, review session size, throttle thresholds, vocab pack activation, Export/Import, snapshot restore, backup reminder after 7+ days, approximate storage used, snapshot-failure warning, danger zone. A save-failure banner shows on every screen while saving fails.
 - **Update notes:** `/updates` (More → "Neuigkeiten") lists `src/updateNotes.js`; Home shows a one-time dismissible alert when the newest note hasn't been seen on this device.
@@ -100,7 +101,7 @@ A snapshot to orient you, not a spec. Run `ls content/*/*/` and read `main.js` /
 
 - **Less coaching, always.** When unsure whether to show help, put it behind Hint. Answer choices are bare forms; the choice itself is the test.
 - **Explicit, snappy feedback.** Clear confirmation on correct answers, full corrections on wrong ones, complete summaries after rounds.
-- **New game ideas start in Beta** (`BETA_GAMES` in `hub.js`, file in `games/beta/`; the Beta section is hidden while empty). Expect later prompts to promote or delete them; promotion steps are in *ARCHITECTURE.md § Games*.
+- **New game ideas start in Beta** (`BETA_GAMES` in `hub.js`, file in `games/beta/`; the Beta section is hidden while empty; it currently holds Satzbau). Expect later prompts to promote or delete them; promotion steps are in *ARCHITECTURE.md § Games*.
 - **Content accuracy matters.** Validation checks JSON shape only, not German. Re-check genders, plurals, principal parts, and German UI-label spelling by hand. Generate vocab in passes of **at most ~100 entries**.
 
 ## Working in this repo

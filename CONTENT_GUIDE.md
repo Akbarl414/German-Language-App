@@ -14,7 +14,7 @@ Content files here (vocab/grammar/phrases/stories) are separate from the user's 
 
 ## How content is loaded (no registration step)
 
-Every JSON file under `content/vocab/packs/`, `content/grammar/units/`, `content/phrases/sets/`, and `content/stories/` is **auto-discovered** at build time via `import.meta.glob` in `src/db/contentLoader.js`. There is no index/manifest file to update. To add content:
+Every JSON file under `content/vocab/packs/`, `content/grammar/units/`, `content/phrases/sets/`, `content/stories/`, and `content/sentences/` is **auto-discovered** at build time via `import.meta.glob` in `src/db/contentLoader.js`. There is no index/manifest file to update. To add content:
 
 1. Write a new JSON file in the right folder.
 2. Make sure `"id"` inside the file exactly matches the filename (without `.json`).
@@ -30,10 +30,12 @@ content/
     grammar-unit.schema.json
     phrase-set.schema.json
     story.schema.json
+    sentence-set.schema.json
   vocab/packs/*.json           # one file per topic/frequency pack, 50-100 words each
   grammar/units/*.json         # one file per grammar unit
   phrases/sets/*.json          # one file per phrase/idiom set
   stories/*.json               # fill-in-the-blank reading stories (used by the Games module)
+  sentences/*.json             # word-order sentences for Satzbau (Games > Beta)
   core/                        # Core 1000 authoring files (plan + SOURCES.md); NOT loaded by the app
 scripts/
   validate-content.js          # npm run validate — validates all content against schemas
@@ -248,9 +250,42 @@ Schema: `content/schemas/story.schema.json`. Existing: `ein-tag-im-leben` (A2), 
 
 Alternate `text` and `blank` segments. Each `blank` needs `answer` plus 2-4 `options` (including the answer) for the multiple-choice dropdown rendered inline. Good stories reuse current vocab packs and grammar units as a reading-practice bridge (see `wochenendausflug.json` for an example that drills Wechselpräpositionen in context).
 
+## Sentences (Satzbau, Games > Beta)
+
+Schema: `content/schemas/sentence-set.schema.json`. One file per set (`satzbau-a2-b1-01`, 60 sentences). The game builds each sentence from tiles and checks it with `reorderChecker.js`, so the data uses the same shape as `reorder` grammar exercises.
+
+```json
+{
+  "id": "satzbau-a2-b1-01",
+  "title": "Satzbau A2–B1, set 1",
+  "level": "A2-B1",
+  "sentences": [
+    {
+      "id": "v2-heute-kino",
+      "level": "A2",
+      "topic": "v2-fronted",
+      "tokens": ["gehe", "ins Kino", "ich", "heute"],
+      "answerOrders": [
+        ["Heute", "gehe", "ich", "ins Kino."],
+        ["Ich", "gehe", "heute", "ins Kino."],
+        ["Ins Kino", "gehe", "ich", "heute."]
+      ],
+      "translation_en": "Today I'm going to the cinema."
+    }
+  ]
+}
+```
+
+Rules:
+- `topic` names the word-order pattern: `v2-fronted`, `time-manner-place`, `modal-infinitive`, `perfekt-bracket`, `separable-verb`, `weil`, `dass`, `wenn`, `obwohl`. Aim for a spread.
+- `tokens` are the tiles, scrambled, in natural mid-sentence casing (`ich`, not `Ich`; nouns keep their capital) and **without punctuation**. A tile may be a short phrase that must stay together (`ins Kino`, `am Wochenende`). Never a tile that gives a clue beyond the word itself.
+- `answerOrders` lists **every** acceptable order, each written as the finished sentence: first word capitalised, commas and the final `.`/`?`/`!` attached to tokens. The checker ignores punctuation and the capital on the first word, and still requires correct capitals elsewhere. The first order is the one shown as the answer, so make it the most natural one. Don't list an order you wouldn't accept from a learner; do list natural variants (fronting an object or time phrase, time and place swapped when both sound fine, subordinate clause first or second).
+- `translation_en` is shown only after the learner has answered.
+- Use Core 1000 and existing pack vocabulary, at most 60 sentences per pass, and re-read every sentence and every listed order yourself.
+
 ## Validation
 
-`npm run validate` (also runs automatically before `npm run build`) checks every content file against its schema, confirms `id` matches the filename, checks for duplicate ids within a pack/unit/set, and checks that Core 1000 `rank` values are unique across all vocab packs (printing how many of the 1,000 are present). It also fails if a word's English prompt (`prompt_en`, or `meaning_en` when there is none) contains the word's own lemma inside `(…)` or `[…]`. The match is case-insensitive: as a whole word, or, for lemmas of 4+ letters, as the start of a word, so "Sachen" counts for Sache. It prints how many words carry `prompt_en`. It can't spot other German, or the lemma buried inside a compound ("Speisekarte" for Karte), so still read every prompt yourself. It doesn't read `content/core/`. It does **not** check German grammatical correctness — that's on you (or the generating agent) to sanity-check manually, especially noun genders/plurals and verb principal parts.
+`npm run validate` (also runs automatically before `npm run build`) checks every content file against its schema, confirms `id` matches the filename, checks for duplicate ids within a pack/unit/set, and checks that Core 1000 `rank` values are unique across all vocab packs (printing how many of the 1,000 are present). It also fails if a word's English prompt (`prompt_en`, or `meaning_en` when there is none) contains the word's own lemma inside `(…)` or `[…]`. The match is case-insensitive: as a whole word, or, for lemmas of 4+ letters, as the start of a word, so "Sachen" counts for Sache. It prints how many words carry `prompt_en`. For sentence sets it also checks that every accepted order uses exactly the tokens (ignoring punctuation and the first word's capital), that no order is listed twice, that tokens carry no punctuation and aren't handed over already solved, and prints the sentence count per topic. It can't spot other German, or the lemma buried inside a compound ("Speisekarte" for Karte), so still read every prompt yourself. It doesn't read `content/core/`. It does **not** check German grammatical correctness — that's on you (or the generating agent) to sanity-check manually, especially noun genders/plurals and verb principal parts.
 
 ## Path A vs Path B
 

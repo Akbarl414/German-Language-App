@@ -5,6 +5,16 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-satzbau-beta',
+    date: '2026-11-16',
+    lines: [
+      'There is a new game in the Beta section of Spiele: Satzbau. You see the words of a German sentence jumbled up and tap them into the right order. Tap a word you have placed to take it back.',
+      'You can play 60 seconds, 90 seconds, or a streak that ends on your first mistake, and each has its own best score. The sentences cover things like the verb in second place, time before place, modal verbs, the Perfekt bracket, separable verbs, and weil / dass / wenn / obwohl clauses.',
+      'You only see German while you build. The hint places the first word for you. After each answer you see the correct order and then the English. At the end every sentence is listed with its correct order, and you can practise your misses.',
+      'This game is practice only: it does not change your review cards. Playing a round counts for your daily streak. Your progress is unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-clean-english-prompts',
     date: '2026-11-16',
     lines: [
