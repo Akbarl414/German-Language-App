@@ -1,5 +1,6 @@
-// Core 1000 review session: due stage-one meaning cards (most urgent first)
-// plus new ones up to settings.coreNewPerDay, served in chunks of
+// Core 1000 review session: each word's due meaning card (stage one German to
+// English, or English to German once switched in stage two; most urgent first)
+// plus new ones and stage-two introductions up to settings.coreNewPerDay, served in chunks of
 // settings.reviewSessionSize. Same flip card and four grades as daily review.
 
 import { store } from '../../db/storage.js';

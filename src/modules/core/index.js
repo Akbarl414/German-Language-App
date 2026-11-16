@@ -1,4 +1,4 @@
-// Core 1000 tab home: recognised count, due now, new left today, review /
+// Core 1000 tab home: recognised and mastered counts, due now, new left today, review /
 // triage / unlock buttons, and the 20-band progress grid.
 // Queue logic lives in src/srs/queue.js (Core API) and src/srs/coreScope.js.
 
@@ -21,6 +21,7 @@ export async function render(container) {
 
       <div class="stat-grid">
         <div class="stat-tile"><div class="value">${fmt(s.recognised)}<span class="core-of"> / ${fmt(CORE_TOTAL)}</span></div><div class="label">${t('coreRecognised')}</div></div>
+        <div class="stat-tile"><div class="value">${fmt(s.mastered)}<span class="core-of"> / ${fmt(CORE_TOTAL)}</span></div><div class="label">${t('coreMastered')}</div></div>
         <div class="stat-tile"><div class="value">${s.due}</div><div class="label">${t('coreDueNow')}</div></div>
         <div class="stat-tile"><div class="value">${s.newLeftToday}</div><div class="label">${t('coreNewToday')}</div></div>
         <div class="stat-tile"><div class="value">${s.unlockedBands} / ${CORE_BAND_COUNT}</div><div class="label">${t('coreBands')}</div></div>

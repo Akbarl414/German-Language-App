@@ -10,7 +10,7 @@ export async function render(container, { packId }) {
       container.innerHTML = `
         <div class="view">
           <h1 class="page-title">Triage complete</h1>
-          <p class="page-subtitle">Words marked "drill it" will trickle into your daily review queue.</p>
+          <p class="page-subtitle">Words marked "drill it" will trickle into your reviews: the meanings of Core 1000 words into Kern 1000, everything else into daily review.</p>
           <a href="#/vocab/pack/${packId}" class="btn btn-primary btn-block">Back to pack</a>
         </div>`;
       return;

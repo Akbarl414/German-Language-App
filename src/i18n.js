@@ -277,6 +277,7 @@ const LABELS = {
   coreTitle: { de: 'Kern 1000', en: 'Core 1000' },
   coreSubtitle: { de: 'Die 1.000 häufigsten Wörter, in Blöcken zu je 50.', en: 'The 1,000 most frequent words, in bands of 50.' },
   coreRecognised: { de: 'Erkannt', en: 'Recognised' },
+  coreMastered: { de: 'Gemeistert', en: 'Mastered' },
   coreDueNow: { de: 'Jetzt fällig', en: 'Due now' },
   coreNewToday: { de: 'Neu heute', en: 'New today' },
   coreStartReview: { de: (n) => `Wiederholen (${n})`, en: (n) => `Review (${n})` },
