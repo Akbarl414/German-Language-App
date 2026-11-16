@@ -21,6 +21,7 @@ const LABELS = {
   navHome: { de: 'Start', en: 'Home' },
   navGames: { de: 'Spiele', en: 'Games' },
   navTestMe: { de: 'Teste mich', en: 'Test me' },
+  navCore: { de: 'Kern 1000', en: 'Core 1000' },
   navMore: { de: 'Mehr', en: 'More' },
 
   moreTitle: { de: 'Mehr', en: 'More' },
@@ -221,6 +222,7 @@ const LABELS = {
   themeSystem: { de: 'System folgen', en: 'Follow system' },
   dailyNewCards: { de: 'Neue Karten pro Tag', en: 'Daily new cards' },
   reviewSessions: { de: 'Wiederholungsrunden', en: 'Review sessions' },
+  coreNewPerDayHeading: { de: 'Kern 1000: neue Wörter pro Tag', en: 'Core 1000: new words per day' },
   autoThrottle: { de: 'Automatische Drosselung neuer Karten', en: 'Auto-throttle new cards' },
   vocabPacksHeading: { de: 'Vokabelpakete', en: 'Vocabulary packs' },
   tryAgain: { de: 'Erneut versuchen', en: 'Try again' },
@@ -270,6 +272,34 @@ const LABELS = {
   // --- Game word pool (all vocab games) ---
   notEnoughWordsToPlay: { de: 'Zu wenige Wörter zum Spielen.', en: 'Not enough words to play.' },
   activatePacksLink: { de: 'Wortpakete aktivieren', en: 'Activate vocab packs' },
+
+  // --- Core 1000 tab ---
+  coreTitle: { de: 'Kern 1000', en: 'Core 1000' },
+  coreSubtitle: { de: 'Die 1.000 häufigsten Wörter, in Blöcken zu je 50.', en: 'The 1,000 most frequent words, in bands of 50.' },
+  coreRecognised: { de: 'Erkannt', en: 'Recognised' },
+  coreDueNow: { de: 'Jetzt fällig', en: 'Due now' },
+  coreNewToday: { de: 'Neu heute', en: 'New today' },
+  coreStartReview: { de: (n) => `Wiederholen (${n})`, en: (n) => `Review (${n})` },
+  coreNothingToReview: { de: 'Gerade nichts zu wiederholen', en: 'Nothing to review right now' },
+  coreUnlockBand: {
+    de: (band, from, to) => `🔓 Block ${band} freischalten (${from}–${to})`,
+    en: (band, from, to) => `🔓 Unlock band ${band} (${from}–${to})`,
+  },
+  coreAllUnlocked: { de: 'Alle Blöcke freigeschaltet', en: 'All bands unlocked' },
+  coreContinueTriage: { de: (n) => `Sortieren fortsetzen (${n})`, en: (n) => `Continue triage (${n})` },
+  coreBands: { de: 'Blöcke', en: 'Bands' },
+  coreStartHint: { de: 'Schalte Block 1 frei, um zu beginnen.', en: 'Unlock band 1 to begin.' },
+  coreTriageProgress: { de: (i, n, band) => `${i} / ${n} · Block ${band}`, en: (i, n, band) => `${i} / ${n} · Band ${band}` },
+  coreShowMeaning: { de: 'Bedeutung zeigen', en: 'Show meaning' },
+  coreKnowIt: { de: '✓ Kenne ich', en: '✓ I know it' },
+  corePractise: { de: 'Üben', en: 'Practise' },
+  coreTriageDone: { de: 'Sortieren fertig', en: 'Triage done' },
+  coreTriageDoneText: {
+    de: 'Wörter mit „Üben“ kommen nach und nach in deine Kern-1000-Wiederholung.',
+    en: 'Words marked “Practise” come into your Core 1000 review a few at a time.',
+  },
+  coreBackToCore: { de: 'Zurück zu Kern 1000', en: 'Back to Core 1000' },
+  coreNothingDue: { de: 'Gerade nichts fällig. Schalte einen Block frei oder komm später wieder.', en: 'Nothing due right now. Unlock a band or come back later.' },
 };
 
 export function getUiLanguage() {

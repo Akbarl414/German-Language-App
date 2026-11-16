@@ -3,6 +3,7 @@ import { t } from '../i18n.js';
 function navItems() {
   return [
     { path: '/', icon: '🏠', label: t('navHome') },
+    { path: '/core', icon: '💯', label: t('navCore') },
     { path: '/games', icon: '🎮', label: t('navGames') },
     { path: '/testme', icon: '🧪', label: t('navTestMe') },
     { path: '/more', icon: '☰', label: t('navMore') },

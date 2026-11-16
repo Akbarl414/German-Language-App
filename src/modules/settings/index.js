@@ -66,6 +66,12 @@ export async function render(container) {
           <input type="number" id="session-size" min="5" max="200" value="${settings.reviewSessionSize}" />
         </div>
 
+        <div class="section-heading">${t('coreNewPerDayHeading')}</div>
+        <div class="card">
+          <p class="page-subtitle" style="margin:0 0 8px;">How many new Core 1000 words enter the Core 1000 review per day, in rank order from the bands you have unlocked. Separate from the daily new-card limit above.</p>
+          <input type="number" id="core-new-per-day" min="0" max="200" value="${settings.coreNewPerDay}" />
+        </div>
+
         <div class="section-heading">${t('autoThrottle')}</div>
         <div class="card">
           <p class="page-subtitle" style="margin:0 0 8px;">When your due queue grows past these sizes, new-card intake automatically slows down (then pauses), so it can't snowball.</p>
@@ -167,6 +173,10 @@ export async function render(container) {
 
     container.querySelector('#session-size').addEventListener('change', (e) => {
       store.updateSettings({ reviewSessionSize: Math.max(5, Number(e.target.value) || 30) });
+    });
+
+    container.querySelector('#core-new-per-day').addEventListener('change', (e) => {
+      store.updateSettings({ coreNewPerDay: Math.max(0, Number(e.target.value) || 0) });
     });
 
     container.querySelector('#throttle-reduce').addEventListener('change', (e) => {

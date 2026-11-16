@@ -136,6 +136,7 @@ button { font-family: inherit; }
   font-size: 0.68rem;
   font-weight: 600;
 }
+.bottom-nav a > span:last-child { white-space: nowrap; } /* five items: keep each label on one line */
 .bottom-nav a .icon { font-size: 1.25rem; }
 .bottom-nav a.active { color: var(--accent); }
 
@@ -288,6 +289,29 @@ textarea { resize: vertical; min-height: 64px; }
   overflow: hidden;
 }
 .progress-bar > div { height: 100%; background: var(--accent); }
+
+/* --- Core 1000 band grid (core/index.js) --- */
+.core-of { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); }
+.core-bands {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+@media (min-width: 500px) {
+  .core-bands { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+.core-band {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  text-align: center;
+  min-width: 0;
+}
+.core-band.locked { opacity: 0.5; }
+.core-band-range { font-size: 0.72rem; color: var(--text-dim); white-space: nowrap; }
+.core-band-count { font-size: 0.95rem; font-weight: 700; margin: 2px 0 6px; }
 
 /* --- Review / quiz card --- */
 .drill-card {

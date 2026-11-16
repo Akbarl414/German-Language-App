@@ -12,6 +12,10 @@ route('/review', () => import('./modules/dashboard/review.js'));
 route('/more', () => import('./modules/dashboard/more.js'));
 route('/active', () => import('./modules/active/index.js'));
 
+route('/core', () => import('./modules/core/index.js'));
+route('/core/review', () => import('./modules/core/review.js'));
+route('/core/triage', () => import('./modules/core/triage.js'));
+
 route('/vocab', () => import('./modules/vocab/browse.js'));
 route('/vocab/pack/:packId', () => import('./modules/vocab/pack.js'));
 route('/vocab/pack/:packId/triage', () => import('./modules/vocab/triage.js'));
