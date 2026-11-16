@@ -5,6 +5,15 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-satzbau-also-possible',
+    date: '2026-11-16',
+    lines: [
+      'Satzbau (in the Beta section of Spiele) now tells apart two kinds of correct answers. Some word orders are fine German but not the one a teacher would expect, for example "Wir fahren nach Berlin am Wochenende." instead of "Wir fahren am Wochenende nach Berlin."',
+      'If you build one of those, it still counts as correct for your score and streak. The feedback says it is also possible and shows the more usual order. The results list at the end marks these sentences the same way.',
+      'Your progress is unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-satzbau-beta',
     date: '2026-11-16',
     lines: [
