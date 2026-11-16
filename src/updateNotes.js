@@ -5,6 +5,14 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-core-1000-05',
+    date: '2026-11-16',
+    lines: [
+      'New vocab pack "Core 1000 · 05": the next 100 most frequent German words, including verbs such as übernehmen, verbringen, nachdenken and sich beeilen, everyday nouns such as Zukunft, Entscheidung, Geschenk and Beziehung, and common words such as plötzlich, außerdem and sobald. Like every vocab pack it is off until you switch it on.',
+      'Your existing words and progress are unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-core-1000-04',
     date: '2026-11-16',
     lines: [
