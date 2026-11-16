@@ -39,6 +39,9 @@ import {
   bandSummaries,
   isRecognised,
   stageOneCardId,
+  coreGameTargetFacet,
+  coreReviewResult,
+  coreMasteredCount,
 } from './coreScope.js';
 
 export { vocabCardId, phraseCardId, grammarCardId };
@@ -232,7 +235,10 @@ export function gradeGameWord(word, facet, gradeValue, now = Date.now()) {
   if (isCoreMeaningFacet(word, facet)) {
     // Core 1000 meaning cards: a miss on an already-reviewed card counts as
     // AGAIN (whichever pack the word came from); a hit changes nothing.
-    const cardId = vocabCardId(word.packId, word.id, facet);
+    // Once the word has switched to stage two, its English-to-German card
+    // takes the result and the stage-one card stays untouched.
+    const target = coreGameTargetFacet(word, facet, store.allCards());
+    const cardId = vocabCardId(word.packId, word.id, target);
     const g = coreGameGrade(store.getCard(cardId), gradeValue);
     if (g != null) submitGradeForCardId(cardId, g, now);
     return;
@@ -416,7 +422,7 @@ export function coreNewAllowanceLeft() {
   return Math.max(0, perDay - getTodayCoreNewSeenCount());
 }
 
-/** Core session: due stage-one cards (any band), most urgent first, then new ones from unlocked bands in rank order. */
+/** Core session: each word's due current card (any band), most urgent first, then new ones from unlocked bands in rank order, then stage-two introductions in rank order (see buildCoreSession). */
 export function buildCoreReviewSession({ now = Date.now() } = {}) {
   return buildCoreSession({
     rankedWords: getRankedWords(),
@@ -440,6 +446,7 @@ export function coreSummary(now = Date.now()) {
   return {
     unlockedBands,
     recognised: words.filter((w) => isRecognised(cards[stageOneCardId(w)])).length,
+    mastered: coreMasteredCount(words, cards),
     due: coreDueCountFor(words, cards, now),
     newLeftToday: coreNewAllowanceLeft(),
     pendingTriage: coreTriageQueue(words, cards, unlockedBands).length,
@@ -467,10 +474,14 @@ export function triageCoreWord(word, decision) {
   if (entries.length) store.setCards(entries);
 }
 
-/** Grade a Core session item. Counts toward the streak; new cards count against coreNewPerDay, never the daily limit. */
+/**
+ * Grade a Core session item. Counts toward the streak; new cards and stage-two
+ * introductions count against coreNewPerDay, never the daily limit. An
+ * introduction marks the meaning_en_de card (coreStageTwoAt), keeping its progress.
+ */
 export function submitCoreReview(item, gradeValue, now = Date.now()) {
-  const wasNew = item.card.status === 'new';
-  store.setCard(item.cardId, engine.grade(item.card, gradeValue, now));
+  const { card, countsAsNew } = coreReviewResult(item, gradeValue, now);
+  store.setCard(item.cardId, card);
   store.recordDailyActivity('reviewed');
-  if (wasNew) store.recordDailyActivity('coreNewSeen');
+  if (countsAsNew) store.recordDailyActivity('coreNewSeen');
 }
