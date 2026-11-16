@@ -5,6 +5,14 @@
 
 export const UPDATE_NOTES = [
   {
+    id: '2026-11-16-core-1000-04',
+    date: '2026-11-16',
+    lines: [
+      'New vocab pack "Core 1000 · 04": the next 100 most frequent German words, including verbs such as erfahren, behalten, stehlen and ansehen, everyday nouns such as Nachricht, Eltern, Arzt and Fehler, and common words such as leider, trotzdem and wahrscheinlich. Like every vocab pack it is off until you switch it on.',
+      'Your existing words and progress are unchanged.',
+    ],
+  },
+  {
     id: '2026-11-16-core-1000-03',
     date: '2026-11-16',
     lines: [

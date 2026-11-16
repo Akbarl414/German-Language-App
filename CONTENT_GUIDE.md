@@ -41,7 +41,7 @@ scripts/
 
 ## Vocabulary packs
 
-Schema: `content/schemas/vocab-pack.schema.json`. Existing packs (as of this writing): `core-verbs-1`, `core-verbs-2`, `everyday-nouns`, `food-and-cooking`, `work-and-office`, `travel`, `feelings-and-opinions`, `common-adjectives`, `core-1000-01`, `core-1000-02`, `core-1000-03` — 770 words total.
+Schema: `content/schemas/vocab-pack.schema.json`. Existing packs (as of this writing): `core-verbs-1`, `core-verbs-2`, `everyday-nouns`, `food-and-cooking`, `work-and-office`, `travel`, `feelings-and-opinions`, `common-adjectives`, `core-1000-01`, `core-1000-02`, `core-1000-03`, `core-1000-04` — 870 words total.
 
 ### File shape
 
@@ -95,14 +95,14 @@ Core 1000 is the 1,000 most frequent German headwords that are also on the Goeth
 - **`content/core/core-1000-plan.json`** is the authoring plan, which the app doesn't load. Each of its 1,000 rows has `rank`, `headword` and `pos`. An existing word has `pack` + `wordId`. A new word has `pack: "new"`, plus `targetPack` (`core-1000-NN`) and `wordId` once it has been written. `duplicates` records which copy of a headword that sits in two packs carries the rank.
 - **`content/core/SOURCES.md`** records the sources, licences and ranking method. The rank order is CC BY-SA 4.0, adapted from FrequencyWords. The Goethe list is © Goethe-Institut/ÖSD and is used only to decide which headwords qualify: never copy its definitions or example sentences, and never commit the PDF.
 - **One entry per headword:** *sein* is one word, not ist/war/bin. Function words (articles, pronouns, conjunctions, particles) use `pos: "other"`. No proper names or abbreviations. Pronouns and the definite article aren't on the Goethe list and are admitted as a closed-class exception (`closedClassException: true` in the plan).
-- **Ids:** follow the normal convention. Where two Core words share a lemma, add a suffix to the second: `sein` (verb) / `sein-poss`, `ihr` (pronoun) / `ihr-poss`, `sie` / `sie-formal` (for *Sie*). A noun whose id would match an existing word's id gets `-noun`: `mal-noun`, `leben-noun`, `bitte-noun`, `wissen-noun`.
+- **Ids:** follow the normal convention. Where two Core words share a lemma, add a suffix to the second: `sein` (verb) / `sein-poss`, `ihr` (pronoun) / `ihr-poss`, `sie` / `sie-formal` (for *Sie*). A noun whose id would match an existing word's id gets `-noun`: `mal-noun`, `leben-noun`, `bitte-noun`, `wissen-noun`, `morgen-noun`. An adjective that clashes the same way gets `-adj`: `recht-adj` (the noun *Recht* is `recht`).
 - **Never change an existing word's `id`** to add a rank, and don't touch its other fields; just add `"rank": n`. A rank is unique across all packs.
 
 ### Writing the next pack (core-1000-NN)
 
 1. In the plan, take the next **≤100** rows with `pack: "new"` and no `targetPack`, in rank order.
 2. Write `content/vocab/packs/core-1000-NN.json`:
-   - `level` "A1" for the early packs; use the band's real level once the words get harder (`core-1000-03`, ranks 270–417, is "A2").
+   - `level` "A1" for the early packs; use the band's real level once the words get harder (`core-1000-03`, ranks 270–417, and `core-1000-04`, ranks 420–540, are "A2").
    - title `Core 1000 · NN`, topic `The most frequent German words, part N (ranks a–b)`.
    - Each word in the normal format plus its `rank`.
    - Write every meaning and example yourself.
